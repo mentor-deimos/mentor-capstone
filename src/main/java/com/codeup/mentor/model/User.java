@@ -63,7 +63,7 @@ public class User {
         email = copy.email;
         biography = copy.biography;
         is_mentor = copy.is_mentor;
-        filestack_picture_url = copy.filestack_picture_url
+        filestack_picture_url = copy.filestack_picture_url;
     }
 
     public long getId() {
