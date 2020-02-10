@@ -63,15 +63,15 @@ public class User {
         email = copy.email;
         biography = copy.biography;
         is_mentor = copy.is_mentor;
-        filestack_picture_url = copy.filestack_picture_url
+        filestack_picture_url = copy.filestack_picture_url;
     }
-
+/* comment test */
     public long getId() {
         return id;
     }
 
     public void setId(long id) {
-        this.id = id;
+        this.id = id;i
     }
 
     public String getFirst_name() {
