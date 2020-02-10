@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mentor</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body id="splash">
+<h1 id="title">
+    <span class="mentorTitle">m</span>
+    <span class="mentorTitle">e</span>
+    <span class="mentorTitle">n</span>
+    <span class="mentorTitle">t</span>
+    <span class="mentorTitle">o</span>
+    <span class="mentorTitle">r</span>
+</h1>
+<div id="quotes">
+
+</div>
+<img src="img/logoLightBulb.png" alt="" id="logo">
+<div id="light"></div>
+<div id="buttons">
+    <button class="button signUp">Sign Up</button>
+    <button class="button signIn open-modal">Sign In</button>
+</div>
+<div class="modal-shade"></div>
+<div class="modal-container">
+    <div class="modal">
+        <form method="POST" action="/login">
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" id="uname" name="uname" required>
+            <br>
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+            <div class="modal-actions">
+            <button class="modal-cancel button">Cancel</button>
+            <button class="modal-ok button">Login</button>
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/popmotion/dist/popmotion.global.min.js"></script>
+<script src="splash.js"></script>
+
+</body>
+</html>
