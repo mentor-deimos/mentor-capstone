@@ -3,9 +3,8 @@ package com.codeup.mentor.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name="ratings")
-public class Rating {
-
+@Table(name="contacts")
+public class Contact {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,9 +12,10 @@ public class Rating {
     private long id;
 
     @Column(nullable = false)
-    private byte rating;
+    private String added_user_id;
 
     @ManyToOne
     private User user;
+
 
 }

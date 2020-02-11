@@ -33,6 +33,8 @@ public class User {
     @Column
     private String filestack_picture_url;
 
+//    below > join table user >> interest
+
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name="user_interest",
@@ -41,8 +43,20 @@ public class User {
     )
     private List<Interest> interestList;
 
+//    below > user >> ratings
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
             private List<Rating> ratings;
+
+//    below > user >> posts
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private List<Post> posts;
+
+//    below > contact list owner > contacts on list
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private List<Contact> contacts;
+
 
     public User (){};
 
@@ -77,13 +91,14 @@ public class User {
         is_mentor = copy.is_mentor;
         filestack_picture_url = copy.filestack_picture_url;
     }
+
 /* comment test */
     public long getId() {
         return id;
     }
 
     public void setId(long id) {
-        this.id = id;i
+        this.id = id;
     }
 
     public String getFirst_name() {

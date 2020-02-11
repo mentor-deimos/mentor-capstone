@@ -3,19 +3,21 @@ package com.codeup.mentor.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name="ratings")
-public class Rating {
-
+@Table(name="posts")
+public class Post {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false)
     private long id;
 
     @Column(nullable = false)
-    private byte rating;
+    private String title;
+
+    @Column(nullable = false, length=750)
+    private String body;
 
     @ManyToOne
     private User user;
+
 
 }
