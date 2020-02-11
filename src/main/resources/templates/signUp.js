@@ -56,7 +56,7 @@ $("#menteeBtn").click(function () {
             "<div style=\"text-align: center\">" +
             "<div style='display: flex; justify-content: center'>" +
             "<h2>Upload profile picture:</h2>" +
-            "<button id='upload' class='button'><img src='img/svg/photograph.svg' alt='' style='height: 100%'></button>" +
+            "<button id='upload' class='button'><img src='img/svg/photograph.svg' alt='' style='height: 100%' id='picUpLoad'></button>" +
             "</div>" +
             "<form action=\"#\" method=\"post\">\n" +
             "<h2>Write a short bio about yourself:</h2>" +
@@ -91,7 +91,7 @@ $("#menteeBtn").click(function () {
             "</div>" +
             "<div style=\"text-align: center\">" +
             "<h1>Terms and Conditions</h1>" +
-            "<div style='overflow: scroll; height: 50vh; border:2px solid grey; margin: 50px'>" +
+            "<div id='legal' style='overflow: scroll; height: 50vh; border:2px solid grey; margin: 50px'>" +
             "<h2>PROHIBITED ACTIVITIES</h2>" +
             "<p>You may not access or use the Site for any purpose other than that for which we make the Site available. The Site may not be used in connection with any commercial endeavors except those that are specifically endorsed or approved by us.\n" +
             " \n" +
@@ -440,10 +440,10 @@ $("#mentorBtn").click(function () {
             );
             $("#disagree").click(function () {
                 alert("You must click agree to continue.")
-            })
+            });
             $("#agree").click(function () {
                 $(location).attr('href', 'home.html');
-            })
+            });
         });
     });
 });

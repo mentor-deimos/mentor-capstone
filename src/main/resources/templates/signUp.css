@@ -1,0 +1,351 @@
+/*---------sign-up----------------*/
+#signUp{
+    display: flex;
+    margin: 0;
+}
+#left{
+    background-color: #1777f2;
+    width: 25vw;
+    height: 100vh;
+    text-align: center;
+}
+#lightBulbGif{
+    margin-top: 20em;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px
+}
+#right{
+    width: 75vw;
+    height: 100vh;
+}
+.rightContent{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+#menteeBtn{
+    background-color: #1777F2;
+}
+#mentorBtn{
+    background-color: #FEDD00;
+}
+.bigCircle{
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    margin-top: 2em;
+}
+.bigCircle p {
+    margin-top: .7em;
+    color: white;
+    font-weight: bold;
+}
+.littleCircle{
+    border-radius: 50%;
+    height: 10px;
+    width: 10px;
+    margin: 3em 1em;
+}
+.line{
+    z-index: -1;
+    height: 10px;
+    width: 140px;
+    margin: 3em -0.5em;
+}
+.form{
+    margin: 10em 5em;
+}
+
+.form-group label{
+    font-size: 30px;
+}
+.form-control{
+    margin: 10px;
+    font-size: 30px;
+    height: 40px;
+    width: 250px;
+    caret-color: #1777F2;
+}
+input:focus {
+    border-color: #1777F2;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(82, 168, 236, 0.6);
+    outline: 0 none;
+}
+textarea{
+    font-size: 30px;
+}
+textarea:focus{
+    border-color: #1777F2;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(82, 168, 236, 0.6);
+    outline: 0 none;
+}
+#disagree{
+    background-color: white;
+    color: red;
+}
+#agree{
+    background-color: limegreen;
+}
+@media screen and (max-width: 600px) {
+    #left {
+        display: none !important;
+    }
+
+    #left img {
+        display: none !important;
+    }
+    .bigCircle{
+        border-radius: 50%;
+        height: 40px;
+        width: 40px;
+        margin-top: 2em;
+
+    }
+    .bigCircle:first-child{
+        margin-left: 2em;
+    }
+    .bigCircle p {
+        margin-top: .7em;
+        color: white;
+        font-weight: bold;
+    }
+    .littleCircle{
+        border-radius: 50%;
+        height: 10px;
+        width: 10px;
+        margin: 3em .2em;
+    }
+    .line{
+        height: 10px;
+        width: 100px;
+        margin: 3em -0.5em;
+    }
+    textarea{
+        font-size: 20px;
+    }
+    #menteeBtn{
+        background-color: #1777F2;
+    }
+    #mentorBtn{
+        background-color: #FEDD00;
+    }
+    .form{
+        margin: 0em -2em;
+    }
+
+    .form-group label{
+        font-size: 20px;
+    }
+    .form-control{
+        margin: 10px;
+        font-size: 30px;
+        height: 40px;
+        width: 250px;
+        caret-color: #1777F2;
+        border: 2px solid grey;
+    }
+    textarea{
+        font-size: 20px;
+        border: 2px solid grey;
+        width: 100vw;
+    }
+    #upload{
+        height: 4em;
+        width: 4em;
+    }
+    #picUpLoad{
+        margin-left: -5px!important;
+    }
+
+    #right h1{
+        margin: 0!important;
+    }
+    #legal{
+        width: 100vw!important;
+        margin: 0!important;
+    }
+    #disagree{
+        margin-top: 0!important;
+        margin-left: 1.5em!important;
+    }
+    #agree{
+        margin-top: 0!important;
+        margin-left: 0em!important;
+
+    }
+}
+@media screen and (max-width: 600px) {
+    #left {
+        display: none !important;
+    }
+
+    #left img {
+        display: none !important;
+    }
+    .bigCircle{
+        border-radius: 50%;
+        height: 40px;
+        width: 40px;
+        margin-top: 2em;
+
+    }
+    .bigCircle:first-child{
+        margin-left: 2em;
+    }
+    .bigCircle p {
+        margin-top: .7em;
+        color: white;
+        font-weight: bold;
+    }
+    .littleCircle{
+        border-radius: 50%;
+        height: 10px;
+        width: 10px;
+        margin: 3em .2em;
+    }
+    .line{
+        height: 10px;
+        width: 100px;
+        margin: 3em -0.5em;
+    }
+    textarea{
+        font-size: 20px;
+    }
+    #menteeBtn{
+        background-color: #1777F2;
+    }
+    #mentorBtn{
+        background-color: #FEDD00;
+    }
+    .form{
+        margin: 0em -2em;
+    }
+
+    .form-group label{
+        font-size: 20px;
+    }
+    .form-control{
+        margin: 10px;
+        font-size: 30px;
+        height: 40px;
+        width: 250px;
+        caret-color: #1777F2;
+        border: 2px solid grey;
+    }
+    textarea{
+        font-size: 20px;
+        border: 2px solid grey;
+        width: 100vw;
+    }
+    #upload{
+        height: 4em;
+        width: 4em;
+    }
+    #picUpLoad{
+        margin-left: -5px!important;
+    }
+
+    #right h1{
+        margin: 0!important;
+    }
+    #legal{
+        width: 100vw!important;
+        margin: 0!important;
+    }
+    #disagree{
+        margin-left: 1.5em!important;
+    }
+    #agree{
+        margin-left: 0em!important;
+
+    }
+}
+@media screen and (max-width: 900px) {
+    /*#left {*/
+    /*    display: none !important;*/
+    /*}*/
+
+    /*#left img {*/
+    /*    display: none !important;*/
+    /*}*/
+    .bigCircle{
+        border-radius: 50%;
+        height: 40px;
+        width: 40px;
+        margin-top: 2em;
+
+    }
+    .bigCircle:first-child{
+        margin-left: 2em;
+    }
+    .bigCircle p {
+        margin-top: .7em;
+        color: white;
+        font-weight: bold;
+    }
+    .littleCircle{
+        border-radius: 50%;
+        height: 10px;
+        width: 10px;
+        margin: 3em .2em;
+    }
+    .line{
+        height: 10px;
+        width: 100px;
+        margin: 3em -0.5em;
+    }
+    textarea{
+        font-size: 20px;
+    }
+    #menteeBtn{
+        background-color: #1777F2;
+    }
+    #mentorBtn{
+        background-color: #FEDD00;
+    }
+    .form{
+        margin: 0em -2em;
+    }
+
+    .form-group label{
+        font-size: 20px;
+    }
+    .form-control{
+        margin: 10px;
+        font-size: 30px;
+        height: 40px;
+        width: 250px;
+        caret-color: #1777F2;
+        border: 2px solid grey;
+    }
+    textarea{
+        font-size: 20px;
+        border: 2px solid grey;
+        width: 100vw;
+    }
+    #upload{
+        height: 4em;
+        width: 4em;
+    }
+    #picUpLoad{
+        margin-left: -5px!important;
+    }
+
+    #right h1{
+        margin: 0!important;
+    }
+    #legal{
+        width: 100vw!important;
+        margin: 0!important;
+    }
+    #disagree{
+        margin-top: 1em!important;
+        margin-left: 1.5em!important;
+    }
+    #agree{
+        margin-top: 1em!important;
+        margin-left: 0em!important;
+
+    }
+}
