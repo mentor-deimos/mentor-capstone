@@ -1,6 +1,7 @@
 package com.codeup.mentor.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="users")
@@ -31,6 +32,17 @@ public class User {
 
     @Column
     private String filestack_picture_url;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name="user_interest",
+            joinColumns={@JoinColumn(name="user_id")},
+            inverseJoinColumns={@JoinColumn(name="interest_id")}
+    )
+    private List<Interest> interestList;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+            private List<Rating> ratings;
 
     public User (){};
 
