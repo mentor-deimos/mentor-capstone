@@ -45,10 +45,10 @@ public class User {
 
 //    below > user >> ratings
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "giver_info")
-        private List<Rating> given_rating;
+        private Collection<Rating> given_rating;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "receiver_info")
-        private List<Rating> received_rating;
+        private Collection<Rating> received_rating;
 
 //    below > user >> posts
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
