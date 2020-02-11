@@ -1,6 +1,7 @@
 package com.codeup.mentor.model;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.List;
 
 @Entity
@@ -33,6 +34,7 @@ public class User {
     @Column
     private String filestack_picture_url;
 
+//    below > join table user >> interest
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name="user_interest",
@@ -41,8 +43,29 @@ public class User {
     )
     private List<Interest> interestList;
 
+//    below > user >> ratings
+    @OneToMany(mappedBy = "giver_info")
+        private Collection<Rating> given_rating;
+
+    @OneToMany(mappedBy = "receiver_info")
+        private Collection<Rating> received_rating;
+
+//    below > user >> posts
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-            private List<Rating> ratings;
+    private List<Post> posts;
+
+//    below > user OWNER contact list > list of contacts
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private List<Contact> contacts;
+
+//   below > user to messages relationship mapped out
+
+    @OneToMany(mappedBy="sender_info")
+    private Collection<Message> senders;
+
+    @OneToMany(mappedBy="receiver_info")
+    private Collection<Message> receivers;
+
 
     public User (){};
 
@@ -78,6 +101,7 @@ public class User {
         filestack_picture_url = copy.filestack_picture_url;
     }
 
+/* comment test */
     public long getId() {
         return id;
     }
