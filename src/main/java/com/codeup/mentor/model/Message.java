@@ -23,7 +23,7 @@ public class Message {
     private User sender_info;
 
     @ManyToOne
-    @JoinColumn(name="recever_id")
+    @JoinColumn(name="receiver_id")
     private User receiver_info;
 
 
