@@ -16,6 +16,12 @@ public class Rating {
     private byte rating;
 
     @ManyToOne
-    private User user;
+    @JoinColumn(name="recipient_user_id")
+    private User receiver_info;
+
+    @ManyToOne
+    @JoinColumn(name="giver_user_id")
+    private User giver_info;
+
 
 }

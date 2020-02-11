@@ -44,8 +44,11 @@ public class User {
     private List<Interest> interestList;
 
 //    below > user >> ratings
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-            private List<Rating> ratings;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "sender_info")
+        private List<Rating> sent_rating;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "giver_info")
+        private List<Rating> received_rating;
 
 //    below > user >> posts
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
@@ -57,10 +60,10 @@ public class User {
 
 //   below > user to messages relationship mapped out
 
-    @OneToMany(mappedBy="sender_info", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy="sender_info")
     private Collection<Message> senders;
 
-    @OneToMany(mappedBy="receiver_info", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy="receiver_info")
     private Collection<Message> receivers;
 
 
