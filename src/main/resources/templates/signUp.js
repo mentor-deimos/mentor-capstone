@@ -1,4 +1,13 @@
 const client = filestack.init(fileStackKey);
+const options = {
+    onFileSelected: file => {
+        // onUploadDone: (res) => app
+        if (file.size > 1000 * 1000) {
+            throw new Error('File too big, select something smaller than 1MB');
+        }
+    }
+};
+
 
 
 $("#menteeBtn").click(function () {
@@ -63,20 +72,16 @@ $("#menteeBtn").click(function () {
             "<textarea cols=\"40\" rows=\"8\" name=\"textarea\" id=\"textarea\"></textarea>" +
             "<br>" +
             "<h2>Areas of Need:</h2>" +
-            "<div></div>" +
+            "<div th:each=\"skill : ${interests}\">" +
+            "<p th:text=\"${skill.interests}\" />" +
+            "</div>" +
             "<input type='submit' value='Next' id='next' class='button'>" +
             "</form>" +
             "</div>"
         );
         $("#upload").click(function () {
-            const options = {
-                onFileSelected: file => {
-                    if (file.size > 1000 * 1000) {
-                        throw new Error('File too big, select something smaller than 1MB');
-                    }
-                }
-            };
-            client.picker().open();
+
+            client.picker(options).open();
         });
     $("#next").click(function () {
         $("#right").html(
@@ -282,7 +287,7 @@ $("#mentorBtn").click(function () {
             "<div style=\"text-align: center\">" +
             "<div style='display: flex; justify-content: center'>" +
             "<h2>Upload profile picture</h2>" +
-            "<button id='upload' class='button' style='background-color: #FEDD00'><img src='img/svg/photograph.svg' alt='' style='height: 100%'></button>" +
+            "<button id='upload' class='button' style='background-color: #FEDD00'><img src='img/svg/photograph.svg' alt='' style='height: 100%' id='picUpLoad'></button>" +
             "</div>" +
             "<form action=\"#\" method=\"post\">\n" +
 
@@ -296,14 +301,7 @@ $("#mentorBtn").click(function () {
             "</div>"
         );
         $("#upload").click(function () {
-            const options = {
-                onFileSelected: file => {
-                    if (file.size > 1000 * 1000) {
-                        throw new Error('File too big, select something smaller than 1MB');
-                    }
-                }
-            };
-            client.picker().open();
+            client.picker(options).open();
         });
         $("#next").click(function () {
             $("#right").html(
@@ -318,7 +316,7 @@ $("#mentorBtn").click(function () {
                 "</div>" +
                 "<div style=\"text-align: center\">" +
                 "<h1>Terms and Conditions</h1>" +
-                "<div style='overflow: scroll; height: 50vh; border:2px solid grey; margin: 50px'>" +
+                "<div id='legal' style='overflow: scroll; height: 50vh; border:2px solid grey; margin: 50px'>" +
                 "<h2>PROHIBITED ACTIVITIES</h2>" +
                 "<p>You may not access or use the Site for any purpose other than that for which we make the Site available. The Site may not be used in connection with any commercial endeavors except those that are specifically endorsed or approved by us.\n" +
                 " \n" +
