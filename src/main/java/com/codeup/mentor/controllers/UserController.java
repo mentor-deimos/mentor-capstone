@@ -25,21 +25,21 @@ public class UserController {
     }
 
 
-    @GetMapping("/mentor")
+    @GetMapping("/")
     public String showSplashPage(){
         return "splash";
     }
 
-//    navbar
-    @GetMapping("/navbarTest")
-    public String navbarTest(){
-        return "partials/navbar";
-    }
 
     @GetMapping("/signup")
     public String showSignupForm(Model model){
         model.addAttribute("user", new User());
         return "signUp";
+    }
+
+    @GetMapping("/home")
+    public String showHomePage(){
+        return "home";
     }
 
     @PostMapping("/signup")
@@ -49,6 +49,12 @@ public class UserController {
 //        users.save(user);
         return "home";
     }
+
+    //    navbar partial test is below - can replace with OTHER PARTIALS IF NEEDED
+//    @GetMapping("/navbarTest")
+//    public String navbarTest(){
+//        return "partials/navbar";
+//    }
 
 
 }

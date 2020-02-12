@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.*;
 public class SearchController {
     SearchService searchService;
 
-    @GetMapping("/")
-    public String home(){
-        return "home";
-    }
+//    @GetMapping("/")
+//    public String home(){
+//        return "home";
+//    }
 
     @GetMapping("/search")
     public String Testing(){

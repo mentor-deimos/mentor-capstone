@@ -220,7 +220,7 @@ $("#menteeBtn").click(function () {
             alert("You must click agree to continue.")
         })
         $("#agree").click(function () {
-            $(location).attr('href', 'home.html');
+            $(location).attr('href', 'home');
         })
     });
 });
@@ -440,7 +440,7 @@ $("#mentorBtn").click(function () {
                 alert("You must click agree to continue.")
             });
             $("#agree").click(function () {
-                $(location).attr('href', 'home.html');
+                $(location).attr('href', 'home');
             });
         });
     });
