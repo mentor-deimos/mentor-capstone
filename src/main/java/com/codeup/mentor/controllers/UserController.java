@@ -31,10 +31,10 @@ public class UserController {
     }
 
 //    navbar
-//    @GetMapping("/navbarTest")
-//    public String navbarTest(){
-//        return "partials/navbar";
-//    }
+    @GetMapping("/navbarTest")
+    public String navbarTest(){
+        return "partials/navbar";
+    }
 
     @GetMapping("/signup")
     public String showSignupForm(Model model){
