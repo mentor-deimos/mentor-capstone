@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>mentor</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body id="splash">
@@ -19,7 +19,7 @@
 <div id="quotes">
 
 </div>
-<img src="img/logoLightBulb.png" alt="" id="logo">
+<img th:src="@{/img/logoLightBulb.png}" alt="" id="logo">
 <div id="light"></div>
 <div id="buttons">
     <button class="button signUp">Sign Up</button>
@@ -42,9 +42,9 @@
         </div>
     </div>
 </div>
-<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+<script th:src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/popmotion/dist/popmotion.global.min.js"></script>
-<script src="splash.js"></script>
+<script th:src="@{/js/splash.js}"></script>
 
 </body>
 </html>

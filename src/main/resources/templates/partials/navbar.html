@@ -31,30 +31,84 @@
         }
         form{
             display: flex;
+            justify-content: center;
         }
         img{
             height: 3em;
             width: 3em;
 
-
         }
+
         #selection{
+            z-index: 0;
             height: 30px;
             background-color: #FEDD00;
             color: #1777F2;
+            margin-right: 20px;
+        }
+
+        #submitBtn{
+            height: 50px;
+            width: 100px;
+        }
+
+        .cntr {
+            display: table;
+            width: 100%;
+            height: 100%;
+        }
+        .cntr .cntr-innr {
+            display: table-cell;
+            text-align: center;
 
         }
-        #myInput{
-            width: 200px;
-            height: 25px;
+        .search {
+            display: inline-block;
+            position: relative;
+            height: 35px;
+            width: 35px;
+            box-sizing: border-box;
+            margin: 0px 8px 7px 0px;
+            padding: 7px 9px 0px 9px;
+            border: 3px solid #FEDD00;
+            border-radius: 25px;
+            -webkit-transition: all 200ms ease;
+            transition: all 200ms ease;
+            cursor: text;
         }
-        #submitBtn{
-            background-color: #FEDD00;
-            height: 30px;
-            width: 80px;
-            border-radius: 8px;
-            color: #1777F2;
-            font-size: 20px;
+        .search:after {
+            content: "";
+            position: absolute;
+            width: 3px;
+            height: 20px;
+            right: -5px;
+            top: 21px;
+            background: #FEDD00;
+            border-radius: 3px;
+            -webkit-transform: rotate(-45deg);
+            -ms-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+            -webkit-transition: all 200ms ease;
+            transition: all 200ms ease;
+        }
+        .search.active,
+        .search:hover {
+            width: 300px;
+            margin-right: 0px;
+        }
+        .search.active:after,
+        .search:hover:after {
+            height: 0px;
+        }
+        .search input {
+            width: 100%;
+            border: none;
+            color: white;
+            box-sizing: border-box;
+            font-size: 15px;
+            /*color: inherit;*/
+            background: transparent;
+            outline-width: 0px;
         }
 
     </style>
@@ -70,18 +124,23 @@
                 <option value="true">Mentor</option>
                 <option value="false">Mentee</option>
             </select>
-            <div class="autocomplete" style="width:300px;">
-                <input id="myInput" type="text" name="search" placeholder="Search for interest, city, or name">
+            <div class="cntr">
+            <div class="cntr-innr">
+                <label class="search" for="myInput">
+                <input id="myInput" type="text" name="search">
+                </label>
+            </div>
             </div>
             <input id="submitBtn" onclick="getOption()" type="submit">
         </form>
-        <img src="../img/svg/mail.svg" alt="">
-        <img src="../img/svg/user.svg" alt="">
+        <img src="../../static/img/svg/mail.svg" alt="">
+        <img src="../../static/img/svg/user.svg" alt="">
     </div>
     </div>
 </nav>
 
-
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
 <script>
     var interests = ["Automotive", "Financial", "Health/Fitness", "Beauty/Fashion", "Cooking", "Relationship", "Handyman", "Parenting", "Life", "Career", "Outdoors", "Academic", "Religion/Spiritual", "Technology", "Music", "Sports", "Art", "Home Economics", "Self Defense", "Legal", "San Antonio", "Dallas", "Houston", "El Paso", "Natalia", "Fort Worth", "Boerne", "Austin", "New Braunfels", "Fredricksburg", "Beaumont"];
 
@@ -183,7 +242,16 @@
         return false;
 
     }
+    $("#inpt_search").on('focus', function () {
+        $(this).parent('label').addClass('active');
+    });
+
+    $("#inpt_search").on('blur', function () {
+        if($(this).val().length == 0)
+            $(this).parent('label').removeClass('active');
+    });
 
 </script>
+
 </body>
 </html>
