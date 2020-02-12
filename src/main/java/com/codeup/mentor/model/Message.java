@@ -26,5 +26,43 @@ public class Message {
     @JoinColumn(name="receiver_id")
     private User receiver_info;
 
+    public long getId() {
+        return id;
+    }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getBody() {
+        return body;
+    }
+
+    public void setBody(String body) {
+        this.body = body;
+    }
+
+    public LocalDateTime getDatetime() {
+        return datetime;
+    }
+
+    public void setDatetime(LocalDateTime datetime) {
+        this.datetime = datetime;
+    }
+
+    public User getSender_info() {
+        return sender_info;
+    }
+
+    public void setSender_info(User sender_info) {
+        this.sender_info = sender_info;
+    }
+
+    public User getReceiver_info() {
+        return receiver_info;
+    }
+
+    public void setReceiver_info(User receiver_info) {
+        this.receiver_info = receiver_info;
+    }
 }
