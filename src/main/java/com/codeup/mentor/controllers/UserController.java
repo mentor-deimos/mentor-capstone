@@ -1,5 +1,6 @@
 package com.codeup.mentor.controllers;
 
+
 import com.codeup.mentor.model.User;
 import com.codeup.mentor.repositories.UserRepository;
 import org.springframework.stereotype.Controller;
@@ -7,12 +8,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-
 import javax.persistence.GeneratedValue;
+
 
 @Controller
 public class UserController {
-    private final UserRepository userDao;
+    private UserRepository userDao;
 //    private PasswordEncoder passwordEncoder;
 
     public UserController(UserRepository userDao
@@ -30,7 +31,9 @@ public class UserController {
         return "splash";
     }
 
-//    navbar
+
+    //    navbar
+
     @GetMapping("/navbarTest")
     public String navbarTest(){
         return "partials/navbar";
