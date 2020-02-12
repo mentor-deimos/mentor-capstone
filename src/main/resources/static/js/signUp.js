@@ -65,7 +65,7 @@ $("#menteeBtn").click(function () {
             "<div style=\"text-align: center\">" +
             "<div style='display: flex; justify-content: center'>" +
             "<h2>Upload profile picture:</h2>" +
-            "<button id='upload' class='button'><img src='img/svg/photograph.svg' alt='' style='height: 100%' id='picUpLoad'></button>" +
+            "<button id='upload' class='button'><img src='../img/svg/photograph.svg' alt='' style='height: 100%' id='picUpLoad'></button>" +
             "</div>" +
             "<form action=\"#\" method=\"post\">\n" +
             "<h2>Write a short bio about yourself:</h2>" +
@@ -287,7 +287,7 @@ $("#mentorBtn").click(function () {
             "<div style=\"text-align: center\">" +
             "<div style='display: flex; justify-content: center'>" +
             "<h2>Upload profile picture</h2>" +
-            "<button id='upload' class='button' style='background-color: #FEDD00'><img src='img/svg/photograph.svg' alt='' style='height: 100%' id='picUpLoad'></button>" +
+            "<button id='upload' class='button' style='background-color: #FEDD00'><img src='../img/svg/photograph.svg' alt='' style='height: 100%' id='picUpLoad'></button>" +
             "</div>" +
             "<form action=\"#\" method=\"post\">\n" +
 

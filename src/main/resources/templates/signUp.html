@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <title>Sign-Up</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="signUp.css">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" th:href="@{../static/CSS/signUp.css}">
+    <link rel="stylesheet" th:href="@{../static/CSS/index.css}">
 
 </head>
 <body id="signUp">
 <div id="left">
-    <img src="img/lightbulb.gif" alt="" id="lightBulbGif">
+    <img th:src="@{../static/img/lightbulb.gif}" alt="" id="lightBulbGif">
 </div>
 <div id="right">
     <div class="rightContent">
@@ -39,7 +39,7 @@
 <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
         crossorigin="anonymous"></script>
 <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
-<script src="keys.js"></script>
-<script src="signUp.js"></script>
+<script th:src="@{../static/js/keys.js}"></script>
+<script th:src="@{../static/js/signUp.js}"></script>
 </body>
 </html>
