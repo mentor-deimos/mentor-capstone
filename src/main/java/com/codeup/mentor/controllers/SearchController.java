@@ -17,7 +17,7 @@ public class SearchController {
 
     @GetMapping("/search")
     public String Testing(){
-        return "helloworld";
+        return "search";
     }
 
 
