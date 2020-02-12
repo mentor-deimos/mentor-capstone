@@ -12,7 +12,7 @@ h1{
 }
 #splash{
     display: grid;
-    background-image: url("img/mentor.png");
+    background-image: url("../img/mentor.png");
     background-size: 2000px;
     background-repeat: no-repeat;
     grid-template-columns: 25% 50% 25%;
