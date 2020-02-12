@@ -25,7 +25,7 @@ $(document).on("click", ".signUp", function () {
     $("#light").css("visibility", "visible");
     $("#men").css("color","#FDDD00").addClass('uppercase');
     setTimeout(function(){
-        $(location).attr('href', 'signUp.html');
+        $(location).attr('href', 'signup');
     },500);
 });
 
