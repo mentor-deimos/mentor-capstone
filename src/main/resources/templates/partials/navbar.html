@@ -2,115 +2,188 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Navbar</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        #wrapper{
+            position: absolute;
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+        }
+        @import url('https://fonts.googleapis.com/css?family=Montserrat|Playfair+Display&display=swap');
+
+        #navbar {
+            position: relative;
+            height: 80px;
+            background-color: #1777F2;
+            margin: 0;
+        }
+        h1{
+            font-weight: bold;
+            font-size: 60px;
+            font-family: 'Playfair Display', serif;
+            margin-top: -20px;
+            color: #FEDD00;
+        }
+        form{
+            display: flex;
+        }
+        img{
+            height: 3em;
+            width: 3em;
+
+
+        }
+        #selection{
+            height: 30px;
+            background-color: #FEDD00;
+            color: #1777F2;
+
+        }
+        #myInput{
+            width: 200px;
+            height: 25px;
+        }
+        #submitBtn{
+            background-color: #FEDD00;
+            height: 30px;
+            width: 80px;
+            border-radius: 8px;
+            color: #1777F2;
+            font-size: 20px;
+        }
+
+    </style>
 </head>
 <body>
-    <nav th:fragment="navbar">
+<nav th:fragment="navbar">
+    <div id="navbar">
+        <div id="wrapper">
+        <h1>mentor</h1>
         <form autocomplete="off" action="/search">
             <select id="selection">
-                <option hidden>Select an Option</option>
+                <option hidden>Option</option>
                 <option value="true">Mentor</option>
                 <option value="false">Mentee</option>
             </select>
             <div class="autocomplete" style="width:300px;">
                 <input id="myInput" type="text" name="search" placeholder="Search for interest, city, or name">
             </div>
-            <input onclick="getOption()" type="submit">
+            <input id="submitBtn" onclick="getOption()" type="submit">
         </form>
-    </nav>
-    <script>
-        var interests = ["Automotive", "Financial", "Health/Fitness", "Beauty/Fashion", "Cooking", "Relationship", "Handyman", "Parenting", "Life", "Career", "Outdoors", "Academic", "Religion/Spiritual", "Technology", "Music", "Sports", "Art", "Home Economics", "Self Defense", "Legal", "San Antonio", "Dallas", "Houston", "El Paso", "Natalia", "Fort Worth", "Boerne", "Austin", "New Braunfels", "Fredricksburg", "Beaumont"];
-        function autocomplete(inp, arr) {
+        <img src="../img/svg/mail.svg" alt="">
+        <img src="../img/svg/user.svg" alt="">
+    </div>
+    </div>
+</nav>
 
-            var currentFocus;
-            inp.addEventListener("input", function(e) {
-                var a, b, i, val = this.value;
-                closeAllLists();
-                if (!val) { return false;}
-                currentFocus = -1;
-                a = document.createElement("DIV");
-                a.setAttribute("id", this.id + "autocomplete-list");
-                a.setAttribute("class", "autocomplete-items");
-                this.parentNode.appendChild(a);
-                for (i = 0; i < arr.length; i++) {
 
-                    console.log(arr[i].substr(0, val.length).toUpperCase());
-                    //where we say don't bring up the autocomps until a certain length
-                    if (val.length > 2 && arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+<script>
+    var interests = ["Automotive", "Financial", "Health/Fitness", "Beauty/Fashion", "Cooking", "Relationship", "Handyman", "Parenting", "Life", "Career", "Outdoors", "Academic", "Religion/Spiritual", "Technology", "Music", "Sports", "Art", "Home Economics", "Self Defense", "Legal", "San Antonio", "Dallas", "Houston", "El Paso", "Natalia", "Fort Worth", "Boerne", "Austin", "New Braunfels", "Fredricksburg", "Beaumont"];
 
-                        b = document.createElement("DIV");
-                        b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
-                        b.innerHTML += arr[i].substr(val.length);
-                        b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
-                        b.addEventListener("click", function(e) {
-                            inp.value = this.getElementsByTagName("input")[0].value;
-                            closeAllLists();
-                        });
-                        a.appendChild(b);
-                    }
-                }
-            });
-            inp.addEventListener("keydown", function(e) {
-                var x = document.getElementById(this.id + "autocomplete-list");
-                if (x) x = x.getElementsByTagName("div");
-                if (e.keyCode == 40) {
-                    currentFocus++;
-                    addActive(x);
-                } else if (e.keyCode == 38) {
-                    currentFocus--;
-                    addActive(x);
-                } else if (e.keyCode == 13) {
-                    e.preventDefault();
-                    if (currentFocus > -1) {
-                        if (x) x[currentFocus].click();
-                    }
-                }
-            });
-            function addActive(x) {
-                if (!x) return false;
-                removeActive(x);
-                if (currentFocus >= x.length) currentFocus = 0;
-                if (currentFocus < 0) currentFocus = (x.length - 1);
-                x[currentFocus].classList.add("autocomplete-active");
+    function autocomplete(inp, arr) {
+
+        var currentFocus;
+        inp.addEventListener("input", function (e) {
+            var a, b, i, val = this.value;
+            closeAllLists();
+            if (!val) {
+                return false;
             }
-            function removeActive(x) {
-                for (var i = 0; i < x.length; i++) {
-                    x[i].classList.remove("autocomplete-active");
+            currentFocus = -1;
+            a = document.createElement("DIV");
+            a.setAttribute("id", this.id + "autocomplete-list");
+            a.setAttribute("class", "autocomplete-items");
+            this.parentNode.appendChild(a);
+            for (i = 0; i < arr.length; i++) {
+
+                console.log(arr[i].substr(0, val.length).toUpperCase());
+                //where we say don't bring up the autocomps until a certain length
+                if (val.length > 2 && arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+
+                    b = document.createElement("DIV");
+                    b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+                    b.innerHTML += arr[i].substr(val.length);
+                    b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+                    b.addEventListener("click", function (e) {
+                        inp.value = this.getElementsByTagName("input")[0].value;
+                        closeAllLists();
+                    });
+                    a.appendChild(b);
                 }
             }
-            function closeAllLists(elmnt) {
-                var x = document.getElementsByClassName("autocomplete-items");
-                for (var i = 0; i < x.length; i++) {
-                    if (elmnt != x[i] && elmnt != inp) {
-                        x[i].parentNode.removeChild(x[i]);
-                    }
+        });
+        inp.addEventListener("keydown", function (e) {
+            var x = document.getElementById(this.id + "autocomplete-list");
+            if (x) x = x.getElementsByTagName("div");
+            if (e.keyCode == 40) {
+                currentFocus++;
+                addActive(x);
+            } else if (e.keyCode == 38) {
+                currentFocus--;
+                addActive(x);
+            } else if (e.keyCode == 13) {
+                e.preventDefault();
+                if (currentFocus > -1) {
+                    if (x) x[currentFocus].click();
                 }
             }
-            document.addEventListener("click", function (e) {
-                closeAllLists(e.target);
-            });
-        }
-        autocomplete(document.getElementById("myInput"), interests);
-        function getOption() {
-            selectElement =
-                document.querySelector('#select1');
+        });
 
-            output = selectElement.value;
-
-            // document.querySelector('.output').textContent
-            //     = output;
-            if (output === "true"){
-                console.log("true");
-                return true;
-
-            } else if(output === null){
-                return "Show all";
-            }
-            console.log("false");
-            return false;
-
+        function addActive(x) {
+            if (!x) return false;
+            removeActive(x);
+            if (currentFocus >= x.length) currentFocus = 0;
+            if (currentFocus < 0) currentFocus = (x.length - 1);
+            x[currentFocus].classList.add("autocomplete-active");
         }
 
-    </script>
+        function removeActive(x) {
+            for (var i = 0; i < x.length; i++) {
+                x[i].classList.remove("autocomplete-active");
+            }
+        }
+
+        function closeAllLists(elmnt) {
+            var x = document.getElementsByClassName("autocomplete-items");
+            for (var i = 0; i < x.length; i++) {
+                if (elmnt != x[i] && elmnt != inp) {
+                    x[i].parentNode.removeChild(x[i]);
+                }
+            }
+        }
+
+        document.addEventListener("click", function (e) {
+            closeAllLists(e.target);
+        });
+    }
+
+    autocomplete(document.getElementById("myInput"), interests);
+
+    function getOption() {
+        selectElement =
+            document.querySelector('#select1');
+
+        output = selectElement.value;
+
+        // document.querySelector('.output').textContent
+        //     = output;
+        if (output === "true") {
+            console.log("true");
+            return true;
+
+        } else if (output === null) {
+            return "Show all";
+        }
+        console.log("false");
+        return false;
+
+    }
+
+</script>
 </body>
 </html>
