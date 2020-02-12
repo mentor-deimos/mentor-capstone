@@ -116,24 +116,27 @@
 <body>
 <nav th:fragment="navbar">
     <style>
-        body{
+        body {
             margin: 0;
         }
-        #wrapper{
+
+        #wrapper {
             position: absolute;
             margin-top: 20px;
             display: flex;
             justify-content: space-around;
             width: 100%;
         }
+
         @import url('https://fonts.googleapis.com/css?family=Montserrat|Playfair+Display&display=swap');
 
         #navbar {
             position: relative;
-            height: 80px;
+            height: 100px;
             background-color: #1777F2;
             margin: 0;
         }
+
         #navbar h1{
             font-weight: bold;
             font-size: 60px;
@@ -141,17 +144,19 @@
             margin-top: -20px;
             color: #FEDD00;
         }
+
         #navbar form{
             display: flex;
             justify-content: center;
         }
         #navbar img{
+
             height: 3em;
             width: 3em;
 
         }
 
-        #selection{
+        #selection {
             z-index: 0;
             height: 30px;
             background-color: #FEDD00;
@@ -159,7 +164,7 @@
             margin-right: 20px;
         }
 
-        #submitBtn{
+        #submitBtn {
             height: 50px;
             width: 100px;
         }
@@ -169,11 +174,13 @@
             width: 100%;
             height: 100%;
         }
+
         .cntr .cntr-innr {
             display: table-cell;
             text-align: center;
 
         }
+
         .search {
             display: inline-block;
             position: relative;
@@ -188,6 +195,7 @@
             transition: all 200ms ease;
             cursor: text;
         }
+
         .search:after {
             content: "";
             position: absolute;
@@ -203,22 +211,24 @@
             -webkit-transition: all 200ms ease;
             transition: all 200ms ease;
         }
+
         .search.active,
         .search:hover {
             width: 300px;
             margin-right: 0px;
         }
+
         .search.active:after,
         .search:hover:after {
             height: 0px;
         }
+
         .search input {
             width: 100%;
             border: none;
             color: white;
             box-sizing: border-box;
             font-size: 15px;
-            /*color: inherit;*/
             background: transparent;
             outline-width: 0px;
         }
@@ -226,25 +236,27 @@
     </style>
     <div id="navbar">
         <div id="wrapper">
-        <h1>mentor</h1>
-        <form autocomplete="off" action="/search">
-            <select id="selection">
-                <option hidden>Option</option>
-                <option value="true">Mentor</option>
-                <option value="false">Mentee</option>
-            </select>
-            <div class="cntr">
-            <div class="cntr-innr">
-                <label class="search" for="myInput">
-                <input id="myInput" type="text" name="search">
-                </label>
+            <h1>mentor</h1>
+            <form autocomplete="off" action="/search">
+                <select id="selection">
+                    <option hidden>Option</option>
+                    <option value="true">Mentor</option>
+                    <option value="false">Mentee</option>
+                </select>
+                <div class="cntr">
+                    <div class="cntr-innr">
+                        <label class="search" for="myInput">
+                            <input id="myInput" type="text" name="search">
+                        </label>
+                    </div>
+                </div>
+                <input id="submitBtn" onclick="getOption()" type="submit">
+            </form>
+            <div style="display: flex">
+                <img src="../../static/img/svg/mail.svg" alt="" style="margin-right: 20px">
+                <img src="../../static/img/svg/user.svg" alt="" style="margin-left: 20px">
             </div>
-            </div>
-            <input id="submitBtn" onclick="getOption()" type="submit">
-        </form>
-        <img src="../../static/img/svg/mail.svg" alt="">
-        <img src="../../static/img/svg/user.svg" alt="">
-    </div>
+        </div>
     </div>
 </nav>
 
@@ -351,12 +363,13 @@
         return false;
 
     }
+
     $("#inpt_search").on('focus', function () {
         $(this).parent('label').addClass('active');
     });
 
     $("#inpt_search").on('blur', function () {
-        if($(this).val().length == 0)
+        if ($(this).val().length == 0)
             $(this).parent('label').removeClass('active');
     });
 
