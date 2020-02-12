@@ -2,9 +2,55 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Footer</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        footer{
+            background-color: #1777F2;
+            color: #FEDD00;
+        }
+        ul{
+            list-style: none;
+        }
+        #box1{
+            display: flex;
+        }
+        img{
+            border-radius: 50%;
+            height: 100px;
+            width: 100px;
+            margin: 20px;
+        }
+    </style>
 </head>
 <body>
-
+<footer th:fragment="footer">
+    <div id="box1">
+    <div>
+    <h2>
+        Links
+    </h2>
+    <ul>
+        <li>About Us</li>
+        <li>Contact</li>
+        <li>Link</li>
+    </ul>
+    </div>
+    <div>quotes</div>
+    </div>
+    <hr>
+    <div id="box2">
+    <ul style="display: flex">
+<!--        <li><img th:src="@{img/jw.jpeg}" alt=""></li>-->
+<!--        <li><img th:src="@{img/kellsey.jpeg}" alt=""></li>-->
+<!--        <li><img th:src="@{img/ken.jpeg}" alt=""></li>-->
+        <li><img src="../../static/img/jw.jpeg" alt=""></li>
+        <li><img src="../../static/img/kellsey.jpeg" alt=""></li>
+        <li><img src="../../static/img/ken.jpeg" alt=""></li>
+    </ul>
+    </div>
+</footer>
 </body>
 </html>
