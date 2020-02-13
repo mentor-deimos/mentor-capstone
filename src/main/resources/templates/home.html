@@ -16,6 +16,9 @@
     <div th:each="post : ${posts}">
         <h1 th:text="${post.title}"></h1>
         <p th:text="${post.body}"></p>
+        <form th:action="@{|/posts/${post.id}/edit|}" th:method="GET">
+            <button>Edit Post</button>
+        </form>
     </div>
 
 
