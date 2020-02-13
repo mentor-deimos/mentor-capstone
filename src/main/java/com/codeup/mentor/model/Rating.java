@@ -23,5 +23,35 @@ public class Rating {
     @JoinColumn(name="giver_user_id")
     private User giver_info;
 
+    public long getId() {
+        return id;
+    }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public byte getRating() {
+        return rating;
+    }
+
+    public void setRating(byte rating) {
+        this.rating = rating;
+    }
+
+    public User getReceiver_info() {
+        return receiver_info;
+    }
+
+    public void setReceiver_info(User receiver_info) {
+        this.receiver_info = receiver_info;
+    }
+
+    public User getGiver_info() {
+        return giver_info;
+    }
+
+    public void setGiver_info(User giver_info) {
+        this.giver_info = giver_info;
+    }
 }

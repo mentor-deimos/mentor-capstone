@@ -9,6 +9,7 @@
   <div th:include="partials/navbar :: navbar">
 </div>
 
+
   <form id = "postsButton" th:action = "@{/posts/create}"  method="get">
           <input type="button" value="Create a post"/>
   </form>
@@ -17,6 +18,7 @@
         <h1 th:text="${post.title}"></h1>
         <p th:text="${post.body}"></p>
     </div>
+
 
 
 </body>
