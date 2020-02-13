@@ -18,10 +18,10 @@ public class PostController {
 
     }
 
-    @GetMapping("/posts")
+    @GetMapping("/home")
     public String postsIndex(Model model) {
         model.addAttribute("posts", postDao.findAll());
-        return "posts/index";
+        return "home";
     }
 
     @GetMapping("/posts/{id}/edit")
@@ -38,14 +38,14 @@ public class PostController {
                 body
         );
         postDao.save(p);
-        return "redirect:/posts";
+        return "redirect:/home";
     }
 
     @PostMapping("/posts/{id}/delete")
     public String deletePost(@PathVariable long id) {
         System.out.println("Does this run?");
         postDao.deleteById(id);
-        return "redirect:/posts";
+        return "redirect:/home";
     }
 
     @GetMapping("/posts/{id}")
@@ -65,7 +65,7 @@ public class PostController {
         User u = userDao.getOne(1L);
         post.setUser(u);
         postDao.save(post);
-        return "redirect:/posts";
+        return "redirect:/home";
     }
 
 //    @GetMapping("one/test")
