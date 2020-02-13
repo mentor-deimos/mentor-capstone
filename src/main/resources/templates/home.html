@@ -10,16 +10,15 @@
 </div>
 
 
-<h1>hello justin how are you</h1>
-<h1>also sophie if you're here hope you're doing well today</h1>
+  <form id = "postsButton" th:action = "@{/posts/create}"  method="get">
+          <input type="button" value="Create a post"/>
+  </form>
 
-  <div>post central area</div>
+    <div th:each="post : ${posts}">
+        <h1 th:text="${post.title}"></h1>
+        <p th:text="${post.body}"></p>
+    </div>
 
-
-<!--<div th:each="post : ${posts}">-->
-<!--    <h1 th:text="${post.title}"></h1>-->
-<!--    <p th:text="${post.body}"></p>-->
-<!--</div>-->
 
 
 </body>

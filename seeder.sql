@@ -1,3 +1,5 @@
+drop database if exists mentor_db;
+
 
 use mentor_db;
 

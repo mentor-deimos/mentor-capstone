@@ -38,10 +38,10 @@ public class UserController {
         return "signUp";
     }
 
-    @GetMapping("/home")
-    public String showHomePage(){
-        return "home";
-    }
+//    @GetMapping("/home")
+//    public String showHomePage(){
+//        return "home";
+//    }
 
     @PostMapping("/signup")
     public String saveUser(@ModelAttribute User user){

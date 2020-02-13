@@ -4,9 +4,11 @@ import com.codeup.mentor.model.Post;
 import com.codeup.mentor.model.User;
 import com.codeup.mentor.repositories.PostRepository;
 import com.codeup.mentor.repositories.UserRepository;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+@Controller
 public class PostController {
     private PostRepository postDao;
     private UserRepository userDao;
@@ -18,10 +20,10 @@ public class PostController {
 
     }
 
-    @GetMapping("/posts")
+    @GetMapping("/home")
     public String postsIndex(Model model) {
         model.addAttribute("posts", postDao.findAll());
-        return "posts/index";
+        return "home";
     }
 
     @GetMapping("/posts/{id}/edit")
@@ -38,14 +40,14 @@ public class PostController {
                 body
         );
         postDao.save(p);
-        return "redirect:/posts";
+        return "redirect:/home";
     }
 
     @PostMapping("/posts/{id}/delete")
     public String deletePost(@PathVariable long id) {
         System.out.println("Does this run?");
         postDao.deleteById(id);
-        return "redirect:/posts";
+        return "redirect:/home";
     }
 
     @GetMapping("/posts/{id}")
@@ -62,10 +64,10 @@ public class PostController {
     }
     @PostMapping("/posts/create")
     public String createPost(@ModelAttribute Post post) {
-        User u = userDao.getOne(1L);
-        post.setUser(u);
+//        User u = userDao.getOne(1L);
+//        post.setUser(u);
         postDao.save(post);
-        return "redirect:/posts";
+        return "redirect:/home";
     }
 
 //    @GetMapping("one/test")
