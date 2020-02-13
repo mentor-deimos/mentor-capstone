@@ -7,7 +7,7 @@
 <body>
 
 
-<form th:action="@{/createpost}" th:method="POST" th:object="${post}">
+<form th:action="@{/posts/create}" th:method="POST" th:object="${post}">
     <label for="title">title</label>
     <input id="title" type="text" th:field="*{title}" placeholder="Enter title here">
 
