@@ -9,24 +9,33 @@
 </div>
 
 <!--div holding structure for contacts menu - EVENTUAL FOR EACH displaying LIST OF CONTACTS-->
-<div style="width: 30%; display: inline">
-    <div th:each="contact : ${contactList}">
-        Contact Name:
-        <h1 th:text="${contact.getAdded_user_id().getFirst_name() + contact.getAdded_user_id().getLast_name()}"></h1>
-        Contact E-mail:
-        <p th:text="${contact.getAdded_user_id().getEmail()}"></p>
-    </div>
+<!--<div style="width: 30%; display: inline">-->
+<!--    <div th:each="contact : ${contactList}">-->
+<!--        Contact Name:-->
+<!--        <h1 th:text="${contact.getAdded_user_id().getFirst_name() + contact.getAdded_user_id().getLast_name()}"></h1>-->
+<!--        Contact E-mail:-->
+<!--        <p th:text="${contact.getAdded_user_id().getEmail()}"></p>-->
+<!--    </div>-->
 
-</div>
+<!--</div>-->
 
+
+<h1>Contact Name:</h1>
+Kenneth Walsh
+<h1>Contact E-mail:</h1>
+kennywalsh@emailme.me
 
 <!--div holding structure for eventual FOR EACH LOOP pulling LIST OF MESSAGES w/ METHODS BRINGING SENDER/RECEIVER NAMES-->
-<div style="width: 60%; display: inline">
-<h1><p th:text="${message.body}"></p></h1>
-<!--<p>This is a test body for a message! Thanks for reading this message</p>-->
-Sent by <span th:text="${sentUser.getFirst_name() + sentUser.getLast_name()}"/>
-Received by <span th:text="${receivedUser.getFirst_name() + receivedUser.getLast_name()}"/>
-</div>
+<!--<div style="width: 60%; display: inline">-->
+<!--<h1><p th:text="${message.body}"></p></h1>-->
+<!--&lt;!&ndash;<p>This is a test body for a message! Thanks for reading this message</p>&ndash;&gt;-->
+<!--Sent by <span th:text="${sentUser.getFirst_name() + sentUser.getLast_name()}"/>-->
+<!--Received by <span th:text="${receivedUser.getFirst_name() + receivedUser.getLast_name()}"/>-->
+<!--</div>-->
+
+<h2>Hey, interested in learning how to change the oil on my Jeep Wrangler - thanks for any time you might have :)</h2>
+
+Sent by Bryan Howell Received by Kenneth Walsh
 
 
 

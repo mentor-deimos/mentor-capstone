@@ -252,13 +252,8 @@
                 </div>
                 <input id="submitBtn" onclick="getOption()" type="submit">
             </form>
-            <form action="/messages">
-                <label for="messageBtn">
-                <input id="messageBtn" type="submit" value="Messages">
-                </label>
-            </form>
             <div style="display: flex">
-                <img th:src="@{/img/svg/mail.svg}" alt="" style="margin-right: 20px">
+                <a th:href="@{/messages}"><img th:src="@{/img/svg/mail.svg}" alt="" style="margin-right: 20px"></a>
                 <a th:href="@{/profile}"><img th:src="@{/img/svg/user.svg}" alt="" style="margin-left: 20px"></a>
             </div>
         </div>
