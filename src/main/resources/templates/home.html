@@ -10,9 +10,8 @@
 </div>
 
 
-  <form id = "postsButton" th:action = "@{/posts/create}"  method="get">
-          <input type="button" value="Create a post"/>
-  </form>
+<button><a th:href="@{/posts/create}">Create a post</a></button>
+
 
     <div th:each="post : ${posts}">
         <h1 th:text="${post.title}"></h1>
