@@ -1,4 +1,4 @@
-// const client = filestack.init(fileStackKey);
+const client = filestack.init(fileStackKey);
 const options = {
     onFileSelected: file => {
         // onUploadDone: (res) => app

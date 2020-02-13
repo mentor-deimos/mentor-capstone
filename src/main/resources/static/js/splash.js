@@ -16,17 +16,7 @@ $(document).ready(function () {
     $("#quotes").html(quotes[randomQuote])
 });
 $(document).on("click", ".signUp", function () {
-    $('.mentorTitle').each(function () {
-        let mentorTitle = $(this);
-            setTimeout(function () {
-                mentorTitle.css("color", "#FEDD00");
-            }, mentorTitle.index() * 50)
-    });
-    $("#light").css("visibility", "visible");
-    $("#men").css("color","#FDDD00").addClass('uppercase');
-    setTimeout(function(){
         $(location).attr('href', 'signup');
-    },500);
 });
 
 
