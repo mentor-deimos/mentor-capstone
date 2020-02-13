@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        #fakeNavbar{
+            margin-top: -80px;
+            background-color: #1777F2;
+            color: #FEDD00;
+        }
+        #profilePicture{
+            height: 60vh;
+            width: 45vw;
+        }
+        h1{
+            font-size: 100px;
+        }
+        h3{
+            font-size: 80px;
+        }
+        #rating{
+            font-size: 120px;
+        }
+    </style>
+</head>
+<body>
+<div th:include="partials/navbar :: navbar">
+</div>
+<div id="fakeNavbar"><h1>fake navbar</h1></div>
+<div id="profileFirstBlock" style="display: flex">
+    <img src="../static/img/svg/user.svg" alt="" id="profilePicture">
+    <div id="profileFirstInnerBlock">
+        <h1 style="font-weight: bold">NAME</h1>
+        <h3>mentor</h3>
+        <div id="rating">⭐️⭐️⭐️⭐️⭐️</div>
+    </div>
+</div>
+<h1 style="font-weight: bold">BIO:</h1>
+<h3>Sunt hippotoxotaes consumere fatalis, noster triticumes. Aonides, mens, et hippotoxota.</h3>
+<h1 style="font-weight: bold">SKILLS:</h1>
+<div id="skillsBlock" style="display: flex">
+    <p>skills</p>
+</div>
+<h1 style="font-weight: bold">REVIEW:</h1>
+<h3>Yes, there is earth, it preaches with art. Enlightenment doesn’t beautifully believe any yogi — but the lord is what occurs.</h3>
+<div th:include="partials/footer :: footer">
+</div>
+</body>
+</html>
