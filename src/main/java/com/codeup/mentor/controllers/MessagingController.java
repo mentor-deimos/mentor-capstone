@@ -20,7 +20,7 @@ public class MessagingController {
     private ContactRepository contactDao;
 
 
-    public MessagingController(MessageRepository messageDao){
+    public MessagingController(MessageRepository messageDao, UserRepository userDao, ContactRepository contactDao){
         this.messageDao = messageDao;
         this.userDao = userDao;
         this.contactDao = contactDao;
@@ -30,7 +30,7 @@ public class MessagingController {
     @GetMapping("/messages")
     public String showMessages(Model model){
 
-        List<Contact> contactList = contactDao.findAll();
+        List<Contact> contactList  = contactDao.findAll();
 
        Message currentmsg = messageDao.getOne((long) 1);
        User receivedUser = currentmsg.getReceiver_info();

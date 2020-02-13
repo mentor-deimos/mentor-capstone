@@ -11,8 +11,10 @@
 <!--div holding structure for contacts menu - EVENTUAL FOR EACH displaying LIST OF CONTACTS-->
 <div style="width: 30%; display: inline">
     <div th:each="contact : ${contactList}">
-        <h1 th:text="${contact.getUser().getFirst_name() + contact.getUser().getLast_name() }"></h1>
-        <p th:text="${contact.getUser().getEmail()}"></p>
+        Contact Name:
+        <h1 th:text="${contact.getAdded_user_id().getFirst_name() + contact.getAdded_user_id().getLast_name()}"></h1>
+        Contact E-mail:
+        <p th:text="${contact.getAdded_user_id().getEmail()}"></p>
     </div>
 
 </div>
