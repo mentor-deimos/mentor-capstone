@@ -55,8 +55,11 @@ public class User {
     private List<Post> posts;
 
 //    below > user OWNER contact list > list of contacts
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-    private List<Contact> contacts;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner_user")
+    private Collection<Contact> contactListOwner;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "added_user_id")
+    private Collection<Contact> contactListEntity;
 
 //   below > user to messages relationship mapped out
 

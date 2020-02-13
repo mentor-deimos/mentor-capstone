@@ -9,7 +9,6 @@ use mentor_db;
 -- SELECT * FROM mentor_db.ratings;
 -- SELECT * FROM mentor_db.posts;
 
-
 INSERT INTO users (biography, email, filestack_picture_url, first_name, last_name, is_mentor, username)
 VALUES ('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vestibulum est ut ante sollicitudin, a suscipit felis consequat. Nullam dignissim lobortis elit eu elementum. Cras consequat quam ac tincidunt pharetra. Donec dapibus eu sem sed congue. Nullam commodo, est ac sodales tempor, tortor neque consequat lacus, sed eleifend orci nunc ut mauris. Nulla tincidunt pretium turpis sit amet bibendum. Proin ac blandit urna. Sed eget elementum ante. Morbi porta quis metus in auctor.', 'bryhowl@emailme.me', 'alterurllater', 'Bryan', 'Howell', 0, 'bryguy'),
 ('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vestibulum est ut ante sollicitudin, a suscipit felis consequat. Nullam dignissim lobortis elit eu elementum. Cras consequat quam ac tincidunt pharetra. Donec dapibus eu sem sed congue. Nullam commodo, est ac sodales tempor, tortor neque consequat lacus, sed eleifend orci nunc ut mauris. Nulla tincidunt pretium turpis sit amet bibendum. Proin ac blandit urna. Sed eget elementum ante. Morbi porta quis metus in auctor.', 'kennywalsh@emailme.me', 'alterurllater', 'Kenneth', 'Walsh', 1, 'oldmanyoungheart');
@@ -21,7 +20,7 @@ VALUES ('Automotive', 'path_to_picture'), ('Financial', 'path_to_picture'), ('He
 INSERT INTO user_interest (user_id, interest_id)
 VALUES (1,1),(2,1),(1,7),(2,7);
 
-INSERT INTO contacts (user_id, added_user_id)
+INSERT INTO contacts (list_owner_id, added_user_id)
 VALUES (1,2);
 
 INSERT INTO messages (body, datetime, receiver_id, sender_id)
