@@ -7,23 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body id="splash">
-<h1 id="title">
-    <span class="mentorTitle">m</span>
-    <span class="mentorTitle">e</span>
-    <span class="mentorTitle">n</span>
-    <span class="mentorTitle">t</span>
-    <span class="mentorTitle">o</span>
-    <span class="mentorTitle">r</span>
-    <span class="mentorTitleMobile">mentor</span>
-</h1>
-<div id="quotes">
-
-</div>
-<img th:src="@{/img/logoLightBulb.png}" alt="" id="logo">
-<div id="light"></div>
-<div id="buttons">
-    <button class="button signUp">Sign Up</button>
-    <button class="button signIn open-modal">Sign In</button>
+<img th:src="@{/img/mentorIcon.svg}" alt="" class="icon">
+<h1 class="title"><span class="titleSpan">M</span>entor</h1>
+<div id="quotes"></div>
+<div style="display: flex; width: 300px; justify-content: space-between; grid-area: 3 / 2 / 4 / 3">
+    <button class="btn btn1 signIn open-modal">SIGN IN</button>
+    <button class="btn btn2 signUp">SIGN UP</button>
 </div>
 <div class="modal-shade"></div>
 <div class="modal-container">
@@ -35,11 +24,10 @@
             <label for="psw"><b>Password</b></label>
             <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
             <div class="modal-actions">
-            <button class="modal-cancel button">Cancel</button>
-            <button class="modal-ok button">Login</button>
+                <button class="modal-cancel button">Cancel</button>
+                <button class="modal-ok button">Login</button>
             </div>
         </form>
-        </div>
     </div>
 </div>
 <script th:src="@{/webjars/jquery/3.4.1/jquery.min.js/}"></script>

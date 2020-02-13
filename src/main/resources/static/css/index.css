@@ -1,152 +1,79 @@
 *{
 @import url('https://fonts.googleapis.com/css?family=Montserrat|Playfair+Display&display=swap');
-    font-family: 'Montserrat', sans-serif;
-
-}
-h1{
-    font-family: 'Playfair Display', serif;
-
-}
-.mentorTitleMobile{
-    display: none;
 }
 #splash{
-    display: grid;
-    background-image: url("../img/mentor.png");
-    background-size: 2000px;
+    background-image: linear-gradient(#0035A8,#1777F2);
     background-repeat: no-repeat;
+    background-size: 100%;
+    height: 100vh;
+    display: grid;
     grid-template-columns: 25% 50% 25%;
     grid-template-rows: 25vh 50vh 20vh;
     justify-items: center;
 }
-#title{
-    z-index: -3;
+.icon{
+    height: 300px;
+    margin-right: 680px;
     grid-area: 2 / 2 / 3 / 3;
-    margin: 1.5em;
-    font-size: 100px;
-    color: #1777f2;
 }
-#title span{
+.title{
+    margin-top: 50px;
+    font-size: 150px;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    grid-area: 2 / 2 / 3 / 3;
+}
+.titleSpan{
+    text-shadow: black 2px 2px;
+    color: #FEDD00;
+    margin-left: 180px;
     font-family: 'Playfair Display', serif;
-}
-#logo{
-    margin-top: 10em;
-    margin-right: 32em;
-    z-index: -1;
-    grid-area: 2 / 2 / 3 / 3;
-    height: 80px;
-}
-#light{
-    visibility: hidden;
-    z-index: -8;
-    grid-area: 2 / 2 / 3 / 3;
-    border-radius: 50%;
-    width: 55px;
-    height: 55px;
-    margin-top: 10em;
-    margin-right: 32em;
-    background-color:#fedd00;
-
-}
-#buttons{
-    z-index: 5;
-    grid-area: 2 / 2 / 3 / 3;
-    margin-top: 25em;
+    font-size: 200px;
 }
 #quotes{
-    z-index: -6;
     grid-area: 2 / 2 / 3 / 3;
-    margin-top: 13em;
-    color: grey;
-    font-size: 20px;
-}
-.button{
+    margin-top: 300px;
+    margin-left: 50px;
     color: white;
-    height: 50px;
-    width: 100px;
-    margin: 20px;
-    border-radius: 8px;
-    background-color:#1777f2;
+    font-size: 20px;
+    width: 400px
+}
+.btn{
+    transition: all ease 0.8s;
+    font-weight: bold;
+}
+.btn1{
+    background-color: transparent;
+    color: #FEDD00;
+    border: 3px solid #FEDD00;
+    height: 60px;
+    width: 120px;
     font-size: 20px;
 }
-
-@media screen and (max-width: 1500px) {
-    #title{
-        margin: 1em;
-        font-size: 70px;
-        color: #1777f2;
-    }
-    #logo{
-        margin-top: 4em;
-        margin-right: 23em;
-        height: 70px;
-    }
-    #light{
-        margin-top: 4em;
-        margin-right: 23em;
-    }
+.btn2{
+    background-color: transparent; color: white; border: 3px solid white; height: 60px; width: 120px; font-size: 20px
 }
-@media screen and (max-width: 1050px) {
-    #light{
-        margin-top: 4em;
-        margin-right: 16em;
-    }
-    #logo{
-        margin-right: 16em;
-    }
-    .mentorTitle{
-        display: none;
-    }
-    .mentorTitleMobile{
-        display: block;
-    }
-
+.btn1:hover{
+    box-shadow: inset 200px 0 0 0 #FEDD00;
+    color: white!important;
+    text-shadow: black 1px 1px;
 }
-@media screen and (max-width: 500px) {
-
-    #title{
-        margin-top: -15px;
-        grid-area: 1/ 2 / 2 / 3;
-        font-size: 80px;
-        color: #1777f2;
-    }
-    .mentorTitle{
-        display: none;
-    }
-    .mentorTitleMobile{
-        display: block;
-    }
-    #logo{
-        grid-area: 2/ 3 / 3 / 4;
-        margin-right: 18em;
-        margin-top: -5em;
-        height: 200px;
-    }
-    #light{
-        height: 150px;
-        width: 150px;
-        margin-top: -5.5em;
-        margin-right: 1.5em;
-    }
-    #quotes{
-        margin-top: 8em;
-        color: grey;
-        font-size: 15px;
-    }
-    #buttons{
-        display: flex;
-        margin-top: 17em;
-    }
-
+.btn2:hover{
+    box-shadow: inset 200px 0 0 0 white;
+    color: #FEDD00!important;
+    text-shadow: black 1px 1px;
 }
-
 .modal-cancel {
-    background-color: white;
+    background-color: transparent;
     color: red;
+    height: 30px; width: 80px; font-size: 20px;
+    margin-top: 80px;
+    margin-right: 40px;
+    margin-left: 40px;
 }
 
 .modal-ok {
-    background-color: limegreen;
+    background-color: transparent; color: limegreen; height: 30px; width: 80px; font-size: 20px
 }
 
 .modal-shade {
@@ -178,7 +105,8 @@ h1{
     background: white;
     border-radius: 5px;
     padding: 30px 45px;
-    width: 400px;
+    height: 300px;
+    width: 300px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -187,7 +115,3 @@ h1{
 .modal-actions {
     align-self: flex-end;
 }
-
-
-
-
