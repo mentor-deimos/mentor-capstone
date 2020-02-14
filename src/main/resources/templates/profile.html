@@ -1,36 +1,31 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Profile</title>
-    <style>
-        body{
-            margin: 0;
-        }
-        #fakeNavbar{
-            margin-top: -80px;
-            background-color: #1777F2;
-            color: #FEDD00;
-        }
-        #profilePicture{
-            height: 60vh;
-            width: 45vw;
-        }
-        h1{
-            font-size: 100px;
-        }
-        h3{
-            font-size: 80px;
-        }
-        #rating{
-            font-size: 120px;
-        }
-    </style>
+<head th:include="partials/header :: header">
 </head>
 <body>
-<div th:include="partials/navbar :: navbar">
-</div>
-<div id="fakeNavbar"><h1>fake navbar</h1></div>
+<style>
+    body{
+        margin: 0;
+    }
+
+    #profilePicture{
+        margin-top: 10px;
+        height: 60vh;
+        width: 45vw;
+    }
+    h1{
+        font-size: 100px;
+    }
+    h3{
+        font-size: 80px;
+    }
+    #rating{
+        font-size: 120px;
+    }
+</style>
+<nav th:replace="partials/navbar :: navbar" ></nav>
+
+
 <div id="profileFirstBlock" style="display: flex">
     <img th:src="@{/img/svg/user.svg}" alt="" id="profilePicture">
     <div id="profileFirstInnerBlock">

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>message bois</title>
+<head th:include="partials/header :: header">
 </head>
 <body>
+<div class="site-container">
 <div th:include="partials/navbar :: navbar">
 </div>
+    <main class="site-content">
 
 <!--div holding structure for contacts menu - EVENTUAL FOR EACH displaying LIST OF CONTACTS-->
 <div style="width: 30%; display: inline">
@@ -20,6 +20,7 @@
 
 
 
+
 <!--div holding structure for eventual FOR EACH LOOP pulling LIST OF MESSAGES w/ METHODS BRINGING SENDER/RECEIVER NAMES-->
 
 <div style="width: 60%; display: inline">
@@ -30,7 +31,9 @@ Received by <span th:text="${receivedUser.getFirst_name() + receivedUser.getLast
 
 
 
-
-
+    </main>
+<div th:include="partials/footer :: footer">
+</div>
+</div>
 </body>
 </html>

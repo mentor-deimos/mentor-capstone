@@ -1,6 +1,16 @@
 *{
 @import url('https://fonts.googleapis.com/css?family=Montserrat|Playfair+Display&display=swap');
 }
+
+body{
+    position: relative;
+    height: 100%;
+    margin: 0;
+}
+a{
+    margin: 0;
+    text-decoration: none;
+}
 #splash{
     background-image: linear-gradient(#0035A8,#1777F2);
     background-repeat: no-repeat;
@@ -53,6 +63,24 @@
 .btn2{
     background-color: transparent; color: white; border: 3px solid white; height: 60px; width: 120px; font-size: 20px
 }
+.btn5{
+    margin: 10px;
+    background-color: transparent; color: red; border: 3px solid red; height: 60px; width: 120px; font-size: 20px
+}
+.btn6{
+    margin: 10px;
+    background-color: transparent; color: limegreen; border: 3px solid limegreen; height: 60px; width: 120px; font-size: 20px
+}
+.btn5:hover{
+    box-shadow: inset 200px 0 0 0 red;
+    color: white!important;
+    text-shadow: black 1px 1px;
+}
+.btn6:hover{
+    box-shadow: inset 200px 0 0 0 limegreen;
+    color: white!important;
+    text-shadow: black 1px 1px;
+}
 .btn1:hover{
     box-shadow: inset 200px 0 0 0 #FEDD00;
     color: white!important;
@@ -60,20 +88,20 @@
 }
 .btn2:hover{
     box-shadow: inset 200px 0 0 0 white;
-    color: #FEDD00!important;
+    color: #1777F2!important;
     text-shadow: black 1px 1px;
 }
 .modal-cancel {
     background-color: transparent;
     color: red;
-    height: 30px; width: 80px; font-size: 20px;
+    height: 60px; width: 100px; font-size: 20px;
     margin-top: 80px;
     margin-right: 40px;
-    margin-left: 40px;
+    margin-left: 20px;
 }
 
 .modal-ok {
-    background-color: transparent; color: limegreen; height: 30px; width: 80px; font-size: 20px
+    background-color: transparent; color: limegreen; height: 60px; width: 100px; font-size: 20px
 }
 
 .modal-shade {
@@ -114,4 +142,160 @@
 
 .modal-actions {
     align-self: flex-end;
+}
+/*-------------------navbar-----------------------*/
+#wrapper {
+    position: absolute;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+#navbar {
+    position: relative;
+    height: 100px;
+    background-color: #1777F2;
+    margin: 0;
+}
+
+#navbar h1{font-weight: bold;
+    font-size: 70px;font-family: 'Montserrat', sans-serif;
+    color: white;
+    margin-top: -15px;
+    margin-left: -15px;
+}
+.titleSpanNav{
+    text-shadow: black 2px 2px;
+    color: #FEDD00;
+    font-family: 'Playfair Display', serif;
+    font-size: 80px;
+}
+.iconNav{
+    height: 80px!important;
+    width: 80px!important;
+    margin-left: -100px;
+    margin-top: -15px;
+
+}
+#navbar form{
+    display: flex;
+    justify-content: center;
+}
+#navbar img{
+
+    height: 3em;
+    width: 3em;
+
+}
+
+#selection {
+    z-index: 0;
+    height: 30px;
+    color: #1777F2;
+    margin-right: 20px;
+}
+
+#submitBtn {
+    height: 50px;
+    width: 100px;
+}
+
+.cntr {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+.cntr .cntr-innr {
+    display: table-cell;
+    text-align: center;
+
+}
+
+.search {
+    display: inline-block;
+    position: relative;
+    height: 35px;
+    width: 35px;
+    box-sizing: border-box;
+    margin: 0px 8px 7px 0px;
+    padding: 7px 9px 0px 9px;
+    border: 3px solid #FEDD00;
+    border-radius: 25px;
+    -webkit-transition: all 200ms ease;
+    transition: all 200ms ease;
+    cursor: text;
+}
+
+.search:after {
+    content: "";
+    position: absolute;
+    width: 3px;
+    height: 20px;
+    right: -5px;
+    top: 21px;
+    background: #FEDD00;
+    border-radius: 3px;
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    -webkit-transition: all 200ms ease;
+    transition: all 200ms ease;
+}
+
+.search.active,
+.search:hover {
+    width: 300px;
+    margin-right: 0px;
+}
+
+.search.active:after,
+.search:hover:after {
+    height: 0px;
+}
+
+.search input {
+    width: 100%;
+    border: none;
+    color: white;
+    box-sizing: border-box;
+    font-size: 15px;
+    background: transparent;
+    outline-width: 0px;
+}
+/*---------footer---------------------*/
+#footer{
+    background-color: #1777F2;
+    color: #FEDD00;
+    position: absolute;
+   margin-bottom: 0;
+    width: 100vw;
+}
+#footer ul{
+    list-style: none;
+}
+#box1{
+    display: flex;
+}
+#footer img{
+    border-radius: 50%;
+    border: white 2px solid;
+    height: 100px;
+    width: 100px;
+    margin: 20px;
+    transition: all ease 0.8s;
+}
+#footer img:hover{
+    height: 130px;
+    width: 130px;
+    margin: 0px;
+    border: #FEDD00 5px solid;
+}
+.site-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.site-content {
+    flex: 1;
 }
