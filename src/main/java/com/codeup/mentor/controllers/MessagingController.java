@@ -10,7 +10,10 @@ import com.codeup.mentor.repositories.UserRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Controller
@@ -27,18 +30,34 @@ public class MessagingController {
 
     }
 
+    @GetMapping("/messages/send")
+    public String sendMessage(Model model){
+
+        model.addAttribute("message", new Message());
+        return "draftmessage";
+    }
+
+    @PostMapping("/messages/send")
+    public String sendMessage(@ModelAttribute Message message){
+        message.setDatetime(LocalDateTime.now());
+        message.setReceiver_info(userDao.getOne(2L));
+        message.setSender_info(userDao.getOne(1L));
+        messageDao.save(message);
+        return "redirect:/messages";
+    }
+
     @GetMapping("/messages")
     public String showMessages(Model model){
 
         List<Contact> contactList  = contactDao.findAll();
 
-//       Message currentmsg = messageDao.getOne((long) 1);
-//       User receivedUser = currentmsg.getReceiver_info();
-//       User sentUser = currentmsg.getSender_info();
-//
-//       model.addAttribute("message", currentmsg);
-//       model.addAttribute("receivedUser", receivedUser);
-//       model.addAttribute("sentUser", sentUser);
+       Message currentmsg = messageDao.getOne((long) 1);
+       User receivedUser = currentmsg.getReceiver_info();
+       User sentUser = currentmsg.getSender_info();
+
+       model.addAttribute("message", currentmsg);
+       model.addAttribute("receivedUser", receivedUser);
+       model.addAttribute("sentUser", sentUser);
        model.addAttribute("contactList", contactList);
 
         return "messages";
