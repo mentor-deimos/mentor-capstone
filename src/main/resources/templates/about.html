@@ -2,24 +2,46 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:include="partials/header :: header">
 </head>
-<body>
+<body id="about">
 <div class="site-container">
     <div th:include="partials/navbar :: navbar">
     </div>
-    <main class="site-content">
-        <ul style="display: flex; justify-content: center">
+    <main class="site-content" style="text-align: center">
+        <ul style="display: flex; justify-content: center; list-style: none; padding: 0">
             <li>
-                <img th:src="@{img/jw.jpeg}" alt="">
-                <ul>
-                    <li>J.W. Hester</li>
-                    <li>https://www.linkedin.com/in/jw-hester/</li>
-                    <li>https://github.com/jwhester</li>
-                    <li>https://alumni.codeup.com/students/755</li>
+                <img class="profilePic" th:src="@{img/profileJW.png}" alt="">
+                <h3>J.W. Hester</h3>
+                <ul style="list-style: none; display: flex; justify-content: space-evenly">
+                    <li><a href="https://www.linkedin.com/in/jw-hester/"><img class="aboutPic" th:src="@{img/linkedin.svg}" alt=""></a></li>
+                    <li><a href="https://github.com/jwhester"><img class="aboutPic" th:src="@{img/github.svg}" alt=""></a></li>
+                    <li><a href="https://alumni.codeup.com/students/755"><img class="aboutPic" th:src="@{img/codeup.svg}" alt=""></a></li>
                 </ul>
             </li>
-            <li><img th:src="@{img/kellsey.jpeg}" alt=""></li>
-            <li><img th:src="@{img/ken.jpeg}" alt=""></li>
+            <li>
+                <img class="profilePic" th:src="@{img/profileKellsey.png}" alt="">
+                <h3>Kellsey Neagley</h3>
+                <ul style="list-style: none; display: flex; justify-content: space-evenly">
+                    <li><a href="https://www.linkedin.com/in/kellseyneagley/
+"><img class="aboutPic" th:src="@{img/linkedin.svg}" alt=""></a></li>
+                    <li><a href="https://github.com/kellseyn
+"><img class="aboutPic" th:src="@{img/github.svg}" alt=""></a></li>
+                    <li><a href="https://alumni.codeup.com/students/742"><img class="aboutPic" th:src="@{img/codeup.svg}" alt=""></a></li>
+                </ul>
+            </li>
+            <li>
+                <img class="profilePic" th:src="@{img/profileKen.png}" alt="">
+                <h3 >Kenneth Howell</h3>
+                <ul style="list-style: none; display: flex; justify-content: space-evenly">
+                    <li><a href="https://www.linkedin.com/in/howell-kenneth/
+"><img class="aboutPic" th:src="@{img/linkedin.svg}" alt=""></a></li>
+                    <li><a href="https://github.com/kennethhowell
+"><img class="aboutPic" th:src="@{img/github.svg}" alt=""></a></li>
+                    <li><a href="https://alumni.codeup.com/students/765"><img class="aboutPic" th:src="@{img/codeup.svg}" alt=""></a></li>
+                </ul>
+            </li>
         </ul>
+        <h3>ABOUT <span style="color: #FEDD00">US</span></h3>
+        <h5 style="color: #1777F2; font-size: 35px; margin: 40px 200px">We are a group of dedicated Software Developers and this is our final project at Codeup. Mentor is a full-stack Java application that uses Spring to access a MySQL database. The front-end is our own custom CSS, and jQuery was used to add the File Stack API and interactivity.</h5>
     </main>
     <div th:include="partials/footer :: footer">
     </div>
