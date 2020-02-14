@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>message bois</title>
+<head th:include="partials/header :: header">
 </head>
 <body>
+<div class="site-container">
 <div th:include="partials/navbar :: navbar">
 </div>
+    <main class="site-content">
 
-<!--div holding structure for contacts menu - EVENTUAL FOR EACH displaying LIST OF CONTACTS-->
+
+    <!--div holding structure for contacts menu - EVENTUAL FOR EACH displaying LIST OF CONTACTS-->
 <!--<div style="width: 30%; display: inline">-->
 <!--    <div th:each="contact : ${contactList}">-->
 <!--        Contact Name:-->
@@ -37,7 +38,9 @@ kennywalsh@emailme.me
 
 Sent by Bryan Howell Received by Kenneth Walsh
 
-
-
+    </main>
+<div th:include="partials/footer :: footer">
+</div>
+</div>
 </body>
 </html>

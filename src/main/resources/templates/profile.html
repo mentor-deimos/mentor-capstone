@@ -1,30 +1,28 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Profile</title>
-    <style>
-        body{
-            margin: 0;
-        }
-
-        #profilePicture{
-            margin-top: 10px;
-            height: 60vh;
-            width: 45vw;
-        }
-        h1{
-            font-size: 100px;
-        }
-        h3{
-            font-size: 80px;
-        }
-        #rating{
-            font-size: 120px;
-        }
-    </style>
+<head th:include="partials/header :: header">
 </head>
 <body>
+<style>
+    body{
+        margin: 0;
+    }
+
+    #profilePicture{
+        margin-top: 10px;
+        height: 60vh;
+        width: 45vw;
+    }
+    h1{
+        font-size: 100px;
+    }
+    h3{
+        font-size: 80px;
+    }
+    #rating{
+        font-size: 120px;
+    }
+</style>
 <nav th:replace="partials/navbar :: navbar" ></nav>
 
 
