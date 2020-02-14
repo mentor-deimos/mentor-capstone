@@ -12,7 +12,6 @@ const quotes = [
 ];
 const randomQuote = Math.floor(Math.random()*quotes.length);
 $(document).ready(function () {
-    console.log("hello");
     $("#quotes").html(quotes[randomQuote])
 });
 $(document).on("click", ".signUp", function () {
