@@ -41,3 +41,10 @@ SELECT * FROM ratings WHERE recipient_user_id = ?1;
 
 INSERT INTO ratings (rating, giver_user_id, recipient_user_id)
 VALUES (2, 1,2);
+
+SELECT * FROM users where LOWER(first_name) like "%kenneth%";
+
+SELECT * FROM interests where LOWER(name) LIKE "%beau%";
+
+SELECT * FROM users WHERE is_mentor = true;
+
