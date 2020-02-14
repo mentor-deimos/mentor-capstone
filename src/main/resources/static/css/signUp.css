@@ -133,6 +133,14 @@ textarea:focus{
     outline: 0 none;
 }
 
+.rightContent #lineone, .rightContent #linetwo, .rightContent #linethree {
+    display: none;
+}
+
+.lcgroupone, .lcgrouptwo, .lcgroupthree {
+    visibility: visible;
+}
+
 @media screen and (max-width: 600px) {
     #left {
         display: none !important;
@@ -163,13 +171,7 @@ textarea:focus{
         margin: 3em .2em;
     }
 
-    #lineone {
-        display: none;
-    }
 
-    .lcgroupone {
-        visibility: visible;
-    }
 
     .line{
         height: 10px;

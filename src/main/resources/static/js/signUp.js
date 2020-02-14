@@ -13,6 +13,32 @@
 var currentTab = 0; // Current tab is set to be the first tab (0)
 showTab(currentTab); // Display the current tab
 
+function topDisplay(){
+    if (currentTab == 0){
+        $("#lineone, #linetwo, #linethree").css("display", "none");
+        $(".lcgroupone, .lcgrouptwo, .lcgroupthree").css("display", "block");
+    }
+    if (currentTab == 1){
+        $(".lcgroupone, #linetwo, #linethree").css("display", "none");
+        $(" #lineone, .lcgrouptwo, .lcgroupthree").css("display", "block");
+        $("#lineone, #bigCircle1").css("background-color", "#1777f2");
+        $("#bigCircle1").html("✔");
+    }
+    if (currentTab == 2){
+        $(".lcgroupone, .lcgrouptwo,  #linethree").css("display", "none");
+        $("#lineone, #linetwo, .lcgroupthree").css("display", "block");
+        $("#lineone, #bigCircle1, #linetwo, #bigCircle2").css("background-color", "#1777f2");
+        $("#bigCircle1, #bigCircle2").html("✔");
+    }
+    if (currentTab == 3){
+        $(".lcgroupone, .lcgrouptwo, .lcgroupthree").css("display", "none");
+        $("#lineone, #linetwo, #linethree").css("display", "block");
+        $("#lineone, #bigCircle1, #linetwo, #bigCircle2, #linethree, #bigCircle3").css("background-color", "#1777f2");
+        $("#bigCircle1, #bigCircle2, #bigCircle3").html("✔");
+    }
+
+}
+
 function showTab(n) {
     var x = $(".tab");
     x.eq(n).css("display", "block");
@@ -49,6 +75,7 @@ $("#prevBtn").click(function(){
         document.getElementById("regForm").submit();
         return false;
     }
+    topDisplay();
     showTab(currentTab);
 });
 
@@ -56,14 +83,12 @@ $("#nextBtn").click(function (){
     var x = $(".tab");
     x.eq(currentTab).css("display", "none");
     currentTab = currentTab + 1;
-    if (currentTab == 1){
-        $("#lineone").toggle();
-        $(".lcgroupone").toggle();
-    }
+
     if (currentTab >= x.length) {
         document.getElementById("regForm").submit();
         return false;
     }
+    topDisplay();
     showTab(currentTab);
 });
 
