@@ -36,3 +36,8 @@ VALUES (4, 1,2);
 
 INSERT INTO posts (body, title, user_id)
 VALUES ('Lorem ipsum gypsum marker maker of the longest taker inside beside downsides rawhide', 'Found this useful:',1);
+
+SELECT * FROM ratings WHERE recipient_user_id = ?1;
+
+INSERT INTO ratings (rating, giver_user_id, recipient_user_id)
+VALUES (2, 1,2);

@@ -13,7 +13,7 @@ public class Rating {
     private long id;
 
     @Column(nullable = false)
-    private byte rating;
+    private int rating;
 
     @ManyToOne
     @JoinColumn(name="recipient_user_id")
@@ -31,11 +31,11 @@ public class Rating {
         this.id = id;
     }
 
-    public byte getRating() {
+    public int getRating() {
         return rating;
     }
 
-    public void setRating(byte rating) {
+    public void setRating(int rating) {
         this.rating = rating;
     }
 
