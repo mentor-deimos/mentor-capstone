@@ -67,6 +67,11 @@ public class UserController {
 
         return "profile";
     }
+    @GetMapping("/about")
+    public String goToAbout(){ //needs @PathVariable long id,
+
+        return "about";
+    }
 
     //    navbar partial test is below - can replace with OTHER PARTIALS IF NEEDED
 //    @GetMapping("/navbarTest")
