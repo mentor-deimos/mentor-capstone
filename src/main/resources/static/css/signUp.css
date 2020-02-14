@@ -3,6 +3,18 @@
     display: flex;
     margin: 0;
 }
+
+#regForm {
+     display: none;
+ }
+
+.tab {
+    display: none;
+}
+
+#pathchoice {
+    visibility: visible;
+}
 .btn{
     transition: all ease 0.8s;
     font-weight: bold;
@@ -64,7 +76,7 @@
     height: 100vh;
 }
 .rightContent{
-    display: flex;
+    display: none;
     justify-content: center;
     text-align: center;
 }
@@ -121,6 +133,14 @@ textarea:focus{
     outline: 0 none;
 }
 
+.rightContent #lineone, .rightContent #linetwo, .rightContent #linethree {
+    display: none;
+}
+
+.lcgroupone, .lcgrouptwo, .lcgroupthree {
+    visibility: visible;
+}
+
 @media screen and (max-width: 600px) {
     #left {
         display: none !important;
@@ -150,6 +170,9 @@ textarea:focus{
         width: 10px;
         margin: 3em .2em;
     }
+
+
+
     .line{
         height: 10px;
         width: 100px;

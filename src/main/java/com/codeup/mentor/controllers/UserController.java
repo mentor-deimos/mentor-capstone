@@ -46,7 +46,7 @@ public class UserController {
     public String showSignupForm(Model model){
         model.addAttribute("user", new User());
         return "signUp";
-    }
+}
 
 //    @GetMapping("/home")
 //    public String showHomePage(){
@@ -57,7 +57,7 @@ public class UserController {
     public String saveUser(@ModelAttribute User user){
 //        String hash = passwordEncoder.encode(user.getPassword());
 //        user.setPassword(hash);
-//        users.save(user);
+        userDao.save(user);
         return "home";
     }
 

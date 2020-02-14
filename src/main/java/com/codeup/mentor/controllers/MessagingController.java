@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.List;
 
 @Controller
@@ -39,7 +41,7 @@ public class MessagingController {
 
     @PostMapping("/messages/send")
     public String sendMessage(@ModelAttribute Message message){
-        message.setDatetime(LocalDateTime.now());
+        message.setDatetime(ZonedDateTime.now());
         message.setReceiver_info(userDao.getOne(2L));
         message.setSender_info(userDao.getOne(1L));
         messageDao.save(message);

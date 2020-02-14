@@ -23,6 +23,10 @@ public class User {
     private String username;
 
     @Column(nullable = false)
+    private String password;
+
+
+    @Column(nullable = false)
     private String email;
 
     @Column(nullable = false, length=500)
@@ -72,22 +76,24 @@ public class User {
 
     public User (){};
 
-    public User(long id, String first_name, String last_name, String username, String email, String biography, boolean is_mentor, String filestack_picture_url) {
+    public User(long id, String first_name, String last_name, String username, String email, String biography, boolean is_mentor, String filestack_picture_url, String password) {
         this.id = id;
         this.first_name = first_name;
         this.last_name = last_name;
         this.username = username;
+        this.password = password;
         this.email = email;
         this.biography = biography;
         this.is_mentor = is_mentor;
         this.filestack_picture_url = filestack_picture_url;
     }
 
-    public User(String first_name, String last_name, String username, String email, String biography, boolean is_mentor, String filestack_picture_url) {
+    public User(String first_name, String last_name, String username, String email, String biography, boolean is_mentor, String filestack_picture_url, String password) {
         this.first_name = first_name;
         this.last_name = last_name;
         this.username = username;
         this.email = email;
+        this.password = password;
         this.biography = biography;
         this.is_mentor = is_mentor;
         this.filestack_picture_url = filestack_picture_url;
@@ -101,6 +107,7 @@ public class User {
         email = copy.email;
         biography = copy.biography;
         is_mentor = copy.is_mentor;
+        password = copy.password;
         filestack_picture_url = copy.filestack_picture_url;
     }
 
@@ -167,6 +174,14 @@ public class User {
 
     public void setFilestack_picture_url(String filestack_picture_url) {
         this.filestack_picture_url = filestack_picture_url;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
 
