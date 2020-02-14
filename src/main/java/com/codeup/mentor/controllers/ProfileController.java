@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class ProfileController {
 
 
-    @GetMapping("/profile")
-    public String showProfile(){
-
-        return "profile";
-    }
+//    @GetMapping("/profile")
+//    public String showProfile(){
+//
+//        return "profile";
+//    }
 
 
 }

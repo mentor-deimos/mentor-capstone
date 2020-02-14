@@ -61,11 +61,11 @@ public class UserController {
         return "home";
     }
 
-    @GetMapping("/profile-page")
+    @GetMapping("/profile")
     public String goToProfile(Model model){ //needs @PathVariable long id,
         model.addAttribute("rating", ratingService.allRatingsOnSearch(2));
 
-        return "profile-page";
+        return "profile";
     }
 
     //    navbar partial test is below - can replace with OTHER PARTIALS IF NEEDED
