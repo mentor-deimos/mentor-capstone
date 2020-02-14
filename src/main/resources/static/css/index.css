@@ -8,6 +8,7 @@ body{
     margin: 0;
 }
 a{
+    margin: 0;
     text-decoration: none;
 }
 #splash{
@@ -87,7 +88,7 @@ a{
 }
 .btn2:hover{
     box-shadow: inset 200px 0 0 0 white;
-    color: #FEDD00!important;
+    color: #1777F2!important;
     text-shadow: black 1px 1px;
 }
 .modal-cancel {
@@ -157,15 +158,25 @@ a{
     margin: 0;
 }
 
-#navbar h1{
-    font-weight: bold;
-    font-size: 80px;
-    font-family: 'Playfair Display', serif;
-    margin-top: -20px;
-    margin-left: -100px;
-    color: #FEDD00;
+#navbar h1{font-weight: bold;
+    font-size: 70px;font-family: 'Montserrat', sans-serif;
+    color: white;
+    margin-top: -15px;
+    margin-left: -15px;
 }
+.titleSpanNav{
+    text-shadow: black 2px 2px;
+    color: #FEDD00;
+    font-family: 'Playfair Display', serif;
+    font-size: 80px;
+}
+.iconNav{
+    height: 80px!important;
+    width: 80px!important;
+    margin-left: -100px;
+    margin-top: -15px;
 
+}
 #navbar form{
     display: flex;
     justify-content: center;
