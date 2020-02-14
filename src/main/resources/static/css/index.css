@@ -53,6 +53,24 @@
 .btn2{
     background-color: transparent; color: white; border: 3px solid white; height: 60px; width: 120px; font-size: 20px
 }
+.btn5{
+    margin: 10px;
+    background-color: transparent; color: red; border: 3px solid red; height: 60px; width: 120px; font-size: 20px
+}
+.btn6{
+    margin: 10px;
+    background-color: transparent; color: limegreen; border: 3px solid limegreen; height: 60px; width: 120px; font-size: 20px
+}
+.btn5:hover{
+    box-shadow: inset 200px 0 0 0 red;
+    color: white!important;
+    text-shadow: black 1px 1px;
+}
+.btn6:hover{
+    box-shadow: inset 200px 0 0 0 limegreen;
+    color: white!important;
+    text-shadow: black 1px 1px;
+}
 .btn1:hover{
     box-shadow: inset 200px 0 0 0 #FEDD00;
     color: white!important;

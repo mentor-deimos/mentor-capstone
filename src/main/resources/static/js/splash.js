@@ -17,6 +17,7 @@ $(document).ready(function () {
 });
 $(document).on("click", ".signUp", function () {
         $(location).attr('href', 'signup');
+
 });
 
 

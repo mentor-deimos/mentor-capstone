@@ -7,12 +7,9 @@
         body{
             margin: 0;
         }
-        #fakeNavbar{
-            margin-top: -80px;
-            background-color: #1777F2;
-            color: #FEDD00;
-        }
+
         #profilePicture{
+            margin-top: 10px;
             height: 60vh;
             width: 45vw;
         }
@@ -28,9 +25,9 @@
     </style>
 </head>
 <body>
-<div th:include="partials/navbar :: navbar">
-</div>
-<div id="fakeNavbar"><h1>fake navbar</h1></div>
+<nav th:replace="partials/navbar :: navbar" ></nav>
+
+
 <div id="profileFirstBlock" style="display: flex">
     <img th:src="@{/img/svg/user.svg}" alt="" id="profilePicture">
     <div id="profileFirstInnerBlock">
