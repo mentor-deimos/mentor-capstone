@@ -8,7 +8,7 @@
 </div>
     <main class="site-content">
 
-<<<<<<< HEAD
+
 <!--div holding structure for contacts menu - EVENTUAL FOR EACH displaying LIST OF CONTACTS-->
 <div style="width: 30%; display: inline">
     <div th:each="contact : ${contactList}">
@@ -18,21 +18,6 @@
         <p th:text="${contact.getAdded_user_id().getEmail()}"></p>
     </div>
 </div>
-=======
-
-    <!--div holding structure for contacts menu - EVENTUAL FOR EACH displaying LIST OF CONTACTS-->
-<!--<div style="width: 30%; display: inline">-->
-<!--    <div th:each="contact : ${contactList}">-->
-<!--        Contact Name:-->
-<!--        <h1 th:text="${contact.getAdded_user_id().getFirst_name() + contact.getAdded_user_id().getLast_name()}"></h1>-->
-<!--        Contact E-mail:-->
-<!--        <p th:text="${contact.getAdded_user_id().getEmail()}"></p>-->
-<!--    </div>-->
-
-<!--</div>-->
->>>>>>> b663e6b61ed16a4bdf2255bef049083b0a1ce1ab
-
-
 
 <!--div holding structure for eventual FOR EACH LOOP pulling LIST OF MESSAGES w/ METHODS BRINGING SENDER/RECEIVER NAMES-->
 
