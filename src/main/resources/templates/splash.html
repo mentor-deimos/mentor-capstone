@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>mentor</title>
-    <link rel="stylesheet" th:href="@{/css/index.css}">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head th:include="partials/header :: header">
 </head>
 <body id="splash">
 <img th:src="@{/img/mentorIcon.svg}" alt="" class="icon">
@@ -17,22 +13,22 @@
 <div class="modal-shade"></div>
 <div class="modal-container">
     <div class="modal">
-        <form method="POST" action="/login">
+        <form style="font-size: 30px; color: #1777F2" method="POST" action="/login">
             <label for="uname"><b>Username</b></label>
             <input type="text" placeholder="Enter Username" id="uname" name="uname" required>
             <br>
             <label for="psw"><b>Password</b></label>
             <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
             <div class="modal-actions">
-                <button class="modal-cancel button">Cancel</button>
-                <button class="modal-ok button">Login</button>
+                <button class="modal-cancel btn btn5">CANCEL</button>
+                <button class="modal-ok btn btn6">LOGIN</button>
             </div>
         </form>
     </div>
 </div>
+
 <script th:src="@{/webjars/jquery/3.4.1/jquery.min.js/}"></script>
 <script src="https://unpkg.com/popmotion/dist/popmotion.global.min.js"></script>
 <script th:src="@{/js/splash.js}"></script>
-
 </body>
 </html>
