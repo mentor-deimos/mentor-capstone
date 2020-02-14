@@ -9,9 +9,10 @@
 <div id="right">
     <div class="rightContent">
         <div style="background-color: grey" class="bigCircle"><p>1</p></div>
-        <div style="background-color: grey" class="littleCircle"></div>
-        <div style="background-color: grey" class="littleCircle"></div>
-        <div style="background-color: grey" class="littleCircle"></div>
+        <div id="lineone" style="background-color: grey" class="line"></div>
+        <div style="background-color: grey" class="littleCircle lcgroupone"></div>
+        <div style="background-color: grey" class="littleCircle lcgroupone"></div>
+        <div style="background-color: grey" class="littleCircle lcgroupone"></div>
         <div style="background-color: grey" class="bigCircle"><p>2</p></div>
         <div style="background-color: grey" class="littleCircle"></div>
         <div style="background-color: grey" class="littleCircle"></div>
@@ -22,18 +23,53 @@
         <div style="background-color: grey" class="littleCircle"></div>
         <div style="background-color: grey" class="bigCircle"><p>4</p></div>
     </div>
-    <div style="text-align: center">
+    <div id="pathchoice" style="text-align: center">
         <h1 style="margin-top: 3em; font-size: 50px">Step 1:</h1>
         <h3 style="font-size: 35px">Are you a:</h3>
         <button class="btn btn3" id="menteeBtn">Mentee</button>
         <h3 style="font-size: 35px">or</h3>
         <button class="btn btn4" id="mentorBtn">Mentor</button>
     </div>
+
+<form id="regForm" th:action="@{/signup}" th:method="post" th:object="${user}">
+
+    <h1>Register:</h1>
+    <div class="tab">Name:
+        <p><input placeholder="First name" th:field="*{first_name}"></p>
+        <p><input placeholder="Last name" th:field="*{last_name}"></p>
+    </div>
+
+    <div class="tab">Current e-mail and desired password:
+        <p><input placeholder="E-mail" th:field="*{email}"></p>
+        <p><input placeholder="Password" th:field="*{password}"></p>
+    </div>
+
+
+    <div class="tab">Username and biography info:
+        <p><input placeholder="Username" th:field="*{username}"></p>
+        <p><input placeholder="Tells us a bit about yourself" th:field="*{biography}"></p>
+    </div>
+
+
+    <div class="tab">
+        <p><input placeholder="filestack stuff for avatar" value="filestack stuff for avatar"/> </p>
+        <select id="formpathselection" class="form-control" th:field="*{is_mentor}">
+            <option th:value="1" >mentor</option>
+            <option th:value="0" >mentee</option>
+        </select>
+    </div>
+
+            <button type="button" id="prevBtn">Previous</button>
+            <button type="button" id="nextBtn">Next</button>
+
+</form>
+
 </div>
+
 
 <script th:src="@{/webjars/jquery/3.4.1/jquery.min.js/}"></script>
 <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
-<script th:src="@{/js/keys.js}"></script>
+<!--<script th:src="@{/js/keys.js}"></script>-->
 <script th:src="@{/js/signUp.js}"></script>
 </body>
 </html>

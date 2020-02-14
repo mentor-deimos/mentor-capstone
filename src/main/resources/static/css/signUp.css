@@ -3,6 +3,18 @@
     display: flex;
     margin: 0;
 }
+
+#regForm {
+     display: none;
+ }
+
+.tab {
+    display: none;
+}
+
+#pathchoice {
+    visibility: visible;
+}
 .btn{
     transition: all ease 0.8s;
     font-weight: bold;
@@ -64,7 +76,7 @@
     height: 100vh;
 }
 .rightContent{
-    display: flex;
+    display: none;
     justify-content: center;
     text-align: center;
 }
@@ -150,6 +162,15 @@ textarea:focus{
         width: 10px;
         margin: 3em .2em;
     }
+
+    #lineone {
+        display: none;
+    }
+
+    .lcgroupone {
+        visibility: visible;
+    }
+
     .line{
         height: 10px;
         width: 100px;
