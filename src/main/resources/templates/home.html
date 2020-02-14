@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Home</title>
+<head th:include="partials/header :: header">
 </head>
 <body>
-
-  <div th:include="partials/navbar :: navbar">
+<div class="site-container">
+<div th:include="partials/navbar :: navbar">
 </div>
-
-
+        <main class="site-content">
 <button><a th:href="@{/posts/create}">Create a post</a></button>
 
 
@@ -21,7 +18,9 @@
         </form>
     </div>
 
-
-
+    </main>
+<div th:include="partials/footer :: footer">
+</div>
+    </div>
 </body>
 </html>

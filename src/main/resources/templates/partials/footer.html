@@ -3,30 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Footer</title>
-    <style>
-        body{
-            margin: 0;
-        }
-        footer{
-            background-color: #1777F2;
-            color: #FEDD00;
-        }
-        ul{
-            list-style: none;
-        }
-        #box1{
-            display: flex;
-        }
-        img{
-            border-radius: 50%;
-            height: 100px;
-            width: 100px;
-            margin: 20px;
-        }
-    </style>
+
 </head>
 <body>
 <footer th:fragment="footer">
+    <div id="footer">
     <div id="box1">
     <div>
     <h2>
@@ -42,11 +23,12 @@
     </div>
     <hr>
     <div id="box2">
-    <ul style="display: flex">
+    <ul style="display: flex; justify-content: center">
         <li><img th:src="@{img/jw.jpeg}" alt=""></li>
         <li><img th:src="@{img/kellsey.jpeg}" alt=""></li>
         <li><img th:src="@{img/ken.jpeg}" alt=""></li>
     </ul>
+    </div>
     </div>
 </footer>
 </body>
