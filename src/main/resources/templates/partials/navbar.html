@@ -16,24 +16,52 @@
                 <a th:href="@{/home}"><h1><span class="titleSpanNav">M</span>entor</h1>
                 </a>
             </div>
-            <form autocomplete="off" action="/search">
-                <select id="selection">
-                    <option hidden>Option</option>
-                    <option value="true">Mentor</option>
-                    <option value="false">Mentee</option>
-                </select>
-                <div class="cntr">
-                    <div class="cntr-innr">
-                        <label class="search" for="myInput">
-                            <input id="myInput" type="text" name="search">
-                        </label>
-                    </div>
-                </div>
-                <input id="submitBtn" onclick="getOption()" type="submit">
-            </form>
+            <!--            <form autocomplete="off" action="/search">-->
+            <!--                <select id="selection">-->
+            <!--                    <option hidden>Option</option>-->
+            <!--                    <option value="true">Mentor</option>-->
+            <!--                    <option value="false">Mentee</option>-->
+            <!--                </select>-->
+            <!--                <div class="cntr">-->
+            <!--                    <div class="cntr-innr">-->
+            <!--                        <label class="search" for="myInput">-->
+            <!--                            <input id="myInput" type="text" name="search">-->
+            <!--                        </label>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--                <input id="submitBtn" onclick="getOption()" type="submit">-->
+            <!--            </form>-->
             <div style="display: flex; margin-right: -100px!important;">
                 <a th:href="@{/messages}"><img th:src="@{/img/svg/mail.svg}" alt="" style=" margin-top: -10px; margin-right: 40px"></a>
                 <a th:href="@{/profile}"><img th:src="@{/img/svg/user.svg}" alt="" style=" margin-top: -10px"></a>
+                <form autocomplete="off" action="/search">
+                    <div id="searching">
+                        <div class="wrapper1">
+                            <div id="searchThis">
+                                <div class="wrapper1">
+                                    <div class="cntr">
+                                        <div class="cntr-innr">
+                                            <label class="search" for="myInput">
+                                                <input id="myInput" name="search" type="text" placeholder="Search"/>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <label for="selection"><select id="selection">
+                                        <option hidden>Option</option>
+                                        <option value="true">Mentor</option>
+                                        <option value="false">Mentee</option>
+                                    </select>
+                                    </label>
+                                    <button id="searchSubmit" onclick="getOption()" type="submit">Submit</button>
+
+                                    <div id="closeSearch">X</div>
+                                </div>
+                            </div>
+                            <div id="searchResults"></div>
+                        </div>
+                    </div>
+                </form>
+                <div class="link search"><img th:src="@{/img/svg/search.svg}" alt=""></div>
             </div>
         </div>
     </div>
@@ -152,6 +180,18 @@
                 $(this).parent('label').removeClass('active');
         });
 
+
+        $('.link.search').click(function () {
+            $('#searching').addClass('active');
+            $('#searchThis input').focus();
+        });
+
+        $('#closeSearch').click(function () {
+            $('#searching').removeClass('active');
+            $('#searchThis input').blur();
+            $('#searchThis input').val('');
+            $('#searchResults').empty();
+        });
     </script>
 </nav>
 </body>
