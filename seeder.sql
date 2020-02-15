@@ -48,3 +48,9 @@ SELECT * FROM interests where LOWER(name) LIKE "%beau%";
 
 SELECT * FROM users WHERE is_mentor = true;
 
+SELECT first_name FROM users WHERE id IN(
+  select name
+  from interests
+  where interests.name = "Automotive"
+  );
+
