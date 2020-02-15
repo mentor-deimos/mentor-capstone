@@ -2,6 +2,7 @@ package com.codeup.mentor.model;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 
 @Entity
 @Table(name="messages")
@@ -16,7 +17,7 @@ public class Message {
     private String body;
 
     @Column(nullable = false)
-    private LocalDateTime datetime;
+    private ZonedDateTime datetime;
 
     @ManyToOne
     @JoinColumn(name="sender_id")
@@ -42,11 +43,11 @@ public class Message {
         this.body = body;
     }
 
-    public LocalDateTime getDatetime() {
+    public ZonedDateTime getDatetime() {
         return datetime;
     }
 
-    public void setDatetime(LocalDateTime datetime) {
+    public void setDatetime(ZonedDateTime datetime) {
         this.datetime = datetime;
     }
 

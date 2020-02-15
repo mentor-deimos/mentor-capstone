@@ -5,17 +5,17 @@ use mentor_db;
 
 
 
-# SELECT * from mentor_db.users;
--- SELECT * from mentor_db.interests;
--- SELECT * from mentor_db.user_interest;
+SELECT * from mentor_db.users;
+SELECT * from mentor_db.interests;
+SELECT * from mentor_db.user_interest;
 SELECT * FROM mentor_db.contacts;
-# SELECT * FROM mentor_db.messages;
--- SELECT * FROM mentor_db.ratings;
--- SELECT * FROM mentor_db.posts;
+SELECT * FROM mentor_db.messages;
+SELECT * FROM mentor_db.ratings;
+SELECT * FROM mentor_db.posts;
 
-INSERT INTO users (biography, email, filestack_picture_url, first_name, last_name, is_mentor, username)
-VALUES ('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vestibulum est ut ante sollicitudin, a suscipit felis consequat. Nullam dignissim lobortis elit eu elementum. Cras consequat quam ac tincidunt pharetra. Donec dapibus eu sem sed congue. Nullam commodo, est ac sodales tempor, tortor neque consequat lacus, sed eleifend orci nunc ut mauris. Nulla tincidunt pretium turpis sit amet bibendum. Proin ac blandit urna. Sed eget elementum ante. Morbi porta quis metus in auctor.', 'bryhowl@emailme.me', 'alterurllater', 'Bryan', 'Howell', 0, 'bryguy'),
-('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vestibulum est ut ante sollicitudin, a suscipit felis consequat. Nullam dignissim lobortis elit eu elementum. Cras consequat quam ac tincidunt pharetra. Donec dapibus eu sem sed congue. Nullam commodo, est ac sodales tempor, tortor neque consequat lacus, sed eleifend orci nunc ut mauris. Nulla tincidunt pretium turpis sit amet bibendum. Proin ac blandit urna. Sed eget elementum ante. Morbi porta quis metus in auctor.', 'kennywalsh@emailme.me', 'alterurllater', 'Kenneth', 'Walsh', 1, 'oldmanyoungheart');
+INSERT INTO users (biography, email, filestack_picture_url, first_name, last_name, is_mentor, username, password)
+VALUES ('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vestibulum est ut ante sollicitudin, a suscipit felis consequat. Nullam dignissim lobortis elit eu elementum. Cras consequat quam ac tincidunt pharetra. Donec dapibus eu sem sed congue. Nullam commodo, est ac sodales tempor, tortor neque consequat lacus, sed eleifend orci nunc ut mauris. Nulla tincidunt pretium turpis sit amet bibendum. Proin ac blandit urna. Sed eget elementum ante. Morbi porta quis metus in auctor.', 'bryhowl@emailme.me', 'alterurllater', 'Bryan', 'Howell', 0, 'bryguy', 'password'),
+('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vestibulum est ut ante sollicitudin, a suscipit felis consequat. Nullam dignissim lobortis elit eu elementum. Cras consequat quam ac tincidunt pharetra. Donec dapibus eu sem sed congue. Nullam commodo, est ac sodales tempor, tortor neque consequat lacus, sed eleifend orci nunc ut mauris. Nulla tincidunt pretium turpis sit amet bibendum. Proin ac blandit urna. Sed eget elementum ante. Morbi porta quis metus in auctor.', 'kennywalsh@emailme.me', 'alterurllater', 'Kenneth', 'Walsh', 1, 'oldmanyoungheart', 'password');
 
 
 INSERT INTO interests (name, picture_path)
@@ -36,6 +36,9 @@ VALUES (4, 1,2);
 
 INSERT INTO posts (body, title, user_id)
 VALUES ('Lorem ipsum gypsum marker maker of the longest taker inside beside downsides rawhide', 'Found this useful:',1);
+
+
+# kells zone below
 
 SELECT * FROM ratings WHERE recipient_user_id = ?1;
 

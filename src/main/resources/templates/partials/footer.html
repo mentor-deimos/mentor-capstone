@@ -3,33 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <title>Footer</title>
-
 </head>
 <body>
 <footer th:fragment="footer">
-    <div id="footer">
-    <div id="box1">
-    <div>
-    <h2>
-        Links
-    </h2>
-    <ul>
-        <li>About Us</li>
-        <li>Contact</li>
-        <li>Link</li>
-    </ul>
+    <div id="footer" style="text-align: center; width: 100vw">
+
+        <a th:href="@{/about}"><h1 id="aboutLink">About</h1></a>
+        <ul style="display: flex; justify-content: center">
+            <li><img th:src="@{img/jw.jpeg}" alt=""></li>
+            <li><img th:src="@{img/kellsey.jpeg}" alt=""></li>
+            <li><img th:src="@{img/ken.jpeg}" alt=""></li>
+        </ul>
+
+
+        <hr>
+
+        <div id="footerQuotes" style="color: white; font-size: 20px; text-align: center; width: 100vw; margin: 60px"></div>
     </div>
-    <div>quotes</div>
-    </div>
-    <hr>
-    <div id="box2">
-    <ul style="display: flex; justify-content: center">
-        <li><img th:src="@{img/jw.jpeg}" alt=""></li>
-        <li><img th:src="@{img/kellsey.jpeg}" alt=""></li>
-        <li><img th:src="@{img/ken.jpeg}" alt=""></li>
-    </ul>
-    </div>
-    </div>
+    <script th:src="@{/webjars/jquery/3.4.1/jquery.min.js/}"></script>
+    <script>
+        const quotes = [
+            "<p>“A mentor is someone who allows you to see the hope inside yourself.”<br> — Oprah Winfrey</p>",
+            "<p>“Our chief want in life is somebody who will make us do what we can.”<br> — Ralph Waldo Emerson</p>",
+            "<p>“Mentoring is a brain to pick, an ear to listen, and a push in the right direction.”<br> — John Crosby</p>",
+            "<p>“We’re here for a reason. I believe a bit of the reason is to throw little torches out to lead people through the dark.”<br> — Whoopi Goldberg</p>",
+            "<p>“The mind is not a vessel to be filled, but a fire to be kindled.”<br> — Plutarch</p>",
+            "<p>“The mediocre teacher tells. The good teacher explains. The superior teacher demonstrates. The great teacher inspires.”<br> — William Arthur Ward</p>",
+            "<p>“What is a teacher? I'll tell you: it isn't someone who teaches something, but someone who inspires the student to give of her best in order to discover what she already knows.”<br> — Paulo Coelho, The Witch of Portobello</p>",
+            "<p>“In learning you will teach, and in teaching you will learn.”<br> — Phil Collins</p>",
+            "<p>“The best teacher is not the one who knows most but the one who is most capable of reducing knowledge to that simple compound of the obvious and wonderful.”<br> — H.L. Mencken</p>",
+            "<p>“We must desire to see people rising in life, rather than looking for ways to contribute to their fall.”<br> — Bamigboye Olurotimi</p>",
+        ];
+    const randomQuote = Math.floor(Math.random()*quotes.length);
+    $(document).ready(function () {
+    $("#footerQuotes").html(quotes[randomQuote])
+    });
+    </script>
 </footer>
 </body>
 </html>
