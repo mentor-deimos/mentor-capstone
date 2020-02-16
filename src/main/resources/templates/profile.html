@@ -4,26 +4,29 @@
 </head>
 <body>
 <style>
-    body{
+    body {
         margin: 0;
     }
 
-    #profilePicture{
+    #profilePicture {
         margin-top: 10px;
         height: 60vh;
         width: 45vw;
     }
-    h1{
-        font-size: 100px;
+
+    h1 {
+        font-size: 10vw;
     }
-    h3{
-        font-size: 80px;
+
+    h3 {
+        font-size: 8vw;
     }
-    #rating{
-        font-size: 120px;
+
+    #rating {
+        font-size: 10vw;
     }
 </style>
-<nav th:replace="partials/navbar :: navbar" ></nav>
+<nav th:replace="partials/navbar :: navbar"></nav>
 
 
 <div id="profileFirstBlock" style="display: flex">
@@ -31,27 +34,55 @@
     <div id="profileFirstInnerBlock">
         <h1 style="font-weight: bold">NAME</h1>
         <h3>mentor</h3>
-        <p th:text="${rating}"></p>
-        <div id="rating">⭐️⭐️⭐️⭐️⭐️</div>
+        <div id="rating"></div>
     </div>
 </div>
 
 
 <h1 style="font-weight: bold">BIO:</h1>
-<h3>Sunt hippotoxotaes consumere fatalis, noster triticumes. Aonides, mens, et hippotoxota.</h3>
+<!--<h3 th:text="${user.biography}"></h3>-->
 <h1 style="font-weight: bold">SKILLS:</h1>
 <div id="skillsBlock" style="display: flex">
     <p>skills</p>
 </div>
 <h1 style="font-weight: bold">REVIEW:</h1>
-<h3>Yes, there is earth, it preaches with art. Enlightenment doesn’t beautifully believe any yogi — but the lord is what occurs.</h3>
+<h3>Yes, there is earth, it preaches with art. Enlightenment doesn't beautifully believe any yogi — but the lord is what
+    occurs.</h3>
 <div th:include="partials/footer :: footer">
 </div>
 <div>
 
 </div>
-<script>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    var rating = [[${rating}]];
+    let newRate = "";
+    function ratingStars(rating) {
+        if (rating <= 1.5) {
+            newRate = "⭐"
+        }
+        if (rating <= 2.5) {
+            newRate = "⭐️⭐️"
+        }
+        if (rating <= 3.5) {
+            newRate = "⭐️⭐️⭐️"
+        }
+        if (rating <= 4.5) {
+            newRate = "⭐️⭐️⭐️⭐️"
+        }
+        if (rating > 4.5) {
+            newRate ="⭐️⭐️⭐️⭐️⭐️"
+        }
 
+    }
+    $(document).ready(function () {
+        ratingStars(rating);
+        $("#rating").html(
+            "" + newRate + ""
+        )
+    })
+
+    /*]]>*/
 </script>
 </body>
 </html>
