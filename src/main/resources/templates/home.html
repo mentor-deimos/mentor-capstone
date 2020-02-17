@@ -9,11 +9,11 @@
     <main class="site-content">
 
         <form style="border: 4px solid #1777F2; box-shadow: 4px 4px black; margin: 20px 0 20px 25%; width: 50vw">
-            <label for="title">Title:</label>
-            <input id="title" type="text" placeholder="Enter title here">
+            <label for="title" style="font-size: 25px; margin-left: 5px; font-weight: bold; color: #1777F2">Title:</label>
+            <input style="width: 45vw; font-size: 25px; margin: 5px" id="title" type="text" placeholder="Enter title here">
             <hr>
-            <label style="margin-top: -50px" for="body">Body:</label>
-            <textarea id="body" placeholder="Enter body here">
+            <label style="margin-top: -50px; font-size: 25px; font-weight: bold; margin-left: 5px; color: #1777F2" for="body">Body:</label>
+            <textarea style="width: 48vw; font-size: 25px; margin: 5px" id="body" placeholder="Enter body here">
         </textarea>
             <div action="" style="display: flex; justify-content: flex-end; margin: 10px">
             <button type="submit" class="btn btn3">Create post</button>
@@ -26,7 +26,7 @@
         <div th:each="post : ${posts}"
              style="border: 4px solid #1777F2; box-shadow: 4px 4px black; margin: 20px 0 20px 25%; width: 50vw">
 
-            <h1 style="margin: 10px" th:text="${post.title}"></h1>
+            <h1 style="font-size: 35px!important; margin: 10px; color: #1777F2" th:text="${post.title}"></h1>
             <hr>
             <p style="margin: 10px" th:text="${post.body}"></p>
             <form th:action="@{|/posts/${post.id}/edit|}" th:method="GET"
