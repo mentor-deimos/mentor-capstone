@@ -64,9 +64,10 @@ public class UserController {
     @GetMapping("/profile")
     public String goToProfile(Model model){ //needs @PathVariable long id,
         model.addAttribute("rating", ratingService.allRatingsOnSearch(2));
-
         return "profile";
     }
+
+
     @GetMapping("/about")
     public String goToAbout(){ //needs @PathVariable long id,
 

@@ -187,8 +187,13 @@ a{
 }
 
 #selection {
+    position: absolute;
+    top: 0;
+    left: -60px;
     z-index: 0;
-    height: 30px;
+    height: 100%;
+    background-color: #FFFFFF;
+    width: 80px;
     color: #1777F2;
     margin-right: 20px;
 }
@@ -207,60 +212,11 @@ a{
 .cntr .cntr-innr {
     display: table-cell;
     text-align: center;
-
-}
-
-.search {
-    display: inline-block;
-    position: relative;
-    height: 35px;
-    width: 35px;
-    box-sizing: border-box;
-    margin: 0px 8px 7px 0px;
-    padding: 7px 9px 0px 9px;
-    border: 3px solid #FEDD00;
-    border-radius: 25px;
-    -webkit-transition: all 200ms ease;
-    transition: all 200ms ease;
-    cursor: text;
-}
-
-.search:after {
-    content: "";
-    position: absolute;
-    width: 3px;
-    height: 20px;
-    right: -5px;
-    top: 21px;
-    background: #FEDD00;
-    border-radius: 3px;
-    -webkit-transform: rotate(-45deg);
-    -ms-transform: rotate(-45deg);
-    transform: rotate(-45deg);
-    -webkit-transition: all 200ms ease;
-    transition: all 200ms ease;
-}
-
-.search.active,
-.search:hover {
-    width: 300px;
-    margin-right: 0px;
-}
-
-.search.active:after,
-.search:hover:after {
-    height: 0px;
-}
-
-.search input {
-    width: 100%;
-    border: none;
     color: white;
-    box-sizing: border-box;
-    font-size: 15px;
-    background: transparent;
-    outline-width: 0px;
+
 }
+
+
 /*---------footer---------------------*/
 #aboutLink{
     font-size: 30px; text-decoration: none; color: #FEDD00; font-family: 'Montserrat', sans-serif;
@@ -307,7 +263,7 @@ a{
 
 /*------------------about--------------------------*/
 .profilePic{
-    width: 30vw;
+    width: 25vw;
     height: 50vh;
     margin: 20px;
     border: 10px solid #FEDD00;
@@ -327,5 +283,114 @@ a{
 }
 .aboutPic{
     height: 100px;
-    /*margin: -20px 50px 20px 40px;*/
+
+}
+
+
+
+
+
+
+
+
+#searching{
+    opacity:0.0;
+    position:fixed;
+    bottom:100%;
+    width:0%;
+    height:0%;
+    left:50%;
+    margin-left:0%;
+    z-index:9999;
+    border-radius:100%;
+    overflow:hidden;
+    -webkit-transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+}
+#searching.active{
+    opacity:1.0;
+    bottom:0%;
+    width:100%;
+    height:100%;
+    top:0%;
+    left:0%;
+    border-radius:0;
+    margin-left:0;
+}
+#searchThis{
+    position:absolute;
+    top:0%;
+    left:0%;
+    width:100%;
+    height:55px;
+    background-color:#FFF;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    border-radius:1px;
+    z-index:20000;
+}
+#searchThis input{
+    width:calc(100% - 55px);
+    height:40px;
+    padding-left:10px;
+    margin-top:7px;
+    border:none;
+    outline:0;
+    font-size:1em;
+    font-family: 'Open Sans', sans-serif;
+    font-weight:400;
+    color: #333;
+}
+#closeSearch{
+    position:absolute;
+    top:0;
+    right:0;
+    width:55px;
+    height:55px;
+    text-align:center;
+    line-height:55px;
+    cursor:pointer;
+    background:#FEDD00;
+    color:#FFF;
+    font-size:2em;
+}
+#searchSubmit{
+    position:absolute;
+    top:0;
+    right:55px;
+    width:80px;
+    height:55px;
+    text-align:center;
+    line-height:55px;
+    cursor:pointer;
+    background:#1777F2;
+    color:#FFF;
+    font-size:20px;
+}
+#searchResults{
+    position:absolute;
+    top:55px;
+    left:0;
+    width:100%;
+    height:calc(100% - 55px);
+    background-color:rgba(0, 0, 0, 0.8);
+    overflow-y:scroll;
+}
+#searchResults a{
+    display:block;
+    background-color:#FFF;
+    padding:6px 15px;
+    text-decoration:none;
+    font-size:1.1em;
+    color:#333;
+}
+
+
+.link{
+    padding:10px;
+    text-align:center;
+    text-transform:uppercase;
+    cursor:pointer;
+    font-size:1em;
+    margin-top:-20px;
+    width: 100px
 }
