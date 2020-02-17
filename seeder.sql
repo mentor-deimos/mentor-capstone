@@ -32,7 +32,7 @@ VALUES ('Hey, interesting in learning how to change the oil on my Jeep Wrangler 
 
 
 INSERT INTO ratings (rating, giver_user_id, recipient_user_id)
-VALUES (4, 1,2);
+VALUES (5, 1,2);
 
 INSERT INTO posts (body, title, user_id)
 VALUES ('Lorem ipsum gypsum marker maker of the longest taker inside beside downsides rawhide', 'Found this useful:',1);

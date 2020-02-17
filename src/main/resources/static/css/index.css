@@ -6,6 +6,7 @@ body{
     position: relative;
     height: 100%;
     margin: 0;
+    background-image: linear-gradient(#ffffff, #eeeeee, #dddddd);
 }
 a{
     margin: 0;
@@ -256,8 +257,16 @@ a{
     flex-direction: column;
     min-height: 100vh;
 }
+.centered{
+    display: grid;
+    grid-template-columns: 15% 70% 15%;
+    grid-template-areas:
+        "left center right";
+}
 .site-content {
+    grid-area: center;
     flex: 1;
+
 }
 
 
@@ -393,4 +402,22 @@ a{
     font-size:1em;
     margin-top:-20px;
     width: 100px
+}
+/*---------------------profile-----------------------*/
+
+#rating {
+    font-size: 8vw;
+}
+#profilePicture{
+    height: 50vh;
+    margin-right: 50px;
+    margin-top: 50px;
+    border-radius: 8px;
+    border: 8px solid #FEDD00;
+}
+.site-content h1{
+    font-size: 10vh;
+}
+.site-content h3{
+    font-size: 8vh;
 }
