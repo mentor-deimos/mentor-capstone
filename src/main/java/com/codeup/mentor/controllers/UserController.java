@@ -7,6 +7,7 @@ import com.codeup.mentor.repositories.RatingRepository;
 import com.codeup.mentor.repositories.UserRepository;
 import com.codeup.mentor.services.RatingService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +26,8 @@ public class UserController {
     @Autowired
     private RatingService ratingService;
     private PasswordEncoder passwordEncoder;
+    @Value("${filestack.api.key}")
+    private String filestackapi;
 
     public UserController(UserRepository userDao, PasswordEncoder passwordEncoder){
         this.userDao = userDao;
@@ -40,6 +43,7 @@ public class UserController {
 
     @GetMapping("/signup")
     public String showSignupForm(Model model){
+        model.addAttribute("filestackapi", filestackapi);
         model.addAttribute("user", new User());
         return "signUp";
 }
@@ -69,12 +73,5 @@ public class UserController {
 
         return "about";
     }
-
-    //    navbar partial test is below - can replace with OTHER PARTIALS IF NEEDED
-//    @GetMapping("/navbarTest")
-//    public String navbarTest(){
-//        return "partials/navbar";
-//    }
-
 
 }

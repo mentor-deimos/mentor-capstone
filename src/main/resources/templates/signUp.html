@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:include="partials/header :: header">
+    <meta name="filestackapi" th:content="${filestackapi}">
 </head>
 <body>
 <div id="signUp">
@@ -55,7 +56,7 @@
 
 
     <div class="tab">
-        <p><input placeholder="filestack stuff for avatar" value="filestack stuff for avatar"/> </p>
+        <button id='upload' class='button'><img th:src="@{/img/svg/photograph.svg}" alt='' style='height: 100%' id='picUpLoad'></button>
         <select id="formpathselection" class="form-control" th:field="*{is_mentor}">
             <option th:value="1" >mentor</option>
             <option th:value="0" >mentee</option>
@@ -72,7 +73,8 @@
 
 <script th:src="@{/webjars/jquery/3.4.1/jquery.min.js/}"></script>
 <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
-<!--<script th:src="@{/js/keys.js}"></script>-->
 <script th:src="@{/js/signUp.js}"></script>
+<!--<script th:src="@{/js/keys.js}"></script>-->
+<!--<script th:src="@{/js/signUp.js}"></script>-->
 </body>
 </html>
