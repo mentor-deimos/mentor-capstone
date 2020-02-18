@@ -1,3 +1,4 @@
+
 const quotes = [
     "<p>“A mentor is someone who allows you to see the hope inside yourself.”<br> — Oprah Winfrey</p>",
     "<p>“Our chief want in life is somebody who will make us do what we can.”<br> — Ralph Waldo Emerson</p>",
