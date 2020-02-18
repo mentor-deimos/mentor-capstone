@@ -37,5 +37,41 @@
     });
     </script>
 </footer>
+<footer class="mobile" th:fragment="mobile-footer">
+    <div class="navWrapper">
+        <div class="nav-bar">
+
+            <div class="nav-bar__item" onClick="onClick(this)">
+                <a th:href="@{/home}"><img th:src="@{img/home.svg}" alt="Home" /></a>
+                <span>
+        <span>Home</span>
+      </span>
+            </div>
+
+            <div class="nav-bar__item" onClick="onClick(this)">
+                <a th:href="@{/about}"><img th:src="@{img/about.svg}" alt="about" /></a>
+                <span>About</span>
+            </div>
+
+            <div class="nav-bar__item" onClick="onClick(this)">
+                <img th:src="@{img/svg/search.svg}" alt="Search" />
+                <span>Search</span>
+            </div>
+
+            <div class="nav-bar__item" onClick="onClick(this)">
+                <a th:href="@{/profile}"><img th:src="@{img/svg/user.svg}" alt="User"/></a>
+                <span>Profile</span>
+            </div>
+
+        </div>
+    </div>
+    <script>
+        function onClick( e ) {
+            [ ...document.querySelectorAll('.nav-bar__item') ].forEach( item => item.classList.remove('active'));
+            e.classList.add('active');
+        }
+    </script>
+
+</footer>
 </body>
 </html>

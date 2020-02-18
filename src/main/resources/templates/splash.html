@@ -29,6 +29,25 @@
 </div>
 </div>
 <div class="mobile">
+    <img th:src="@{/img/mentorIcon.svg}" alt="" class="iconM">
+    <h1 class="titleM"><span class="titleSpanM">M</span>entor</h1>
+    <div class="mobileBtns" style="flex-direction: row; justify-content: center">
+    <button class="btn btn2 signUp">SIGN UP</button>
+    <button class="btn btn1 signInMobile">LOGIN</button>
+    </div>
+    <div class="mobileLogin" style="justify-content: center">
+        <form method="post" action="/login">
+            <label for="username">Username</label>
+            <input type="text" placeholder="Enter Username" id="username" name="username" required>
+            <br>
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="password" id="password" required>
+            <div class="modal-actions">
+                <button class="btn btn5 cancel">CANCEL</button>
+                <button class="btn btn6">LOGIN</button>
+            </div>
+        </form>
+    </div>
 
 
 </div>
@@ -37,5 +56,15 @@
 <script th:src="@{/webjars/jquery/3.4.1/jquery.min.js/}"></script>
 <script src="https://unpkg.com/popmotion/dist/popmotion.global.min.js"></script>
 <script th:src="@{/js/splash.js}"></script>
+<script>
+    $(".signInMobile").click(function () {
+        $(".mobileBtns").css("display", "none");
+        $(".mobileLogin").css("display", "flex")
+    });
+    $(".cancel").click(function () {
+        $(".mobileBtns").css("display", "flex");
+        $(".mobileLogin").css("display", "none");
+    });
+</script>
 </body>
 </html>

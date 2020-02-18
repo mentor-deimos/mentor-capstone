@@ -61,16 +61,46 @@
     </div>
 </div>
 <div class="mobile">
-
+    <img style="width: 90vw; margin: 5%" th:src="@{img/profileJW.png}" alt="">
+    <h3>J.W. Hester</h3>
+    <ul style="list-style: none; display: flex; justify-content: space-evenly; padding: 0px">
+        <li><a href="https://www.linkedin.com/in/jw-hester/"><img class="aboutPic" th:src="@{img/linkedin.svg}" alt=""></a>
+        </li>
+        <li><a href="https://github.com/jwhester"><img class="aboutPic" th:src="@{img/github.svg}" alt=""></a></li>
+        <li><a href="https://alumni.codeup.com/students/755"><img class="aboutPic"
+                                                                  th:src="@{img/codeup.svg}" alt=""></a>
+        </li>
+    </ul>
+    <img style="width: 90vw; margin: 5%" th:src="@{img/profileKellsey.png}" alt="">
+    <h3>Kellsey Neagley</h3>
+    <ul style="list-style: none; display: flex; justify-content: space-evenly; padding: 0px">
+        <li><a href="https://www.linkedin.com/in/kellseyneagley/
+"><img class="aboutPic" th:src="@{img/linkedin.svg}" alt=""></a></li>
+        <li><a href="https://github.com/kellseyn
+"><img class="aboutPic" th:src="@{img/github.svg}" alt=""></a></li>
+        <li><a href="https://alumni.codeup.com/students/742"><img class="aboutPic" th:src="@{img/codeup.svg}"
+                                                                  alt=""></a>
+        </li>
+    </ul>
+    <img style="width: 90vw; margin: 5%" th:src="@{img/profileKen.png}" alt="">
+    <h3>Kenneth Howell</h3>
+    <ul style="list-style: none; display: flex; justify-content: space-evenly; padding: 0px">
+        <li><a href="https://www.linkedin.com/in/howell-kenneth/
+"><img class="aboutPic" th:src="@{img/linkedin.svg}" alt=""></a></li>
+        <li><a href="https://github.com/kennethhowell
+"><img class="aboutPic" th:src="@{img/github.svg}" alt=""></a></li>
+        <li><a href="https://alumni.codeup.com/students/765"><img class="aboutPic"
+                                                                  th:src="@{img/codeup.svg}" alt=""></a>
+        </li>
+    </ul>
+    <h3>ABOUT <span style="color: #FEDD00">US</span></h3>
+    <h5 style="color: #1777F2; font-size: 25px; margin: 40px 25px 200px 25px">We are a group of dedicated Software
+        Developers and this is our final project at Codeup. Mentor is a full-stack Java application that uses
+        Spring to access a MySQL database. The front-end is our own custom CSS, and jQuery was used to add the
+        File Stack API and interactivity.</h5>
+    <div th:include="partials/footer :: mobile-footer">
+    </div>
 </div>
 
-<script>
-    var content = document.querySelector('ion-content');
-    content.scrollEvents = true;
-    content.scrollX= true;
-    content.addEventListener('ionScrollStart', () => console.log('scroll start'));
-    content.addEventListener('ionScroll', (ev) => console.log('scroll', ev.detail));
-    content.addEventListener('ionScrollEnd', () => console.log('scroll end'));
-</script>
 </body>
 </html>
