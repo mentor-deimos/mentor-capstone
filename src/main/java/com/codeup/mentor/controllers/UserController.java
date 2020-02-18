@@ -7,6 +7,7 @@ import com.codeup.mentor.repositories.RatingRepository;
 import com.codeup.mentor.repositories.UserRepository;
 import com.codeup.mentor.services.RatingService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,17 +24,12 @@ public class UserController {
     private UserRepository userDao;
     @Autowired
     private RatingService ratingService;
+    private PasswordEncoder passwordEncoder;
 
-//    private PasswordEncoder passwordEncoder;
-
-//    public UserController(UserRepository userDao
-////    , PasswordEncoder passwordEncoder
-//
-//    ){
-//        this.userDao = userDao;
-////        this.passwordEncoder = passwordEncoder;
-//
-//    }
+    public UserController(UserRepository userDao, PasswordEncoder passwordEncoder){
+        this.userDao = userDao;
+        this.passwordEncoder = passwordEncoder;
+    }
 
 
     @GetMapping("/")
@@ -55,8 +51,8 @@ public class UserController {
 
     @PostMapping("/signup")
     public String saveUser(@ModelAttribute User user){
-//        String hash = passwordEncoder.encode(user.getPassword());
-//        user.setPassword(hash);
+        String hash = passwordEncoder.encode(user.getPassword());
+        user.setPassword(hash);
         userDao.save(user);
         return "home";
     }
