@@ -4,7 +4,9 @@
 .mobile{
     display: none;
 }
-
+body{
+    margin: 0;
+}
 #about, #home, #profile{
     position: relative;
     height: 100%;
@@ -176,10 +178,10 @@ a{
     font-size: 80px;
 }
 .mentorIconNav{
-    height: 120px!important;
-    width: 120px!important;
-    margin-left: -25px;
-    margin-top: -30px;
+    height: 80px!important;
+    width: 80px!important;
+    margin-left: -105px;
+    margin-top: -15px;
 
 }
 #navbar form{

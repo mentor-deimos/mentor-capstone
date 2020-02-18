@@ -61,75 +61,13 @@
     </div>
 </div>
 <div class="mobile">
-    <div th:include="partials/mobile :: mobile-head">
-    </div>
-    <ion-content>
-    <div style="overflow: scroll; z-index: 1">
-    <ion-card style="margin-top: -10px; margin-bottom: 20px">
-        <img th:src="@{img/profileJW.png}">
-        <ion-card-header style="text-align: center">
-            <ion-card-title>J.W. Hester</ion-card-title>
-        </ion-card-header>
 
-        <ion-card-content>
-            <ul style="list-style: none; display: flex; justify-content: space-evenly">
-                <li><a href="https://www.linkedin.com/in/jw-hester/"><img class="aboutPic"
-                                                                          th:src="@{img/linkedin.svg}"
-                                                                          alt=""></a></li>
-                <li><a href="https://github.com/jwhester"><img class="aboutPic" th:src="@{img/github.svg}"
-                                                               alt=""></a></li>
-                <li><a href="https://alumni.codeup.com/students/755"><img class="aboutPic"
-                                                                          th:src="@{img/codeup.svg}" alt=""></a>
-                </li>
-            </ul>
-        </ion-card-content>
-    </ion-card>
-    <ion-card style="margin-top: -10px; margin-bottom: 20px">
-        <img th:src="@{img/profileJW.png}">
-        <ion-card-header style="text-align: center">
-            <ion-card-title>J.W. Hester</ion-card-title>
-        </ion-card-header>
-
-        <ion-card-content>
-            <ul style="list-style: none; display: flex; justify-content: space-evenly">
-                <li><a href="https://www.linkedin.com/in/jw-hester/"><img class="aboutPic"
-                                                                          th:src="@{img/linkedin.svg}"
-                                                                          alt=""></a></li>
-                <li><a href="https://github.com/jwhester"><img class="aboutPic" th:src="@{img/github.svg}"
-                                                               alt=""></a></li>
-                <li><a href="https://alumni.codeup.com/students/755"><img class="aboutPic"
-                                                                          th:src="@{img/codeup.svg}" alt=""></a>
-                </li>
-            </ul>
-        </ion-card-content>
-    </ion-card>
-    <ion-card style="margin-top: -10px; margin-bottom: 20px">
-        <img th:src="@{img/profileJW.png}">
-        <ion-card-header style="text-align: center">
-            <ion-card-title>J.W. Hester</ion-card-title>
-        </ion-card-header>
-
-        <ion-card-content>
-            <ul style="list-style: none; display: flex; justify-content: space-evenly">
-                <li><a href="https://www.linkedin.com/in/jw-hester/"><img class="aboutPic"
-                                                                          th:src="@{img/linkedin.svg}"
-                                                                          alt=""></a></li>
-                <li><a href="https://github.com/jwhester"><img class="aboutPic" th:src="@{img/github.svg}"
-                                                               alt=""></a></li>
-                <li><a href="https://alumni.codeup.com/students/755"><img class="aboutPic"
-                                                                          th:src="@{img/codeup.svg}" alt=""></a>
-                </li>
-            </ul>
-        </ion-card-content>
-    </ion-card>
-    </div>
-    </ion-content>
 </div>
-<div th:include="partials/mobile :: mobile-nav">
-</div>
+
 <script>
     var content = document.querySelector('ion-content');
     content.scrollEvents = true;
+    content.scrollX= true;
     content.addEventListener('ionScrollStart', () => console.log('scroll start'));
     content.addEventListener('ionScroll', (ev) => console.log('scroll', ev.detail));
     content.addEventListener('ionScrollEnd', () => console.log('scroll end'));
