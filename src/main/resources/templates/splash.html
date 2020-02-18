@@ -2,17 +2,18 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:include="partials/header :: header">
 </head>
-<body id="splash">
+<body>
+<div id="splash">
 <img th:src="@{/img/mentorIcon.svg}" alt="" class="icon">
 <h1 class="title"><span class="titleSpan">M</span>entor</h1>
 <div id="quotes"></div>
 <div style="display: flex; width: 300px; justify-content: space-between; grid-area: 3 / 2 / 4 / 3">
-    <button class="btn btn1 signIn open-modal">SIGN IN</button>
     <button class="btn btn2 signUp">SIGN UP</button>
+    <button class="btn btn1 signIn open-modal">LOGIN</button>
 </div>
 <div class="modal-shade"></div>
 <div class="modal-container">
-    <div class="modal">
+    <div class="modal" style="height: 400px; width: 400px">
         <form style="font-size: 30px; color: #1777F2" method="POST" action="/login">
             <label for="uname"><b>Username</b></label>
             <input type="text" placeholder="Enter Username" id="uname" name="uname" required>
@@ -26,8 +27,39 @@
         </form>
     </div>
 </div>
+</div>
+<div class="mobile">
+    <div th:include="partials/mobile :: mobile-head">
+    </div>
+    <ion-grid style="text-align: center">
+        <ion-row>
+            <ion-col></ion-col>
+            <ion-col style="margin-top: 50%">
+                <img th:src="@{/img/mentorIcon.svg}" alt=""><h1>Mentor</h1>
+            </ion-col>
+            <ion-col></ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col></ion-col>
+            <ion-col>
+                <ion-button class="signUp">
+                    <ion-icon slot="start" name="star"></ion-icon>
+                    SIGN UP
+                </ion-button>
+            </ion-col>
+            <ion-col>
+                <ion-button color="warning" class="signIn">
+                    <ion-icon slot="end" name="log-in-outline"></ion-icon>
+                    LOGIN
+                </ion-button>
+            </ion-col>
+            <ion-col></ion-col>
+        </ion-row>
+    </ion-grid>
 
-<
+
+</div>
+
 
 <script th:src="@{/webjars/jquery/3.4.1/jquery.min.js/}"></script>
 <script src="https://unpkg.com/popmotion/dist/popmotion.global.min.js"></script>
