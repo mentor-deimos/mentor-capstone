@@ -1,4 +1,4 @@
-drop database if exists mentor_db;
+
 
 
 use mentor_db;
@@ -6,6 +6,7 @@ use mentor_db;
 
 
 SELECT * from mentor_db.users;
+
 SELECT * from mentor_db.interests;
 SELECT * from mentor_db.user_interest;
 SELECT * FROM mentor_db.contacts;
