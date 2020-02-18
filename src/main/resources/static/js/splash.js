@@ -110,3 +110,11 @@ listen(openModalButton, 'click').start(openModal);
 listen(cancelModalButton, 'click').start(cancelModal);
 listen(okModalButton, 'click').start(okModal);
 
+$('#nav-toggle').click(function(){
+    console.log("hello");
+    $('body').toggleClass('open');
+});
+$('#top-head-inner').on("click", "#nav-toggle", function () {
+    console.log("hello");
+});
+

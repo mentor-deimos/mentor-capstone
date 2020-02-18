@@ -4,6 +4,9 @@
 .mobile{
     display: none;
 }
+.navWrapper{
+    display: none;
+}
 body{
     margin: 0;
 }
@@ -661,7 +664,9 @@ textarea:focus{
 
 
 @media only screen and (max-width: 600px) {
-
+    .navWrapper{
+        display: block;
+    }
     .site-container{
         display: none;
     }
@@ -674,13 +679,39 @@ textarea:focus{
     }
 
     .mobile{
-        display: block;
         color: white;
         background-image: linear-gradient(#0035A8,#1777F2);
         background-repeat: no-repeat;
         background-size: 100%;
-        height: 100vh;
+        height: 100%;
         width: 100vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
 
+
+    }
+    .iconM{
+        height: 250px;
+    }
+    .titleM{
+        margin-top: -25px;
+        font-size: 80px;
+        font-family: 'Montserrat', sans-serif;
+        color: white;
+
+    }
+    .titleSpanM{
+        text-shadow: black 2px 2px;
+        color: #FEDD00;
+        font-family: 'Playfair Display', serif;
+        font-size: 100px;
+    }
+    a img{
+        height: 25px;
+    }
+    .mobileLogin{
+        display: none;
     }
 }
