@@ -1,15 +1,6 @@
-// const client = filestack.init(fileStackKey);
-// const options = {
-//     onFileSelected: file => {
-//         // onUploadDone: (res) => app
-//         if (file.size > 1000 * 1000) {
-//             throw new Error('File too big, select something smaller than 1MB');
-//         }
-//     }
-// };
-//
-//
-//
+let fileStackKey = document.querySelector('meta').content;
+const client = filestack.init(fileStackKey);
+
 var currentTab = 0; // Current tab is set to be the first tab (0)
 showTab(currentTab); // Display the current tab
 
@@ -101,6 +92,10 @@ $("#mentorBtn").click(function (){
     $(".left_img").attr("src", "img/mentorIcon.svg");
     $("#formpathselection").val(1).change();
 })
+
+$("#upload").click(function () {
+            client.picker().open();
+        });
 
 
 // $("#menteeBtn").click(function () {
