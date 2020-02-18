@@ -46,29 +46,9 @@
     </div>
 </div>
 <div class="mobile">
-    <div th:include="partials/mobile :: mobile-head">
-    </div>
-    <ion-content>
-        <div th:each="post : ${posts}" style="margin-top: -10px!important; margin-bottom: 20px!important;">
-            <ion-card>
-                <ion-card-header>
-                    <ion-card-title th:text="${post.title}"></ion-card-title>
-                </ion-card-header>
 
-                <ion-card-content th:text="${post.body}">
-
-                </ion-card-content>
-                <form th:action="@{|/posts/${post.id}/edit|}" th:method="GET"
-                      style="display: flex; justify-content: flex-end; margin: 10px">
-                    <button class="btn btn3">Edit Post</button>
-                </form>
-            </ion-card>
-        </div>
-    </ion-content>
 </div>
-<div th:include="partials/mobile :: mobile-nav">
 </div>
-
 
 </body>
 </html>
