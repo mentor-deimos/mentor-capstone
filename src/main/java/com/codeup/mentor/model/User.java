@@ -184,13 +184,6 @@ public class User {
     public void setFilestack_picture_url(String filestack_picture_url) {
         this.filestack_picture_url = filestack_picture_url;
     }
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
 
     public String getPassword() {
         return password;

@@ -1,8 +1,10 @@
 package com.codeup.mentor.controllers;
 
 
+import com.codeup.mentor.model.Interest;
 import com.codeup.mentor.model.Rating;
 import com.codeup.mentor.model.User;
+import com.codeup.mentor.repositories.InterestRepository;
 import com.codeup.mentor.repositories.RatingRepository;
 import com.codeup.mentor.repositories.UserRepository;
 import com.codeup.mentor.services.RatingService;
@@ -20,19 +22,22 @@ import java.util.List;
 @Controller
 public class UserController {
 
-    private String uploadHandle;
-
-    @Autowired
+//    repos
     private UserRepository userDao;
-    @Autowired
+    private InterestRepository interestDao;
+
     private RatingService ratingService;
     private PasswordEncoder passwordEncoder;
+
+
+//    wired up filestack api through MVC - kh
     @Value("${filestack.api.key}")
     private String filestackapi;
 
-    public UserController(UserRepository userDao, PasswordEncoder passwordEncoder){
+    public UserController(UserRepository userDao, PasswordEncoder passwordEncoder, InterestRepository interestDao){
         this.userDao = userDao;
         this.passwordEncoder = passwordEncoder;
+        this.interestDao = interestDao;
     }
 
 
@@ -45,17 +50,23 @@ public class UserController {
 
     @GetMapping("/signup")
     public String showSignupForm(Model model){
+        model.addAttribute("interests", interestDao.findAll());
         model.addAttribute("filestackapi", filestackapi);
         model.addAttribute("user", new User());
         return "signUp";
 }
 
     @PostMapping("/signup")
-    public String saveUser(@ModelAttribute User user){
+    public String saveUser(@ModelAttribute User user, @RequestParam(name = "interestsSOUT") String[] interestIDs){
         String hash = passwordEncoder.encode(user.getPassword());
-//        user.setFilestack_picture_url(filestackURL);
         user.setPassword(hash);
         userDao.save(user);
+
+        Long lastCreated = userDao.findTopByOrderByIdDesc().getId();
+        for (String interestID : interestIDs) {
+
+        }
+
         return "home";
     }
 
@@ -72,4 +83,7 @@ public class UserController {
         return "about";
     }
 
-}
+
+
+
+};

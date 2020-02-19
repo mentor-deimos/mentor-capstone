@@ -13,6 +13,8 @@ List<User> findByIdEquals(long id);
 
 User findByUsername(String username);
 
+User findTopByOrderByIdDesc();
+
 
 
 }
