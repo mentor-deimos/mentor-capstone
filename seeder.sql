@@ -1,11 +1,13 @@
-drop database if exists mentor_db;
+
 
 
 use mentor_db;
 
 
+DELETE from mentor_db.users WHERE ID >= 4;
 
 SELECT * from mentor_db.users;
+
 SELECT * from mentor_db.interests;
 SELECT * from mentor_db.user_interest;
 SELECT * FROM mentor_db.contacts;

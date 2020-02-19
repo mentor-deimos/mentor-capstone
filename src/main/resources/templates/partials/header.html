@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:fragment="header">
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" name="filestackapi" th:content="${filestackapi}">
     <title>Mentor</title>
     <link rel="stylesheet" th:href="@{/css/index.css}">
     <link rel="stylesheet" th:href="@{/css/mobile.css}">
+    <script th:src="@{/webjars/jquery/3.4.1/jquery.min.js/}"></script>
+
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 

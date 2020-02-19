@@ -7,33 +7,33 @@ import com.codeup.mentor.repositories.RatingRepository;
 import com.codeup.mentor.repositories.UserRepository;
 import com.codeup.mentor.services.RatingService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
+
 import javax.persistence.GeneratedValue;
 import java.util.List;
 
 
 @Controller
 public class UserController {
+
+    private String uploadHandle;
+
     @Autowired
     private UserRepository userDao;
     @Autowired
     private RatingService ratingService;
+    private PasswordEncoder passwordEncoder;
+    @Value("${filestack.api.key}")
+    private String filestackapi;
 
-//    private PasswordEncoder passwordEncoder;
-
-//    public UserController(UserRepository userDao
-////    , PasswordEncoder passwordEncoder
-//
-//    ){
-//        this.userDao = userDao;
-////        this.passwordEncoder = passwordEncoder;
-//
-//    }
+    public UserController(UserRepository userDao, PasswordEncoder passwordEncoder){
+        this.userDao = userDao;
+        this.passwordEncoder = passwordEncoder;
+    }
 
 
     @GetMapping("/")
@@ -44,19 +44,16 @@ public class UserController {
 
     @GetMapping("/signup")
     public String showSignupForm(Model model){
+        model.addAttribute("filestackapi", filestackapi);
         model.addAttribute("user", new User());
         return "signUp";
 }
 
-//    @GetMapping("/home")
-//    public String showHomePage(){
-//        return "home";
-//    }
-
     @PostMapping("/signup")
     public String saveUser(@ModelAttribute User user){
-//        String hash = passwordEncoder.encode(user.getPassword());
-//        user.setPassword(hash);
+        String hash = passwordEncoder.encode(user.getPassword());
+//        user.setFilestack_picture_url(filestackURL);
+        user.setPassword(hash);
         userDao.save(user);
         return "home";
     }
@@ -73,12 +70,5 @@ public class UserController {
 
         return "about";
     }
-
-    //    navbar partial test is below - can replace with OTHER PARTIALS IF NEEDED
-//    @GetMapping("/navbarTest")
-//    public String navbarTest(){
-//        return "partials/navbar";
-//    }
-
 
 }
