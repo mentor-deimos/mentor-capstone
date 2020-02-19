@@ -62,15 +62,15 @@ public class UserController {
         user.setPassword(hash);
         userDao.save(user);
 
-        String[] interestsIDarr;
-
-
-        Long lastCreated = userDao.findTopByOrderByIdDesc().getId();
-       interestsIDarr = interestsID.split(",");
-       for (String interest : interestsIDarr){
-
-       }
-        System.out.println("interestsID = " + interestsID);
+//        String[] interestsIDarr;
+//
+//
+//        Long lastCreated = userDao.findTopByOrderByIdDesc().getId();
+//       interestsIDarr = interestsID.split(",");
+//       for (String interest : interestsIDarr){
+//
+//       }
+//        System.out.println("interestsID = " + interestsID);
 
 
         return "home";
