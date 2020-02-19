@@ -35,7 +35,7 @@ public class MessagingController {
     @GetMapping("/messages/send")
     public String sendMessage(Model model){
 
-        model.addAttribute("message", new Message());
+//        model.addAttribute("message", new Message());
         return "draftmessage";
     }
 
@@ -53,13 +53,14 @@ public class MessagingController {
 
         List<Contact> contactList  = contactDao.findAll();
 
-       Message currentmsg = messageDao.getOne((long) 1);
-       User receivedUser = currentmsg.getReceiver_info();
-       User sentUser = currentmsg.getSender_info();
+//       Message currentmsg = messageDao.getOne((long) 1);
+       Message currentmsg = new Message("Hey, interested in learning how to change the oil on my Jeep Wrangler - thanks for any time you might have :)");
+//       User receivedUser = currentmsg.getReceiver_info();
+//       User sentUser = currentmsg.getSender_info();
 
        model.addAttribute("message", currentmsg);
-       model.addAttribute("receivedUser", receivedUser);
-       model.addAttribute("sentUser", sentUser);
+//       model.addAttribute("receivedUser", receivedUser);
+//       model.addAttribute("sentUser", sentUser);
        model.addAttribute("contactList", contactList);
 
         return "messages";
