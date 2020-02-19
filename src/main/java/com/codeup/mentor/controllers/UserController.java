@@ -78,7 +78,7 @@ public class UserController {
 
     @GetMapping("/profile")
     public String goToProfile(Model model) { //needs @PathVariable long id,
-        model.addAttribute("rating", ratingService.allRatingsOnSearch(2));
+//        model.addAttribute("rating", ratingService.allRatingsOnSearch(2));
         return "profile";
     }
 
