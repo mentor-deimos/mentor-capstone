@@ -1,5 +1,7 @@
 package com.codeup.mentor.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 
 @Entity
@@ -13,10 +15,14 @@ public class Contact {
 
     @ManyToOne
     @JoinColumn(name="added_user_id")
+    @JsonManagedReference
+
     private User added_user_id;
 
     @ManyToOne
     @JoinColumn(name="list_owner_id")
+    @JsonManagedReference
+
     private User owner_user;
 
     public long getId() {

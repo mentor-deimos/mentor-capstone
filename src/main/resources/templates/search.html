@@ -4,13 +4,22 @@
 </head>
 <body>
 <div class="site-container">
-    <div th:include="partials/navbar :: navbar">
+        <div th:include="partials/navbar :: navbar">
+        </div>
+        <main class="site-content">
+    This are where the results pop up
+    </main>
+    <div th:include="partials/footer :: footer">
     </div>
-    <main class="site-content">
-This are where the results pop up
-</main>
-<div th:include="partials/footer :: footer">
 </div>
-</div>
+<h1>Ads</h1>
+<div id="users"></div>
+<script
+        src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"
+>
+</script>
+<script src="/js/search.js"></script>
 </body>
 </html>

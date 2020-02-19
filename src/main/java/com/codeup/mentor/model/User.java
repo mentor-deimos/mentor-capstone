@@ -1,5 +1,9 @@
 package com.codeup.mentor.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.List;
@@ -23,8 +27,8 @@ public class User {
     private String username;
 
     @Column(nullable = false)
+    @JsonIgnore
     private String password;
-
 
     @Column(nullable = false, unique = true)
     private String email;
@@ -48,33 +52,47 @@ public class User {
             joinColumns={@JoinColumn(name="user_id")},
             inverseJoinColumns={@JoinColumn(name="interest_id")}
     )
+    @JsonManagedReference
     private List<Interest> interestList;
 
 //    below > user >> ratings
     @OneToMany(mappedBy = "giver_info")
+    @JsonBackReference
         private Collection<Rating> given_rating;
 
 
     @OneToMany(mappedBy = "receiver_info")
-        private Collection<Rating> received_rating;
+    @JsonBackReference
+
+    private Collection<Rating> received_rating;
 
 //    below > user >> posts
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    @JsonBackReference
+
     private List<Post> posts;
 
 //    below > user OWNER contact list > list of contacts
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner_user")
+    @JsonBackReference
+
     private Collection<Contact> contactListOwner;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "added_user_id")
+    @JsonBackReference
+
     private Collection<Contact> contactListEntity;
 
 //   below > user to messages relationship mapped out
 
     @OneToMany(mappedBy="sender_info")
+    @JsonBackReference
+
     private Collection<Message> senders;
 
     @OneToMany(mappedBy="receiver_info")
+    @JsonBackReference
+
     private Collection<Message> receivers;
 
 

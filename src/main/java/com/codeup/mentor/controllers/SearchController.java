@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 public class SearchController {
     SearchService searchService;
@@ -27,5 +29,16 @@ public class SearchController {
         model.addAttribute("myInput", myInput);
 
         return "search";
+    }
+
+    @GetMapping("/search.json")
+    public @ResponseBody
+    List<User> viewAllUsersInJSONFormat() {
+        return users.findAll();
+    }
+
+    @GetMapping("/search/ajax")
+    public String viewAllUsersWithAjax() {
+        return "search/ajax";
     }
 }
