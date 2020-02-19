@@ -54,6 +54,7 @@ public class User {
     @OneToMany(mappedBy = "giver_info")
         private Collection<Rating> given_rating;
 
+
     @OneToMany(mappedBy = "receiver_info")
         private Collection<Rating> received_rating;
 
@@ -88,6 +89,7 @@ public class User {
         this.email = email;
         this.biography = biography;
         this.is_mentor = is_mentor;
+        this.location = location;
         this.filestack_picture_url = filestack_picture_url;
         this.location = location;
     }
@@ -100,6 +102,7 @@ public class User {
         this.password = password;
         this.biography = biography;
         this.is_mentor = is_mentor;
+        this.location = location;
         this.filestack_picture_url = filestack_picture_url;
         this.location = location;
     }
@@ -180,6 +183,13 @@ public class User {
 
     public void setFilestack_picture_url(String filestack_picture_url) {
         this.filestack_picture_url = filestack_picture_url;
+    }
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 
     public String getPassword() {
