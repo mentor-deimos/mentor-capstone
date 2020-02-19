@@ -21,7 +21,7 @@ a{
     text-decoration: none;
 }
 #splash{
-    background-image: linear-gradient(#0035A8,#1777F2);
+    background-image: linear-gradient(#1777F2, #0035A8);
     background-repeat: no-repeat;
     background-size: 100%;
     height: 100vh;
@@ -414,8 +414,8 @@ a{
 }
 /*---------------------profile-----------------------*/
 
-#rating {
-    font-size: 8vw;
+.rating {
+    font-size: 10vw;
 }
 #profilePicture{
     height: 50vh;
@@ -661,23 +661,48 @@ textarea:focus{
 
     }
 }
-
-
+#james{
+    display: none;
+}
+@media only screen and (min-width: 800px) and (max-width: 1100px) {
+    #james{
+        display: inline-block;
+    }
+}
 @media only screen and (max-width: 800px) {
-
+    #regForm{
+        vertical-align: center;
+    }
+    #right{
+        text-align: center;
+        color: white;
+        width: 100%!important;
+        height: 100%!important;
+    }
+    #right button{
+        color: white;
+        border: white 2px solid;
+        margin: 10px;
+        background-color: transparent;
+    }
+    #right p{
+       color: black!important;
+    }
 
     h1, h2, h3, label{
-        font-size: 3vh!important;
+        font-size: 4vh!important;
         font-family: 'Montserrat', sans-serif;
         color: white!important;
     }
-   p{
-       font-size: 2vh!important;
+   p, h5{
+       font-size: 3vh!important;
        font-family: 'Open Sans', sans-serif;
        color: white!important;
    }
    form, .post{
-       /*width: 80vw!important;*/
+       width: 90vw!important;
+       margin-left: 10px!important;
+       margin-right: 0!important;
    }
     .navWrapper{
         display: block;
@@ -686,20 +711,26 @@ textarea:focus{
         display: none;
     }
 
-    #signUp, #about, #home, #profile, #splash{
-        display: none;
+    .rightContent, #left, #about, #home, #profile, #splash{
+        display: none!important;
     }
     body{
         margin: 0;
     }
+    html{
+        background-image: linear-gradient(#1777F2, #0035A8);
+        background-repeat: no-repeat;
+        background-size: 100vh;
+        height: 100vh;
 
+    }
     .mobile{
         color: white;
-        background-image: linear-gradient(#0035A8,#1777F2);
+        background-image: linear-gradient(#1777F2, #0035A8);
         background-repeat: no-repeat;
         background-size: 100%;
         height: 100%;
-        width: 100vw;
+        width: 100%;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -721,7 +752,7 @@ textarea:focus{
         text-shadow: black 2px 2px;
         color: #FEDD00;
         font-family: 'Open Sans', sans-serif;
-        font-size: 100px;
+        font-size: 50px;
     }
     a img{
         height: 25px;
@@ -732,6 +763,7 @@ textarea:focus{
     .btn{
         color: white;
         border-color: white;
+
     }
 
 }
