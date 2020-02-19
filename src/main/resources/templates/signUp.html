@@ -63,6 +63,15 @@
             <option th:value="1" >mentor</option>
             <option th:value="0" >mentee</option>
         </select>
+
+        <h3>Interests</h3>
+        <div id="interests" th:each="i : ${interests}">
+            <label>
+                <input name="interests" type="checkbox"  th:value="${i.getId()}" th:text="${i.getName()}"/>
+            </label>
+            </input>
+        </div>
+
     </div>
 
             <button type="button" id="prevBtn">Previous</button>
