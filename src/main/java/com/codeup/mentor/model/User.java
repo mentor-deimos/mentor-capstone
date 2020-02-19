@@ -184,16 +184,18 @@ public class User {
         return filestack_picture_url;
     }
 
+    public List<Interest> getInterestList() {
+        return interestList;
+    }
+
+
+    public void setInterestList(List<Interest> interestList) {
+        this.interestList = interestList;
+
+    }
+
     public void setFilestack_picture_url(String filestack_picture_url) {
         this.filestack_picture_url = filestack_picture_url;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
     }
 
     public String getPassword() {
