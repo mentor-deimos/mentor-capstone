@@ -20,7 +20,7 @@
             <div style="display: flex; margin-right: -100px!important;">
                 <a th:href="@{/messages}"><img th:src="@{/img/svg/mail.svg}" alt="" style=" margin-top: -10px; margin-right: 40px"></a>
                 <a th:href="@{/profile}"><img th:src="@{/img/svg/user.svg}" alt="" style=" margin-top: -10px"></a>
-                <form autocomplete="off" action="/search">
+                <form autocomplete="off" th:action="@{/search}" th:object="${users}" th:method="GET">
                     <div id="searching">
                         <div class="wrapper1">
                             <div id="searchThis">
@@ -28,7 +28,7 @@
                                     <div class="cntr">
                                         <div class="cntr-innr">
                                             <label class="search" for="myInput">
-                                                <input id="myInput" name="search" type="text" placeholder="Search"/>
+                                                <input id="myInput" name="myInput" type="text" placeholder="Search"/>
                                             </label>
                                         </div>
                                     </div>

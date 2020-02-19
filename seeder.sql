@@ -47,9 +47,15 @@ SELECT * FROM ratings WHERE recipient_user_id = ?1;
 INSERT INTO ratings (rating, giver_user_id, recipient_user_id)
 VALUES (2, 1,2);
 
-SELECT * FROM users where LOWER(first_name) like "%kenneth%";
 
-SELECT * FROM interests where LOWER(name) LIKE "%beau%";
+
+SELECT first_name, last_name, filestack_picture_url FROM users where LOWER(first_name) like "%kellsey%";
+
+SELECT first_name, last_name, filestack_picture_url FROM users where LOWER(last_name) like "%neagley%";
+
+SELECT name FROM interests where LOWER(name) LIKE "%beau%";
+
+SELECT first_name, last_name, filestack_picture_url FROM users where LOWER(location) LIKE "%dall%";
 
 SELECT * FROM users WHERE is_mentor = true;
 
