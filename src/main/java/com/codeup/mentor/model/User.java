@@ -77,6 +77,13 @@ public class User {
     @OneToMany(mappedBy = "receiver_info")
     private Collection<Message> receivers;
 
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
 
     public User() {
     }
