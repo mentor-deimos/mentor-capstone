@@ -1,5 +1,5 @@
 *{
-@import url('https://fonts.googleapis.com/css?family=Montserrat|Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Open+Sans&display=swap');
 }
 .mobile{
     display: none;
@@ -47,7 +47,7 @@ a{
     text-shadow: black 2px 2px;
     color: #FEDD00;
     margin-left: 180px;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 200px;
 }
 #quotes{
@@ -177,7 +177,7 @@ a{
 .titleSpanNav{
     text-shadow: black 2px 2px;
     color: #FEDD00;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 80px;
 }
 .mentorIconNav{
@@ -663,7 +663,22 @@ textarea:focus{
 }
 
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
+
+
+    h1, h2, h3, label{
+        font-size: 3vh!important;
+        font-family: 'Montserrat', sans-serif;
+        color: white!important;
+    }
+   p{
+       font-size: 2vh!important;
+       font-family: 'Open Sans', sans-serif;
+       color: white!important;
+   }
+   form, .post{
+       /*width: 80vw!important;*/
+   }
     .navWrapper{
         display: block;
     }
@@ -705,7 +720,7 @@ textarea:focus{
     .titleSpanM{
         text-shadow: black 2px 2px;
         color: #FEDD00;
-        font-family: 'Playfair Display', serif;
+        font-family: 'Open Sans', sans-serif;
         font-size: 100px;
     }
     a img{
@@ -714,4 +729,9 @@ textarea:focus{
     .mobileLogin{
         display: none;
     }
+    .btn{
+        color: white;
+        border-color: white;
+    }
+
 }
