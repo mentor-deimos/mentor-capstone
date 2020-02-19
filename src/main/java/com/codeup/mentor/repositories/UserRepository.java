@@ -2,6 +2,7 @@ package com.codeup.mentor.repositories;
 
 import com.codeup.mentor.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
@@ -14,7 +15,6 @@ List<User> findByIdEquals(long id);
 User findByUsername(String username);
 
 User findTopByOrderByIdDesc();
-
 
 
 }

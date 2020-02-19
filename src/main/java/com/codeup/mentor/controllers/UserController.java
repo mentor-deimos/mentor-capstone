@@ -6,6 +6,7 @@ import com.codeup.mentor.model.Rating;
 import com.codeup.mentor.model.User;
 import com.codeup.mentor.repositories.InterestRepository;
 import com.codeup.mentor.repositories.RatingRepository;
+import com.codeup.mentor.repositories.UserInterestRepository;
 import com.codeup.mentor.repositories.UserRepository;
 import com.codeup.mentor.services.RatingService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,68 +23,76 @@ import java.util.List;
 @Controller
 public class UserController {
 
-//    repos
+    //    repos
     private UserRepository userDao;
     private InterestRepository interestDao;
+    private UserInterestRepository userinterestDao;
 
     private RatingService ratingService;
     private PasswordEncoder passwordEncoder;
 
 
-//    wired up filestack api through MVC - kh
+    //    wired up filestack api through MVC - kh
     @Value("${filestack.api.key}")
     private String filestackapi;
 
-    public UserController(UserRepository userDao, PasswordEncoder passwordEncoder, InterestRepository interestDao){
+    public UserController(UserRepository userDao, PasswordEncoder passwordEncoder, InterestRepository interestDao, UserInterestRepository userinterestDao) {
         this.userDao = userDao;
         this.passwordEncoder = passwordEncoder;
         this.interestDao = interestDao;
+        this.userinterestDao = userinterestDao;
     }
 
 
     @GetMapping("/")
-    public String showSplashPage(){
+    public String showSplashPage() {
         return "splash";
     }
 
 
-
     @GetMapping("/signup")
-    public String showSignupForm(Model model){
+    public String showSignupForm(Model model) {
+
         model.addAttribute("interests", interestDao.findAll());
         model.addAttribute("filestackapi", filestackapi);
         model.addAttribute("user", new User());
         return "signUp";
-}
+    }
 
     @PostMapping("/signup")
-    public String saveUser(@ModelAttribute User user, @RequestParam(name = "interestsSOUT") String[] interestIDs){
+    public String saveUser(@ModelAttribute User user, @RequestParam(name = "interests") String interestsID) {
         String hash = passwordEncoder.encode(user.getPassword());
         user.setPassword(hash);
         userDao.save(user);
 
-        Long lastCreated = userDao.findTopByOrderByIdDesc().getId();
-        for (String interestID : interestIDs) {
+        String[] interestsIDarr;
 
-        }
+
+        Long lastCreated = userDao.findTopByOrderByIdDesc().getId();
+       interestsIDarr = interestsID.split(",");
+       for (String interest : interestsIDarr){
+
+       }
+        System.out.println("interestsID = " + interestsID);
+
 
         return "home";
     }
 
     @GetMapping("/profile")
-    public String goToProfile(Model model){ //needs @PathVariable long id,
+    public String goToProfile(Model model) { //needs @PathVariable long id,
         model.addAttribute("rating", ratingService.allRatingsOnSearch(2));
         return "profile";
     }
 
 
     @GetMapping("/about")
-    public String goToAbout(){ //needs @PathVariable long id,
+    public String goToAbout() { //needs @PathVariable long id,
 
         return "about";
     }
+}
 
 
 
 
-};
