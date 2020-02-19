@@ -6,7 +6,6 @@ import com.codeup.mentor.model.Rating;
 import com.codeup.mentor.model.User;
 import com.codeup.mentor.repositories.InterestRepository;
 import com.codeup.mentor.repositories.RatingRepository;
-import com.codeup.mentor.repositories.UserInterestRepository;
 import com.codeup.mentor.repositories.UserRepository;
 import com.codeup.mentor.services.RatingService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +25,6 @@ public class UserController {
     //    repos
     private UserRepository userDao;
     private InterestRepository interestDao;
-    private UserInterestRepository userinterestDao;
 
     private RatingService ratingService;
     private PasswordEncoder passwordEncoder;
@@ -36,11 +34,10 @@ public class UserController {
     @Value("${filestack.api.key}")
     private String filestackapi;
 
-    public UserController(UserRepository userDao, PasswordEncoder passwordEncoder, InterestRepository interestDao, UserInterestRepository userinterestDao) {
+    public UserController(UserRepository userDao, PasswordEncoder passwordEncoder, InterestRepository interestDao) {
         this.userDao = userDao;
         this.passwordEncoder = passwordEncoder;
         this.interestDao = interestDao;
-        this.userinterestDao = userinterestDao;
     }
 
 
