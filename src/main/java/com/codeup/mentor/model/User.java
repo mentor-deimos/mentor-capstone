@@ -35,6 +35,9 @@ public class User {
     @Column(nullable = false)
     private boolean is_mentor;
 
+    @Column(nullable = false)
+    private String location;
+
     @Column
     private String filestack_picture_url;
 
@@ -50,6 +53,7 @@ public class User {
 //    below > user >> ratings
     @OneToMany(mappedBy = "giver_info")
         private Collection<Rating> given_rating;
+
 
     @OneToMany(mappedBy = "receiver_info")
         private Collection<Rating> received_rating;
@@ -76,7 +80,7 @@ public class User {
 
     public User (){};
 
-    public User(long id, String first_name, String last_name, String username, String email, String biography, boolean is_mentor, String filestack_picture_url, String password) {
+    public User(long id, String first_name, String last_name, String username, String email, String biography, boolean is_mentor, String filestack_picture_url, String password, String location) {
         this.id = id;
         this.first_name = first_name;
         this.last_name = last_name;
@@ -85,10 +89,11 @@ public class User {
         this.email = email;
         this.biography = biography;
         this.is_mentor = is_mentor;
+        this.location = location;
         this.filestack_picture_url = filestack_picture_url;
     }
 
-    public User(String first_name, String last_name, String username, String email, String biography, boolean is_mentor, String filestack_picture_url, String password) {
+    public User(String first_name, String last_name, String username, String email, String biography, boolean is_mentor, String filestack_picture_url, String password, String location) {
         this.first_name = first_name;
         this.last_name = last_name;
         this.username = username;
@@ -96,6 +101,7 @@ public class User {
         this.password = password;
         this.biography = biography;
         this.is_mentor = is_mentor;
+        this.location = location;
         this.filestack_picture_url = filestack_picture_url;
     }
 
@@ -109,6 +115,7 @@ public class User {
         is_mentor = copy.is_mentor;
         password = copy.password;
         filestack_picture_url = copy.filestack_picture_url;
+        location = copy.location;
     }
 
 /* comment test */
@@ -174,6 +181,13 @@ public class User {
 
     public void setFilestack_picture_url(String filestack_picture_url) {
         this.filestack_picture_url = filestack_picture_url;
+    }
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 
     public String getPassword() {
