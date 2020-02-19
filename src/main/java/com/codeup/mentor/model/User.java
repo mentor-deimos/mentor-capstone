@@ -200,12 +200,5 @@ public class User {
         this.password = password;
     }
 
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
 //    commit comment
 }
