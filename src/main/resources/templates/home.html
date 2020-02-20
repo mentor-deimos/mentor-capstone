@@ -33,9 +33,9 @@
                 <h1 style="font-size: 35px!important; margin: 10px; color: #1777F2" th:text="${post.title}"></h1>
                 <hr>
                 <p style="margin: 10px" th:text="${post.body}"></p>
-                <form th:action="@{|/posts/${post.id}/edit|}" th:method="GET"
+                <form th:unless="${post.getUser() != principal}" th:action="@{|/posts/${post.id}/edit|}" th:method="GET"
                       style="display: flex; justify-content: flex-end; margin: 10px">
-                    <button class="btn btn3">Edit Post</button>
+                    <button id="editbtn" class="btn btn3">Edit Post</button>
                 </form>
             </div>
 
