@@ -27,7 +27,7 @@
                 <button class="btn btn3">Create a post</button>
             </a>
 
-            <div class="post" th:each="post : ${posts}"
+            <div th:each="post : ${posts}"
                  style="border: 4px solid #1777F2; box-shadow: 4px 4px black; margin: 20px 0 20px 25%; width: 50vw">
 
                 <h1 style="font-size: 35px!important; margin: 10px; color: #1777F2" th:text="${post.title}"></h1>
@@ -60,7 +60,7 @@
         </div>
     </form>
 
-    <div th:each="post : ${posts}"
+    <div class="post"  th:each="post : ${posts}"
          style="border: 4px solid #1777F2; box-shadow: 4px 4px black; margin: 20px 0 20px 25%; width: 50vw">
 
         <h1 style="font-size: 35px!important; margin: 10px; color: #1777F2" th:text="${post.title}"></h1>
@@ -68,12 +68,12 @@
         <p style="margin: 10px" th:text="${post.body}"></p>
         <form th:action="@{|/posts/${post.id}/edit|}" th:method="GET"
               style="display: flex; justify-content: flex-end; margin: 10px">
-            <button class="btn btn3">Edit Post</button>
+            <button class="btn btn3" style="margin-right: 20px!important;">Edit Post</button>
         </form>
     </div>
     <div style="margin-bottom: 200px"></div>
 
-    <div th:include="partials/footer :: mobile-footer">
+    <div th:include="partials/navbar :: mobile-nav">
     </div>
 </div>
 

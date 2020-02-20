@@ -21,14 +21,14 @@ a{
     text-decoration: none;
 }
 #splash{
-    background-image: linear-gradient(#0035A8,#1777F2);
+    background-image: linear-gradient(#1777F2, #0035A8);
     background-repeat: no-repeat;
     background-size: 100%;
-    height: 100vh;
+    height: 100%;
     width: 100vw;
     display: grid;
     grid-template-columns: 25% 50% 25%;
-    grid-template-rows: 25vh 50vh 20vh;
+    grid-template-rows: 25vh 50vh 25vh 80vh 120vh;
     justify-items: center;
 }
 .icon{
@@ -57,6 +57,26 @@ a{
     color: white;
     font-size: 20px;
     width: 400px
+}
+.arrows{
+    margin-top: -50px;
+    grid-area: 4 / 2 / 5 / 3;
+
+}
+.arrow{
+    animation: bounce 2s infinite;
+    height: 50px;
+}
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-30px);
+    }
+    60% {
+        transform: translateY(-15px);
+    }
 }
 .btn{
     transition: all ease 0.8s;
@@ -153,6 +173,47 @@ a{
 .modal-actions {
     align-self: flex-end;
 }
+
+.splashSection2{
+    font-family: 'Open Sans', sans-serif;
+    background-color: white;
+    grid-area: 4 / 1 / 5 / 4;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.splashSection2 img{
+    height: 200px;
+    margin: 0 50px;
+}
+.splashSection2 p {
+    font-size: 25px;
+}
+.splashSection2 h1{
+    font-family: 'Montserrat', sans-serif;
+}
+.splashSection3{
+    font-family: 'Open Sans', sans-serif;
+    grid-area: 5 / 1 / 6 / 4;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.splashProfilePic{
+    height: 200px;
+    width: 200px;
+    border: #FEDD00 4px solid;
+    border-radius: 50%;
+    box-shadow: black 4px 4px;
+}
+.splashSection3 li{
+    margin: 0 20px;
+    color: white;
+    text-align: center;
+}
 /*-------------------navbar-----------------------*/
 #wrapper {
     position: absolute;
@@ -225,7 +286,6 @@ a{
     color: white;
 
 }
-
 
 /*---------footer---------------------*/
 #aboutLink{
@@ -414,8 +474,8 @@ a{
 }
 /*---------------------profile-----------------------*/
 
-#rating {
-    font-size: 8vw;
+.rating {
+    font-size: 10vw;
 }
 #profilePicture{
     height: 50vh;
@@ -661,23 +721,55 @@ textarea:focus{
 
     }
 }
-
-
+#james{
+    display: none;
+}
+@media only screen and (min-width: 800px) and (max-width: 1100px) {
+    #james{
+        display: inline-block;
+    }
+    .splashSection2 img{
+        height: 150px;
+        margin: 0 50px;
+    }
+    .splashSection2 p {
+        font-size: 16px;
+    }
+}
 @media only screen and (max-width: 800px) {
-
+    #regForm{
+        vertical-align: center;
+    }
+    #right{
+        text-align: center;
+        color: white;
+        width: 100%!important;
+        height: 100%!important;
+    }
+    #right button{
+        color: white;
+        border: white 2px solid;
+        margin: 10px;
+        background-color: transparent;
+    }
+    #right p{
+       color: black!important;
+    }
 
     h1, h2, h3, label{
-        font-size: 3vh!important;
+        font-size: 4vh!important;
         font-family: 'Montserrat', sans-serif;
         color: white!important;
     }
-   p{
-       font-size: 2vh!important;
+   p, h5{
+       font-size: 3vh!important;
        font-family: 'Open Sans', sans-serif;
        color: white!important;
    }
    form, .post{
-       /*width: 80vw!important;*/
+       width: 90vw!important;
+       margin-left: 10px!important;
+       margin-right: 0!important;
    }
     .navWrapper{
         display: block;
@@ -686,20 +778,26 @@ textarea:focus{
         display: none;
     }
 
-    #signUp, #about, #home, #profile, #splash{
-        display: none;
+    .rightContent, #left, #about, #home, #profile, #splash{
+        display: none!important;
     }
     body{
         margin: 0;
     }
+    html{
+        background-image: linear-gradient(#1777F2, #0035A8);
+        background-repeat: no-repeat;
+        background-size: 100vh;
+        height: 100vh;
 
+    }
     .mobile{
         color: white;
-        background-image: linear-gradient(#0035A8,#1777F2);
+        background-image: linear-gradient(#1777F2, #0035A8);
         background-repeat: no-repeat;
         background-size: 100%;
         height: 100%;
-        width: 100vw;
+        width: 100%;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -721,7 +819,7 @@ textarea:focus{
         text-shadow: black 2px 2px;
         color: #FEDD00;
         font-family: 'Open Sans', sans-serif;
-        font-size: 100px;
+        font-size: 50px;
     }
     a img{
         height: 25px;
@@ -732,6 +830,7 @@ textarea:focus{
     .btn{
         color: white;
         border-color: white;
+
     }
 
 }

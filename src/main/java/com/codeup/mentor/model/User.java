@@ -33,7 +33,7 @@ public class User {
     @Column(nullable = false, unique = true)
     private String email;
 
-    @Column(nullable = false, length=500)
+    @Column(nullable = false, length = 500)
     private String biography;
 
     @Column(nullable = false)
@@ -47,16 +47,17 @@ public class User {
 
 
 //    below > join table user >> interest
+
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
-            name="user_interest",
-            joinColumns={@JoinColumn(name="user_id")},
-            inverseJoinColumns={@JoinColumn(name="interest_id")}
+            name = "user_interest",
+            joinColumns = {@JoinColumn(name = "user_id")},
+            inverseJoinColumns = {@JoinColumn(name = "interest_id")}
     )
     @JsonManagedReference
     private List<Interest> interestList;
 
-//    below > user >> ratings
+    //    below > user >> ratings
     @OneToMany(mappedBy = "giver_info")
     @JsonBackReference
         private Collection<Rating> given_rating;
@@ -65,15 +66,16 @@ public class User {
     @OneToMany(mappedBy = "receiver_info")
     @JsonBackReference
 
+
     private Collection<Rating> received_rating;
 
-//    below > user >> posts
+    //    below > user >> posts
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     @JsonBackReference
 
     private List<Post> posts;
 
-//    below > user OWNER contact list > list of contacts
+    //    below > user OWNER contact list > list of contacts
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner_user")
     @JsonBackReference
 
@@ -111,9 +113,10 @@ public class User {
 
     public void setRating(int rating) {
         this.rating = rating;
+
     }
 
-    public User (){};
+    ;
 
     public User(long id, String first_name, String last_name, String username, String email, String biography, boolean is_mentor, String filestack_picture_url, String password, String location) {
         this.id = id;
@@ -141,7 +144,7 @@ public class User {
 
     }
 
-    public User(User copy){
+    public User(User copy) {
         id = copy.id;
         first_name = copy.first_name;
         last_name = copy.last_name;
@@ -154,7 +157,7 @@ public class User {
         location = copy.location;
     }
 
-/* comment test */
+    /* comment test */
     public long getId() {
         return id;
     }
@@ -215,15 +218,18 @@ public class User {
         return filestack_picture_url;
     }
 
-    public void setFilestack_picture_url(String filestack_picture_url) {
-        this.filestack_picture_url = filestack_picture_url;
-    }
-    public String getLocation() {
-        return location;
+    public List<Interest> getInterestList() {
+        return interestList;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+
+    public void setInterestList(List<Interest> interestList) {
+        this.interestList = interestList;
+
+    }
+
+    public void setFilestack_picture_url(String filestack_picture_url) {
+        this.filestack_picture_url = filestack_picture_url;
     }
 
     public String getPassword() {
@@ -235,6 +241,7 @@ public class User {
     }
 
 //    commit comment
+
 
 
 }

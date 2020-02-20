@@ -15,6 +15,10 @@ public class Message {
     @Column(nullable = false)
     private long id;
 
+    public Message(String body) {
+        this.body = body;
+    }
+
     @Column(nullable = false, length = 750)
     private String body;
 

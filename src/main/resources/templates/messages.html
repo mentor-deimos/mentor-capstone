@@ -4,34 +4,64 @@
 </head>
 <body>
 <div class="site-container">
-<div th:include="partials/navbar :: navbar">
-</div>
+    <div th:include="partials/navbar :: navbar">
+    </div>
     <main class="site-content">
 
 
-<!--div holding structure for contacts menu - EVENTUAL FOR EACH displaying LIST OF CONTACTS-->
-<div style="width: 30%; display: inline">
-    <div th:each="contact : ${contactList}">
-        Contact Name:
-        <h1 th:text="${contact.getAdded_user_id().getFirst_name() + contact.getAdded_user_id().getLast_name()}"></h1>
-        Contact E-mail:
-        <p th:text="${contact.getAdded_user_id().getEmail()}"></p>
-    </div>
-</div>
+        <!--div holding structure for contacts menu - EVENTUAL FOR EACH displaying LIST OF CONTACTS-->
+        <div style="display: flex">
+            <div style="width: 20%; border: 8px lightgrey solid; border-radius: 8px">
+                <div th:each="contact : ${contactList}" style="margin: 100px">
+                    <img th:src="@{img/ken.jpeg}" alt=""
+                         style="border: 6px solid #1777F2; border-radius: 50%; height: 150px; width: 150px;">
+<!--                    <h2 th:text="${contact.getAdded_user_id().getFirst_name() + contact.getAdded_user_id().getLast_name()}"></h2>-->
+                </div>
+            </div>
 
-<!--div holding structure for eventual FOR EACH LOOP pulling LIST OF MESSAGES w/ METHODS BRINGING SENDER/RECEIVER NAMES-->
+            <!--div holding structure for eventual FOR EACH LOOP pulling LIST OF MESSAGES w/ METHODS BRINGING SENDER/RECEIVER NAMES-->
+            <div style="width: 80%; border: 8px lightgrey solid; border-radius: 8px">
 
-<div style="width: 60%; display: inline">
-<h1><p th:text="${message.body}"></p></h1>
-Sent by <span th:text="${sentUser.getFirst_name() + sentUser.getLast_name()}"/>
-Received by <span th:text="${receivedUser.getFirst_name() + receivedUser.getLast_name()}"/>
-</div>
+<!--                <div style="width: 80%; display: inline;">-->
+<!--                    <h2 style=" background-color: dodgerblue; color: white; width: 50%; border: lightgrey 2px solid; margin: 20px; border-radius: 8px"><p th:text="${message.body}"></p></h2>-->
+<!--                    Sent by <span th:text="${sentUser.getFirst_name() + sentUser.getLast_name()}"/>-->
+<!--                    Received by <span th:text="${receivedUser.getFirst_name() + receivedUser.getLast_name()}"/>-->
+<!--                </div>-->
 
-
+                <div style="width: 80%; display: inline;">
+                    <h2 style=" background-color: dodgerblue; color: white; width: 50%; border: lightgrey 2px solid; margin: 20px; border-radius: 8px"><p th:text="${message.body}"></p></h2>
+                    Sent by Kenneth Walsh
+                    Received by Bryan Howell
+                </div>
+            </div>
+        </div>
 
     </main>
-<div th:include="partials/footer :: footer">
+    <div th:include="partials/footer :: footer">
+    </div>
 </div>
+<div class="mobile">
+    <div style="display: flex">
+        <div style="width: 30%; height: 100%; border: 8px lightgrey solid; border-radius: 8px">
+            <div th:each="contact : ${contactList}" style="margin: 100px">
+                <img th:src="@{img/ken.jpeg}" alt=""
+                     style="border: 6px solid #1777F2; border-radius: 50%; height: 50px; width: 50px;">
+                <h2 th:text="${contact.getAdded_user_id().getFirst_name() + contact.getAdded_user_id().getLast_name()}"></h2>
+            </div>
+        </div>
+
+        <!--div holding structure for eventual FOR EACH LOOP pulling LIST OF MESSAGES w/ METHODS BRINGING SENDER/RECEIVER NAMES-->
+        <div style="width: 80%; border: 8px lightgrey solid; border-radius: 8px">
+
+            <div style="width: 70%; height: 100%; display: inline;">
+                <h2 style=" background-color: dodgerblue; color: white; width: 50%; border: lightgrey 2px solid; margin: 20px; border-radius: 8px"><p th:text="${message.body}"></p></h2>
+                Sent by <span th:text="${sentUser.getFirst_name() + sentUser.getLast_name()}"/>
+                Received by <span th:text="${receivedUser.getFirst_name() + receivedUser.getLast_name()}"/>
+            </div>
+        </div>
+    </div>
+    <div th:include="partials/navbar :: mobile-nav">
+    </div>
 </div>
 </body>
 </html>

@@ -18,9 +18,15 @@
             </div>
 
             <div style="display: flex; margin-right: -100px!important;">
-                <a th:href="@{/messages}"><img th:src="@{/img/svg/mail.svg}" alt="" style=" margin-top: -10px; margin-right: 40px"></a>
+                <div class="hoverNav">
+                <a th:href="@{/messages}"><img th:src="@{/img/svg/mail.svg}" alt=""
+                                               style=" margin-top: -10px; margin-right: 20px"></a>
+
+            </div>
+                <div class="hoverNav">
                 <a th:href="@{/profile}"><img th:src="@{/img/svg/user.svg}" alt="" style=" margin-top: -10px"></a>
                 <form autocomplete="off" th:action="@{/search}" th:object="${user}" th:method="GET">
+
                     <div id="searching">
                         <div class="wrapper1">
                             <div id="searchThis">
@@ -47,7 +53,10 @@
                         </div>
                     </div>
                 </form>
-                <div class="link search"><img th:src="@{/img/svg/search.svg}" alt=""></div>
+                <div class="link search hoverNav">
+                    <img th:src="@{/img/svg/search.svg}" alt="">
+
+                </div>
             </div>
         </div>
     </div>
@@ -179,6 +188,59 @@
             $('#searchResults').empty();
         });
     </script>
+</nav>
+<nav class="mobile" th:fragment="mobile-nav">
+    <div class="navWrapper">
+        <div class="nav-bar">
+            <form class="mobileSearch" style="display: none" action="/search">
+                <input style="border: 2px solid #1777F2;margin: 5px 5px 5px 20px; width: 250px!important; height: 50px!important; font-size: 30px; font-family: 'Open Sans', sans-serif">
+                <button style="border: 2px solid black; margin: 5px; color: white; background-color: #1777F2; height: 50px">Search</button>
+                <button class="close" style="border: 2px solid black; background-color: #FEDD00; height: 50px; width: 50px; margin: 5px">X</button>
+            </form>
+            <div class="nav-bar__item" onClick="onClick(this)">
+                <a th:href="@{/home}"><img th:src="@{img/home.svg}" alt="Home"/></a>
+
+        <span>Home</span>
+
+            </div>
+
+            <div class="nav-bar__item" onClick="onClick(this)">
+                <a th:href="@{/about}"><img th:src="@{img/about.svg}" alt="about"/></a>
+                <span>About</span>
+            </div>
+
+            <div class="nav-bar__item" onClick="onClick(this)">
+                <a class="searchActivate" href="#"><img th:src="@{img/svg/search.svg}" alt="Search"/></a>
+                <span>Search</span>
+            </div>
+
+            <div class="nav-bar__item" onClick="onClick(this)">
+                <a th:href="@{/messages}"><img th:src="@{img/svg/mail.svg}" alt="User"/></a>
+                <span>Messages</span>
+            </div>
+
+            <div class="nav-bar__item" onClick="onClick(this)">
+                <a th:href="@{/profile}"><img th:src="@{img/svg/user.svg}" alt="User"/></a>
+                <span>Profile</span>
+            </div>
+
+        </div>
+    </div>
+    <script>
+        function onClick(e) {
+            [...document.querySelectorAll('.nav-bar__item')].forEach(item => item.classList.remove('active'));
+            e.classList.add('active');
+        }
+        $(".searchActivate").click(function () {
+            $(".nav-bar__item").css("display","none");
+            $(".mobileSearch").css("display","flex")
+        })
+        $(".close").click(function () {
+            $(".nav-bar__item").css("display","flex");
+            $(".mobileSearch").css("display","none")
+        })
+    </script>
+
 </nav>
 </body>
 </html>

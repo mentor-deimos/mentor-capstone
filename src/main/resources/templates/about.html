@@ -11,7 +11,7 @@
             <ul style="display: flex; justify-content: center; list-style: none; padding: 0">
                 <li>
                     <img class="profilePic" th:src="@{img/profileJW.png}" alt="">
-                    <h3>J.W. Hester</h3>
+                    <h3><span id="james">James</span> J.W. Hester</h3>
                     <ul style="list-style: none; display: flex; justify-content: space-evenly">
                         <li><a href="https://www.linkedin.com/in/jw-hester/"><img class="aboutPic"
                                                                                   th:src="@{img/linkedin.svg}"
@@ -98,7 +98,7 @@
         Developers and this is our final project at Codeup. Mentor is a full-stack Java application that uses
         Spring to access a MySQL database. The front-end is our own custom CSS, and jQuery was used to add the
         File Stack API and interactivity.</h5>
-    <div th:include="partials/footer :: mobile-footer">
+    <div th:include="partials/navbar :: mobile-nav">
     </div>
 </div>
 
