@@ -68,15 +68,14 @@ public class UserController {
 
     @GetMapping("/profile")
     public String goToProfile(Model model, Principal principal){
+        System.out.println(principal + "**********");
         if (principal != null){
             User user = userDao.findByUsername(principal.getName());
             model.addAttribute("user", user);
-            model.addAttribute("rating", ratingService.allRatingsOnSearch(2));
+            model.addAttribute("rating", ratingService.allRatingsOnSearch());
             return "profile";
         }
-        return "/splash";
-
-
+        return "/";
     }
 
 
