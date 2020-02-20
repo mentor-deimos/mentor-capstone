@@ -29,6 +29,7 @@ public class ProfileController {
     }
 
 
+
     @GetMapping("/profile")
     public String goToProfile(Model model, Principal principal){
         if (principal != null){
