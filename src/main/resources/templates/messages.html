@@ -53,11 +53,11 @@
         <!--div holding structure for eventual FOR EACH LOOP pulling LIST OF MESSAGES w/ METHODS BRINGING SENDER/RECEIVER NAMES-->
         <div style="width: 80%; border: 8px lightgrey solid; border-radius: 8px">
 
-            <div style="width: 70%; height: 100%; display: inline;">
-                <h2 style=" background-color: dodgerblue; color: white; width: 50%; border: lightgrey 2px solid; margin: 20px; border-radius: 8px"><p th:text="${message.body}"></p></h2>
-                Sent by <span th:text="${sentUser.getFirst_name() + sentUser.getLast_name()}"/>
-                Received by <span th:text="${receivedUser.getFirst_name() + receivedUser.getLast_name()}"/>
-            </div>
+<!--            <div style="width: 70%; height: 100%; display: inline;">-->
+<!--                <h2 style=" background-color: dodgerblue; color: white; width: 50%; border: lightgrey 2px solid; margin: 20px; border-radius: 8px"><p th:text="${message.body}"></p></h2>-->
+<!--                Sent by <span th:text="${sentUser.getFirst_name() + sentUser.getLast_name()}"/>-->
+<!--                Received by <span th:text="${receivedUser.getFirst_name() + receivedUser.getLast_name()}"/>-->
+<!--            </div>-->
         </div>
     </div>
     <div th:include="partials/navbar :: mobile-nav">
