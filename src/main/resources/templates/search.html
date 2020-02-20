@@ -10,9 +10,11 @@
 
         <h1>Search results for: <span th:text="${myInput}"></span></h1>
         <div th:each="user : ${users}">
-            <p th:text="${user.first_name} + ${user.last_name}" ></p>
-            <img src="" th:attr="src=@{${user.filestack_picture_url}}">
-            <div id="rating"><span th:text="${user.rating}"></span></div>
+            <a th:href="@{user(id=${user.id})}">
+                <p th:text="${user.first_name} + ${user.last_name}" ></p>
+                <img src="" th:attr="src=@{${user.filestack_picture_url}}">
+                <div id="rating"><span th:text="${user.rating}"></span></div>
+            </a>
         </div>
 
             <div th:include="partials/footer :: footer">

@@ -77,7 +77,7 @@ public class UserController {
         if (principal != null){
             User user = userDao.findByUsername(principal.getName());
             model.addAttribute("user", user);
-            model.addAttribute("rating", ratingService.allRatingsOnSearch());
+//            model.addAttribute("rating", ratingService.allRatingsOnSearch(2));
             return "profile";
         }
         return "/";
