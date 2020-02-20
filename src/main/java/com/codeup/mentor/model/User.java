@@ -1,5 +1,9 @@
 package com.codeup.mentor.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.List;
@@ -23,8 +27,8 @@ public class User {
     private String username;
 
     @Column(nullable = false)
+    @JsonIgnore
     private String password;
-
 
     @Column(nullable = false, unique = true)
     private String email;
@@ -41,54 +45,80 @@ public class User {
     @Column
     private String filestack_picture_url;
 
-    //    below > join table user >> interest
+
+//    below > join table user >> interest
+
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "user_interest",
             joinColumns = {@JoinColumn(name = "user_id")},
             inverseJoinColumns = {@JoinColumn(name = "interest_id")}
     )
+    @JsonManagedReference
     private List<Interest> interestList;
 
     //    below > user >> ratings
     @OneToMany(mappedBy = "giver_info")
-    private Collection<Rating> given_rating;
+    @JsonBackReference
+        private Collection<Rating> given_rating;
 
 
     @OneToMany(mappedBy = "receiver_info")
+    @JsonBackReference
+
+
     private Collection<Rating> received_rating;
 
     //    below > user >> posts
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    @JsonBackReference
+
     private List<Post> posts;
 
     //    below > user OWNER contact list > list of contacts
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner_user")
+    @JsonBackReference
+
     private Collection<Contact> contactListOwner;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "added_user_id")
+    @JsonBackReference
+
     private Collection<Contact> contactListEntity;
 
 //   below > user to messages relationship mapped out
 
-    @OneToMany(mappedBy = "sender_info")
+    @OneToMany(mappedBy="sender_info")
+    @JsonBackReference
+
     private Collection<Message> senders;
 
-    @OneToMany(mappedBy = "receiver_info")
+    @OneToMany(mappedBy="receiver_info")
+    @JsonBackReference
+
     private Collection<Message> receivers;
 
-    public String getLocation() {
-        return location;
+    private int rating;
+
+    public User(String first_name, String last_name, String filestack_picture_url, int rating) {
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.filestack_picture_url = filestack_picture_url;
+        this.rating = rating;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public int getRating() {
+        return rating;
     }
 
-    public User() {
+    public void setRating(int rating) {
+        this.rating = rating;
+
     }
 
-    ;
+    public User(){
+
+    }
 
     public User(long id, String first_name, String last_name, String username, String email, String biography, boolean is_mentor, String filestack_picture_url, String password, String location) {
         this.id = id;
@@ -101,7 +131,6 @@ public class User {
         this.is_mentor = is_mentor;
         this.location = location;
         this.filestack_picture_url = filestack_picture_url;
-        this.location = location;
     }
 
     public User(String first_name, String last_name, String username, String email, String biography, boolean is_mentor, String filestack_picture_url, String password, String location) {
@@ -114,8 +143,10 @@ public class User {
         this.is_mentor = is_mentor;
         this.location = location;
         this.filestack_picture_url = filestack_picture_url;
-        this.location = location;
+
     }
+
+
 
     public User(User copy) {
         id = copy.id;
@@ -212,5 +243,17 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+//    commit comment
+
+
 
 }

@@ -1,18 +1,20 @@
 
 
 
+
 use mentor_db;
+
+
 #
+ DELETE from mentor_db.users WHERE ID >= 4;
 #
-# DELETE from mentor_db.users WHERE ID >= 4;
-#
-# SELECT * from mentor_db.users;
+SELECT * from mentor_db.users;
 #
 # SELECT * from mentor_db.interests;
 # SELECT * from mentor_db.user_interest;
 # SELECT * FROM mentor_db.contacts;
 # SELECT * FROM mentor_db.messages;
-# SELECT * FROM mentor_db.ratings;
+SELECT * FROM mentor_db.ratings;
 # SELECT * FROM mentor_db.posts;
 #
 # INSERT INTO users (biography, email, filestack_picture_url, first_name, last_name, is_mentor, username, password)
@@ -66,3 +68,10 @@ UPDATE interests
                WHERE
                        id = 20;
 
+
+# live sql will have to be adjusted vvvv
+SET session sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
+
+
+SELECT first_name, last_name, filestack_picture_url, avg(rating) from users join ratings on users.id = ratings.recipient_user_id
+where users.first_name LIKE :kellsey or users.last_name LIKE :kellsey or location LIKE :kellsey;

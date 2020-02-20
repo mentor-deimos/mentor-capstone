@@ -1,5 +1,7 @@
 package com.codeup.mentor.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
@@ -13,6 +15,10 @@ public class Message {
     @Column(nullable = false)
     private long id;
 
+    public Message(String body) {
+        this.body = body;
+    }
+
     @Column(nullable = false, length = 750)
     private String body;
 
@@ -21,10 +27,14 @@ public class Message {
 
     @ManyToOne
     @JoinColumn(name="sender_id")
+    @JsonManagedReference
+
     private User sender_info;
 
     @ManyToOne
     @JoinColumn(name="receiver_id")
+    @JsonManagedReference
+
     private User receiver_info;
 
     public long getId() {

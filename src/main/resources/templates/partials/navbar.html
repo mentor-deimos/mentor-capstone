@@ -18,10 +18,15 @@
             </div>
 
             <div style="display: flex; margin-right: -100px!important;">
+                <div class="hoverNav">
                 <a th:href="@{/messages}"><img th:src="@{/img/svg/mail.svg}" alt=""
                                                style=" margin-top: -10px; margin-right: 20px"></a>
+
+            </div>
+                <div class="hoverNav">
                 <a th:href="@{/profile}"><img th:src="@{/img/svg/user.svg}" alt="" style=" margin-top: -10px"></a>
-                <form autocomplete="off" action="/search">
+                <form autocomplete="off" th:action="@{/search}" th:object="${user}" th:method="GET">
+
                     <div id="searching">
                         <div class="wrapper1">
                             <div id="searchThis">
@@ -29,7 +34,7 @@
                                     <div class="cntr">
                                         <div class="cntr-innr">
                                             <label class="search" for="myInput">
-                                                <input id="myInput" name="search" type="text" placeholder="Search"/>
+                                                <input id="myInput" name="myInput" type="text" placeholder="Search" th:value="${myInput}"/>
                                             </label>
                                         </div>
                                     </div>
@@ -39,7 +44,7 @@
                                         <option value="false">Mentee</option>
                                     </select>
                                     </label>
-                                    <button id="searchSubmit" onclick="getOption()" type="submit">Submit</button>
+                                    <button id="searchSubmit" type="submit">Submit</button>
 
                                     <div id="closeSearch">X</div>
                                 </div>
@@ -48,7 +53,10 @@
                         </div>
                     </div>
                 </form>
-                <div class="link search"><img th:src="@{/img/svg/search.svg}" alt=""></div>
+                <div class="link search hoverNav">
+                    <img th:src="@{/img/svg/search.svg}" alt="">
+
+                </div>
             </div>
         </div>
     </div>
@@ -204,6 +212,11 @@
             <div class="nav-bar__item" onClick="onClick(this)">
                 <a class="searchActivate" href="#"><img th:src="@{img/svg/search.svg}" alt="Search"/></a>
                 <span>Search</span>
+            </div>
+
+            <div class="nav-bar__item" onClick="onClick(this)">
+                <a th:href="@{/messages}"><img th:src="@{img/svg/mail.svg}" alt="User"/></a>
+                <span>Messages</span>
             </div>
 
             <div class="nav-bar__item" onClick="onClick(this)">

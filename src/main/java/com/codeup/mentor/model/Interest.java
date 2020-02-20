@@ -1,5 +1,7 @@
 package com.codeup.mentor.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.List;
 import java.util.Set;
@@ -19,6 +21,8 @@ public class Interest {
     private String picture_path;
 
     @ManyToMany(mappedBy = "interestList")
+    @JsonManagedReference
+
     List<User> users;
 
     public long getId() {

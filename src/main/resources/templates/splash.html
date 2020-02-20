@@ -4,36 +4,119 @@
 </head>
 <body>
 <div id="splash">
-<img th:src="@{/img/mentorIcon.svg}" alt="" class="icon">
-<h1 class="title"><span class="titleSpan">M</span>entor</h1>
-<div id="quotes"></div>
-<div style="display: flex; width: 300px; justify-content: space-between; grid-area: 3 / 2 / 4 / 3">
-    <button class="btn btn2 signUp">SIGN UP</button>
-    <button class="btn btn1 signIn open-modal">LOGIN</button>
-</div>
-<div class="modal-shade"></div>
-<div class="modal-container">
-    <div class="modal" style="height: 400px; width: 400px">
-        <form style="font-size: 30px; color: #1777F2" th:method="POST" th:action="@{/login}">
-            <label for="username"><b>Username</b></label>
-            <input type="text" placeholder="Enter Username" id="username" name="username" required>
-            <br>
-            <label for="password"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="password" id="password" required>
-            <div class="modal-actions">
-                <button class="modal-cancel btn btn5">CANCEL</button>
-                <button type="submit" class="modal-ok btn btn6">LOGIN</button>
+    <img th:src="@{/img/mentorIcon.svg}" alt="" class="icon">
+    <h1 class="title"><span class="titleSpan">M</span>entor</h1>
+    <div id="quotes"></div>
+    <div style="display: flex; width: 300px; justify-content: space-between; grid-area: 3 / 2 / 4 / 3">
+        <button class="btn btn2 signUp">SIGN UP</button>
+        <button class="btn btn1 signIn open-modal">LOGIN</button>
+    </div>
+    <div class="modal-shade"></div>
+    <div class="modal-container">
+        <div class="modal" style="height: 400px; width: 400px">
+            <form style="font-size: 30px; color: #1777F2" th:method="POST" th:action="@{/login}">
+                <label for="username"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" id="username" name="username" required>
+                <br>
+                <label for="password"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="password" id="password" required>
+                <div class="modal-actions">
+                    <button class="modal-cancel btn btn5">CANCEL</button>
+                    <button type="submit" class="modal-ok btn btn6">LOGIN</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="arrows">
+        <img class="arrow" th:src="@{/img/arrow.svg}" alt="">
+    </div>
+    <div class="splashSection2">
+        <div style="display: flex; margin-top: 50px">
+            <img th:src="@{/img/splashMenteeMentor.svg}" alt="">
+            <div style="flex-direction: column; width: 35vw">
+            <h1>Mentee or mentor</h1>
+            <p>Do you need help or do you want to help? Choose to be a mentee or a mentor.</p>
             </div>
-        </form>
+        </div>
+        <div style="display: flex">
+            <div style="flex-direction: column; width: 35vw">
+            <h1>Search</h1>
+            <p>If you're looking for help search for a mentor, if you want to help either wait to be contacted by a mentee or search for one and let them know you're available!</p>
+            </div>
+            <img th:src="@{/img/splashSearch.svg}" alt="">
+        </div>
+        <div style="display: flex">
+            <img th:src="@{/img/splashConnection.svg}" alt="">
+            <div style="flex-direction: column; width: 35vw">
+            <h1>Make a connection</h1>
+            <p>Once you find a mentee or mentor send them a message and make a connection!</p>
+            </div>
+        </div>
+    </div>
+    <div class="splashSection3">
+        <h1 style="color: white; margin-top: 50px; font-size: 45px">Team <span style="color: #FEDD00">Mentor</span></h1>
+        <ul style="display: flex; flex-direction: column; justify-content: center; list-style: none; padding: 0; margin-top: 50px">
+            <li style="display: flex">
+                <div style="color: white; text-align: center">
+                <img class="splashProfilePic" th:src="@{img/profileJW.png}" alt="">
+                <h3>J.W. Hester</h3>
+                </div>
+                <ul style="list-style: none; display: flex; margin: 25px 0">
+                    <li><a href="https://www.linkedin.com/in/jw-hester/"><img class="aboutPic"
+                                                                              th:src="@{img/linkedin.svg}"
+                                                                              alt=""></a> <h3>Linkedin</h3></li>
+                    <li><a href="https://github.com/jwhester"><img class="aboutPic" th:src="@{img/github.svg}"
+                                                                   alt=""></a><h3>Github</h3></li>
+                    <li><a href="https://alumni.codeup.com/students/755"><img class="aboutPic"
+                                                                              th:src="@{img/codeup.svg}" alt=""></a>
+                        <h3>Codeup</h3></li>
+                </ul>
+            </li>
+            <li style="display: flex">
+                <div style="color: white; text-align: center">
+                <img class="splashProfilePic" th:src="@{img/profileKellsey.png}" alt="">
+                <h3>Kellsey Neagley</h3>
+                </div>
+                <ul style="list-style: none; display: flex; margin: 25px 0">
+                    <li><a href="https://www.linkedin.com/in/kellseyneagley/
+"><img class="aboutPic" th:src="@{img/linkedin.svg}" alt=""></a><h3>Linkedin</h3></li>
+                    <li><a href="https://github.com/kellseyn
+"><img class="aboutPic" th:src="@{img/github.svg}" alt=""></a><h3>Github</h3></li>
+                    <li><a href="https://alumni.codeup.com/students/742"><img class="aboutPic"
+                                                                              th:src="@{img/codeup.svg}" alt=""></a>
+                        <h3>Codeup</h3></li>
+                </ul>
+            </li>
+            <li style="display: flex">
+                <div style="color: white; text-align: center">
+                <img class="splashProfilePic" th:src="@{img/profileKen.png}" alt="">
+                <h3>Kenneth Howell</h3>
+                </div>
+                <ul style="list-style: none; display: flex; margin: 25px 0">
+                    <li><a href="https://www.linkedin.com/in/howell-kenneth/
+"><img class="aboutPic" th:src="@{img/linkedin.svg}" alt=""></a><h3>Linkedin</h3></li>
+                    <li><a href="https://github.com/kennethhowell
+"><img class="aboutPic" th:src="@{img/github.svg}" alt=""></a><h3>Github</h3></li>
+                    <li><a href="https://alumni.codeup.com/students/765"><img class="aboutPic"
+                                                                              th:src="@{img/codeup.svg}" alt=""></a>
+                        <h3>Codeup</h3></li>
+                </ul>
+            </li>
+        </ul>
     </div>
 </div>
-</div>
-<div class="mobile" style="height: 100vh; width: 100%">
-    <img th:src="@{/img/mentorIcon.svg}" alt="" class="iconM">
-    <h1 class="titleM" style="font-size: 50px!important; margin-top: 10px!important;"><span class="titleSpanM">M</span>entor</h1>
+
+
+
+
+
+<div class="mobile" style="height: 100%; width: 100%">
+    <img th:src="@{/img/mentorIcon.svg}" alt="" class="iconM" style="margin-top: 300px">
+    <h1 class="titleM" style="font-size: 50px!important; margin-top: 10px!important;"><span class="titleSpanM">M</span>entor
+    </h1>
     <div class="mobileBtns" style="flex-direction: row; justify-content: center">
-    <button class="btn btn2 signUp">SIGN UP</button>
-    <button class="btn btn1 signInMobile">LOGIN</button>
+        <button class="btn btn2 signUp">SIGN UP</button>
+        <button class="btn btn1 signInMobile">LOGIN</button>
     </div>
     <div class="mobileLogin" style="justify-content: center">
         <form method="post" action="/login">
@@ -48,9 +131,86 @@
             </div>
         </form>
     </div>
+    <div class="arrows">
+        <img class="arrow" th:src="@{/img/arrow.svg}" alt="" style="margin-top: 200px">
+    </div>
 
 
+<div style="display: flex; flex-direction: column; align-items: center">
+    <div style="display: flex; margin-top: 50px">
+        <img th:src="@{/img/splashMenteeMentor.svg}" alt="" style="height: 150px">
+        <div style="flex-direction: column; width: 65vw">
+            <h1>Mentee or mentor</h1>
+            <p>Do you need help or do you want to help? Choose to be a mentee or a mentor.</p>
+        </div>
+    </div>
+    <div style="display: flex">
+        <div style="flex-direction: column; width: 65vw">
+            <h1>Search</h1>
+            <p>If you're looking for help search for a mentor, if you want to help either wait to be contacted by a mentee or search for one and let them know you're available!</p>
+        </div>
+        <img th:src="@{/img/splashSearch.svg}" alt="" style="height: 150px">
+    </div>
+    <div style="display: flex">
+        <img th:src="@{/img/splashConnection.svg}" alt="" style="height: 150px">
+        <div style="flex-direction: column; width: 65vw">
+            <h1>Make a connection</h1>
+            <p>Once you find a mentee or mentor send them a message and make a connection!</p>
+        </div>
+    </div>
 </div>
+    <h1 style="color: white; margin-top: 50px; font-size: 45px">Team <span style="color: #FEDD00">Mentor</span></h1>
+    <ul style="display: flex; flex-direction: column; justify-content: center; list-style: none; padding: 0; margin-top: 50px">
+        <li style="display: flex">
+            <div style="color: white; text-align: center">
+                <img class="splashProfilePic" th:src="@{img/profileJW.png}" alt="">
+                <h3>J.W. Hester</h3>
+            </div>
+            <ul style="list-style: none; display: flex; margin: 25px 0">
+                <li><a href="https://www.linkedin.com/in/jw-hester/"><img class="aboutPic"
+                                                                          th:src="@{img/linkedin.svg}"
+                                                                          alt=""></a> <p>Linkedin</p></li>
+                <li><a href="https://github.com/jwhester"><img class="aboutPic" th:src="@{img/github.svg}"
+                                                               alt=""></a><p>Github</p></li>
+                <li><a href="https://alumni.codeup.com/students/755"><img class="aboutPic"
+                                                                          th:src="@{img/codeup.svg}" alt=""></a>
+                    <p>Codeup</p></li>
+            </ul>
+        </li>
+        <li style="display: flex">
+            <div style="color: white; text-align: center">
+                <img class="splashProfilePic" th:src="@{img/profileKellsey.png}" alt="">
+                <h3>Kellsey Neagley</h3>
+            </div>
+            <ul style="list-style: none; display: flex; margin: 25px 0">
+                <li><a href="https://www.linkedin.com/in/kellseyneagley/
+"><img class="aboutPic" th:src="@{img/linkedin.svg}" alt=""></a><p>Linkedin</p></li>
+                <li><a href="https://github.com/kellseyn
+"><img class="aboutPic" th:src="@{img/github.svg}" alt=""></a><p>Github</p></li>
+                <li><a href="https://alumni.codeup.com/students/742"><img class="aboutPic"
+                                                                          th:src="@{img/codeup.svg}" alt=""></a>
+                    <p>Codeup</p></li>
+            </ul>
+        </li>
+        <li style="display: flex">
+            <div style="color: white; text-align: center">
+                <img class="splashProfilePic" th:src="@{img/profileKen.png}" alt="">
+                <h3>Kenneth Howell</h3>
+            </div>
+            <ul style="list-style: none; display: flex; margin: 25px 0">
+                <li><a href="https://www.linkedin.com/in/howell-kenneth/
+"><img class="aboutPic" th:src="@{img/linkedin.svg}" alt=""></a><p>Linkedin</p></li>
+                <li><a href="https://github.com/kennethhowell
+"><img class="aboutPic" th:src="@{img/github.svg}" alt=""></a><p>Github</p></li>
+                <li><a href="https://alumni.codeup.com/students/765"><img class="aboutPic"
+                                                                          th:src="@{img/codeup.svg}" alt=""></a>
+                    <p>Codeup</p></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+
 
 
 <script th:src="@{/webjars/jquery/3.4.1/jquery.min.js/}"></script>

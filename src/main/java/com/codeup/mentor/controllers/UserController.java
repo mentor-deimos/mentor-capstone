@@ -12,14 +12,18 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-
+import java.security.Principal;
 
 
 @Controller
 public class UserController {
 
-    //    repos
     private UserRepository userDao;
+
+    private String uploadHandle;
+
+
+
     private InterestRepository interestDao;
 
     private RatingService ratingService;
@@ -53,38 +57,31 @@ public class UserController {
     }
 
     @PostMapping("/signup")
-    public String saveUser(@ModelAttribute User user, @RequestParam(name = "interests") String interestsID) {
+    public String saveUser(@ModelAttribute User user) {
         String hash = passwordEncoder.encode(user.getPassword());
-        String[] splitinterestsID = interestsID.split(",");
-        for (String interest : splitinterestsID){
-            user.getInterestList().add(interestDao.findById(parseInt(interest)))
-        }
         user.setPassword(hash);
         userDao.save(user)
-
-//        String[] interestsIDarr;
-//
-//
-//        Long lastCreated = userDao.findTopByOrderByIdDesc().getId();
-//       interestsIDarr = interestsID.split(",");
-//       for (String interest : interestsIDarr){
-//
-//       }
-//        System.out.println("interestsID = " + interestsID);
-
 
         return "home";
     }
 
     @GetMapping("/profile")
-    public String goToProfile(Model model) { //needs @PathVariable long id,
-//        model.addAttribute("rating", ratingService.allRatingsOnSearch(2));
-        return "profile";
+    public String goToProfile(Model model, Principal principal){
+        if (principal != null){
+            User user = userDao.findByUsername(principal.getName());
+            model.addAttribute("user", user);
+            model.addAttribute("rating", ratingService.allRatingsOnSearch(2));
+            return "profile";
+        }
+        return "/splash";
+
+
     }
 
 
     @GetMapping("/about")
-    public String goToAbout() { //needs @PathVariable long id,
+    public String goToAbout(){
+
 
         return "about";
     }

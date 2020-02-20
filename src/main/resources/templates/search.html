@@ -3,14 +3,63 @@
 <head th:include="partials/header :: header">
 </head>
 <body>
-<div class="site-container">
-    <div th:include="partials/navbar :: navbar">
-    </div>
     <main class="site-content">
-This are where the results pop up
-</main>
-<div th:include="partials/footer :: footer">
-</div>
-</div>
+        <div class="site-container">
+
+    <div th:include="partials/navbar :: navbar"></div>
+
+        <h1>Search results for: <span th:text="${myInput}"></span></h1>
+        <div th:each="user : ${users}">
+            <p th:text="${user.first_name} + ${user.last_name}" ></p>
+            <img src="" th:attr="src=@{${user.filestack_picture_url}}">
+            <div id="rating"><span th:text="${user.rating}"></span></div>
+        </div>
+
+            <div th:include="partials/footer :: footer">
+            </div>
+        </div>
+
+    </main>
+
+    <!--<script th:inline="javascript">-->
+        <!--/*<![CDATA[*/-->
+        <!--var rating = 1;-->
+        <!--let newRate = "";-->
+
+        <!--function ratingStars(rating) {-->
+            <!--if (rating <= 1.5) {-->
+                <!--newRate = "⭐"-->
+            <!--}-->
+            <!--if (rating <= 2.5) {-->
+                <!--newRate = "⭐️⭐️"-->
+            <!--}-->
+            <!--if (rating <= 3.5) {-->
+                <!--newRate = "⭐️⭐️⭐️"-->
+            <!--}-->
+            <!--if (rating <= 4.5) {-->
+                <!--newRate = "⭐️⭐️⭐️⭐️"-->
+            <!--}-->
+            <!--if (rating > 4.5) {-->
+                <!--newRate = "⭐️⭐️⭐️⭐️⭐️"-->
+            <!--}-->
+
+        <!--}-->
+
+        <!--$(document).ready(function () {-->
+            <!--ratingStars(rating);-->
+            <!--$("#rating").html(-->
+                <!--"" + newRate + ""-->
+            <!--)-->
+        <!--})-->
+
+        <!--/*]]>*/-->
+    <!--</script>-->
+
+<script
+        src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"
+>
+</script>
 </body>
 </html>
