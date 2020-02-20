@@ -37,8 +37,7 @@ public class ProfileController {
                 mentorMessage = "Mentee";
             }
 
-            System.out.println("user.getInterestList() = " + user.getInterestList());
-            model.addAttribute("interestList", user.getInterestList());
+            model.addAttribute("interestList", userDao.getOne(user.getId()).getInterestList());
             model.addAttribute("mentorMessage", mentorMessage);
             model.addAttribute("user", user);
             return "profile";
