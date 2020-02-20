@@ -1,7 +1,7 @@
 
 
 
-
+select * from mentor_db.interests;
 use mentor_db;
 
 
@@ -64,9 +64,9 @@ SELECT * FROM mentor_db.ratings;
 
 UPDATE interests
                SET
-                   picture_path = '/img/svg/040-law.svg'
+                   name = 'Spirituality'
                WHERE
-                       id = 20;
+                       id = 13;
 
 
 # live sql will have to be adjusted vvvv
