@@ -45,6 +45,7 @@ public class User {
     @Column
     private String filestack_picture_url;
 
+
 //    below > join table user >> interest
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
@@ -95,6 +96,22 @@ public class User {
 
     private Collection<Message> receivers;
 
+    private int rating;
+
+    public User(String first_name, String last_name, String filestack_picture_url, int rating) {
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.filestack_picture_url = filestack_picture_url;
+        this.rating = rating;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
 
     public User (){};
 
@@ -109,7 +126,6 @@ public class User {
         this.is_mentor = is_mentor;
         this.location = location;
         this.filestack_picture_url = filestack_picture_url;
-        this.location = location;
     }
 
     public User(String first_name, String last_name, String username, String email, String biography, boolean is_mentor, String filestack_picture_url, String password, String location) {
@@ -122,7 +138,7 @@ public class User {
         this.is_mentor = is_mentor;
         this.location = location;
         this.filestack_picture_url = filestack_picture_url;
-        this.location = location;
+
     }
 
     public User(User copy){
@@ -219,4 +235,6 @@ public class User {
     }
 
 //    commit comment
+
+
 }

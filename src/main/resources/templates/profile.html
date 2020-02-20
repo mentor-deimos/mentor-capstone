@@ -9,17 +9,17 @@
     </div>
     <div class="centered">
     <main class="site-content">
-        <div id="profileFirstBlock" style="display: flex">
-            <img th:src="@{/img/kenwalsh.png}" alt="" id="profilePicture">
+        <div th:if="${user != null}" id="profileFirstBlock" style="display: flex">
+            <img th:src="@{${user.filestack_picture_url}}" alt="" id="profilePicture">
             <div id="profileFirstInnerBlock">
-                <h1 style="font-weight: bold; color: #1777F2">KEN WALSH</h1>
+                <h1 th:text="${user.first_name} +  ' ' +  ${user.last_name}" style="font-weight: bold; color: #1777F2"></h1>
                 <h3 style="color: #FEDD00">mentor</h3>
                 <div id="rating"></div>
             </div>
         </div>
 
         <h1 style="font-weight: bold; color: #1777F2">BIO:</h1>
-        <!--<h3 th:text="${user.biography}"></h3>-->
+        <div th:if="${user != null}"><h3 th:text="${user.biography}"></h3></div>
         <h1 style="font-weight: bold; color: #1777F2">SKILLS:</h1>
         <div id="skillsBlock" style="display: flex">
             <p>skills</p>

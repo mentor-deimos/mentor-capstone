@@ -1,6 +1,7 @@
 
 
 
+
 use mentor_db;
 
 
@@ -15,9 +16,9 @@ SELECT * FROM mentor_db.messages;
 SELECT * FROM mentor_db.ratings;
 SELECT * FROM mentor_db.posts;
 
-INSERT INTO users (biography, email, filestack_picture_url, first_name, last_name, is_mentor, username, password)
-VALUES ('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vestibulum est ut ante sollicitudin, a suscipit felis consequat. Nullam dignissim lobortis elit eu elementum. Cras consequat quam ac tincidunt pharetra. Donec dapibus eu sem sed congue. Nullam commodo, est ac sodales tempor, tortor neque consequat lacus, sed eleifend orci nunc ut mauris. Nulla tincidunt pretium turpis sit amet bibendum. Proin ac blandit urna. Sed eget elementum ante. Morbi porta quis metus in auctor.', 'bryhowl@emailme.me', 'alterurllater', 'Bryan', 'Howell', 0, 'bryguy', 'password'),
-('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vestibulum est ut ante sollicitudin, a suscipit felis consequat. Nullam dignissim lobortis elit eu elementum. Cras consequat quam ac tincidunt pharetra. Donec dapibus eu sem sed congue. Nullam commodo, est ac sodales tempor, tortor neque consequat lacus, sed eleifend orci nunc ut mauris. Nulla tincidunt pretium turpis sit amet bibendum. Proin ac blandit urna. Sed eget elementum ante. Morbi porta quis metus in auctor.', 'kennywalsh@emailme.me', 'alterurllater', 'Kenneth', 'Walsh', 1, 'oldmanyoungheart', 'password');
+INSERT INTO users (biography, email, filestack_picture_url, first_name, last_name, is_mentor, username, password, location)
+VALUES ('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vestibulum est ut ante sollicitudin, a suscipit felis consequat. Nullam dignissim lobortis elit eu elementum. Cras consequat quam ac tincidunt pharetra. Donec dapibus eu sem sed congue. Nullam commodo, est ac sodales tempor, tortor neque consequat lacus, sed eleifend orci nunc ut mauris. Nulla tincidunt pretium turpis sit amet bibendum. Proin ac blandit urna. Sed eget elementum ante. Morbi porta quis metus in auctor.', 'bryhowl@emailme.me', 'alterurllater', 'Bryan', 'Howell', 0, 'bryguy', 'password', 'San Antonio'),
+('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vestibulum est ut ante sollicitudin, a suscipit felis consequat. Nullam dignissim lobortis elit eu elementum. Cras consequat quam ac tincidunt pharetra. Donec dapibus eu sem sed congue. Nullam commodo, est ac sodales tempor, tortor neque consequat lacus, sed eleifend orci nunc ut mauris. Nulla tincidunt pretium turpis sit amet bibendum. Proin ac blandit urna. Sed eget elementum ante. Morbi porta quis metus in auctor.', 'kennywalsh@emailme.me', 'alterurllater', 'Kenneth', 'Walsh', 1, 'oldmanyoungheart', 'password', 'Houston');
 
 
 INSERT INTO interests (name, picture_path)
@@ -45,9 +46,19 @@ VALUES ('Lorem ipsum gypsum marker maker of the longest taker inside beside down
 SELECT * FROM ratings WHERE recipient_user_id = ?1;
 
 INSERT INTO ratings (rating, giver_user_id, recipient_user_id)
-VALUES (2, 1,2);
+VALUES (2, 2, 1);
 
 
+SELECT avg(rating) from ratings where recipient_user_id = 2;
+
+# live sql will have to be adjusted
+SET session sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
+SELECT first_name, last_name, filestack_picture_url, avg(rating) from users join ratings on users.id = ratings.recipient_user_id
+where users.first_name LIKE :kellsey or users.last_name LIKE :kellsey or location LIKE :kellsey;
+
+
+SELECT * FROM users join ratings on users.id = ratings.recipient_user_id join user_interest u on users.id = u.user_id join interests on u.interest_id = interests.id
+where users.first_name LIKE :kellsey or users.last_name LIKE :kellsey or location LIKE :kellsey or interests.name like :kellsey;
 
 SELECT first_name, last_name, filestack_picture_url FROM users where LOWER(first_name) like "%kellsey%";
 
