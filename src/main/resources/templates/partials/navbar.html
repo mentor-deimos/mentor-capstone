@@ -18,9 +18,15 @@
             </div>
 
             <div style="display: flex; margin-right: -100px!important;">
+                <div class="hoverNav">
                 <a th:href="@{/messages}"><img th:src="@{/img/svg/mail.svg}" alt=""
                                                style=" margin-top: -10px; margin-right: 20px"></a>
+
+            </div>
+                <div class="hoverNav">
                 <a th:href="@{/profile}"><img th:src="@{/img/svg/user.svg}" alt="" style=" margin-top: -10px"></a>
+
+                </div>
                 <form autocomplete="off" action="/search">
                     <div id="searching">
                         <div class="wrapper1">
@@ -48,7 +54,10 @@
                         </div>
                     </div>
                 </form>
-                <div class="link search"><img th:src="@{/img/svg/search.svg}" alt=""></div>
+                <div class="link search hoverNav">
+                    <img th:src="@{/img/svg/search.svg}" alt="">
+
+                </div>
             </div>
         </div>
     </div>
