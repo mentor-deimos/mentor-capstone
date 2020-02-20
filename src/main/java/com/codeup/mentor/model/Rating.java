@@ -1,5 +1,7 @@
 package com.codeup.mentor.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 
 @Entity
@@ -17,10 +19,15 @@ public class Rating {
 
     @ManyToOne
     @JoinColumn(name="recipient_user_id")
+    @JsonManagedReference
+
+
     private User receiver_info;
 
     @ManyToOne
     @JoinColumn(name="giver_user_id")
+    @JsonManagedReference
+
     private User giver_info;
 
     public long getId() {
