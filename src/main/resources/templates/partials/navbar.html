@@ -193,8 +193,8 @@
     <div class="navWrapper">
         <div class="nav-bar" style="border-top-left-radius: 50px;
     border-top-right-radius: 50px;">
-            <form class="mobileSearch" style="display: none" action="/search">
-                <input style="border: 2px solid #1777F2;margin: 5px 5px 5px 20px; width: 250px!important; height: 50px!important; font-size: 30px; font-family: 'Open Sans', sans-serif">
+            <form autocomplete="off" th:action="@{/search}" th:object="${user}" th:method="GET" class="mobileSearch" style="display: none">
+                <input id="myInput" name="myInput" type="text" placeholder="Search" th:value="${myInput}" style="border: 2px solid #1777F2;margin: 5px 5px 5px 20px; width: 250px!important; height: 50px!important; font-size: 30px; font-family: 'Open Sans', sans-serif"/>
                 <button style="border: 2px solid black; margin: 5px; color: white; background-color: #1777F2; height: 50px">Search</button>
                 <button class="close" style="border: 2px solid black; background-color: #FEDD00; height: 50px; width: 50px; margin: 5px">X</button>
             </form>

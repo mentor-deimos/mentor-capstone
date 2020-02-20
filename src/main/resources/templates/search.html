@@ -12,7 +12,7 @@
         <div th:each="user : ${users}">
             <a th:href="@{/profile/{id}(id=${user.id})}">
                 <p th:text="${user.first_name} + ' ' + ${user.last_name}" ></p>
-                <img src="" th:attr="src=@{${user.filestack_picture_url}}">
+                <img src="" th:attr="src=@{'http://cdn.filestackcontent.com/' + ${user.filestack_picture_url}}">
                 <div id="rating"><span th:text="${user.rating}"></span></div>
             </a>
         </div>
@@ -22,6 +22,20 @@
         </div>
 
     </main>
+    <div class="mobile">
+
+        <h1>Search results for: <span th:text="${myInput}"></span></h1>
+        <div th:each="user : ${users}">
+            <a th:href="@{/profile/{id}(id=${user.id})}">
+                <p th:text="${user.first_name} + ' ' + ${user.last_name}" ></p>
+                <img src="" th:attr="src=@{'http://cdn.filestackcontent.com/' + ${user.filestack_picture_url}}">
+                <div id="rating"><span th:text="${user.rating}"></span></div>
+            </a>
+        </div>
+
+    </div>
+
+    </div>
 
     <!--<script th:inline="javascript">-->
         <!--/*<![CDATA[*/-->
