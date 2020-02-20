@@ -791,6 +791,13 @@ textarea:focus{
         height: 100vh;
 
     }
+    .interestMobile{
+        height: 100vh; width: 100vw; display: flex!important; flex-wrap: wrap;     background-image: linear-gradient(#1777F2, #0035A8);
+
+    }
+    .interests{
+        display: none!important;
+    }
     .mobile{
         color: white;
         background-image: linear-gradient(#1777F2, #0035A8);
