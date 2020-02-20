@@ -15,7 +15,7 @@ import java.security.Principal;
 
 @Controller
 public class ProfileController {
-    private UserRepository userDao;
+    private static UserRepository userDao;
     private InterestRepository interestDao;
 
     public ProfileController (UserRepository userDao, InterestRepository interestDao){
@@ -37,7 +37,7 @@ public class ProfileController {
                 mentorMessage = "Mentee";
             }
 
-
+            System.out.println("user.getInterestList() = " + user.getInterestList());
             model.addAttribute("interestList", user.getInterestList());
             model.addAttribute("mentorMessage", mentorMessage);
             model.addAttribute("user", user);
@@ -57,3 +57,4 @@ public class ProfileController {
     }
 
 }
+
