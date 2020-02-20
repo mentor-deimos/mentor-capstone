@@ -8,6 +8,9 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.security.Principal;
 
@@ -15,6 +18,11 @@ import java.security.Principal;
 public class ProfileController {
     private UserRepository userDao;
     private InterestRepository interestDao;
+
+    public ProfileController (UserRepository userDao, InterestRepository interestDao){
+        this.userDao = userDao;
+        this.interestDao = interestDao;
+    }
 
 
     @GetMapping("/profile")
@@ -34,6 +42,14 @@ public class ProfileController {
         }
         return "/splash";
 
+
+    }
+
+    @GetMapping("/profile/{id}")
+    public String goToSearchedProfile(@PathVariable long id, Model model){
+//            User user = userDao.getOne(id);
+            model.addAttribute("user", userDao.getOne(id));
+            return "profile";
 
     }
 
