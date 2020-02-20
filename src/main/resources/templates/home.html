@@ -33,9 +33,9 @@
                 <h1 style="font-size: 35px!important; margin: 10px; color: #1777F2" th:text="${post.title}"></h1>
                 <hr>
                 <p style="margin: 10px" th:text="${post.body}"></p>
-                <form th:action="@{|/posts/${post.id}/edit|}" th:method="GET"
+                <form th:unless="${post.getUser() != principal}" th:action="@{|/posts/${post.id}/edit|}" th:method="GET"
                       style="display: flex; justify-content: flex-end; margin: 10px">
-                    <button class="btn btn3">Edit Post</button>
+                    <button id="editbtn" class="btn btn3">Edit Post</button>
                 </form>
             </div>
 
@@ -45,7 +45,8 @@
     </div>
 </div>
 <div class="mobile">
-    <div style="display: flex; justify-content: center; background-color: white; position: fixed; top: 0; width: 100vw; border-bottom-right-radius:20px; border-bottom-left-radius: 20px"><img th:src="@{/img/mentorIcon.svg}" alt="" style="height: 50px"></div>
+    <div style="display: flex; justify-content: center; background-color: white; position: fixed; top: 0; width: 100vw; border-bottom-right-radius:20px; border-bottom-left-radius: 20px">
+        <a href="/splash"><img th:src="@{/img/mentorIcon.svg}" alt="" style="height: 50px"></a></div>
     <form style="border: 4px solid #1777F2; box-shadow: 4px 4px black; margin: 70px 0 20px 25%; width: 50vw">
         <label for="title"
                style="font-size: 15px; margin-left: 5px; font-weight: bold; color: #1777F2">Title:</label>
