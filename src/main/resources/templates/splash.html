@@ -111,7 +111,7 @@
 
 
 <div class="mobile" style="height: 100%; width: 100%">
-    <img th:src="@{/img/mentorIcon.svg}" alt="" class="iconM" style="margin-top: 300px">
+    <img th:src="@{/img/mentorIcon.svg}" alt="" class="iconM" style="margin-top: 125px">
     <h1 class="titleM" style="font-size: 50px!important; margin-top: 10px!important;"><span class="titleSpanM">M</span>entor
     </h1>
     <div class="mobileBtns" style="flex-direction: row; justify-content: center">
@@ -137,21 +137,21 @@
 
 
 <div style="display: flex; flex-direction: column; align-items: center">
-    <div style="display: flex; margin-top: 50px">
+    <div style="display: flex; margin-top: 50px; flex-direction: column">
         <img th:src="@{/img/splashMenteeMentor.svg}" alt="" style="height: 150px">
         <div style="flex-direction: column; width: 65vw">
             <h1>Mentee or mentor</h1>
             <p>Do you need help or do you want to help? Choose to be a mentee or a mentor.</p>
         </div>
     </div>
-    <div style="display: flex">
-        <div style="flex-direction: column; width: 65vw">
+    <div style="display: flex; flex-direction: column">
+        <div style="display: flex; flex-direction: column; width: 65vw">
+            <img th:src="@{/img/splashSearch.svg}" alt="" style="height: 150px">
             <h1>Search</h1>
             <p>If you're looking for help search for a mentor, if you want to help either wait to be contacted by a mentee or search for one and let them know you're available!</p>
         </div>
-        <img th:src="@{/img/splashSearch.svg}" alt="" style="height: 150px">
     </div>
-    <div style="display: flex">
+    <div style="display: flex; flex-direction: column">
         <img th:src="@{/img/splashConnection.svg}" alt="" style="height: 150px">
         <div style="flex-direction: column; width: 65vw">
             <h1>Make a connection</h1>
@@ -161,7 +161,7 @@
 </div>
     <h1 style="color: white; margin-top: 50px; font-size: 45px">Team <span style="color: #FEDD00">Mentor</span></h1>
     <ul style="display: flex; flex-direction: column; justify-content: center; list-style: none; padding: 0; margin-top: 50px">
-        <li style="display: flex">
+        <li style="display: flex; flex-direction: column">
             <div style="color: white; text-align: center">
                 <img class="splashProfilePic" th:src="@{img/profileJW.png}" alt="">
                 <h3>J.W. Hester</h3>
@@ -177,7 +177,7 @@
                     <p>Codeup</p></li>
             </ul>
         </li>
-        <li style="display: flex">
+        <li style="display: flex; flex-direction: column">
             <div style="color: white; text-align: center">
                 <img class="splashProfilePic" th:src="@{img/profileKellsey.png}" alt="">
                 <h3>Kellsey Neagley</h3>
@@ -192,7 +192,7 @@
                     <p>Codeup</p></li>
             </ul>
         </li>
-        <li style="display: flex">
+        <li style="display: flex;  flex-direction: column">
             <div style="color: white; text-align: center">
                 <img class="splashProfilePic" th:src="@{img/profileKen.png}" alt="">
                 <h3>Kenneth Howell</h3>
