@@ -16,7 +16,6 @@ public class ProfileController {
     private UserRepository userDao;
     private InterestRepository interestDao;
 
-
     @GetMapping("/profile")
     public String goToProfile(Model model, Principal principal){
         if (principal != null){
