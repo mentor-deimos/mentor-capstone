@@ -4,40 +4,47 @@
 </head>
 <body>
 <div id="profile">
-<div class="site-container">
-    <div th:include="partials/navbar :: navbar">
-    </div>
-    <div class="centered">
-    <main class="site-content">
-        <div th:if="${user != null}" id="profileFirstBlock" style="display: flex">
-            <img th:src="@{'http://cdn.filestackcontent.com/' + ${user.filestack_picture_url}}" alt="" id="profilePicture">
-            <div id="profileFirstInnerBlock">
-                <h1 th:text="${user.first_name} +  ' ' +  ${user.last_name}" style="font-weight: bold; color: #1777F2"></h1>
-                <h3 style="color: #FEDD00" th:text="${mentorMessage}"></h3>
-                <div class="rating"></div>
+    <div class="site-container">
+        <div th:include="partials/navbar :: navbar">
+        </div>
+        <div class="centered">
+        <main class="site-content">
+            <div th:if="${user != null}" id="profileFirstBlock" style="display: flex">
+                <img th:src="@{'http://cdn.filestackcontent.com/' + ${user.filestack_picture_url}}" alt="" id="profilePicture">
+                <div id="profileFirstInnerBlock">
+                    <h1 th:text="${user.first_name} +  ' ' +  ${user.last_name}" style="font-weight: bold; color: #1777F2"></h1>
+                    <h3 style="color: #FEDD00" th:text="${mentorMessage}"></h3>
+                    <div class="rating"></div>
+                </div>
             </div>
+
+            <h1 style="font-weight: bold; color: #1777F2">BIO:</h1>
+            <div th:if="${user != null}"><h3 th:text="${user.biography}"></h3></div>
+            <h1 style="font-weight: bold; color: #1777F2">Interests:</h1>
+
+            <div id="interests" th:each="i : ${interestList}">
+                <span th:text="${i.getName()}"></span>
+            </div>
+
+            <div id="ratingDIV"  th:value="${ratingID}" th:style="${ratingDisplay == true ? 'display:block' : 'display:none'}" >
+
+                        <form th:object="${ratingOBJ}" th:method="post" th:action="@{/rating}">
+                            <h1>submit a rating</h1>
+                            <div>
+                                <select th:field="*{rating}">
+                                <option th:each="i : ${#numbers.sequence(1, 5)}" th:value="${i}" th:text="${i}">
+                                </option>
+                                </select>
+                            </div>
+                            <button type="submit"></button>
+                        </form>
+                </div>
+
+        </main>
         </div>
-
-        <h1 style="font-weight: bold; color: #1777F2">BIO:</h1>
-        <div th:if="${user != null}"><h3 th:text="${user.biography}"></h3></div>
-        <h1 style="font-weight: bold; color: #1777F2">Interests:</h1>
-
-        <div id="interests" th:each="i : ${interestList}">
-            <span th:text="${i.getName()}"></span>
+        <div th:include="partials/footer :: footer">
         </div>
-
-        <!--        <h1 style="font-weight: bold; color: #1777F2">REVIEW:</h1>-->
-<!--        <h3 style="color: #1777F2">Yes, there is earth, it preaches with art. Enlightenment doesn't beautifully believe any yogi — but the lord-->
-<!--            is what-->
-<!--            occurs.</h3>-->
-
-
-
-    </main>
     </div>
-    <div th:include="partials/footer :: footer">
-    </div>
-</div>
 </div>
 
 

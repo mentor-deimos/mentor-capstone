@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@RequestMapping("/ratings")
 public class RatingsController {
 
     @Autowired
@@ -28,9 +27,12 @@ public class RatingsController {
 //        return rating;
 //    }
 
-    @PostMapping
-    public Rating postRating(@RequestBody Rating rating){
-        return ratingRepository.save(rating);
+    @PostMapping("/rating")
+    public String postRating(@ModelAttribute Rating rating){
+        System.out.println("rating = " + rating);
+
+
+        return "redirect:/home";
     }
 
 }
