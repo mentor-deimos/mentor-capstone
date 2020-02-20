@@ -68,3 +68,10 @@ UPDATE interests
                WHERE
                        id = 20;
 
+
+# live sql will have to be adjusted vvvv
+SET session sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
+
+
+SELECT first_name, last_name, filestack_picture_url, avg(rating) from users join ratings on users.id = ratings.recipient_user_id
+where users.first_name LIKE :kellsey or users.last_name LIKE :kellsey or location LIKE :kellsey;
