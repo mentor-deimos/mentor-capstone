@@ -21,6 +21,13 @@ public class ProfileController {
     public String goToProfile(Model model, Principal principal){
         if (principal != null){
             User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            String mentorMessage;
+            if (user.isIs_mentor()){
+                mentorMessage = "Mentor";
+            } else {
+                mentorMessage = "Mentee";
+            }
+            model.addAttribute("mentorMessage", mentorMessage);
             model.addAttribute("user", user);
 //            model.addAttribute("rating", ratingService.allRatingsOnSearch(2));
             return "profile";
