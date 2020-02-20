@@ -43,6 +43,7 @@ public class ProfileController {
             }
 
             model.addAttribute("ratingDisplay", false);
+            model.addAttribute("ratingOBJ", new Rating());
             model.addAttribute("interestList", userDao.getOne(user.getId()).getInterestList());
             model.addAttribute("mentorMessage", mentorMessage);
             model.addAttribute("user", user);
