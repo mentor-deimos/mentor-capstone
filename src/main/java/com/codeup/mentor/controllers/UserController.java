@@ -94,6 +94,13 @@ public class UserController {
 
         return "about";
     }
+
+
+    @GetMapping("/splash")
+    public String goToSplashPage(){
+
+        return "splash";
+    }
 }
 
 
