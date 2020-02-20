@@ -71,17 +71,21 @@ public class UserController {
         return "home";
     }
 
-    @GetMapping("/profile")
-    public String goToProfile(Model model, Principal principal){
-        System.out.println(principal + "**********");
-        if (principal != null){
-            User user = userDao.findByUsername(principal.getName());
-            model.addAttribute("user", user);
-//            model.addAttribute("rating", ratingService.allRatingsOnSearch(2));
-            return "profile";
-        }
-        return "/";
-    }
+
+//    commented out - encapsulating profile related concerns in profilecontroller.java
+
+//    @GetMapping("/profile")
+//    public String goToProfile(Model model, Principal principal){
+//        if (principal != null){
+//            User user = userDao.findByUsername(principal.getName());
+//            model.addAttribute("user", user);
+////            model.addAttribute("rating", ratingService.allRatingsOnSearch(2));
+//            return "profile";
+//        }
+//        return "/splash";
+//
+//
+//    }
 
 
     @GetMapping("/about")

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:http="http://www.w3.org/1999/xhtml">
 <head th:include="partials/header :: header">
 </head>
 <body>
@@ -10,10 +10,10 @@
     <div class="centered">
     <main class="site-content">
         <div th:if="${user != null}" id="profileFirstBlock" style="display: flex">
-            <img th:src="@{${user.filestack_picture_url}}" alt="" id="profilePicture">
+            <img th:src="@{'http://cdn.filestackcontent.com/' + ${user.filestack_picture_url}}" alt="" id="profilePicture">
             <div id="profileFirstInnerBlock">
                 <h1 th:text="${user.first_name} +  ' ' +  ${user.last_name}" style="font-weight: bold; color: #1777F2"></h1>
-                <h3 style="color: #FEDD00">mentor</h3>
+                <h3 style="color: #FEDD00" th:text="${user.is_mentor}"></h3>
                 <div class="rating"></div>
             </div>
         </div>
