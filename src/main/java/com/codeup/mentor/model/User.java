@@ -116,7 +116,9 @@ public class User {
 
     }
 
-    ;
+    public User(){
+
+    }
 
     public User(long id, String first_name, String last_name, String username, String email, String biography, boolean is_mentor, String filestack_picture_url, String password, String location) {
         this.id = id;
@@ -143,6 +145,8 @@ public class User {
         this.filestack_picture_url = filestack_picture_url;
 
     }
+
+
 
     public User(User copy) {
         id = copy.id;
@@ -238,6 +242,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 
 //    commit comment

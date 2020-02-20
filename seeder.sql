@@ -4,17 +4,17 @@
 
 use mentor_db;
 
+
 #
+ DELETE from mentor_db.users WHERE ID >= 4;
 #
-# DELETE from mentor_db.users WHERE ID >= 4;
-#
-# SELECT * from mentor_db.users;
+SELECT * from mentor_db.users;
 #
 # SELECT * from mentor_db.interests;
 # SELECT * from mentor_db.user_interest;
 # SELECT * FROM mentor_db.contacts;
 # SELECT * FROM mentor_db.messages;
-# SELECT * FROM mentor_db.ratings;
+SELECT * FROM mentor_db.ratings;
 # SELECT * FROM mentor_db.posts;
 #
 # INSERT INTO users (biography, email, filestack_picture_url, first_name, last_name, is_mentor, username, password)

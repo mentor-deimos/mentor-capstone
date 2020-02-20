@@ -5,21 +5,15 @@ import com.codeup.mentor.model.Interest;
 import com.codeup.mentor.model.Rating;
 import com.codeup.mentor.model.User;
 import com.codeup.mentor.repositories.InterestRepository;
-import com.codeup.mentor.repositories.RatingRepository;
 import com.codeup.mentor.repositories.UserRepository;
 import com.codeup.mentor.services.RatingService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.context.request.RequestContextHolder;
 
-import javax.persistence.GeneratedValue;
 import java.security.Principal;
-import java.util.List;
 
 
 @Controller
@@ -68,17 +62,6 @@ public class UserController {
         String hash = passwordEncoder.encode(user.getPassword());
         user.setPassword(hash);
         userDao.save(user);
-
-//        String[] interestsIDarr;
-//
-//
-//        Long lastCreated = userDao.findTopByOrderByIdDesc().getId();
-//       interestsIDarr = interestsID.split(",");
-//       for (String interest : interestsIDarr){
-//
-//       }
-//        System.out.println("interestsID = " + interestsID);
-
 
         return "home";
     }

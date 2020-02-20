@@ -26,8 +26,8 @@ List<User> findUsersByFirst_nameOrLast_nameOrLocation(@Param("myInput") String m
     @Query(value ="SELECT * FROM users where users.first_name LIKE %:myInput% or users.last_name LIKE %:myInput% or users.location LIKE %:myInput%", nativeQuery = true)
     List<User> findUsersBysearch(@Param("myInput") String myInput);
 
-    @Query(value ="SELECT name FROM interests where LOWER(name) like %:myInput%", nativeQuery = true)
-    List<User> findAllByInterestListContains(String first_name);
+//    @Query(value ="SELECT name FROM interests where LOWER(name) like %:myInput%", nativeQuery = true)
+//    List<User> findAllByInterestListContains(String first_name);
 
 List<User> findByIdEquals(long id);
 
