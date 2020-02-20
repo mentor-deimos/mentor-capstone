@@ -82,6 +82,14 @@ a{
     transition: all ease 0.8s;
     font-weight: bold;
 }
+.btnBlue{
+    color: white;
+    background-color: #1777F2;
+    height: 60px;
+    width: 120px;
+    font-size: 20px;
+    margin: 5px;
+}
 .btn1{
     background-color: transparent;
     color: #FEDD00;
@@ -743,8 +751,9 @@ textarea:focus{
     #right{
         text-align: center;
         color: white;
-        width: 100%!important;
-        height: 100%!important;
+        width: 100vw!important;
+        height: 200vh!important;
+        background-image: linear-gradient(#1777F2, #0035A8);
     }
     #right button{
         color: white;
@@ -788,15 +797,15 @@ textarea:focus{
         background-image: linear-gradient(#1777F2, #0035A8);
         background-repeat: no-repeat;
         background-size: 100vh;
-        height: 100vh;
+        height: 100%;
 
     }
     .interestMobile{
-        height: 100vh; width: 100vw; display: flex!important; flex-wrap: wrap;     background-image: linear-gradient(#1777F2, #0035A8);
+        height: 100%; width: 50vw; display: flex!important; flex-wrap: wrap;
 
     }
     .interests{
-        display: none!important;
+        /*display: none!important;*/
     }
     .mobile{
         color: white;

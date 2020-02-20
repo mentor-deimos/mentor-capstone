@@ -20,19 +20,19 @@
             $(".lcgroupone, #linetwo, #linethree").css("display", "none");
             $(" #lineone, .lcgrouptwo, .lcgroupthree").css("display", "block");
             $("#lineone, #bigCircle1").css("background-color", "#1777f2");
-            $("#bigCircle1").html("✔");
+            $("#bigCircle1").html("<p style=\"margin-top: 2px\">✔</p>");
         }
         if (currentTab == 2) {
             $(".lcgroupone, .lcgrouptwo,  #linethree").css("display", "none");
             $("#lineone, #linetwo, .lcgroupthree").css("display", "block");
             $("#lineone, #bigCircle1, #linetwo, #bigCircle2").css("background-color", "#1777f2");
-            $("#bigCircle1, #bigCircle2").html("✔");
+            $("#bigCircle1, #bigCircle2").html("<p style=\"margin-top: 2px\">✔</p>");
         }
         if (currentTab == 3) {
             $(".lcgroupone, .lcgrouptwo, .lcgroupthree").css("display", "none");
             $("#lineone, #linetwo, #linethree").css("display", "block");
             $("#lineone, #bigCircle1, #linetwo, #bigCircle2, #linethree, #bigCircle3").css("background-color", "#1777f2");
-            $("#bigCircle1, #bigCircle2, #bigCircle3").html("✔");
+            $("#bigCircle1, #bigCircle2, #bigCircle3").html("<p style=\"margin-top: 2px\">✔</p>");
         }
 
     }
