@@ -2,7 +2,6 @@ package com.codeup.mentor.controllers;
 
 
 import com.codeup.mentor.model.Interest;
-import com.codeup.mentor.model.Rating;
 import com.codeup.mentor.model.User;
 import com.codeup.mentor.repositories.InterestRepository;
 import com.codeup.mentor.repositories.UserRepository;
@@ -14,17 +13,19 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Controller
 public class UserController {
 
+    private UserRepository userDao;
 
     private String uploadHandle;
 
 
 
-    private UserRepository userDao;
     private InterestRepository interestDao;
 
     private RatingService ratingService;
@@ -49,18 +50,22 @@ public class UserController {
 
 
     @GetMapping("/signup")
-    public String showSignupForm(Model model) {
-
+    public String showSignupForm(Model model) { ;
+        List<Interest> interestList = new ArrayList<>();
         model.addAttribute("interests", interestDao.findAll());
         model.addAttribute("filestackapi", filestackapi);
         model.addAttribute("user", new User());
+        model.addAttribute("interestlist", interestList);
+
         return "signUp";
     }
 
     @PostMapping("/signup")
-    public String saveUser(@ModelAttribute User user) {
+    public String saveUser(@ModelAttribute User user, @RequestParam(name="interests") List<Interest> interestList) {
+
         String hash = passwordEncoder.encode(user.getPassword());
         user.setPassword(hash);
+        user.setInterestList(interestList);
         userDao.save(user);
 
         return "home";
