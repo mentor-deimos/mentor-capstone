@@ -8,24 +8,24 @@
     <div id="left">
         <img th:src="@{/img/mentee_mentor.svg}" alt="" class="left_img">
     </div>
-    <div id="right">
+    <div id="right"  style="overflow: scroll!important; font-family: 'Open Sans', sans-serif">
         <div class="rightContent">
             <div id="bigCircle1" style="background-color: grey" class="bigCircle"><p style="margin-top: 2px">1</p></div>
             <div id="lineone" style="background-color: grey" class="line"></div>
             <div style="background-color: grey" class="littleCircle lcgroupone"></div>
             <div style="background-color: grey" class="littleCircle lcgroupone"></div>
             <div style="background-color: grey" class="littleCircle lcgroupone"></div>
-            <div id="bigCircle2" style="background-color: grey" class="bigCircle"><p>2</p></div>
+            <div id="bigCircle2" style="background-color: grey" class="bigCircle"><p style="margin-top: 2px">2</p></div>
             <div id="linetwo" style="background-color: grey" class="line"></div>
             <div style="background-color: grey" class="littleCircle lcgrouptwo"></div>
             <div style="background-color: grey" class="littleCircle lcgrouptwo"></div>
             <div style="background-color: grey" class="littleCircle lcgrouptwo"></div>
-            <div id="bigCircle3" style="background-color: grey" class="bigCircle"><p>3</p></div>
+            <div id="bigCircle3" style="background-color: grey" class="bigCircle"><p style="margin-top: 2px">3</p></div>
             <div id="linethree" style="background-color: grey" class="line"></div>
             <div style="background-color: grey" class="littleCircle lcgroupthree"></div>
             <div style="background-color: grey" class="littleCircle lcgroupthree"></div>
             <div style="background-color: grey" class="littleCircle lcgroupthree"></div>
-            <div id="bigCircle4" style="background-color: grey" class="bigCircle"><p>4</p></div>
+            <div id="bigCircle4" style="background-color: grey" class="bigCircle"><p style="margin-top: 2px">4</p></div>
         </div>
         <div id="pathchoice" style="text-align: center">
             <h1 style="margin-top: 3em!important; font-size: 50px">Step 1:</h1>
@@ -38,57 +38,53 @@
         <form id="regForm" th:action="@{/signup}" th:method="post" th:object="${user}" style="text-align: center">
 
             <h1>Register:</h1>
-            <div class="tab">Name:
-                <p><input placeholder="First name" th:field="*{first_name}"></p>
-                <p><input placeholder="Last name" th:field="*{last_name}"></p>
+            <div class="tab">
+                <h2>Name:</h2>
+                <p><input style="height: 50px; width: 500px; font-size: 35px" placeholder="First name" th:field="*{first_name}"></p>
+                <p><input style="height: 50px; width: 500px; font-size: 35px" placeholder="Last name" th:field="*{last_name}"></p>
             </div>
 
-            <div class="tab">Desired username, password, and current e-mail:
-                <p><input placeholder="Username" th:field="*{username}"></p>
-                <p><input placeholder="Password" th:field="*{password}"></p>
-                <p><input placeholder="E-mail" th:field="*{email}"></p>
+            <div class="tab">
+                <h2>Desired username, password, and current e-mail:</h2>
+                <p><input style="height: 50px; width: 500px; font-size: 35px" placeholder="Username" th:field="*{username}"></p>
+                <p><input style="height: 50px; width: 500px; font-size: 35px" placeholder="Password" th:field="*{password}"></p>
+                <p><input style="height: 50px; width: 500px; font-size: 35px" placeholder="E-mail" th:field="*{email}"></p>
             </div>
 
 
-            <div class="tab">Username and biography info:
-                <p><input placeholder="Location" th:field="*{location}"></p>
-                <p><input placeholder="Tells us a bit about yourself" th:field="*{biography}"></p>
+            <div class="tab">
+                <h2>Username and biography info:</h2>
+                <p><input style="height: 50px; width: 500px; font-size: 35px" placeholder="Location" th:field="*{location}"></p>
+                <p><input style="height: 50px; width: 500px; font-size: 35px" placeholder="Tells us a bit about yourself" th:field="*{biography}"></p>
             </div>
 
 
             <div class="tab" style="text-align: center">
                 <input id="stashFilestackURL" name="stashFilestackURL" value="replaceme"
                        th:field="*{filestack_picture_url}" type="hidden">
-                <div id='upload' class='button'><img th:src="@{/img/svg/photograph.svg}" alt='' style='height: 7vh'
-                                                     id='picUpLoad'></div>
-                <select id="formpathselection" class="form-control" th:field="*{is_mentor}">
-                    <option th:value="1">mentor</option>
-                    <option th:value="0">mentee</option>
+                <div style="width: 100%; display: flex; justify-content: center; margin-top: 10px">
+                <div id='upload' class="btn btn3" style="width: 200px!important; height: 50px!important;">Upload Profile Picture</div>
+                </div>
+                <select style="visibility: hidden" id="formpathselection" class="form-control" th:field="*{is_mentor}">
+                    <option th:value="1">Mentor</option>
+                    <option th:value="0">Mentee</option>
                 </select>
 
-                <h3>Interests</h3>
-                <div style="height: 50vh; width: 62vw; display: flex; flex-wrap: wrap" class="interests">
+                <h2>Interests</h2>
+                <div style="height: 100%; width: 62vw; display: flex; flex-wrap: wrap">
                     <div id="interests" th:each="i : ${interests}">
-                        <label style="display: flex; border-radius: 10px; border: 2px solid #1777F2; justify-content: center; width: 150px; font-size: 15px; margin: 10px; color: black">
+                        <label style="display: flex; border-radius: 10px; border: 2px solid #1777F2; justify-content: center; width: 300px; font-size: 30px; margin: 10px; color: black">
                             <input name="interests" type="checkbox" th:value="${i.getId()}" th:text="${i.getName()}"/>
-                            <img style="height: 45px" th:src="${i.getPicture_path()}" alt="">
+                            <img style="height: 55px" th:src="${i.getPicture_path()}" alt="">
                         </label>
                         </input>
                     </div>
                 </div>
-                <div class="interestMobile" style="display: none">
-                    <div id="interests" th:each="i : ${interests}">
-                        <label style="display: flex; border-radius: 10px; border: 2px solid #1777F2; justify-content: center; width: 100px; font-size: 12px; margin: 5px; color: black">
-                            <input name="interests" type="checkbox" th:value="${i.getId()}" th:text="${i.getName()}"/>
-<!--                            <img style="height: 25px" th:src="${i.getPicture_path()}" alt="">-->
-                        </label>
-                        </input>
-                    </div>
-                </div>
+
             </div>
 
-            <button type="button" id="prevBtn">Previous</button>
-            <button type="button" id="nextBtn">Next</button>
+            <button type="button" id="prevBtn" class="btn btn4" style="margin: 10px">Previous</button>
+            <button type="button" id="nextBtn" class="btn btn3" style="margin: 10px">Next</button>
 
         </form>
 

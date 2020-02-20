@@ -64,9 +64,11 @@ SELECT * FROM mentor_db.ratings;
 
 UPDATE interests
                SET
-                   name = 'Spirituality'
+                   picture_path = '/img/svg/040-law.svg'
                WHERE
-                       id = 13;
+                       id = 20;
+INSERT INTO interests (name, picture_path)
+VALUES ('Automotive', '/img/svg/002-brake.svg'), ('Financial', '/img/svg/005-coin.svg'), ('Health/Fitness', '/img/svg/008-muscle.svg'), ('Beauty/Fashion', '/img/svg/013-makeover.svg'), ('Cooking', '/img/svg/014-cooking.svg'), ('Relationship', '/img/svg/015-relationship.svg'), ('Handyman', '/img/svg/017-hammer.svg'), ('Parenting', '/img/svg/018-baby-boy.svg'), ('Life', '/img/svg/021-selection.svg'), ('Career', '/img/svg/020-revenue.svg'), ('Outdoors', '/img/svg/023-compass.svg'), ('Academic', '/img/svg/024-study.svg'), ('Religion/Spiritual', '/img/svg/027-praying.svg'), ('Technology', '/img/svg/016-laptop.svg'), ('Music', '/img/svg/031-music-1.svg'), ('Sports', '/img/svg/032-cup.svg'), ('Art', '/img/svg/033-palette.svg'), ('Home Economics', '/img/svg/036-sewing-machine.svg'), ('Self Defense', '/img/svg/038-boxing-gloves-1.svg'), ('Legal', '/img/svg/040-law.svg');
 
 
 # live sql will have to be adjusted vvvv
