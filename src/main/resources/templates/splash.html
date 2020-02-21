@@ -114,7 +114,7 @@
     <img th:src="@{/img/mentorIcon.svg}" alt="" class="iconM" style="margin-top: 125px">
     <h1 class="titleM" style="font-size: 50px!important; margin-top: 10px!important;"><span class="titleSpanM">M</span>entor
     </h1>
-    <div class="mobileBtns" style="flex-direction: row; justify-content: center">
+    <div class="mobileBtns" style="flex-direction: row; justify-content: center; margin: 0px 10px 100px 10px">
         <button class="btn btn2 signUp">SIGN UP</button>
         <button class="btn btn1 signInMobile">LOGIN</button>
     </div>
@@ -125,19 +125,15 @@
             <br>
             <label for="password"><b>Password</b></label>
             <input type="password" placeholder="Enter Password" name="password" id="password" required>
-            <div class="modal-actions">
+            <div class="modal-actions" style="margin-bottom: 100px">
                 <button class="btn btn5 cancel">CANCEL</button>
                 <button class="btn btn6">LOGIN</button>
             </div>
         </form>
     </div>
-    <div class="arrows">
-        <img class="arrow" th:src="@{/img/arrow.svg}" alt="" style="margin-top: 200px">
-    </div>
-
 
 <div style="display: flex; flex-direction: column; align-items: center">
-    <div style="display: flex; margin-top: 50px; flex-direction: column">
+    <div style="display: flex; flex-direction: column">
         <img th:src="@{/img/splashMenteeMentor.svg}" alt="" style="height: 150px">
         <div style="flex-direction: column; width: 65vw">
             <h1>Mentee or mentor</h1>
