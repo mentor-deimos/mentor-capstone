@@ -2,7 +2,7 @@
 1. Splash page 
     - SIGN UP || SIGN IN
     - Random Quote
-    - ~~Random BG Picture ~~
+    - Random BG Picture
     - Must Login
 2. Registration page(s)
     - Path choice: Mentee OR Mentor
@@ -13,7 +13,7 @@
     - Accept terms and conditions (age)
 3. Home Page
     - Forum area for returning
-    - ~~New USERS direct to profile page~~
+    - New USERS direct to profile page
 4. Profile page(s)
     - Dynamic nav
     - Body
