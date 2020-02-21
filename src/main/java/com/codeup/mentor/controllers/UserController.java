@@ -68,7 +68,7 @@ public class UserController {
         user.setInterestList(interestList);
         userDao.save(user);
 
-        return "home";
+        return "redirect:/";
     }
 
 
