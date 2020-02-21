@@ -47,12 +47,20 @@ public class SearchController {
         List<User> userList = new ArrayList<>();
         List<User> users = userRepository.findUsersByFirst_nameOrLast_nameOrLocation(myInput);
 //        List<User> users = userRepository.findUsersByFirst_nameOrLast_nameOrLocation('\"'+ '%' + myInput + '%' +'\"');
+        for (User user2 : users){
+            System.out.println(user2.getFirst_name());
+            System.out.println(user2.getRating());
+        }
         if (users.isEmpty()){
             users = userRepository.findUsersBysearch(myInput);
+
         } else if (!users.isEmpty()){
             for (User userer : users){
-                userer.setRating(ratingService.allRatingsOnSearch(userer.getId()));
-                userList.add(userer);
+                System.out.println(userer.getFirst_name() + "***************************");
+                if (!userList.contains(userer)) {
+                    userer.setRating(ratingService.allRatingsOnSearch(userer.getId()));
+                    userList.add(userer);
+                }
             }
             model.addAttribute("myInput", myInput);
             model.addAttribute("users", userList);

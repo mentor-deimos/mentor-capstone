@@ -46,8 +46,8 @@ SELECT * FROM mentor_db.ratings;
 #
 # SELECT * FROM ratings WHERE recipient_user_id = ?1;
 #
-# INSERT INTO ratings (rating, giver_user_id, recipient_user_id)
-# VALUES (2, 1,2);
+INSERT INTO ratings (rating, giver_user_id, recipient_user_id)
+VALUES (2, 1,2);
 #
 # SELECT * FROM users where LOWER(first_name) like "%kenneth%";
 #
@@ -77,3 +77,11 @@ SELECT first_name, last_name, filestack_picture_url, avg(rating) from users join
 where users.first_name LIKE :kellsey or users.last_name LIKE :kellsey or location LIKE :kellsey;
 
 drop database if exists mentor_db;
+
+SELECT distinct users.first_name, users.last_name, users.filestack_picture_url, avg(ratings.rating) from users join ratings on users.id = ratings.recipient_user_id join user_interest u on users.id = u.user_id join interests on u.interest_id = interests.id where users.first_name LIKE :kellsey or users.last_name LIKE :kellsey or location LIKE :kellsey or interests.name like :kellsey ;
+
+SELECT distinct users.first_name, users.last_name, users.filestack_picture_url, avg(ratings.rating) FROM users join ratings on users.id = ratings.recipient_user_id join user_interest u on users.id = u.user_id join interests on u.interest_id = interests.id where users.first_name LIKE :myInput or users.last_name LIKE :myInput or location LIKE :myInput or interests.name like :myInput;
+
+
+#the seeder for interests with icons
+INSERT INTO interests (name, picture_path) VALUES ('Automotive', '/img/svg/002-brake.svg'), ('Financial', '/img/svg/005-coin.svg'), ('Health/Fitness', '/img/svg/008-muscle.svg'), ('Beauty/Fashion', '/img/svg/013-makeover.svg'), ('Cooking', '/img/svg/014-cooking.svg'), ('Relationship', '/img/svg/015-relationship.svg'), ('Handyman', '/img/svg/017-hammer.svg'), ('Parenting', '/img/svg/018-baby-boy.svg'), ('Life', '/img/svg/021-selection.svg'), ('Career', '/img/svg/020-revenue.svg'), ('Outdoors', '/img/svg/023-compass.svg'), ('Academic', '/img/svg/024-study.svg'), ('Religion/Spiritual', '/img/svg/027-praying.svg'), ('Technology', '/img/svg/016-laptop.svg'), ('Music', '/img/svg/031-music-1.svg'), ('Sports', '/img/svg/032-cup.svg'), ('Art', '/img/svg/033-palette.svg'), ('Home Economics', '/img/svg/036-sewing-machine.svg'), ('Self Defense', '/img/svg/038-boxing-gloves-1.svg'), ('Legal', '/img/svg/040-law.svg');
