@@ -1,7 +1,8 @@
 
 
 
-select * from mentor_db.interests;
+select * from mentor_db.posts;
+delete from mentor_db.posts where id = 1;
 use mentor_db;
 
 
