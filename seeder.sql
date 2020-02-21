@@ -63,6 +63,9 @@ VALUES (2, 1,2);
 #   );
 #
 
+DELETE from mentor_db.posts WHERE ID >= 5;
+
+
 UPDATE interests
                SET
                    picture_path = '/img/svg/040-law.svg'
