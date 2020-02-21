@@ -7,6 +7,7 @@ import com.codeup.mentor.model.User;
 import com.codeup.mentor.repositories.ContactRepository;
 import com.codeup.mentor.repositories.MessageRepository;
 import com.codeup.mentor.repositories.UserRepository;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -50,17 +51,19 @@ public class MessagingController {
 
     @GetMapping("/messages")
     public String showMessages(Model model){
-
+        User u = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         List<Contact> contactList  = contactDao.findAll();
 
-//       Message currentmsg = messageDao.getOne((long) 1);
-       Message currentmsg = new Message("Hey, interested in learning how to change the oil on my Jeep Wrangler - thanks for any time you might have :)");
-//       User receivedUser = currentmsg.getReceiver_info();
-//       User sentUser = currentmsg.getSender_info();
 
-       model.addAttribute("message", currentmsg);
-//       model.addAttribute("receivedUser", receivedUser);
-//       model.addAttribute("sentUser", sentUser);
+        if (u.getReceivers() == null){
+            model.addAttribute("messagingDisplay", false);
+        } else {
+            model.addAttribute("messagingDisplay", true);
+
+        }
+
+
+       model.addAttribute("messagelist", u.getReceivers());
        model.addAttribute("contactList", contactList);
 
         return "messages";
