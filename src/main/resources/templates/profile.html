@@ -15,22 +15,16 @@
                     <h1 th:text="${user.first_name} +  ' ' +  ${user.last_name}" style="font-weight: bold; color: #1777F2"></h1>
                     <h3 style="color: #FEDD00" th:text="${mentorMessage}"></h3>
 
-                    <div th:switch="${#aggregates.avg(userRating)}">
 
-<!--                                            <span th:case="'<1'" class="fa fa-star"></span>-->
-<!--                                            <span th:case="'<2'" class="fa fa-star"></span>-->
-<!--                                            <span th:case="'<3'" class="fa fa-star"></span>-->
-<!--                                            <span th:case="'<4'" class="fa fa-star"></span>-->
-<!--                                            <span th:case="'<=5'" class="fa fa-star"></span>-->
+                        <span th:if="${userRating} == 0" class="fa fa-star"></span>
+                        <span th:if="${#aggregates.avg(userRating)} >1" class="fa fa-star"></span>
+                        <span th:if="${#aggregates.avg(userRating)} >2" class="fa fa-star"></span>
+                        <span th:if="${#aggregates.avg(userRating)} >3" class="fa fa-star"></span>
+                        <span th:if="${#aggregates.avg(userRating)} >4" class="fa fa-star"></span>
+                        <span th:if="${#aggregates.avg(userRating)} >5" class="fa fa-star"></span>
 
-                        <span th:case="'<=1'">hello 1</span>
-                        <span th:case="'<=2'">hello 2</span>
-                        <span th:case="'<=3'">hello 3</span>
-                        <span th:case="'<=4'">hello 4</span>
-                        <span th:case="'<=5'">hello 5</span>
-                    </div>
+                        <h1 th:text="${#aggregates.avg(userRating)} + ' average rating  from ' + ${userRating.size()} + ' users!'">
 
-                    <h1 th:text="${#aggregates.avg(userRating)}"></h1>
 
                 </div>
             </div>
