@@ -14,12 +14,12 @@
     <div class="modal-shade"></div>
     <div class="modal-container">
         <div class="modal" style="height: 400px; width: 400px">
-            <form style="font-size: 30px; color: #1777F2" th:method="POST" th:action="@{/login}">
-                <label for="username"><b>Username</b></label>
-                <input type="text" placeholder="Enter Username" id="username" name="username" required>
+            <form style="font-size: 30px; color: #1777F2; font-family: 'Open Sans', sans-serif" th:method="POST" th:action="@{/login}">
+                <label for="username"><b>Username:</b></label>
+                <input style="height: 50px; font-size: 25px" type="text" placeholder="Enter Username" id="username" name="username" required>
                 <br>
-                <label for="password"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="password" id="password" required>
+                <label for="password"><b>Password:</b></label>
+                <input style="height: 50px; font-size: 25px" type="password" placeholder="Enter Password" name="password" id="password" required>
                 <div class="modal-actions">
                     <button class="modal-cancel btn btn5">CANCEL</button>
                     <button type="submit" class="modal-ok btn btn6">LOGIN</button>
