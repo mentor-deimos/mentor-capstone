@@ -23,6 +23,7 @@ public class PostController {
 
     @GetMapping("/home")
     public String postsIndex(Model model) {
+        model.addAttribute("user", (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
         model.addAttribute("posts", postDao.findAll());
         return "home";
     }

@@ -101,16 +101,6 @@ public class UserController {
 
         return "splash";
     }
-
-    @GetMapping("/partials/navbar")
-    public String navbarpicture(@PathVariable long id, Model model){
-        User user = userDao.getOne(id);
-        model.addAttribute("user", user);
-
-
-        return "navbar";
-
-    }
 }
 
 
