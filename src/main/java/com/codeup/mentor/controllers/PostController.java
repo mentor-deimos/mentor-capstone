@@ -4,6 +4,7 @@ import com.codeup.mentor.model.Post;
 import com.codeup.mentor.model.User;
 import com.codeup.mentor.repositories.PostRepository;
 import com.codeup.mentor.repositories.UserRepository;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -64,8 +65,8 @@ public class PostController {
     }
     @PostMapping("/posts/create")
     public String createPost(@ModelAttribute Post post) {
-//        User u = userDao.getOne(1L);
-//        post.setUser(u);
+        User u = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        post.setUser(u);
         postDao.save(post);
         return "redirect:/home";
     }

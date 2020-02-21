@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Create a post</title>
-</head>
+<head th:include="partials/header :: header">
+
 <body>
 
-
+<div th:include="partials/navbar :: navbar">
+</div>
+<h3>Create a post!</h3>
 <form th:action="@{/posts/create}" th:method="POST" th:object="${post}">
     <label for="title">title</label>
     <input id="title" type="text" th:field="*{title}" placeholder="Enter title here">
@@ -17,6 +17,8 @@
         </textarea>
     <button type="submit">Create post</button>
 </form>
+<div th:include="partials/footer :: footer">
+</div>
 
 </body>
 </html>
