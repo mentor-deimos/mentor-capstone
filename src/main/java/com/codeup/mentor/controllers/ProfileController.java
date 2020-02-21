@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 
 import java.security.Principal;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 @Controller
 public class ProfileController {
@@ -23,9 +26,11 @@ public class ProfileController {
     private RatingRepository ratingDao;
 
 
-    public ProfileController (UserRepository userDao, InterestRepository interestDao){
+
+    public ProfileController (UserRepository userDao, InterestRepository interestDao, RatingRepository ratingDao){
         this.userDao = userDao;
         this.interestDao = interestDao;
+        this.ratingDao = ratingDao;
     }
 
 
@@ -43,6 +48,11 @@ public class ProfileController {
                 mentorMessage = "Mentee";
             }
 
+
+            List<Rating> allByRecipientId = ratingDao.findAllByRecipientId(user.getId());
+
+
+            model.addAttribute("userRating", allByRecipientId);
             model.addAttribute("ratingDisplay", false);
             model.addAttribute("ratingOBJ", new Rating());
             model.addAttribute("interestList", userDao.getOne(user.getId()).getInterestList());
@@ -66,6 +76,17 @@ public class ProfileController {
             mentorMessage = "Mentee";
         }
 
+        List<Rating> allByRecipientId = ratingDao.findAllByRecipientId(user.getId());
+        ArrayList<Integer> allRatingsForRecipientId = new ArrayList<>();
+
+        for (Rating rating : allByRecipientId){
+            allRatingsForRecipientId.add(rating.getRating());
+        }
+
+        System.out.println("allRatingsForRecipientId = "        + allRatingsForRecipientId);
+
+
+        model.addAttribute("userRating", allRatingsForRecipientId);
         model.addAttribute("ratingID", id);
         model.addAttribute("ratingDisplay", true);
         model.addAttribute("ratingOBJ", new Rating());

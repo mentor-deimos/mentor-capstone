@@ -14,7 +14,16 @@
                 <div id="profileFirstInnerBlock">
                     <h1 th:text="${user.first_name} +  ' ' +  ${user.last_name}" style="font-weight: bold; color: #1777F2"></h1>
                     <h3 style="color: #FEDD00" th:text="${mentorMessage}"></h3>
-                    <div class="rating"></div>
+                    <div th:switch="${#aggregates.avg(userRating)}">
+                                            <span th:case="'<1'" class="fa fa-star"></span>
+                                            <span th:case="'<2'" class="fa fa-star"></span>
+                                            <span th:case="'<3'" class="fa fa-star"></span>
+                                            <span th:case="'<4'" class="fa fa-star"></span>
+                                            <span th:case="'<=5'" class="fa fa-star"></span>
+                    </div>
+
+                    <h1 th:text="${#aggregates.avg(userRating)}"></h1>
+
                 </div>
             </div>
 
@@ -89,38 +98,38 @@
     <div th:include="partials/navbar :: mobile-nav">
     </div>
 </div>
-<script th:inline="javascript">
-    /*<![CDATA[*/
-    var rating = [[${rating}]];
-    let newRate = "";
+<!--<script th:inline="javascript">-->
+<!--    /*<![CDATA[*/-->
+<!--    var rating = [[${rating}]];-->
+<!--    let newRate = "";-->
 
-    function ratingStars(rating) {
-        if (rating <= 1.5) {
-            newRate = "⭐"
-        }
-        if (rating <= 2.5) {
-            newRate = "⭐️⭐️"
-        }
-        if (rating <= 3.5) {
-            newRate = "⭐️⭐️⭐️"
-        }
-        if (rating <= 4.5) {
-            newRate = "⭐️⭐️⭐️⭐️"
-        }
-        if (rating > 4.5) {
-            newRate = "⭐️⭐️⭐️⭐️⭐️"
-        }
+<!--    function ratingStars(rating) {-->
+<!--        if (rating <= 1.5) {-->
+<!--            newRate = "⭐"-->
+<!--        }-->
+<!--        if (rating <= 2.5) {-->
+<!--            newRate = "⭐️⭐️"-->
+<!--        }-->
+<!--        if (rating <= 3.5) {-->
+<!--            newRate = "⭐️⭐️⭐️"-->
+<!--        }-->
+<!--        if (rating <= 4.5) {-->
+<!--            newRate = "⭐️⭐️⭐️⭐️"-->
+<!--        }-->
+<!--        if (rating > 4.5) {-->
+<!--            newRate = "⭐️⭐️⭐️⭐️⭐️"-->
+<!--        }-->
 
-    }
+<!--    }-->
 
-    $(document).ready(function () {
-        ratingStars(rating);
-        $(".rating").html(
-            "" + newRate + ""
-        )
-    })
+<!--    $(document).ready(function () {-->
+<!--        ratingStars(rating);-->
+<!--        $(".rating").html(-->
+<!--            "" + newRate + ""-->
+<!--        )-->
+<!--    })-->
 
-    /*]]>*/
-</script>
+<!--    /*]]>*/-->
+<!--</script>-->
 </body>
 </html>
