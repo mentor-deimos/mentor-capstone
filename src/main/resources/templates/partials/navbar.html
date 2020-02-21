@@ -18,13 +18,13 @@
             </div>
 
             <div style="display: flex; margin-right: -100px!important;">
-                <div class="hoverNav">
+
                 <a th:href="@{/messages}"><img th:src="@{/img/svg/mail.svg}" alt=""
                                                style=" margin-top: -10px; margin-right: 20px"></a>
 
-            </div>
 
-                <a th:href="@{/profile}"><img th:src="@{/img/svg/user.svg}" alt="" style=" margin-top: -10px"></a>
+
+                <a th:href="@{/profile}"><img th:src="@{'http://cdn.filestackcontent.com/' + ${user.filestack_picture_url}}" alt="" style="height: 100px; width: 100px; border-radius: 50%"></a>
                 <form autocomplete="off" th:action="@{/search}" th:object="${user}" th:method="GET">
 
                     <div id="searching">
