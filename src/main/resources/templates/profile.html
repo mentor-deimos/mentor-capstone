@@ -8,51 +8,51 @@
         <div th:include="partials/navbar :: navbar">
         </div>
         <div class="centered">
-        <main class="site-content">
-            <div th:if="${user != null}" id="profileFirstBlock" style="display: flex">
-                <img th:src="@{'http://cdn.filestackcontent.com/' + ${user.filestack_picture_url}}" alt="" id="profilePicture">
-                <div id="profileFirstInnerBlock">
-                    <h1 th:text="${user.first_name} +  ' ' +  ${user.last_name}" style="font-weight: bold; color: #1777F2"></h1>
-                    <h3 style="color: #FEDD00" th:text="${mentorMessage}"></h3>
+            <main class="site-content">
+                <div th:if="${user != null}" id="profileFirstBlock" style="display: flex">
+                    <img th:src="@{'http://cdn.filestackcontent.com/' + ${user.filestack_picture_url}}" alt="" id="profilePicture">
+                    <div id="profileFirstInnerBlock">
+                        <h1 th:text="${user.first_name} +  ' ' +  ${user.last_name}" style="font-weight: bold; color: #1777F2"></h1>
+                        <h3 style="color: #FEDD00" th:text="${mentorMessage}"></h3>
+
+                        <div th:if="${userRating} != 0" >
+                            <span th:if="${#aggregates.avg(userRating)} >=1" class="fa fa-star"></span>
+                            <span th:if="${#aggregates.avg(userRating)} >=2" class="fa fa-star"></span>
+                            <span th:if="${#aggregates.avg(userRating)} >=3" class="fa fa-star"></span>
+                            <span th:if="${#aggregates.avg(userRating)} >=4" class="fa fa-star"></span>
+                            <span th:if="${#aggregates.avg(userRating)} >=5" class="fa fa-star"></span>
+                            <h1 th:text="${#aggregates.avg(userRating)} + ' average rating  from ' + ${userRating.size()} + ' users!'"></h1>
+
+                        </div>
 
 
-                        <span th:if="${userRating} == 0" class="fa fa-star"></span>
-                        <span th:if="${#aggregates.avg(userRating)} >1" class="fa fa-star"></span>
-                        <span th:if="${#aggregates.avg(userRating)} >2" class="fa fa-star"></span>
-                        <span th:if="${#aggregates.avg(userRating)} >3" class="fa fa-star"></span>
-                        <span th:if="${#aggregates.avg(userRating)} >4" class="fa fa-star"></span>
-                        <span th:if="${#aggregates.avg(userRating)} >5" class="fa fa-star"></span>
-
-                        <h1 th:text="${#aggregates.avg(userRating)} + ' average rating  from ' + ${userRating.size()} + ' users!'">
-
-
+                    </div>
                 </div>
-            </div>
 
-            <h1 style="font-weight: bold; color: #1777F2">BIO:</h1>
-            <div th:if="${user != null}"><h3 th:text="${user.biography}"></h3></div>
-            <h1 style="font-weight: bold; color: #1777F2">Interests:</h1>
+                <h1 style="font-weight: bold; color: #1777F2">BIO:</h1>
+                <div th:if="${user != null}"><h3 th:text="${user.biography}"></h3></div>
+                <h1 style="font-weight: bold; color: #1777F2">Interests:</h1>
 
-            <div id="interests" th:each="i : ${interestList}">
-                <span th:text="${i.getName()}"></span>
-            </div>
+                <div id="interests" th:each="i : ${interestList}">
+                    <span th:text="${i.getName()}"></span>
+                </div>
 
-            <div id="ratingDIV" th:style="${ratingDisplay == true ? 'display:block' : 'display:none'}" >
+                <div id="ratingDIV" th:style="${ratingDisplay == true ? 'display:block' : 'display:none'}" >
 
-                        <form th:object="${ratingOBJ}" th:method="post" th:action="@{/rating}">
-                            <h1>submit a rating</h1>
-                            <input id="hiddenID" name="hiddenID" th:value="${ratingID}" type="hidden">
-                            <div>
-                                <select th:field="*{rating}">
+                    <form th:object="${ratingOBJ}" th:method="post" th:action="@{/rating}">
+                        <h1>submit a rating</h1>
+                        <input id="hiddenID" name="hiddenID" th:value="${ratingID}" type="hidden">
+                        <div>
+                            <select th:field="*{rating}">
                                 <option th:each="i : ${#numbers.sequence(1, 5)}" th:value="${i}" th:text="${i}">
                                 </option>
-                                </select>
-                            </div>
-                            <button type="submit">Submit your rating!</button>
-                        </form>
+                            </select>
+                        </div>
+                        <button type="submit">Submit your rating!</button>
+                    </form>
                 </div>
 
-        </main>
+            </main>
         </div>
         <div th:include="partials/footer :: footer">
         </div>
@@ -61,10 +61,10 @@
 
 
 <div class="mobile">
-        <img th:src="@{'http://cdn.filestackcontent.com/' + ${user.filestack_picture_url}}"  alt="">
+    <img th:src="@{'http://cdn.filestackcontent.com/' + ${user.filestack_picture_url}}"  alt="">
     <h1 th:text="${user.first_name} +  ' ' +  ${user.last_name}" style="font-weight: bold; color: #1777F2"></h1>
     <h3 style="color: #FEDD00" th:text="${mentorMessage}"></h3>
-            <div class="rating"></div>
+    <div class="rating"></div>
 
     <h1 style="font-weight: bold; color: #1777F2">BIO:</h1>
     <div th:if="${user != null}"><h3 th:text="${user.biography}"></h3></div>
