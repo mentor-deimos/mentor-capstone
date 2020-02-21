@@ -50,9 +50,22 @@ public class ProfileController {
 
 
             List<Rating> allByRecipientId = ratingDao.findAllByRecipientId(user.getId());
+            ArrayList<Integer> allRatingsForRecipientId = new ArrayList<>();
+
+            for (Rating rating : allByRecipientId){
+                allRatingsForRecipientId.add(rating.getRating());
+            }
 
 
-            model.addAttribute("userRating", allByRecipientId);
+            if (allRatingsForRecipientId.size() == 0){
+                model.addAttribute("userRating", 0);
+            } else {
+                model.addAttribute("userRating", allRatingsForRecipientId);
+
+            }
+
+
+//            model.addAttribute("userRating", allRatingsForRecipientId);
             model.addAttribute("ratingDisplay", false);
             model.addAttribute("ratingOBJ", new Rating());
             model.addAttribute("interestList", userDao.getOne(user.getId()).getInterestList());
@@ -83,10 +96,15 @@ public class ProfileController {
             allRatingsForRecipientId.add(rating.getRating());
         }
 
-        System.out.println("allRatingsForRecipientId = "        + allRatingsForRecipientId);
+        System.out.println("allRatingsForRecipientId.size() = " + allRatingsForRecipientId.size());
 
+        if (allRatingsForRecipientId.size() == 0){
+            model.addAttribute("userRating", 0);
+        } else {
+            model.addAttribute("userRating", allRatingsForRecipientId);
 
-        model.addAttribute("userRating", allRatingsForRecipientId);
+        }
+
         model.addAttribute("ratingID", id);
         model.addAttribute("ratingDisplay", true);
         model.addAttribute("ratingOBJ", new Rating());
@@ -94,9 +112,7 @@ public class ProfileController {
         model.addAttribute("mentorMessage", mentorMessage);
         model.addAttribute("user", user);
 
-// kah :: commented out below, added additional functionality above mirroring YOUR OWN PROFILE
 
-//            model.addAttribute("user", userDao.getOne(id));
             return "profile";
 
     }
