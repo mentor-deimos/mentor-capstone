@@ -42,6 +42,22 @@
             </div>
             </div>
 
+                <div th:style="${messagingDisplay == true ? 'display:block' : 'display:none'}">
+
+                <h3>Send <span th:text="${user.first_name} +  ' ' +  ${user.last_name}"!/> a message!</h3>
+                <form th:action="@{/messages/send}" th:method="POST" th:object="${message}">
+                    <label for="title">Body of message</label>
+                    <label for="body">Body</label>
+                    <textarea id="body" th:field="*{body}" placeholder="Enter body here">
+
+        </textarea>
+                    <button type="submit">Send message!</button>
+                </form>
+
+                </div>
+
+                </div>
+
                 <div id="ratingDIV" th:style="${ratingDisplay == true ? 'display:block' : 'display:none'}" >
 
                     <form th:object="${ratingOBJ}" th:method="post" th:action="@{/rating}">
@@ -57,14 +73,14 @@
                     </form>
                 </div>
 
-            </main>
+
         </div>
         <div th:include="partials/footer :: footer">
         </div>
     </div>
 </div>
 
-
+</main>
 <div class="mobile">
     <img th:src="@{'http://cdn.filestackcontent.com/' + ${user.filestack_picture_url}}"  alt="">
     <h1 th:text="${user.first_name} +  ' ' +  ${user.last_name}" style="font-weight: bold; color: #1777F2"></h1>

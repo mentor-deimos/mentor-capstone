@@ -35,7 +35,7 @@ public class MessagingController {
     @GetMapping("/messages/send")
     public String sendMessage(Model model){
 
-//        model.addAttribute("message", new Message());
+        model.addAttribute("message", new Message());
         return "draftmessage";
     }
 
@@ -45,7 +45,7 @@ public class MessagingController {
         message.setReceiver_info(userDao.getOne(2L));
         message.setSender_info(userDao.getOne(1L));
         messageDao.save(message);
-        return "redirect:/messages";
+        return "redirect:/home";
     }
 
     @GetMapping("/messages")

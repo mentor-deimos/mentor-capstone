@@ -10,6 +10,8 @@ import java.time.ZonedDateTime;
 @Table(name="messages")
 public class Message {
 
+    public Message(){};
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
