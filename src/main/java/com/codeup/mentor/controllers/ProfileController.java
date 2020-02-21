@@ -1,6 +1,7 @@
 package com.codeup.mentor.controllers;
 
 
+import com.codeup.mentor.model.Message;
 import com.codeup.mentor.model.Rating;
 import com.codeup.mentor.model.User;
 import com.codeup.mentor.repositories.InterestRepository;
@@ -65,7 +66,8 @@ public class ProfileController {
             }
 
 
-//            model.addAttribute("userRating", allRatingsForRecipientId);
+            model.addAttribute("message", new Message());
+            model.addAttribute("messagingDisplay", false);
             model.addAttribute("ratingDisplay", false);
             model.addAttribute("ratingOBJ", new Rating());
             model.addAttribute("interestList", userDao.getOne(user.getId()).getInterestList());
@@ -105,8 +107,10 @@ public class ProfileController {
 
         }
 
+        model.addAttribute("message", new Message());
         model.addAttribute("ratingID", id);
         model.addAttribute("ratingDisplay", true);
+        model.addAttribute("messagingDisplay", true);
         model.addAttribute("ratingOBJ", new Rating());
         model.addAttribute("interestList", userDao.getOne(user.getId()).getInterestList());
         model.addAttribute("mentorMessage", mentorMessage);
