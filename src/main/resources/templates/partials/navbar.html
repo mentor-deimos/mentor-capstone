@@ -25,6 +25,7 @@
 
 
                 <a th:href="@{/profile}"><img th:src="@{'http://cdn.filestackcontent.com/' + ${user.filestack_picture_url}}" alt="" style="height: 100px; width: 100px; border-radius: 50%"></a>
+
                 <form autocomplete="off" th:action="@{/search}" th:object="${user}" th:method="GET">
 
                     <div id="searching">
