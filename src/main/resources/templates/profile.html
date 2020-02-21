@@ -30,9 +30,13 @@
             <h1 style="font-weight: bold; color: #1777F2">BIO:</h1>
             <div th:if="${user != null}"><h3 th:text="${user.biography}"></h3></div>
             <h1 style="font-weight: bold; color: #1777F2">Interests:</h1>
-
+            <div style="height: 100%; width: 100%; display: flex; flex-wrap: wrap; justify-content: center">
             <div id="interests" th:each="i : ${interestList}">
+                <div style="display: flex; border-radius: 10px; border: 2px solid #1777F2; justify-content: center; width: 300px; font-size: 30px; margin: 10px; color: black">
                 <span th:text="${i.getName()}"></span>
+                <img style="height: 55px" th:src="${i.getPicture_path()}" alt="">
+                </div>
+            </div>
             </div>
 
             <div id="ratingDIV" th:style="${ratingDisplay == true ? 'display:block' : 'display:none'}" >
@@ -69,9 +73,11 @@
 
     <h1 style="font-weight: bold; color: #1777F2">SKILLS:</h1>
     <div class="skillsBlock" style="display: flex">
-        <p>skills</p>
+        <div style="height: 100%; width: 100%; display: flex; flex-wrap: wrap; justify-content: center; overflow: scroll">
         <div id="interests" th:each="i : ${interestList}">
             <span th:text="${i.getName()}"></span>
+            <img style="height: 55px" th:src="${i.getPicture_path()}" alt="">
+        </div>
         </div>
     </div>
     <h1 style="font-weight: bold; color: #1777F2">REVIEW:</h1>
