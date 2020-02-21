@@ -19,27 +19,35 @@
                 </div>
             </div>
 
-            <!--div holding structure for eventual FOR EACH LOOP pulling LIST OF MESSAGES w/ METHODS BRINGING SENDER/RECEIVER NAMES-->
-            <div style="width: 80%; border: 8px lightgrey solid; border-radius: 8px">
+            <!--FOREACH message OF list of messages :: PRINT; if NO MESSAGES, display == none! -->
 
-<!--                <div style="width: 80%; display: inline;">-->
-<!--                    <h2 style=" background-color: dodgerblue; color: white; width: 50%; border: lightgrey 2px solid; margin: 20px; border-radius: 8px"><p th:text="${message.body}"></p></h2>-->
-<!--                    Sent by <span th:text="${sentUser.getFirst_name() + sentUser.getLast_name()}"/>-->
-<!--                    Received by <span th:text="${receivedUser.getFirst_name() + receivedUser.getLast_name()}"/>-->
-<!--                </div>-->
+            <div th:style="${messagingDisplay == true ? 'display:block' : 'display:none'}">
 
-                <div style="width: 80%; display: inline;">
-                    <h2 style=" background-color: dodgerblue; color: white; width: 50%; border: lightgrey 2px solid; margin: 20px; border-radius: 8px"><p th:text="${message.body}"></p></h2>
-                    Sent by Kenneth Walsh
-                    Received by Bryan Howell
+                <div th:each="message : ${messagelist}" style="width: 80%; border: 8px lightgrey solid; border-radius: 8px">
+
+                    <div style="width: 80%; display: inline;">
+                        <h2 style=" background-color: dodgerblue; color: white; width: 50%; border: lightgrey 2px solid; margin: 20px; border-radius: 8px"><p th:text="${message.body}"></p></h2>
+                        Sent by <span th:text="${message.getSender_info().getFirst_name() + message.getSender_info().getLast_name()}"/>
+
+                    </div>
                 </div>
             </div>
-        </div>
 
+<!--            conversely if NO MESSAGES, display some kind of pithy remark-->
+
+            <div th:style="${messagingDisplay == false ? 'display:block' : 'display:none'}">
+                <h1>where are your messages dude? go send someone a message!</h1>
+            </div>
+
+
+
+        </div>
     </main>
     <div th:include="partials/footer :: footer">
     </div>
 </div>
+
+
 <div class="mobile">
     <div style="display: flex">
         <div style="width: 30%; height: 100%; border: 8px lightgrey solid; border-radius: 8px">
