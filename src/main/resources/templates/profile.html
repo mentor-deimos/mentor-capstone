@@ -16,11 +16,11 @@
                         <h3 style="color: #FEDD00" th:text="${mentorMessage}"></h3>
 
                         <div th:if="${userRating} != 0" >
-                            <span th:if="${#aggregates.avg(userRating)} >=1" class="fa fa-star"></span>
-                            <span th:if="${#aggregates.avg(userRating)} >=2" class="fa fa-star"></span>
-                            <span th:if="${#aggregates.avg(userRating)} >=3" class="fa fa-star"></span>
-                            <span th:if="${#aggregates.avg(userRating)} >=4" class="fa fa-star"></span>
-                            <span th:if="${#aggregates.avg(userRating)} >=5" class="fa fa-star"></span>
+                            <span style="color: #FEDD00" th:if="${#aggregates.avg(userRating)} >=1" class="fa fa-star"></span>
+                            <span style="color: #FEDD00" th:if="${#aggregates.avg(userRating)} >=2" class="fa fa-star"></span>
+                            <span style="color: #FEDD00" th:if="${#aggregates.avg(userRating)} >=3" class="fa fa-star"></span>
+                            <span style="color: #FEDD00" th:if="${#aggregates.avg(userRating)} >=4" class="fa fa-star"></span>
+                            <span style="color: #FEDD00" th:if="${#aggregates.avg(userRating)} >=5" class="fa fa-star"></span>
                             <h1 th:text="${#aggregates.avg(userRating)} + ' average rating  from ' + ${userRating.size()} + ' users!'"></h1>
 
                         </div>
@@ -30,9 +30,9 @@
                 </div>
 
 
-            <h1 style="font-weight: bold; color: #1777F2">BIO:</h1>
+            <h3 style="font-weight: bold; color: #1777F2">BIO:</h3>
             <div th:if="${user != null}"><h3 th:text="${user.biography}"></h3></div>
-            <h1 style="font-weight: bold; color: #1777F2">Interests:</h1>
+            <h3 style="font-weight: bold; color: #1777F2">Interests:</h3>
             <div style="height: 100%; width: 100%; display: flex; flex-wrap: wrap; justify-content: center">
             <div id="interests" th:each="i : ${interestList}">
                 <div style="display: flex; border-radius: 10px; border: 2px solid #1777F2; justify-content: center; width: 300px; font-size: 30px; margin: 10px; color: black">
@@ -45,7 +45,7 @@
                 <div id="ratingDIV" th:style="${ratingDisplay == true ? 'display:block' : 'display:none'}" >
 
                     <form th:object="${ratingOBJ}" th:method="post" th:action="@{/rating}">
-                        <h1>submit a rating</h1>
+                        <h2>submit a rating</h2>
                         <input id="hiddenID" name="hiddenID" th:value="${ratingID}" type="hidden">
                         <div>
                             <select th:field="*{rating}">
