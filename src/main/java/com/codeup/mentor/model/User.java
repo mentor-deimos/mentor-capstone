@@ -252,8 +252,35 @@ public class User {
         this.location = location;
     }
 
-//    commit comment
+    public Collection<Contact> getContactListOwner() {
+        return contactListOwner;
+    }
 
+    public void setContactListOwner(Collection<Contact> contactListOwner) {
+        this.contactListOwner = contactListOwner;
+    }
 
+    public Collection<Contact> getContactListEntity() {
+        return contactListEntity;
+    }
 
+    public void setContactListEntity(Collection<Contact> contactListEntity) {
+        this.contactListEntity = contactListEntity;
+    }
+
+    public Collection<Message> getSenders() {
+        return senders;
+    }
+
+    public void setSenders(Collection<Message> senders) {
+        this.senders = senders;
+    }
+
+    public Collection<Message> getReceivers() {
+        return receivers;
+    }
+
+    public void setReceivers(Collection<Message> receivers) {
+        this.receivers = receivers;
+    }
 }

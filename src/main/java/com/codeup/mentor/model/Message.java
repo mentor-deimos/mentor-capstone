@@ -78,4 +78,7 @@ public class Message {
     public void setReceiver_info(User receiver_info) {
         this.receiver_info = receiver_info;
     }
+
+
+
 }
