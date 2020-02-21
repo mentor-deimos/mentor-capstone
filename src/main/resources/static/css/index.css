@@ -349,11 +349,11 @@ a{
 
 /*------------------about--------------------------*/
 .profilePic{
-    width: 25vw;
-    height: 50vh;
+    width: 500px;
+    height: 500px;
     margin: 20px;
-    border: 10px solid #FEDD00;
-    border-radius: 8px;
+    border: 4px solid #FEDD00;
+    border-radius: 50%;
     transition: all ease 0.4s;
 
 
