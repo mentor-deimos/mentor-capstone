@@ -52,10 +52,24 @@
         }
     }
 
-    $(".left_img").click(function () {
+    $("#splashBtn").click(function () {
         $(location).attr('href', 'splash');
     });
 
+    $("[value = 1]").click(function () {
+
+            var radioCheck = $('.radioCheck').is(':checked');
+
+        if (radioCheck === true) {
+            $(this).css("background-color", "blue");
+            $(this).css("color", "white");
+        }
+            else{
+                $(this).css("background-color", "white");
+                $(this).css("color", "black");
+        }
+
+    });
 
     $("#menteeBtn, #mentorBtn").click(function () {
         $("#regForm").toggle();
