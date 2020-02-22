@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -41,10 +42,13 @@ public class MessagingController {
     }
 
     @PostMapping("/messages/send")
-    public String sendMessage(@ModelAttribute Message message){
+    public String sendMessage(@ModelAttribute Message message, @RequestParam(name="sendmessagetoID") long senttoID){
+        User sentfromU = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User senttoU = userDao.getOne(senttoID);
+
         message.setDatetime(ZonedDateTime.now());
-        message.setReceiver_info(userDao.getOne(2L));
-        message.setSender_info(userDao.getOne(1L));
+        message.setReceiver_info(senttoU);
+        message.setSender_info(sentfromU);
         messageDao.save(message);
         return "redirect:/home";
     }
@@ -53,9 +57,22 @@ public class MessagingController {
     public String showMessages(Model model){
         User u = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         List<Contact> contactList  = contactDao.findAll();
+        List<Message> messages = messageDao.findAll();
+
+
+
+        System.out.println("u.getReceivers() = " + u.getReceivers());
+        System.out.println("u.getSender() = " + u.getSenders());
 
 
         if (u.getReceivers() == null){
+            model.addAttribute("hasContacts", false);
+        } else {
+            model.addAttribute("hasContacts", true);
+
+        }
+
+        if (u.getContactListEntity() == null){
             model.addAttribute("messagingDisplay", false);
         } else {
             model.addAttribute("messagingDisplay", true);
@@ -63,10 +80,15 @@ public class MessagingController {
         }
 
 
+
+        model.addAttribute("user", u);
        model.addAttribute("messagelist", u.getReceivers());
-       model.addAttribute("contactList", contactList);
+       model.addAttribute("contactList", u.getContactListEntity());
 
         return "messages";
     }
 
+
 }
+
+
