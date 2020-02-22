@@ -215,7 +215,6 @@ a{
     width: 200px;
     border: #FEDD00 4px solid;
     border-radius: 50%;
-    box-shadow: black 4px 4px;
 }
 .splashSection3 li{
     margin: 0 20px;
@@ -294,7 +293,24 @@ a{
     color: white;
 
 }
+.underline{
+    color: white; font-family: 'Montserrat', sans-serif; margin: 20px;
 
+}
+
+.underline:hover:after{
+    width: 100%;
+    background: #FEDD00;
+}
+.underline:after {
+    content: '';
+    width: 0; height: 4px;
+    display: block;
+    color: white;
+    background: #fff;
+    transition: width .2s ease;
+    -webkit-transition: width .2s ease;
+}
 /*---------footer---------------------*/
 #aboutLink{
     font-size: 30px; text-decoration: none; color: #FEDD00; font-family: 'Montserrat', sans-serif;
@@ -472,13 +488,7 @@ a{
 
 
 .link{
-    padding:10px;
-    text-align:center;
-    text-transform:uppercase;
-    cursor:pointer;
-    font-size:1em;
-    margin-top:-20px;
-    width: 100px
+    color: white; font-family: 'Montserrat', sans-serif;
 }
 /*---------------------profile-----------------------*/
 
@@ -530,7 +540,18 @@ a{
     width: 120px;
     font-size: 20px;
 }
+.btn3Big{
+    background-color: transparent;
+    color: #1777F2;
+    border: 3px solid #1777F2;
+    height: 60px;
+    width: 120px;
+    font-size: 20px;
+}
 .btn4{
+    background-color: transparent; color: #FEDD00; border: 3px solid #FEDD00; height: 60px; width: 120px; font-size: 20px
+}
+.btn4Big{
     background-color: transparent; color: #FEDD00; border: 3px solid #FEDD00; height: 60px; width: 120px; font-size: 20px
 }
 .btn5{
@@ -546,8 +567,18 @@ a{
     color: white!important;
     text-shadow: black 1px 1px;
 }
+.btn3Big:hover{
+    box-shadow: inset 300px 0 0 0 #1777F2;
+    color: white!important;
+    text-shadow: black 1px 1px;
+}
 .btn4:hover{
     box-shadow: inset 200px 0 0 0 #FEDD00;
+    color: white!important;
+    text-shadow: black 1px 1px;
+}
+.btn4Big:hover{
+    box-shadow: inset 300px 0 0 0 #FEDD00;
     color: white!important;
     text-shadow: black 1px 1px;
 }

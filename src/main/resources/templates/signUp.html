@@ -29,60 +29,60 @@
         </div>
         <div id="pathchoice" style="text-align: center">
             <h1 style="margin-top: 3em!important; font-size: 50px">Step 1:</h1>
-            <h3 style="font-size: 35px">Are you a:</h3>
-            <button class="btn btn3" id="menteeBtn">Mentee</button>
+            <h3 style="font-size: 45px">Are you a:</h3>
+            <button class="btn btn3Big" id="menteeBtn" style="height: 100px!important; width: 300px!important; font-size: 50px">Mentee</button>
             <h3 style="font-size: 35px">or</h3>
-            <button class="btn btn4" id="mentorBtn">Mentor</button>
+            <button class="btn btn4Big" id="mentorBtn" style="height: 100px!important; width: 300px!important; font-size: 50px">Mentor</button>
         </div>
 
         <form id="regForm" th:action="@{/signup}" th:method="post" th:object="${user}" style="text-align: center">
 
             <h1>Register:</h1>
-            <div class="tab">
+            <div class="tab" style="box-sizing: border-box">
                 <h2>Name:</h2>
-                <p><input style="height: 50px; width: 60%; font-size: 35px" placeholder="First name" th:field="*{first_name}"></p>
-                <p><input style="height: 50px; width: 60%; font-size: 35px" placeholder="Last name" th:field="*{last_name}"></p>
+                <p><input style="height: 50px; width: 60%; font-size: 35px; padding: 0px 20px" placeholder="First name" th:field="*{first_name}"></p>
+                <p><input style="height: 50px; width: 60%; font-size: 35px; padding: 0px 20px" placeholder="Last name" th:field="*{last_name}"></p>
             </div>
 
             <div class="tab">
                 <h2>Desired username, password, and current e-mail:</h2>
-                <p><input style="height: 50px; width: 60%; font-size: 35px" placeholder="Username" th:field="*{username}"></p>
-                <p><input style="height: 50px; width: 60%; font-size: 35px" placeholder="Password" th:field="*{password}"></p>
-                <p><input style="height: 50px; width: 60%; font-size: 35px" placeholder="E-mail" th:field="*{email}"></p>
+                <p><input style="height: 50px; width: 60%; font-size: 35px; padding: 0px 20px" placeholder="Username" th:field="*{username}"></p>
+                <p><input style="height: 50px; width: 60%; font-size: 35px; padding: 0px 20px" placeholder="Password" th:field="*{password}"></p>
+                <p><input style="height: 50px; width: 60%; font-size: 35px; padding: 0px 20px" placeholder="E-mail" th:field="*{email}"></p>
             </div>
 
 
             <div class="tab">
                 <h2>Username and biography info:</h2>
-                <p><input style="height: 50px; width: 60%; font-size: 35px" placeholder="Location" th:field="*{location}"></p>
-                <p><input style="height: 50px; width: 60%; font-size: 35px" placeholder="Tells us a bit about yourself" th:field="*{biography}"></p>
+                <p><input style="height: 50px; width: 60%; font-size: 35px; padding: 0px 20px" placeholder="Location" th:field="*{location}"></p>
+                <p><textarea style="height: 500px; width: 60%; font-size: 35px; padding: 0px 20px" placeholder="Tells us a bit about yourself" th:field="*{biography}"></textarea></p>
             </div>
 
 
             <div class="tab" style="text-align: center">
                 <input id="stashFilestackURL" name="stashFilestackURL" value="replaceme"
                        th:field="*{filestack_picture_url}" type="hidden">
-                <div style="width: 100%; display: flex; justify-content: center; margin-top: 10px">
-                <div id='upload' class="btn btn3" style="width: 200px!important; height: 50px!important;">Upload Profile Picture</div>
+                <div style="width: 100%; display: flex; justify-content: center; margin-top: 30px">
+                <div id='upload' class="btn btn3" style="width: 200px!important; height: 80px!important; display: flex; align-items: center">Upload Profile Picture</div>
                 </div>
                 <select style="visibility: hidden" id="formpathselection" class="form-control" th:field="*{is_mentor}">
                     <option th:value="1">Mentor</option>
                     <option th:value="0">Mentee</option>
                 </select>
 
-                <h2>Interests</h2>
-                <div style="height: 100%; width: 100%; display: flex; flex-wrap: wrap; justify-content: center">
+                <h1>Interests</h1>
+                <div style="height: 100%; width: 100%; display: flex; flex-wrap: wrap; justify-content: center;">
                     <div id="interests" th:each="i : ${interests}">
-                        <label style="display: flex; border-radius: 10px; border: 2px solid #1777F2; justify-content: center; width: 300px; font-size: 30px; margin: 10px; color: black">
-                            <input name="interests" type="checkbox" th:value="${i.getId()}" th:text="${i.getName()}"/>
-                            <img style="height: 55px" th:src="${i.getPicture_path()}" alt="">
+                        <label class="radio" style="display: flex; border-radius: 10px; border: 2px solid #1777F2; justify-content: center; align-items: center; width: 320px; height: 100px; font-size: 30px; margin: 10px; color: black">
+                            <input class="radioCheck"  name="interests" type="checkbox" th:value="${i.getId()}" th:text="${i.getName()}"/>
+                            <img class="radioImg" style="height: 55px; margin-left: 20px" th:src="${i.getPicture_path()}" alt="">
                         </label>
                         </input>
                     </div>
                 </div>
 
             </div>
-
+            <button type="button" id="splashBtn" class="btn btn5">Exit</button>
             <button type="button" id="prevBtn" class="btn btn4" style="margin: 10px">Previous</button>
             <button type="button" id="nextBtn" class="btn btn3" style="margin: 10px">Next</button>
 
