@@ -11,9 +11,9 @@
         <h1 style="font-family: 'Open Sans', sans-serif; font-size: 35px">Search results for: <span th:text="${myInput}" style="color: #1777F2"></span></h1>
         <div th:each="user : ${users}" style="display: flex; flex-wrap: wrap">
             <a th:href="@{/profile/{id}(id=${user.id})}" style="display: flex; flex-direction: column; align-items: center; margin: 20px">
-                <img style="height: 200px" src="" th:attr="src=@{'http://cdn.filestackcontent.com/' + ${user.filestack_picture_url}}">
+                <img class="searchImg" style="height: 200px" src="" th:attr="src=@{'http://cdn.filestackcontent.com/' + ${user.filestack_picture_url}}">
                 <p th:text="${user.first_name} + ' ' + ${user.last_name}" style="font-size: 20px; font-family: 'Open Sans', sans-serif"></p>
-                <div  th:id="${'rating' + user.id}"><span th:text="${user.rating}"></span></div>
+                <div th:id="${'rating' + user.id}"><span th:text="${user.rating}"></span></div>
             </a>
         </div>
 
@@ -39,8 +39,9 @@
 
     <script th:inline="javascript">
         /*<![CDATA[*/
-        var rating = 1;
+        var rating = /*[[${user.rating}]]*/ "rating";
         let newRate = "";
+        let user = /*[[${user.id}]]*/ "id";
 
         function ratingStars(rating) {
             if (rating <= 1.5) {
@@ -63,7 +64,7 @@
 
         $(document).ready(function () {
             ratingStars(rating);
-            $("${'rating' + user.id}").html(
+            $("#rating" + user).html(
                 "" + newRate + ""
             );
             $("#rating1").html(
