@@ -886,8 +886,12 @@ textarea:focus{
         font-family: 'Open Sans', sans-serif;
         font-size: 50px;
     }
-    a img{
+
+    .navWrapper img{
         height: 25px;
+    }
+    a img{
+        height: 100px;
     }
     .mobileLogin{
         display: none;

@@ -71,13 +71,13 @@
 <div class="mobile">
     <div style="display: flex; justify-content: center; background-color: white; position: fixed; top: 0; width: 100vw; border-bottom-right-radius:20px; border-bottom-left-radius: 20px">
         <a href="/splash"><img th:src="@{/img/mentorIcon.svg}" alt="" style="height: 50px"></a></div>
-    <form style="border: 4px solid #1777F2; box-shadow: 4px 4px black; margin: 70px 0 20px 25%; width: 50vw">
+    <form style="border: 4px solid #1777F2; margin: 70px 0 20px 25%; width: 50vw">
         <label for="title"
-               style="font-size: 15px; margin-left: 5px; font-weight: bold; color: #1777F2">Title:</label>
+               style="font-size: 15px; margin-left: 5px; font-weight: bold; color: white">Title:</label>
         <input style="width: 45vw; font-size: 15px; margin: 5px" id="title" type="text"
                placeholder="Enter title here">
         <hr>
-        <label style="margin-top: -25px; font-size: 15px; font-weight: bold; margin-left: 5px; color: #1777F2"
+        <label style="margin-top: -25px; font-size: 15px; font-weight: bold; margin-left: 5px; color: white"
                for="body">Body:</label>
         <textarea style="width: 48vw; font-size: 15px; margin: 5px" id="body" placeholder="Enter body here">
         </textarea>
@@ -87,9 +87,9 @@
     </form>
 
     <div class="post" th:each="post : ${posts}"
-         style="border: 4px solid #1777F2; box-shadow: 4px 4px black; margin: 20px 0 20px 25%; width: 50vw">
+         style="border: 4px solid #1777F2; margin: 20px 0 20px 25%; width: 50vw">
 
-        <h1 style="font-size: 35px!important; margin: 10px; color: #1777F2" th:text="${post.title}"></h1>
+        <h1 style="font-size: 35px!important; margin: 10px; color: white" th:text="${post.title}"></h1>
         <hr>
         <h4 th:text="${post.getUser().getUsername()}"></h4>
         <p style="margin: 10px" th:text="${post.body}"></p>
