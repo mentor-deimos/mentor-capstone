@@ -8,12 +8,12 @@
 
     <div th:include="partials/navbar :: navbar"></div>
 
-        <h1>Search results for: <span th:text="${myInput}"></span></h1>
-        <div th:each="user : ${users}">
-            <a th:href="@{/profile/{id}(id=${user.id})}">
-                <p th:text="${user.first_name} + ' ' + ${user.last_name}" ></p>
-                <img src="" th:attr="src=@{'http://cdn.filestackcontent.com/' + ${user.filestack_picture_url}}">
-                <div id="rating"><span th:text="${user.rating}"></span></div>
+        <h1 style="font-family: 'Open Sans', sans-serif; font-size: 35px">Search results for: <span th:text="${myInput}" style="color: #1777F2"></span></h1>
+        <div th:each="user : ${users}" style="display: flex; flex-wrap: wrap">
+            <a th:href="@{/profile/{id}(id=${user.id})}" style="display: flex; flex-direction: column; align-items: center; margin: 20px">
+                <img style="height: 200px" src="" th:attr="src=@{'http://cdn.filestackcontent.com/' + ${user.filestack_picture_url}}">
+                <p th:text="${user.first_name} + ' ' + ${user.last_name}" style="font-size: 20px; font-family: 'Open Sans', sans-serif"></p>
+                <div  th:id="${'rating' + user.id}"><span th:text="${user.rating}"></span></div>
             </a>
         </div>
 
@@ -29,7 +29,7 @@
             <a th:href="@{/profile/{id}(id=${user.id})}">
                 <p th:text="${user.first_name} + ' ' + ${user.last_name}" ></p>
                 <img src="" th:attr="src=@{'http://cdn.filestackcontent.com/' + ${user.filestack_picture_url}}">
-                <div id="rating"><span th:text="${user.rating}"></span></div>
+                <div><span th:text="${user.rating}"></span></div>
             </a>
         </div>
 
@@ -37,39 +37,75 @@
 
     </div>
 
-    <!--<script th:inline="javascript">-->
-        <!--/*<![CDATA[*/-->
-        <!--var rating = 1;-->
-        <!--let newRate = "";-->
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        var rating = 1;
+        let newRate = "";
 
-        <!--function ratingStars(rating) {-->
-            <!--if (rating <= 1.5) {-->
-                <!--newRate = "⭐"-->
-            <!--}-->
-            <!--if (rating <= 2.5) {-->
-                <!--newRate = "⭐️⭐️"-->
-            <!--}-->
-            <!--if (rating <= 3.5) {-->
-                <!--newRate = "⭐️⭐️⭐️"-->
-            <!--}-->
-            <!--if (rating <= 4.5) {-->
-                <!--newRate = "⭐️⭐️⭐️⭐️"-->
-            <!--}-->
-            <!--if (rating > 4.5) {-->
-                <!--newRate = "⭐️⭐️⭐️⭐️⭐️"-->
-            <!--}-->
+        function ratingStars(rating) {
+            if (rating <= 1.5) {
+                newRate = "⭐"
+            }
+            if (rating > 1.5 && rating < 2.5) {
+                newRate = "⭐️⭐️"
+            }
+            if (rating > 2.5 && rating < 3.5) {
+                newRate = "⭐️⭐️⭐️"
+            }
+            if (rating > 3.5 && rating < 4.5) {
+                newRate = "⭐️⭐️⭐️⭐️"
+            }
+            if (rating >= 4.5) {
+                newRate = "⭐️⭐️⭐️⭐️⭐️"
+            }
 
-        <!--}-->
+        }
 
-        <!--$(document).ready(function () {-->
-            <!--ratingStars(rating);-->
-            <!--$("#rating").html(-->
-                <!--"" + newRate + ""-->
-            <!--)-->
-        <!--})-->
+        $(document).ready(function () {
+            ratingStars(rating);
+            $("${'rating' + user.id}").html(
+                "" + newRate + ""
+            );
+            $("#rating1").html(
+                "" + newRate + ""
+            );
+            $("#rating2").html(
+                "" + newRate + ""
+            );
+            $("#rating3").html(
+                "" + newRate + ""
+            );
+            $("#rating4").html(
+                "" + newRate + ""
+            );
+            $("#rating5").html(
+                "" + newRate + ""
+            );
+            $("#rating6").html(
+                "" + newRate + ""
+            );
+            $("#rating7").html(
+                "" + newRate + ""
+            );
+            $("#rating8").html(
+                "" + newRate + ""
+            );
+            $("#rating9").html(
+                "" + newRate + ""
+            );
+            $("#rating10").html(
+                "" + newRate + ""
+            );
+            $("#rating11").html(
+                "" + newRate + ""
+            );
+            $("#rating12").html(
+                "" + newRate + ""
+            );
+        })
 
-        <!--/*]]>*/-->
-    <!--</script>-->
+        /*]]>*/
+    </script>
 
 <script
         src="https://code.jquery.com/jquery-3.1.1.min.js"

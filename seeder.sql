@@ -68,11 +68,11 @@ DELETE from mentor_db.posts
 WHERE ID >= 5;
 
 
-UPDATE interests
+UPDATE mentor_db.ratings
 SET
-  picture_path = '/img/svg/040-law.svg'
+  recipient_user_id = 8
 WHERE
-  id = 20;
+  id = 2;
 INSERT INTO interests (name, picture_path)
 VALUES ('Automotive', '/img/svg/002-brake.svg'), ('Financial', '/img/svg/005-coin.svg'),
   ('Health/Fitness', '/img/svg/008-muscle.svg'), ('Beauty/Fashion', '/img/svg/013-makeover.svg'),
