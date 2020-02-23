@@ -6,16 +6,11 @@
 </head>
 <body>
 <footer th:fragment="footer">
-    <div id="footer" style="text-align: center; width: 100vw">
+    <div id="footer" style="display: flex; justify-content: space-around; align-items: center;  width: 100vw">
 
         <a th:href="@{/about}"><h1 id="aboutLink">About</h1></a>
-        <ul style="display: flex; justify-content: center">
-            <li><img th:src="@{img/jw.jpeg}" alt=""></li>
-            <li><img th:src="@{img/kellsey.jpeg}" alt=""></li>
-            <li><img th:src="@{img/ken.jpeg}" alt=""></li>
-        </ul>
-        <hr>
-        <div id="footerQuotes" style="color: white; font-size: 20px; display: flex; justify-content: center; width: 100vw;"></div>
+
+        <div id="footerQuotes" style="color: white; font-size: 25px; display: flex; justify-content: center; width: 50vw;"></div>
     </div>
     <script th:src="@{/webjars/jquery/3.4.1/jquery.min.js/}"></script>
     <script>
