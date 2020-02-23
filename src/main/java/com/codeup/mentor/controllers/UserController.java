@@ -10,9 +10,11 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,13 +24,8 @@ public class UserController {
 
     private UserRepository userDao;
 
-    private String uploadHandle;
-
-
-
     private InterestRepository interestDao;
 
-    private RatingService ratingService;
     private PasswordEncoder passwordEncoder;
 
 
@@ -50,7 +47,8 @@ public class UserController {
 
 
     @GetMapping("/signup")
-    public String showSignupForm(Model model) { ;
+    public String showSignupForm(Model model) {
+        ;
         List<Interest> interestList = new ArrayList<>();
         model.addAttribute("interests", interestDao.findAll());
         model.addAttribute("filestackapi", filestackapi);
@@ -61,7 +59,7 @@ public class UserController {
     }
 
     @PostMapping("/signup")
-    public String saveUser(@ModelAttribute User user, @RequestParam(name="interests") List<Interest> interestList) {
+    public String saveUser(@ModelAttribute User user, @RequestParam(name = "interests") List<Interest> interestList) {
 
         String hash = passwordEncoder.encode(user.getPassword());
         user.setPassword(hash);
@@ -72,24 +70,8 @@ public class UserController {
     }
 
 
-//    commented out - encapsulating profile related concerns in profilecontroller.java
-
-//    @GetMapping("/profile")
-//    public String goToProfile(Model model, Principal principal){
-//        if (principal != null){
-//            User user = userDao.findByUsername(principal.getName());
-//            model.addAttribute("user", user);
-////            model.addAttribute("rating", ratingService.allRatingsOnSearch(2));
-//            return "profile";
-//        }
-//        return "/splash";
-//
-//
-//    }
-
-
     @GetMapping("/about")
-    public String goToAbout(){
+    public String goToAbout() {
 
 
         return "about";
@@ -97,7 +79,7 @@ public class UserController {
 
 
     @GetMapping("/splash")
-    public String goToSplashPage(){
+    public String goToSplashPage() {
 
         return "splash";
     }

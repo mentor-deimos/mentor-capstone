@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import javax.persistence.*;
 
 @Entity
-@Table(name="posts")
+@Table(name = "posts")
 public class Post {
 
     @Id
@@ -15,18 +15,18 @@ public class Post {
     @Column(nullable = false)
     private String title;
 
-    @Column(nullable = false, length=750)
+    @Column(nullable = false, length = 750)
     private String body;
 
     @ManyToOne
     @JsonManagedReference
     private User user;
 
-    public Post(){
+    public Post() {
 
     }
 
-    public Post(String title, String body){
+    public Post(String title, String body) {
         this.title = title;
         this.body = body;
     }
