@@ -23,8 +23,8 @@
                                                style=" margin-top: -10px; margin-right: 20px"></a>
 
 
-
-                <a th:href="@{/profile}"><img th:src="@{img/svg/user.svg}" alt="" style="height: 100px; width: 100px; border-radius: 50%"></a>
+                <a th:href="@{/profile}"><img th:src="@{img/svg/user.svg}" alt=""
+                                              style="height: 100px; width: 100px; border-radius: 50%"></a>
 
                 <form autocomplete="off" th:action="@{/search}" th:object="${user}" th:method="GET">
 
@@ -35,15 +35,16 @@
                                     <div class="cntr">
                                         <div class="cntr-innr">
                                             <label class="search" for="myInput">
-                                                <input id="myInput" name="myInput" type="text" placeholder="Search" th:value="${myInput}"/>
+                                                <input id="myInput" name="myInput" type="text" placeholder="Search"
+                                                       th:value="${myInput}"/>
                                             </label>
                                         </div>
                                     </div>
-                                    <label for="selection"><select id="selection">
-                                        <option hidden>Option</option>
-                                        <option value="true">Mentor</option>
-                                        <option value="false">Mentee</option>
-                                    </select>
+                                    <label for="selection">
+                                        <select id="selection" name="isMentor">
+                                            <option value="true">Mentor</option>
+                                            <option value="false">Mentee</option>
+                                        </select>
                                     </label>
                                     <button id="searchSubmit" type="submit">Submit</button>
 
@@ -194,15 +195,22 @@
     <div class="navWrapper">
         <div class="nav-bar" style="border-top-left-radius: 50px;
     border-top-right-radius: 50px;">
-            <form autocomplete="off" th:action="@{/search}" th:object="${user}" th:method="GET" class="mobileSearch" style="display: none">
-                <input id="myInput" name="myInput" type="text" placeholder="Search" th:value="${myInput}" style="border: 2px solid #1777F2;margin: 5px 5px 5px 20px; width: 250px!important; height: 50px!important; font-size: 30px; font-family: 'Open Sans', sans-serif"/>
-                <button style="border: 2px solid black; margin: 5px; color: white; background-color: #1777F2; height: 50px">Search</button>
-                <button class="close" style="border: 2px solid black; background-color: #FEDD00; height: 50px; width: 50px; margin: 5px">X</button>
+            <form autocomplete="off" th:action="@{/search}" th:object="${user}" th:method="GET" class="mobileSearch"
+                  style="display: none">
+                <input id="myInput" name="myInput" type="text" placeholder="Search" th:value="${myInput}"
+                       style="border: 2px solid #1777F2;margin: 5px 5px 5px 20px; width: 250px!important; height: 50px!important; font-size: 30px; font-family: 'Open Sans', sans-serif"/>
+                <button style="border: 2px solid black; margin: 5px; color: white; background-color: #1777F2; height: 50px">
+                    Search
+                </button>
+                <button class="close"
+                        style="border: 2px solid black; background-color: #FEDD00; height: 50px; width: 50px; margin: 5px">
+                    X
+                </button>
             </form>
             <div class="nav-bar__item" onClick="onClick(this)">
                 <a th:href="@{/home}"><img th:src="@{img/home.svg}" alt="Home"/></a>
 
-        <span>Home</span>
+                <span>Home</span>
 
             </div>
 
@@ -230,16 +238,21 @@
     </div>
     <script>
         function onClick(e) {
-            [...document.querySelectorAll('.nav-bar__item')].forEach(item => item.classList.remove('active'));
+            [...document.querySelectorAll('.nav-bar__item')
+        ].
+            forEach(item = > item.classList.remove('active')
+        )
+            ;
             e.classList.add('active');
         }
+
         $(".searchActivate").click(function () {
-            $(".nav-bar__item").css("display","none");
-            $(".mobileSearch").css("display","flex")
+            $(".nav-bar__item").css("display", "none");
+            $(".mobileSearch").css("display", "flex")
         })
         $(".close").click(function () {
-            $(".nav-bar__item").css("display","flex");
-            $(".mobileSearch").css("display","none")
+            $(".nav-bar__item").css("display", "flex");
+            $(".mobileSearch").css("display", "none")
         })
     </script>
 
