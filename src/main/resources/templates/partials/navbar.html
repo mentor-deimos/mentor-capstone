@@ -9,7 +9,7 @@
 
     <div id="navbar">
         <div id="wrapper">
-            <div style="display: flex">
+            <div style="display: flex; margin-left: -100px">
                 <a th:href="@{/home}">
                     <img th:src="@{/img/mentorIcon.svg}" alt="" class="mentorIconNav">
                 </a>
@@ -17,14 +17,16 @@
                 </a>
             </div>
 
-            <div style="display: flex; margin-right: -100px!important;">
+            <div style="display: flex; margin-right: -200px!important;">
 
-                <a th:href="@{/messages}"><img th:src="@{/img/svg/mail.svg}" alt=""
-                                               style=" margin-top: -10px; margin-right: 20px"></a>
+                <a th:href="@{/messages}"><h2 class="underline">Messages</h2></a>
+
+                <a th:href="@{/profile}"><h2 class="underline">Profile</h2></a>
 
 
-                <a th:href="@{/profile}"><img th:src="@{img/svg/user.svg}" alt=""
-                                              style="height: 100px; width: 100px; border-radius: 50%"></a>
+                <a class="link search">
+                    <h2 class="underline">Search</h2>
+                </a>
 
                 <form autocomplete="off" th:action="@{/search}" th:object="${user}" th:method="GET">
 
@@ -55,10 +57,7 @@
                         </div>
                     </div>
                 </form>
-                <div class="link search">
-                    <img th:src="@{/img/svg/search.svg}" alt="">
 
-                </div>
             </div>
         </div>
     </div>
