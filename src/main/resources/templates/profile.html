@@ -9,79 +9,103 @@
         </div>
         <div class="centered">
             <main class="site-content">
-                <div th:if="${user != null}" id="profileFirstBlock" style="display: flex">
-                    <img th:src="@{'http://cdn.filestackcontent.com/' + ${user.filestack_picture_url}}" alt="" id="profilePicture">
-                    <div id="profileFirstInnerBlock">
-                        <h1 th:text="${user.first_name} +  ' ' +  ${user.last_name}" style="font-weight: bold; color: #1777F2"></h1>
-                        <h3 style="color: #FEDD00" th:text="${mentorMessage}"></h3>
+                <div style="display: flex">
+                <div id="profileLeftSide" style="width: 50%">
+                    <div th:if="${user != null}" id="profileFirstBlock" style="display: flex">
+                        <img th:src="@{'http://cdn.filestackcontent.com/' + ${user.filestack_picture_url}}" alt=""
+                             id="profilePicture">
 
-                        <div th:if="${userRating} != 0" >
-                            <span style="color: #FEDD00" th:if="${#aggregates.avg(userRating)} >=1" class="fa fa-star"></span>
-                            <span style="color: #FEDD00" th:if="${#aggregates.avg(userRating)} >=2" class="fa fa-star"></span>
-                            <span style="color: #FEDD00" th:if="${#aggregates.avg(userRating)} >=3" class="fa fa-star"></span>
-                            <span style="color: #FEDD00" th:if="${#aggregates.avg(userRating)} >=4" class="fa fa-star"></span>
-                            <span style="color: #FEDD00" th:if="${#aggregates.avg(userRating)} >=5" class="fa fa-star"></span>
-                            <h1 th:text="${#aggregates.avg(userRating)} + ' average rating  from ' + ${userRating.size()} + ' users!'"></h1>
+                        <div id="profileFirstInnerBlock">
+                            <h1 th:text="${user.first_name} +  ' ' +  ${user.last_name}"
+                                style="font-weight: bold; color: #1777F2; font-family: 'Montserrat', sans-serif; font-size: 45px"></h1>
+                            <h3 style="color: #FEDD00; font-family: 'Montserrat', sans-serif; font-size: 45px"
+                                th:text="${mentorMessage}"></h3>
+
+                            <h1 style="font-size: 45px; margin-top: -5px; font-family: 'Montserrat', sans-serif">
+                                Rating:</h1>
+                            <div th:if="${userRating} != 0">
+                                <span style="color: #FEDD00; font-size: 45px" th:if="${#aggregates.avg(userRating)} >=1"
+                                      class="fa fa-star"></span>
+                                <span style="color: #FEDD00; font-size: 45px" th:if="${#aggregates.avg(userRating)} >=2"
+                                      class="fa fa-star"></span>
+                                <span style="color: grey; font-size: 45px" th:if="${#aggregates.avg(userRating)} <2"
+                                      class="fa fa-star"></span>
+                                <span style="color: #FEDD00; font-size: 45px" th:if="${#aggregates.avg(userRating)} >=3"
+                                      class="fa fa-star"></span>
+                                <span style="color: grey; font-size: 45px" th:if="${#aggregates.avg(userRating)} <3"
+                                      class="fa fa-star"></span>
+                                <span style="color: #FEDD00; font-size: 45px" th:if="${#aggregates.avg(userRating)} >=4"
+                                      class="fa fa-star"></span>
+                                <span style="color: grey; font-size: 45px" th:if="${#aggregates.avg(userRating)} <4"
+                                      class="fa fa-star"></span>
+                                <span style="color: #FEDD00; font-size: 45px" th:if="${#aggregates.avg(userRating)} >=5"
+                                      class="fa fa-star"></span>
+                                <span style="color: grey; font-size: 45px" th:if="${#aggregates.avg(userRating)} <5"
+                                      class="fa fa-star"></span>
+                            </div>
+                            <div id="ratingDIV" th:style="${ratingDisplay == true ? 'display:flex' : 'display:none'}">
+
+                                <form th:object="${ratingOBJ}" th:method="post" th:action="@{/rating}">
+                                    <input id="hiddenID" name="hiddenID" th:value="${ratingID}" type="hidden">
+                                    <div>
+                                        <select style="font-size: 20px; margin: 10px 0; width: 120px"
+                                                th:field="*{rating}">
+                                            <option th:each="i : ${#numbers.sequence(1, 5)}" th:value="${i}"
+                                                    th:text="${i}">
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <button type="submit" class="btn btn3">Submit Rating!</button>
+                                </form>
+                            </div>
+
 
                         </div>
+                    </div>
+                    <h3 style="font-weight: bold; color: #1777F2; font-family: 'Montserrat', sans-serif; font-size: 45px">
+                        BIO:</h3>
+                    <div th:if="${user != null}"><h3
+                            style="font-weight: bold; color: black; font-family: 'Open Sans', sans-serif; font-size: 25px"
+                            th:text="${user.biography}"></h3></div>
+                </div>
 
 
+                <div id="profileRightSide" style="width: 50%; margin-top: -15px">
+                    <h3 style="font-weight: bold; color: #1777F2; font-family: 'Montserrat', sans-serif; font-size: 45px">Interests:</h3>
+                    <div style="height: 100%; width: 100%; display: flex; flex-wrap: wrap; justify-content: center">
+                        <div id="interests" th:each="i : ${interestList}">
+                            <div style="display: flex; border-radius: 10px; border: 2px solid #1777F2; justify-content: center; width: 300px; font-size: 30px; margin: 10px; color: black">
+                                <span th:text="${i.getName()}"></span>
+                                <img style="height: 55px" th:src="${i.getPicture_path()}" alt="">
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-
-            <h3 style="font-weight: bold; color: #1777F2">BIO:</h3>
-            <div th:if="${user != null}"><h3 th:text="${user.biography}"></h3></div>
-            <h3 style="font-weight: bold; color: #1777F2">Interests:</h3>
-            <div style="height: 100%; width: 100%; display: flex; flex-wrap: wrap; justify-content: center">
-            <div id="interests" th:each="i : ${interestList}">
-                <div style="display: flex; border-radius: 10px; border: 2px solid #1777F2; justify-content: center; width: 300px; font-size: 30px; margin: 10px; color: black">
-                <span th:text="${i.getName()}"></span>
-                <img style="height: 55px" th:src="${i.getPicture_path()}" alt="">
-                </div>
-            </div>
-            </div>
+        </div>
 
                 <div th:style="${messagingDisplay == true ? 'display:block' : 'display:none'}">
-
-                <h3>Send <span th:text="${user.first_name} +  ' ' +  ${user.last_name}"!/> a message!</h3>
-                <form th:action="@{/messages/send}" th:method="POST" th:object="${message}">
-                    <label for="body">Body</label>
-                    <textarea id="body" th:field="*{body}" placeholder="Enter body here">
-
-        </textarea>
-                    <button type="submit">Send message!</button>
-                </form>
-
-                </div>
-
-                </div>
-
-                <div id="ratingDIV" th:style="${ratingDisplay == true ? 'display:block' : 'display:none'}" >
-
-                    <form th:object="${ratingOBJ}" th:method="post" th:action="@{/rating}">
-                        <h2>submit a rating</h2>
-                        <input id="hiddenID" name="hiddenID" th:value="${ratingID}" type="hidden">
-                        <div>
-                            <select th:field="*{rating}">
-                                <option th:each="i : ${#numbers.sequence(1, 5)}" th:value="${i}" th:text="${i}">
-                                </option>
-                            </select>
-                        </div>
-                        <button type="submit">Submit your rating!</button>
+                    <h3 style="font-weight: bold; color: #1777F2; font-family: 'Montserrat', sans-serif; font-size: 45px">Send <span th:text="${user.first_name} +  ' ' +  ${user.last_name}" !/> a message!</h3>
+                    <form th:action="@{/messages/send}" th:method="POST" th:object="${message}">
+                        <label for="body" style="font-weight: bold; color: #1777F2; font-family: 'Montserrat', sans-serif; font-size: 45px">Body:</label>
+                        <textarea style="width: 100%; padding-left: 8px" id="body" th:field="*{body}" placeholder="Enter body here">
+                    </textarea>
+                        <button style="margin-bottom: 20px" type="submit" class="btn btn3">Send message!</button>
                     </form>
+
                 </div>
+            </main>
+        </div>
 
 
-        </div>
-        <div th:include="partials/footer :: footer">
-        </div>
     </div>
+    <div th:include="partials/footer :: footer">
+    </div>
+</div>
 </div>
 
 </main>
 <div class="mobile">
-    <img th:src="@{'http://cdn.filestackcontent.com/' + ${user.filestack_picture_url}}"  alt="">
+    <img th:src="@{'http://cdn.filestackcontent.com/' + ${user.filestack_picture_url}}" alt="">
     <h1 th:text="${user.first_name} +  ' ' +  ${user.last_name}" style="font-weight: bold; color: #1777F2"></h1>
     <h3 style="color: #FEDD00" th:text="${mentorMessage}"></h3>
     <div class="rating"></div>
@@ -92,17 +116,18 @@
     <h1 style="font-weight: bold; color: #1777F2">SKILLS:</h1>
     <div class="skillsBlock" style="display: flex">
         <div style="height: 100%; width: 100%; display: flex; flex-wrap: wrap; justify-content: center; overflow: scroll">
-        <div id="interests" th:each="i : ${interestList}">
-            <span th:text="${i.getName()}"></span>
-            <img style="height: 55px" th:src="${i.getPicture_path()}" alt="">
-        </div>
+            <div id="interests" th:each="i : ${interestList}">
+                <span th:text="${i.getName()}"></span>
+                <img style="height: 55px" th:src="${i.getPicture_path()}" alt="">
+            </div>
         </div>
     </div>
     <h1 style="font-weight: bold; color: #1777F2">REVIEW:</h1>
-    <h3 style="color: black">Yes, there is earth, it preaches with art. Enlightenment doesn't beautifully believe any yogi — but the lord
+    <h3 style="color: black">Yes, there is earth, it preaches with art. Enlightenment doesn't beautifully believe any
+        yogi — but the lord
         is what
         occurs.</h3>
-    <div id="ratingDIV" th:style="${ratingDisplay == true ? 'display:block' : 'display:none'}" >
+    <div id="ratingDIV" th:style="${ratingDisplay == true ? 'display:block' : 'display:none'}">
 
         <form th:object="${ratingOBJ}" th:method="post" th:action="@{/rating}">
             <h1>submit a rating</h1>
