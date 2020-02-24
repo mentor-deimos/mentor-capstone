@@ -84,12 +84,36 @@
         </div>
 
                 <div th:style="${messagingDisplay == true ? 'display:block' : 'display:none'}">
-                    <h3 style="font-weight: bold; color: #1777F2; font-family: 'Montserrat', sans-serif; font-size: 45px">Send <span th:text="${user.first_name} +  ' ' +  ${user.last_name}" !/> a message!</h3>
+
+                <h3>Send <span th:text="${user.first_name} +  ' ' +  ${user.last_name}"!/> a message!</h3>
+                <form th:action="@{/messages/send}" th:method="POST" th:object="${message}">
+                    <input id="sendmessagetoID" name="sendmessagetoID" th:value="${profileID}" type="hidden">
+
+                  <h3 style="font-weight: bold; color: #1777F2; font-family: 'Montserrat', sans-serif; font-size: 45px">Send <span th:text="${user.first_name} +  ' ' +  ${user.last_name}" !/> a message!</h3>
                     <form th:action="@{/messages/send}" th:method="POST" th:object="${message}">
                         <label for="body" style="font-weight: bold; color: #1777F2; font-family: 'Montserrat', sans-serif; font-size: 45px">Body:</label>
                         <textarea style="width: 100%; padding-left: 8px" id="body" th:field="*{body}" placeholder="Enter body here">
                     </textarea>
                         <button style="margin-bottom: 20px" type="submit" class="btn btn3">Send message!</button>
+                </form>
+
+                </div>
+
+                </div>
+
+                <div id="ratingDIV" th:style="${ratingDisplay == true ? 'display:block' : 'display:none'}" >
+
+                    <form th:object="${ratingOBJ}" th:method="post" th:action="@{/rating}">
+                        <h2>submit a rating</h2>
+                        <input id="hiddenID" name="hiddenID" th:value="${profileID}" type="hidden">
+                        <div>
+                            <select th:field="*{rating}">
+                                <option th:each="i : ${#numbers.sequence(1, 5)}" th:value="${i}" th:text="${i}">
+                                </option>
+                            </select>
+                        </div>
+                        <button type="submit">Submit your rating!</button>
+
                     </form>
 
                 </div>
@@ -104,6 +128,7 @@
 </div>
 
 </main>
+
 <div class="mobile">
     <div style="display: flex; justify-content: center; background-color: white; position: fixed; top: 0; width: 100vw; border-bottom-right-radius:20px; border-bottom-left-radius: 20px">
         <a href="/splash"><img th:src="@{/img/mentorIcon.svg}" alt="" style="height: 50px"></a></div>
@@ -135,7 +160,9 @@
     <div id="ratingDIV" th:style="${ratingDisplay == true ? 'display:flex' : 'display:none'}">
 
         <form th:object="${ratingOBJ}" th:method="post" th:action="@{/rating}">
-            <input id="hiddenID" name="hiddenID" th:value="${ratingID}" type="hidden">
+            <h1>submit a rating</h1>
+            <input id="hiddenID" name="hiddenID" th:value="${profileID}" type="hidden">
+
             <div>
                 <select style="font-size: 20px; margin: 10px 0; width: 120px"
                         th:field="*{rating}">
@@ -167,38 +194,6 @@
     <div th:include="partials/navbar :: mobile-nav">
     </div>
 </div>
-<!--<script th:inline="javascript">-->
-<!--    /*<![CDATA[*/-->
-<!--    var rating = [[${rating}]];-->
-<!--    let newRate = "";-->
 
-<!--    function ratingStars(rating) {-->
-<!--        if (rating <= 1.5) {-->
-<!--            newRate = "⭐"-->
-<!--        }-->
-<!--        if (rating <= 2.5) {-->
-<!--            newRate = "⭐️⭐️"-->
-<!--        }-->
-<!--        if (rating <= 3.5) {-->
-<!--            newRate = "⭐️⭐️⭐️"-->
-<!--        }-->
-<!--        if (rating <= 4.5) {-->
-<!--            newRate = "⭐️⭐️⭐️⭐️"-->
-<!--        }-->
-<!--        if (rating > 4.5) {-->
-<!--            newRate = "⭐️⭐️⭐️⭐️⭐️"-->
-<!--        }-->
-
-<!--    }-->
-
-<!--    $(document).ready(function () {-->
-<!--        ratingStars(rating);-->
-<!--        $(".rating").html(-->
-<!--            "" + newRate + ""-->
-<!--        )-->
-<!--    })-->
-
-<!--    /*]]>*/-->
-<!--</script>-->
 </body>
 </html>

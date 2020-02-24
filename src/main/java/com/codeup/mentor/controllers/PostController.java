@@ -20,6 +20,7 @@ public class PostController {
     @GetMapping("/home")
     public String postsIndex(Model model) {
 
+
         User principal = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("principal", principal);
         model.addAttribute("post", new Post());

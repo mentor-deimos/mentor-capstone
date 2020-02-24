@@ -108,7 +108,7 @@ public class ProfileController {
         }
 
         model.addAttribute("message", new Message());
-        model.addAttribute("ratingID", id);
+        model.addAttribute("profileID", id);
         model.addAttribute("ratingDisplay", true);
         model.addAttribute("messagingDisplay", true);
         model.addAttribute("ratingOBJ", new Rating());

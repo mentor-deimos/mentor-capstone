@@ -11,15 +11,27 @@
 
         <!--div holding structure for contacts menu - EVENTUAL FOR EACH displaying LIST OF CONTACTS-->
         <div style="display: flex">
+
+        <div th:style="${hasContacts == true ? 'display:block' : 'display:none'}">
             <div style="width: 20%; border: 8px lightgrey solid; border-radius: 8px">
                 <div th:each="contact : ${contactList}" style="margin: 100px">
-                    <img th:src="@{img/ken.jpeg}" alt=""
+                    <img th:src="@{'http://cdn.filestackcontent.com/' + ${contact.getAdded_user_id().getFilestack_picture_url()}}" alt="" id="profilePicture"
                          style="border: 6px solid #1777F2; border-radius: 50%; height: 150px; width: 150px;">
-<!--                    <h2 th:text="${contact.getAdded_user_id().getFirst_name() + contact.getAdded_user_id().getLast_name()}"></h2>-->
+                    <span th:text="${contact.getAdded_user_id().getFirst_name() + contact.getAdded_user_id().getLast_name()}"></span>
                 </div>
             </div>
+        </div>
 
-            <!--FOREACH message OF list of messages :: PRINT; if NO MESSAGES, display == none! -->
+        <div th:style="${hasContacts == false ? 'display:block' : 'display:none'}">
+            <div style="width: 20%; border: 8px lightgrey solid; border-radius: 8px">
+
+                <span>0 contacts right now dude</span>
+
+            </div>
+        </div>
+
+
+        <!--FOREACH message OF list of messages :: PRINT; if NO MESSAGES, display == none! -->
 
             <div th:style="${messagingDisplay == true ? 'display:block' : 'display:none'}">
 
@@ -33,7 +45,7 @@
                 </div>
             </div>
 
-<!--            conversely if NO MESSAGES, display some kind of pithy remark-->
+<!--            conversely if NO MESSAGES, display some kind of pithy remark for now :: refactor into real display -->
 
             <div th:style="${messagingDisplay == false ? 'display:block' : 'display:none'}">
                 <h1>where are your messages dude? go send someone a message!</h1>
