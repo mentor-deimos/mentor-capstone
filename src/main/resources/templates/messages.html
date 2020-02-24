@@ -88,8 +88,8 @@
 
 
 <div class="mobile">
-    <div style="display: flex">
-        <div style="width: 30%; height: 100%; border: 8px lightgrey solid; border-radius: 8px">
+    <div>
+        <div style=" margin-left: 1px; width: 95vw; height: 100%; border: 8px lightgrey solid; border-radius: 8px">
             <div th:each="contact : ${contactList}" style="margin: 100px">
                 <img th:src="@{img/ken.jpeg}" alt=""
                      style="border: 6px solid #1777F2; border-radius: 50%; height: 50px; width: 50px;">
@@ -98,7 +98,7 @@
         </div>
 
         <!--div holding structure for eventual FOR EACH LOOP pulling LIST OF MESSAGES w/ METHODS BRINGING SENDER/RECEIVER NAMES-->
-        <div style="width: 80%; border: 8px lightgrey solid; border-radius: 8px">
+        <div style="width: 95vw; border: 8px lightgrey solid; border-radius: 8px">
 
 <!--            <div style="width: 70%; height: 100%; display: inline;">-->
 <!--                <h2 style=" background-color: dodgerblue; color: white; width: 50%; border: lightgrey 2px solid; margin: 20px; border-radius: 8px"><p th:text="${message.body}"></p></h2>-->
