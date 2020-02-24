@@ -73,14 +73,14 @@ public class MessagingController {
     @GetMapping("/messages")
     public String showMessages(Model model){
         User u = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        List<Message> messages = messageDao.findAll();
+        List<Message> messages = messageDao.findAllByReceiver_info(u.getId());
 
-        List<Contact> contactList = contactDao.findContactsByOwner_userIs(u.getId());
-//        for (Contact contact : contactList){
-//            System.out.println("contact.getAdded_user_id().getUsername() = " + contact.getAdded_user_id().getUsername());
-//        }
+            List<Contact> contactList = contactDao.findContactsByOwner_userIs(u.getId());
 
 
+            for (Message message : messages){
+                System.out.println("message.getBody() = " + message.getBody());
+            }
 
 
         if (contactList.size() == 0){
@@ -90,7 +90,7 @@ public class MessagingController {
 
         }
 
-        if (u.getContactListEntity() == null){
+        if (messages.size() == 0){
             model.addAttribute("messagingDisplay", false);
         } else {
             model.addAttribute("messagingDisplay", true);
@@ -100,7 +100,7 @@ public class MessagingController {
 
 
         model.addAttribute("user", u);
-       model.addAttribute("messagelist", u.getReceivers());
+       model.addAttribute("messagelist", messages);
        model.addAttribute("contactList", contactList);
 
         return "messages";
