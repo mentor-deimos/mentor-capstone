@@ -40,22 +40,22 @@
             <h1>Register:</h1>
             <div class="tab" style="box-sizing: border-box">
                 <h2>Name:</h2>
-                <p><input style="height: 50px; width: 60%; font-size: 35px; padding: 0px 20px" placeholder="First name" th:field="*{first_name}"></p>
-                <p><input style="height: 50px; width: 60%; font-size: 35px; padding: 0px 20px" placeholder="Last name" th:field="*{last_name}"></p>
+                <p><input id="firstname" style="height: 50px; width: 60%; font-size: 35px; padding: 0px 20px" placeholder="First name" th:field="*{first_name}"></p>
+                <p><input id="lastname" style="height: 50px; width: 60%; font-size: 35px; padding: 0px 20px" placeholder="Last name" th:field="*{last_name}"></p>
             </div>
 
             <div class="tab">
                 <h2>Desired username, password, and current e-mail:</h2>
-                <p><input style="height: 50px; width: 60%; font-size: 35px; padding: 0px 20px" placeholder="Username" th:field="*{username}"></p>
-                <p><input style="height: 50px; width: 60%; font-size: 35px; padding: 0px 20px" type="password" placeholder="Password" th:field="*{password}"></p>
-                <p><input style="height: 50px; width: 60%; font-size: 35px; padding: 0px 20px" placeholder="E-mail" th:field="*{email}"></p>
+                <p><input id="username" style="height: 50px; width: 60%; font-size: 35px; padding: 0px 20px" placeholder="Username" th:field="*{username}"></p>
+                <p><input id="password" style="height: 50px; width: 60%; font-size: 35px; padding: 0px 20px" type="password" placeholder="Password" th:field="*{password}"></p>
+                <p><input id="email" style="height: 50px; width: 60%; font-size: 35px; padding: 0px 20px" placeholder="E-mail" th:field="*{email}"></p>
             </div>
 
 
             <div class="tab">
-                <h2>Username and biography info:</h2>
-                <p><input style="height: 50px; width: 60%; font-size: 35px; padding: 0px 20px" placeholder="Location" th:field="*{location}"></p>
-                <p><textarea style="height: 500px; width: 60%; font-size: 35px; padding: 0px 20px" placeholder="Tells us a bit about yourself" th:field="*{biography}"></textarea></p>
+                <h2>Location and biography info:</h2>
+                <p><input style="height: 50px; width: 60%; font-size: 35px; padding: 0px 20px" id="location" placeholder="Location" th:field="*{location}"></p>
+                <p><textarea style="height: 500px; width: 60%; font-size: 35px; padding: 0px 20px" id="biography" placeholder="Tells us a bit about yourself" th:field="*{biography}"></textarea></p>
             </div>
 
 
