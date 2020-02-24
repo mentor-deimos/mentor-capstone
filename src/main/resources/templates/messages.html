@@ -25,21 +25,20 @@
         <div th:style="${hasContacts == false ? 'display:block' : 'display:none'}">
             <div style="width: 20%; border: 8px lightgrey solid; border-radius: 8px">
 
-                <span>0 contacts right now dude</span>
+                <span>Currently, you've got no contacts.</span>
 
             </div>
         </div>
 
 
         <!--FOREACH message OF list of messages :: PRINT; if NO MESSAGES, display == none! -->
-
             <div th:style="${messagingDisplay == true ? 'display:block' : 'display:none'}">
-
+                <h1>Mailbox</h1>
                 <div th:each="message : ${messagelist}" style="width: 80%; border: 8px lightgrey solid; border-radius: 8px">
 
                     <div style="width: 80%; display: inline;">
                         <h2 style=" background-color: dodgerblue; color: white; width: 50%; border: lightgrey 2px solid; margin: 20px; border-radius: 8px"><p th:text="${message.body}"></p></h2>
-                        Sent by <span th:text="${message.getSender_info().getFirst_name() + message.getSender_info().getLast_name()}"/>
+                        Sent by <span th:text="${message.getSender_info().getFirst_name() + ' ' + message.getSender_info().getLast_name() + ' on ' + message.getDatetime()}"/>
 
                     </div>
                 </div>
@@ -48,7 +47,7 @@
 <!--            conversely if NO MESSAGES, display some kind of pithy remark for now :: refactor into real display -->
 
             <div th:style="${messagingDisplay == false ? 'display:block' : 'display:none'}">
-                <h1>where are your messages dude? go send someone a message!</h1>
+                <h5>Inbox empty</h5>
             </div>
 
 
