@@ -13,10 +13,10 @@
             <a th:href="@{/profile/{id}(id=${user.id})}" style="display: flex; flex-direction: column; align-items: center; margin: 20px">
                 <img class="searchImg" style="height: 200px" src="" th:attr="src=@{'http://cdn.filestackcontent.com/' + ${user.filestack_picture_url}}">
                 <p th:text="${user.first_name} + ' ' + ${user.last_name}" style="font-size: 20px; font-family: 'Open Sans', sans-serif"></p>
-                <div th:id="${'rating' + user.id}"><span th:text="${user.rating}"></span></div>
+                <div class="rating"  style="font-size: 30px"><span th:text="${user.rating}"></span></div>
             </a>
         </div>
-
+<!--            th:class="${'rating' + user.id}"-->
             <div th:include="partials/footer :: footer">
             </div>
         </div>
@@ -29,7 +29,7 @@
             <a th:href="@{/profile/{id}(id=${user.id})}">
                 <p th:text="${user.first_name} + ' ' + ${user.last_name}" ></p>
                 <img src="" th:attr="src=@{'http://cdn.filestackcontent.com/' + ${user.filestack_picture_url}}">
-                <div><span th:text="${user.rating}"></span></div>
+                <div class="ratingMobile"><span th:text="${user.rating}"></span></div>
             </a>
         </div>
 
@@ -39,11 +39,13 @@
 
     <script th:inline="javascript">
         /*<![CDATA[*/
-        var rating = /*[[${user.rating}]]*/ "rating";
         let newRate = "";
-        let user = /*[[${user.id}]]*/ "id";
+
+
+
 
         function ratingStars(rating) {
+
             if (rating <= 1.5) {
                 newRate = "⭐"
             }
@@ -63,47 +65,25 @@
         }
 
         $(document).ready(function () {
-            ratingStars(rating);
-            $("#rating" + user).html(
-                "" + newRate + ""
-            );
-            $("#rating1").html(
-                "" + newRate + ""
-            );
-            $("#rating2").html(
-                "" + newRate + ""
-            );
-            $("#rating3").html(
-                "" + newRate + ""
-            );
-            $("#rating4").html(
-                "" + newRate + ""
-            );
-            $("#rating5").html(
-                "" + newRate + ""
-            );
-            $("#rating6").html(
-                "" + newRate + ""
-            );
-            $("#rating7").html(
-                "" + newRate + ""
-            );
-            $("#rating8").html(
-                "" + newRate + ""
-            );
-            $("#rating9").html(
-                "" + newRate + ""
-            );
-            $("#rating10").html(
-                "" + newRate + ""
-            );
-            $("#rating11").html(
-                "" + newRate + ""
-            );
-            $("#rating12").html(
-                "" + newRate + ""
-            );
+            $('.rating').each(function () {
+                let rating = $(".rating span").text();
+
+                ratingStars(rating);
+                $(this).html(
+                    "" + newRate + ""
+                )
+            });
+            $('.ratingMobile').each(function () {
+                let rating = $(".ratingMobile span").text();
+
+                ratingStars(rating);
+                $(this).html(
+                    "" + newRate + ""
+                )
+            });
+
         })
+
 
         /*]]>*/
     </script>
