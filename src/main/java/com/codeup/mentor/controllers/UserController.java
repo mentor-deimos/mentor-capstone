@@ -64,6 +64,13 @@ public class UserController {
         String hash = passwordEncoder.encode(user.getPassword());
         user.setPassword(hash);
         user.setInterestList(interestList);
+        System.out.println("user.getFilestack_picture_url() = " + user.getFilestack_picture_url());
+
+        if (user.getFilestack_picture_url().length() == 0) {
+            user.setFilestack_picture_url("CHefhssjQ5uQ41Ws4jxy");
+        }
+
+
         userDao.save(user);
 
         return "redirect:/";
