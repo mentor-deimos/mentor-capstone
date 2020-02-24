@@ -48,3 +48,12 @@ IntelliJ should automatically pickup that this is a Spring Boot application and 
 6. Messaging page
     - Center area dominated by messaging app/api/etc.
     - Contact list
+    
+## Team Mentor    
+    
+J.W. Hester [LinkedIn](https://www.linkedin.com/in/jw-hester/) [Github](https://github.com/jwhester)
+
+Kenneth Howell [LinkedIn](https://www.linkedin.com/in/howell-kenneth/) [Github](https://github.com/kennethhowell)
+
+Kellsey Neagley [LinkedIn](https://www.linkedin.com/in/kellseyneagley/) [Github](http://github.com/kellseyn)
+
