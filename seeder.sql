@@ -6,7 +6,7 @@ use mentor_db;
 
 #
 DELETE from mentor_db.users
-WHERE ID >= 4;
+WHERE ID = 3;
 #
 SELECT *
 from mentor_db.users;
