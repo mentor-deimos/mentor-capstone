@@ -32,7 +32,9 @@ public class RatingsController {
         rating.setReceiver_info(userDao.getOne(idreceiver));
         ratingDao.save(rating);
 
-        return "redirect:/home";
+
+
+        return "redirect:/profile/" + idreceiver;
     }
 
 }
