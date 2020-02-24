@@ -1,9 +1,11 @@
 package com.codeup.mentor.controllers;
 
 
+import com.codeup.mentor.model.Contact;
 import com.codeup.mentor.model.Message;
 import com.codeup.mentor.model.Rating;
 import com.codeup.mentor.model.User;
+import com.codeup.mentor.repositories.ContactRepository;
 import com.codeup.mentor.repositories.InterestRepository;
 import com.codeup.mentor.repositories.RatingRepository;
 import com.codeup.mentor.repositories.UserRepository;
@@ -25,13 +27,15 @@ public class ProfileController {
     private UserRepository userDao;
     private InterestRepository interestDao;
     private RatingRepository ratingDao;
+    private ContactRepository contactDao;
 
 
 
-    public ProfileController (UserRepository userDao, InterestRepository interestDao, RatingRepository ratingDao){
+    public ProfileController (UserRepository userDao, InterestRepository interestDao, RatingRepository ratingDao, ContactRepository contactDao){
         this.userDao = userDao;
         this.interestDao = interestDao;
         this.ratingDao = ratingDao;
+        this.contactDao = contactDao;
     }
 
 
@@ -65,10 +69,10 @@ public class ProfileController {
 
             }
 
-
-            model.addAttribute("message", new Message());
             model.addAttribute("messagingDisplay", false);
             model.addAttribute("ratingDisplay", false);
+            model.addAttribute("message", new Message());
+//            model.addAttribute("contactOBJ", new Contact());
             model.addAttribute("ratingOBJ", new Rating());
             model.addAttribute("interestList", userDao.getOne(user.getId()).getInterestList());
             model.addAttribute("mentorMessage", mentorMessage);

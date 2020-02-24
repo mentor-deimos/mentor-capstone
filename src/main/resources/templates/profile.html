@@ -45,8 +45,14 @@
                             </div>
                             <div id="ratingDIV" th:style="${ratingDisplay == true ? 'display:flex' : 'display:none'}">
 
+                                <form th:method="post" th:action="@{/messages/addcontact}">
+                                    <input id="contactHidden" name="contactHidden" th:value=${profileID} type="hidden">
+                                    <button type="submit" class="btn btn3"><span th:text="'Add '+ ${user.first_name} +  ' ' +  ${user.last_name} + ' to your contacts!'"></span></button>
+
+                                </form>
+
                                 <form th:object="${ratingOBJ}" th:method="post" th:action="@{/rating}">
-                                    <input id="hiddenID" name="hiddenID" th:value="${ratingID}" type="hidden">
+                                    <input id="hiddenID" name="hiddenID" th:value="${profileID}" type="hidden">
                                     <div>
                                         <select style="font-size: 20px; margin: 10px 0; width: 120px"
                                                 th:field="*{rating}">
