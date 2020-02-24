@@ -10,118 +10,129 @@
         <div class="centered">
             <main class="site-content">
                 <div style="display: flex">
-                <div id="profileLeftSide" style="width: 50%">
-                    <div th:if="${user != null}" id="profileFirstBlock" style="display: flex">
-                        <img th:src="@{'http://cdn.filestackcontent.com/' + ${user.filestack_picture_url}}" alt=""
-                             id="profilePicture">
+                    <div id="profileLeftSide" style="width: 50%">
+                        <div th:if="${user != null}" id="profileFirstBlock" style="display: flex">
+                            <img th:src="@{'http://cdn.filestackcontent.com/' + ${user.filestack_picture_url}}" alt=""
+                                 id="profilePicture">
 
-                        <div id="profileFirstInnerBlock">
-                            <h1 th:text="${user.first_name} +  ' ' +  ${user.last_name}"
-                                style="font-weight: bold; color: #1777F2; font-family: 'Montserrat', sans-serif; font-size: 45px"></h1>
-                            <h3 style="color: #FEDD00; font-family: 'Montserrat', sans-serif; font-size: 45px"
-                                th:text="${mentorMessage}"></h3>
+                            <div id="profileFirstInnerBlock">
+                                <h1 th:text="${user.first_name} +  ' ' +  ${user.last_name}"
+                                    style="font-weight: bold; color: #1777F2; font-family: 'Montserrat', sans-serif; font-size: 45px"></h1>
+                                <h3 style="color: #FEDD00; font-family: 'Montserrat', sans-serif; font-size: 45px"
+                                    th:text="${mentorMessage}"></h3>
 
-                            <h1 style="font-size: 45px; margin-top: -5px; font-family: 'Montserrat', sans-serif">
-                                Rating:</h1>
-                            <div th:if="${userRating} != 0">
+                                <h1 style="font-size: 45px; margin-top: -5px; font-family: 'Montserrat', sans-serif">
+                                    Rating:</h1>
+                                <div th:if="${userRating} != 0">
                                 <span style="color: #FEDD00; font-size: 45px" th:if="${#aggregates.avg(userRating)} >=1"
                                       class="fa fa-star"></span>
-                                <span style="color: #FEDD00; font-size: 45px" th:if="${#aggregates.avg(userRating)} >=2"
-                                      class="fa fa-star"></span>
-                                <span style="color: grey; font-size: 45px" th:if="${#aggregates.avg(userRating)} <2"
-                                      class="fa fa-star"></span>
-                                <span style="color: #FEDD00; font-size: 45px" th:if="${#aggregates.avg(userRating)} >=3"
-                                      class="fa fa-star"></span>
-                                <span style="color: grey; font-size: 45px" th:if="${#aggregates.avg(userRating)} <3"
-                                      class="fa fa-star"></span>
-                                <span style="color: #FEDD00; font-size: 45px" th:if="${#aggregates.avg(userRating)} >=4"
-                                      class="fa fa-star"></span>
-                                <span style="color: grey; font-size: 45px" th:if="${#aggregates.avg(userRating)} <4"
-                                      class="fa fa-star"></span>
-                                <span style="color: #FEDD00; font-size: 45px" th:if="${#aggregates.avg(userRating)} >=5"
-                                      class="fa fa-star"></span>
-                                <span style="color: grey; font-size: 45px" th:if="${#aggregates.avg(userRating)} <5"
-                                      class="fa fa-star"></span>
-                            </div>
-                            <div id="ratingDIV" th:style="${ratingDisplay == true ? 'display:flex' : 'display:none'}">
+                                    <span style="color: #FEDD00; font-size: 45px"
+                                          th:if="${#aggregates.avg(userRating)} >=2"
+                                          class="fa fa-star"></span>
+                                    <span style="color: grey; font-size: 45px" th:if="${#aggregates.avg(userRating)} <2"
+                                          class="fa fa-star"></span>
+                                    <span style="color: #FEDD00; font-size: 45px"
+                                          th:if="${#aggregates.avg(userRating)} >=3"
+                                          class="fa fa-star"></span>
+                                    <span style="color: grey; font-size: 45px" th:if="${#aggregates.avg(userRating)} <3"
+                                          class="fa fa-star"></span>
+                                    <span style="color: #FEDD00; font-size: 45px"
+                                          th:if="${#aggregates.avg(userRating)} >=4"
+                                          class="fa fa-star"></span>
+                                    <span style="color: grey; font-size: 45px" th:if="${#aggregates.avg(userRating)} <4"
+                                          class="fa fa-star"></span>
+                                    <span style="color: #FEDD00; font-size: 45px"
+                                          th:if="${#aggregates.avg(userRating)} >=5"
+                                          class="fa fa-star"></span>
+                                    <span style="color: grey; font-size: 45px" th:if="${#aggregates.avg(userRating)} <5"
+                                          class="fa fa-star"></span>
+                                </div>
+                                <div id="ratingDIV"
+                                     th:style="${ratingDisplay == true ? 'display:flex' : 'display:none'}">
 
-                                <form th:method="post" th:action="@{/messages/addcontact}">
-                                    <input id="contactHidden" name="contactHidden" th:value=${profileID} type="hidden">
-                                    <button style="margin-top: 48px; margin-right: 5px" type="submit" class="btn btn3"><span th:text="'Add to contacts!'"></span></button>
+                                    <form th:method="post" th:action="@{/messages/addcontact}">
+                                        <input id="contactHidden" name="contactHidden" th:value=${profileID}
+                                               type="hidden">
+                                        <button style="margin-top: 48px; margin-right: 5px" type="submit"
+                                                class="btn btn3"><span th:text="'Add to contacts!'"></span></button>
 
-                                </form>
+                                    </form>
 
-                                <form th:object="${ratingOBJ}" th:method="post" th:action="@{/rating}">
-                                    <input id="hiddenID" name="hiddenID" th:value="${profileID}" type="hidden">
-                                    <div>
-                                        <select style="font-size: 20px; margin: 10px 0; width: 120px"
-                                                th:field="*{rating}">
-                                            <option th:each="i : ${#numbers.sequence(1, 5)}" th:value="${i}"
-                                                    th:text="${i}">
-                                            </option>
-                                        </select>
-                                    </div>
-                                    <button type="submit" class="btn btn3">Submit Rating!</button>
-                                </form>
-                            </div>
-
-
-                        </div>
-                    </div>
-                    <h3 style="font-weight: bold; color: #1777F2; font-family: 'Montserrat', sans-serif; font-size: 45px">
-                        BIO:</h3>
-                    <div th:if="${user != null}"><h3
-                            style="font-weight: bold; color: black; font-family: 'Open Sans', sans-serif; font-size: 25px"
-                            th:text="${user.biography}"></h3></div>
-                </div>
+                                    <form th:object="${ratingOBJ}" th:method="post" th:action="@{/rating}">
+                                        <input id="hiddenID" name="hiddenID" th:value="${profileID}" type="hidden">
+                                        <div>
+                                            <select style="font-size: 20px; margin: 10px 0; width: 120px"
+                                                    th:field="*{rating}">
+                                                <option th:each="i : ${#numbers.sequence(1, 5)}" th:value="${i}"
+                                                        th:text="${i}">
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <button type="submit" class="btn btn3">Submit Rating!</button>
+                                    </form>
+                                </div>
 
 
-                <div id="profileRightSide" style="width: 50%; margin-top: -15px">
-                    <h3 style="font-weight: bold; color: #1777F2; font-family: 'Montserrat', sans-serif; font-size: 45px">Interests:</h3>
-                    <div style="height: 100%; width: 100%; display: flex; flex-wrap: wrap; justify-content: flex-start ">
-                        <div id="interests" style=" height: 100px" th:each="i : ${interestList}">
-                            <div style="display: flex; border-radius: 10px; border: 2px solid #1777F2; justify-content: center; width: 300px; font-size: 30px; margin: 10px; color: black">
-                                <span th:text="${i.getName()}"></span>
-                                <img style="height: 55px; margin-left: 20px" th:src="${i.getPicture_path()}" alt="">
                             </div>
                         </div>
+                        <h3 style="font-weight: bold; color: #1777F2; font-family: 'Montserrat', sans-serif; font-size: 45px">
+                            BIO:</h3>
+                        <div th:if="${user != null}"><h3
+                                style="font-weight: bold; color: black; font-family: 'Open Sans', sans-serif; font-size: 25px"
+                                th:text="${user.biography}"></h3></div>
+                    </div>
+
+
+                    <div id="profileRightSide" style="width: 50%; margin-top: -15px">
+                        <h3 style="font-weight: bold; color: #1777F2; font-family: 'Montserrat', sans-serif; font-size: 45px">
+                            Interests:</h3>
+                        <div style="height: 100%; width: 100%; display: flex; flex-wrap: wrap; justify-content: flex-start ">
+                            <div id="interests" style=" height: 100px" th:each="i : ${interestList}">
+                                <div style="display: flex; border-radius: 10px; border: 2px solid #1777F2; justify-content: center; width: 300px; font-size: 30px; margin: 10px; color: black">
+                                    <span th:text="${i.getName()}"></span>
+                                    <img style="height: 55px; margin-left: 20px" th:src="${i.getPicture_path()}" alt="">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-        </div>
 
                 <div th:style="${messagingDisplay == true ? 'display:block' : 'display:none'}">
 
 
-                  <h3 style="font-weight: bold; color: #1777F2; font-family: 'Montserrat', sans-serif; font-size: 45px">Send <span th:text="${user.first_name} +  ' ' +  ${user.last_name}" !/> a message!</h3>
+                    <h3 style="font-weight: bold; color: #1777F2; font-family: 'Montserrat', sans-serif; font-size: 45px">
+                        Send <span th:text="${user.first_name} +  ' ' +  ${user.last_name}" !/> a message!</h3>
                     <form th:action="@{/messages/send}" th:method="POST" th:object="${message}">
-                        <input id="sendmessagetoID" name="sendmessagetoID" th:value="${profileID}" type="hidden"
-                        <label for="body" style="font-weight: bold; color: #1777F2; font-family: 'Montserrat', sans-serif; font-size: 45px">Body:</label>
-                        <textarea style="width: 100%; padding-left: 8px" id="body" th:field="*{body}" placeholder="Enter body here">
+
+                        <input id="sendmessagetoID" name="sendmessagetoID" th:value="${profileID}" type="hidden">
+                        <label for="body"
+                               style="font-weight: bold; color: #1777F2; font-family: 'Montserrat', sans-serif; font-size: 45px">Body:</label>
+                        <textarea style="width: 100%; padding-left: 8px" id="body" th:field="*{body}"
+                                  placeholder="Enter body here">
                     </textarea>
                         <button style="margin-bottom: 20px" type="submit" class="btn btn3">Send message!</button>
-                </form>
+                    </form>
 
                 </div>
-
-
-
 
             </main>
         </div>
 
 
+
     </div>
-    <div th:include="partials/footer :: footer">
-    </div>
+
+
 </div>
+<div th:include="partials/footer :: footer">
 </div>
 
-</main>
 
 <div class="mobile">
     <div style="display: flex; justify-content: center; background-color: white; position: fixed; top: 0; width: 100vw; border-bottom-right-radius:20px; border-bottom-left-radius: 20px">
         <a href="/splash"><img th:src="@{/img/mentorIcon.svg}" alt="" style="height: 50px"></a></div>
-    <img th:src="@{'http://cdn.filestackcontent.com/' + ${user.filestack_picture_url}}" alt="" style="height: 200px; margin-top: 100px">
+    <img th:src="@{'http://cdn.filestackcontent.com/' + ${user.filestack_picture_url}}" alt=""
+         style="height: 200px; margin-top: 100px">
     <h1 th:text="${user.first_name} +  ' ' +  ${user.last_name}" style="font-weight: bold; color: #1777F2"></h1>
     <h3 style="color: #FEDD00" th:text="${mentorMessage}"></h3>
     <h1 style="font-size: 45px; margin-top: -5px; font-family: 'Montserrat', sans-serif">
