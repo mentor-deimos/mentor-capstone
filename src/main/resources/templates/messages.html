@@ -17,7 +17,7 @@
                 <div th:each="contact : ${contactList}" style="margin: 100px">
                     <img th:src="@{'http://cdn.filestackcontent.com/' + ${contact.getAdded_user_id().getFilestack_picture_url()}}" alt="" id="profilePicture"
                          style="border: 6px solid #1777F2; border-radius: 50%; height: 150px; width: 150px;">
-                    <span th:text="${contact.getAdded_user_id().getFirst_name() + contact.getAdded_user_id().getLast_name()}"></span>
+                    <span th:text="${contact.getAdded_user_id().getFirst_name() + ' ' + contact.getAdded_user_id().getLast_name()}"></span>
                 </div>
             </div>
         </div>
