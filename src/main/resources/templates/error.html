@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:http="http://www.w3.org/1999/xhtml">
+<head th:include="partials/header :: header">
+</head>
+<body style="background-image: linear-gradient(#1777F2, #0035A8);
+    background-repeat: no-repeat;">
+<div style="display: flex; justify-content: center; align-items: center; flex-direction: column; height: 100vh">
+    <div style="display: flex; justify-content: center; align-items: center">
+    <img th:src="@{img/error.svg}" alt="User" style="height: 300px"/>
+    <div style="text-align: center; margin-left: 20px">
+        <h2 style="color: white; font-family: 'Open Sans', sans-serif">Something went wrong and we couldn't complete
+            your request.</h2>
+        <a th:href="@{/splash}" class="btn btn5">Return</a>
+    </div>
+    </div>
+    <table style="color: white; font-family: 'Montserrat', sans-serif; font-size: 20px">
+        <tr>
+            <td>Date:</td>
+            <td style="color: #FEDD00" th:text="${timestamp}"/>
+        </tr>
+        <tr>
+            <td>Path:</td>
+            <td style="color: #FEDD00" th:text="${path}"/>
+        </tr>
+        <tr>
+            <td>Error:</td>
+            <td style="color: #FEDD00" th:text="${error}"/>
+        </tr>
+        <tr>
+            <td>Status:</td>
+            <td style="color: #FEDD00" th:text="${status}"/>
+        </tr>
+        <tr>
+            <td>Message:</td>
+            <td style="color: #FEDD00" th:text="${message}"/>
+        </tr>
+        <tr>
+            <td>Exception:</td>
+            <td style="color: #FEDD00" th:text="${exception}"/>
+        </tr>
+        <tr>
+            <td>Trace:</td>
+            <td style="color: #FEDD00">
+                <pre th:text="${trace}"/>
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+</body>
+</html>
