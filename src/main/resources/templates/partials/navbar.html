@@ -9,7 +9,7 @@
 
     <div id="navbar">
         <div id="wrapper">
-            <div style="display: flex">
+            <div style="display: flex; margin-left: -100px">
                 <a th:href="@{/home}">
                     <img th:src="@{/img/mentorIcon.svg}" alt="" class="mentorIconNav">
                 </a>
@@ -17,14 +17,16 @@
                 </a>
             </div>
 
-            <div style="display: flex; margin-right: -100px!important;">
+            <div style="display: flex; margin-right: -200px!important;">
 
-                <a th:href="@{/messages}"><img th:src="@{/img/svg/mail.svg}" alt=""
-                                               style=" margin-top: -10px; margin-right: 20px"></a>
+                <a th:href="@{/messages}"><h2 class="underline">Messages</h2></a>
+
+                <a th:href="@{/profile}"><h2 class="underline">Profile</h2></a>
 
 
-
-                <a th:href="@{/profile}"><img th:src="@{'http://cdn.filestackcontent.com/' + ${user.filestack_picture_url}}" alt="" style="height: 100px; width: 100px; border-radius: 50%"></a>
+                <a class="link search">
+                    <h2 class="underline">Search</h2>
+                </a>
 
                 <form autocomplete="off" th:action="@{/search}" th:object="${user}" th:method="GET">
 
@@ -35,15 +37,16 @@
                                     <div class="cntr">
                                         <div class="cntr-innr">
                                             <label class="search" for="myInput">
-                                                <input id="myInput" name="myInput" type="text" placeholder="Search" th:value="${myInput}"/>
+                                                <input id="myInput" name="myInput" type="text" placeholder="Search"
+                                                       th:value="${myInput}"/>
                                             </label>
                                         </div>
                                     </div>
-                                    <label for="selection"><select id="selection">
-                                        <option hidden>Option</option>
-                                        <option value="true">Mentor</option>
-                                        <option value="false">Mentee</option>
-                                    </select>
+                                    <label for="selection">
+                                        <select id="selection" name="isMentor">
+                                            <option value="true">Mentor</option>
+                                            <option value="false">Mentee</option>
+                                        </select>
                                     </label>
                                     <button id="searchSubmit" type="submit">Submit</button>
 
@@ -54,10 +57,7 @@
                         </div>
                     </div>
                 </form>
-                <div class="link search">
-                    <img th:src="@{/img/svg/search.svg}" alt="">
 
-                </div>
             </div>
         </div>
     </div>
@@ -66,86 +66,86 @@
             integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
             crossorigin="anonymous"></script>
     <script>
-        var interests = ["Automotive", "Financial", "Health/Fitness", "Beauty/Fashion", "Cooking", "Relationship", "Handyman", "Parenting", "Life", "Career", "Outdoors", "Academic", "Religion/Spiritual", "Technology", "Music", "Sports", "Art", "Home Economics", "Self Defense", "Legal", "San Antonio", "Dallas", "Houston", "El Paso", "Natalia", "Fort Worth", "Boerne", "Austin", "New Braunfels", "Fredricksburg", "Beaumont"];
+        // var interests = ["Automotive", "Financial", "Health/Fitness", "Beauty/Fashion", "Cooking", "Relationship", "Handyman", "Parenting", "Life", "Career", "Outdoors", "Academic", "Religion/Spiritual", "Technology", "Music", "Sports", "Art", "Home Economics", "Self Defense", "Legal", "San Antonio", "Dallas", "Houston", "El Paso", "Natalia", "Fort Worth", "Boerne", "Austin", "New Braunfels", "Fredricksburg", "Beaumont"];
 
-        function autocomplete(inp, arr) {
+        // function autocomplete(inp, arr) {
+        //
+        //     var currentFocus;
+        //     inp.addEventListener("input", function (e) {
+        //         var a, b, i, val = this.value;
+        //         closeAllLists();
+        //         if (!val) {
+        //             return false;
+        //         }
+        //         currentFocus = -1;
+        //         a = document.createElement("DIV");
+        //         a.setAttribute("id", this.id + "autocomplete-list");
+        //         a.setAttribute("class", "autocomplete-items");
+        //         this.parentNode.appendChild(a);
+        //         for (i = 0; i < arr.length; i++) {
+        //
+        //             console.log(arr[i].substr(0, val.length).toUpperCase());
+        //             //where we say don't bring up the autocomps until a certain length
+        //             if (val.length > 2 && arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+        //
+        //                 b = document.createElement("DIV");
+        //                 b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+        //                 b.innerHTML += arr[i].substr(val.length);
+        //                 b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+        //                 b.addEventListener("click", function (e) {
+        //                     inp.value = this.getElementsByTagName("input")[0].value;
+        //                     closeAllLists();
+        //                 });
+        //                 a.appendChild(b);
+        //             }
+        //         }
+        //     });
+        //     inp.addEventListener("keydown", function (e) {
+        //         var x = document.getElementById(this.id + "autocomplete-list");
+        //         if (x) x = x.getElementsByTagName("div");
+        //         if (e.keyCode == 40) {
+        //             currentFocus++;
+        //             addActive(x);
+        //         } else if (e.keyCode == 38) {
+        //             currentFocus--;
+        //             addActive(x);
+        //         } else if (e.keyCode == 13) {
+        //             e.preventDefault();
+        //             if (currentFocus > -1) {
+        //                 if (x) x[currentFocus].click();
+        //             }
+        //         }
+        //     });
+        //
+        //     function addActive(x) {
+        //         if (!x) return false;
+        //         removeActive(x);
+        //         if (currentFocus >= x.length) currentFocus = 0;
+        //         if (currentFocus < 0) currentFocus = (x.length - 1);
+        //         x[currentFocus].classList.add("autocomplete-active");
+        //     }
+        //
+        //     function removeActive(x) {
+        //         for (var i = 0; i < x.length; i++) {
+        //             x[i].classList.remove("autocomplete-active");
+        //         }
+        //     }
+        //
+        //     function closeAllLists(elmnt) {
+        //         var x = document.getElementsByClassName("autocomplete-items");
+        //         for (var i = 0; i < x.length; i++) {
+        //             if (elmnt != x[i] && elmnt != inp) {
+        //                 x[i].parentNode.removeChild(x[i]);
+        //             }
+        //         }
+        //     }
+        //
+        //     document.addEventListener("click", function (e) {
+        //         closeAllLists(e.target);
+        //     });
+        // }
 
-            var currentFocus;
-            inp.addEventListener("input", function (e) {
-                var a, b, i, val = this.value;
-                closeAllLists();
-                if (!val) {
-                    return false;
-                }
-                currentFocus = -1;
-                a = document.createElement("DIV");
-                a.setAttribute("id", this.id + "autocomplete-list");
-                a.setAttribute("class", "autocomplete-items");
-                this.parentNode.appendChild(a);
-                for (i = 0; i < arr.length; i++) {
-
-                    console.log(arr[i].substr(0, val.length).toUpperCase());
-                    //where we say don't bring up the autocomps until a certain length
-                    if (val.length > 2 && arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
-
-                        b = document.createElement("DIV");
-                        b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
-                        b.innerHTML += arr[i].substr(val.length);
-                        b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
-                        b.addEventListener("click", function (e) {
-                            inp.value = this.getElementsByTagName("input")[0].value;
-                            closeAllLists();
-                        });
-                        a.appendChild(b);
-                    }
-                }
-            });
-            inp.addEventListener("keydown", function (e) {
-                var x = document.getElementById(this.id + "autocomplete-list");
-                if (x) x = x.getElementsByTagName("div");
-                if (e.keyCode == 40) {
-                    currentFocus++;
-                    addActive(x);
-                } else if (e.keyCode == 38) {
-                    currentFocus--;
-                    addActive(x);
-                } else if (e.keyCode == 13) {
-                    e.preventDefault();
-                    if (currentFocus > -1) {
-                        if (x) x[currentFocus].click();
-                    }
-                }
-            });
-
-            function addActive(x) {
-                if (!x) return false;
-                removeActive(x);
-                if (currentFocus >= x.length) currentFocus = 0;
-                if (currentFocus < 0) currentFocus = (x.length - 1);
-                x[currentFocus].classList.add("autocomplete-active");
-            }
-
-            function removeActive(x) {
-                for (var i = 0; i < x.length; i++) {
-                    x[i].classList.remove("autocomplete-active");
-                }
-            }
-
-            function closeAllLists(elmnt) {
-                var x = document.getElementsByClassName("autocomplete-items");
-                for (var i = 0; i < x.length; i++) {
-                    if (elmnt != x[i] && elmnt != inp) {
-                        x[i].parentNode.removeChild(x[i]);
-                    }
-                }
-            }
-
-            document.addEventListener("click", function (e) {
-                closeAllLists(e.target);
-            });
-        }
-
-        autocomplete(document.getElementById("myInput"), interests);
+        // autocomplete(document.getElementById("myInput"), interests);
 
         function getOption() {
             selectElement =
@@ -194,15 +194,31 @@
     <div class="navWrapper">
         <div class="nav-bar" style="border-top-left-radius: 50px;
     border-top-right-radius: 50px;">
-            <form autocomplete="off" th:action="@{/search}" th:object="${user}" th:method="GET" class="mobileSearch" style="display: none">
-                <input id="myInput" name="myInput" type="text" placeholder="Search" th:value="${myInput}" style="border: 2px solid #1777F2;margin: 5px 5px 5px 20px; width: 250px!important; height: 50px!important; font-size: 30px; font-family: 'Open Sans', sans-serif"/>
-                <button style="border: 2px solid black; margin: 5px; color: white; background-color: #1777F2; height: 50px">Search</button>
-                <button class="close" style="border: 2px solid black; background-color: #FEDD00; height: 50px; width: 50px; margin: 5px">X</button>
+            <div class="mobileSearch"
+                 style="display: none">
+            <form autocomplete="off" th:action="@{/search}" th:object="${user}" th:method="GET" >
+                <label for="selection">
+                    <select id="selection" name="isMentor" style="margin-left: 100px; font-size: 12px; border-radius: 8px; margin-right: 0; width: 60px">
+                        <option value="true">Mentor</option>
+                        <option value="false">Mentee</option>
+                    </select>
+                </label>
+                <input id="myInput" name="myInput" type="text" placeholder="Search" th:value="${myInput}"
+                       style="border: 2px solid #1777F2;margin: 5px 5px 5px 45px; width: 180px!important; height: 50px!important; font-size: 20px; font-family: 'Open Sans', sans-serif; border-radius: 8px"/>
+                <button style="border: 2px solid black; margin-top: 10px; color: white; background-color: #1777F2; height: 50px; border-bottom-left-radius: 8px; border-top-left-radius: 8px; border-right: none; margin-left: -10px">
+                    Search
+                </button>
             </form>
+                <button class="close"
+                        style="border: 2px solid black; background-color: #FEDD00; height: 50px; width: 50px!important; margin-top: 10px; border-bottom-right-radius: 8px; border-left: none; margin-left: -30px;
+    border-top-right-radius: 8px;">
+                    X
+                </button>
+        </div>
             <div class="nav-bar__item" onClick="onClick(this)">
                 <a th:href="@{/home}"><img th:src="@{img/home.svg}" alt="Home"/></a>
 
-        <span>Home</span>
+                <span>Home</span>
 
             </div>
 
@@ -229,14 +245,11 @@
         </div>
     </div>
     <script>
-        function onClick(e) {
-            [...document.querySelectorAll('.nav-bar__item')].forEach(item => item.classList.remove('active'));
-            e.classList.add('active');
-        }
+
         $(".searchActivate").click(function () {
             $(".nav-bar__item").css("display","none");
             $(".mobileSearch").css("display","flex")
-        })
+        });
         $(".close").click(function () {
             $(".nav-bar__item").css("display","flex");
             $(".mobileSearch").css("display","none")

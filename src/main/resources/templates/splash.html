@@ -16,10 +16,10 @@
         <div class="modal" style="height: 400px; width: 400px">
             <form style="font-size: 30px; color: #1777F2; font-family: 'Open Sans', sans-serif" th:method="POST" th:action="@{/login}">
                 <label for="username"><b>Username:</b></label>
-                <input style="height: 50px; font-size: 25px" type="text" placeholder="Enter Username" id="username" name="username" required>
+                <input style="height: 50px; font-size: 25px; padding: 0px 20px" type="text" placeholder="Enter Username" id="username" name="username" required>
                 <br>
                 <label for="password"><b>Password:</b></label>
-                <input style="height: 50px; font-size: 25px" type="password" placeholder="Enter Password" name="password" id="password" required>
+                <input style="height: 50px; font-size: 25px; padding: 0px 20px" type="password" placeholder="Enter Password" name="password" id="password" required>
                 <div class="modal-actions">
                     <button class="modal-cancel btn btn5">CANCEL</button>
                     <button type="submit" class="modal-ok btn btn6">LOGIN</button>
@@ -34,7 +34,7 @@
         <div style="display: flex; margin-top: 50px">
             <img th:src="@{/img/splashMenteeMentor.svg}" alt="">
             <div style="flex-direction: column; width: 35vw">
-            <h1>Mentee or mentor</h1>
+            <h1>Mentee or Mentor?</h1>
             <p>Do you need help or do you want to help? Choose to be a mentee or a mentor.</p>
             </div>
         </div>
@@ -136,7 +136,7 @@
     <div style="display: flex; flex-direction: column">
         <img th:src="@{/img/splashMenteeMentor.svg}" alt="" style="height: 150px">
         <div style="flex-direction: column; width: 65vw">
-            <h1>Mentee or mentor</h1>
+            <h1>Mentee or Mentor?</h1>
             <p>Do you need help or do you want to help? Choose to be a mentee or a mentor.</p>
         </div>
     </div>

@@ -3,7 +3,6 @@ package com.codeup.mentor.controllers;
 import com.codeup.mentor.model.Post;
 import com.codeup.mentor.model.User;
 import com.codeup.mentor.repositories.PostRepository;
-import com.codeup.mentor.repositories.UserRepository;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,18 +11,19 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class PostController {
     private PostRepository postDao;
-    private UserRepository userDao;
 
-    public PostController(PostRepository postDao,
-                          UserRepository userDao) {
+    public PostController(PostRepository postDao) {
         this.postDao = postDao;
-        this.userDao = userDao;
 
     }
 
     @GetMapping("/home")
     public String postsIndex(Model model) {
-        model.addAttribute("user", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+
+
+        User principal = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("principal", principal);
+        model.addAttribute("post", new Post());
         model.addAttribute("posts", postDao.findAll());
         return "home";
     }
@@ -36,12 +36,11 @@ public class PostController {
 
     @PostMapping("/posts/{id}/edit")
     public String updatePost(@PathVariable long id, @RequestParam String title, @RequestParam String body) {
-        Post p = new Post(
-                id,
-                title,
-                body
-        );
-        postDao.save(p);
+        Post post = postDao.getOne(id);
+        post.setTitle(title);
+        post.setBody(body);
+
+        postDao.save(post);
         return "redirect:/home";
     }
 
@@ -59,12 +58,7 @@ public class PostController {
     }
 
 
-    @GetMapping("/posts/create")
-    public String createPostForm(Model model) {
-        model.addAttribute("post", new Post());
-        return "posts/create";
-    }
-    @PostMapping("/posts/create")
+    @PostMapping("/home")
     public String createPost(@ModelAttribute Post post) {
         User u = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         post.setUser(u);
@@ -72,9 +66,4 @@ public class PostController {
         return "redirect:/home";
     }
 
-//    @GetMapping("one/test")
-//    public String returnOneToViewOne(Model model) {
-//        model.addAttribute("posts", postDao.findAll());
-//        return "one-to-one-test";
-//    }
 }

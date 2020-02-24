@@ -1,26 +1,79 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Edit Post</title>
-</head>
+<head th:include="partials/header :: header">
+
 <body>
-<h1>Edit Post</h1>
-<form th:action="@{'/posts/' + ${post.id} + '/edit'}" th:method="POST" >
-    <label for="title">Title</label>
-    <input id="title" type="text" name="title" th:value="${post.title}" placeholder="Enter title here">
+<div id="home">
+    <div class="site-container">
+        <div th:include="partials/navbar :: navbar">
+        </div>
+        <main class="site-content">
+            <div style="display: flex; justify-content: center; width: 100%">
+                <img th:src="@{/img/column.svg}" alt="">
+                <h1 style="color: #1777F2; font-family: 'Montserrat', sans-serif">The Forum</h1>
+                <img th:src="@{/img/column.svg}" alt="">
+            </div>
+            <div style="width: 100%; display: flex; justify-content: center; font-family: 'Montserrat', sans-serif">
+                <h2>Update your post here!</h2>
+            </div>
 
-    <label for="body">Body</label>
-    <textarea id="body" name="body" th:text="${post.body}" placeholder="Enter body here">
+            <div style="border: 4px solid #1777F2; margin: 20px 0 20px 25%; width: 50vw; border-radius: 8px">
+                <form th:action="@{'/posts/' + ${post.id} + '/edit'}" th:method="POST">
+                    <label for="title"
+                           style="font-size: 25px; margin-left: 5px; font-weight: bold; color: #1777F2; font-family: 'Montserrat', sans-serif">Title:</label>
+                    <br>
+                    <input style="width: 47vw; font-size: 25px; margin: 5px; padding-left: 20px; font-family: 'Montserrat', sans-serif"
+                           id="title" type="text" name="title" th:value="${post.title}" placeholder="Enter title here">
+                    <br>
+                    <label style="font-size: 25px; font-weight: bold; margin-left: 5px; color: #1777F2; font-family: 'Montserrat', sans-serif"
+                           for="body">Body:</label>
+                    <textarea
+                            style="width: 48vw; font-size: 25px; margin: 5px; height: 200px; padding-left: 20px; font-family: 'Montserrat', sans-serif"
+                            id="body" name="body" th:text="${post.body}" placeholder="Enter body here"></textarea>
+                    <div style="display: flex; justify-content: flex-end; margin-right: 10px; margin-top: 100px">
+                        <button class="btn btn3">Update Post</button>
+                    </div>
+                </form>
+                <form style="display: flex; justify-content: flex-end; margin-right: 140px; margin-top: -70px"
+                      th:action="@{|/posts/${post.id}/delete|}" th:method="POST">
+                    <button class="btn btn5">Delete Post</button>
+                </form>
+            </div>
 
-        </textarea>
+
+        </main>
+        <div th:include="partials/footer :: footer"></div>
+    </div>
+</div>
+<div class="mobile">
+
+    <div style="width: 100%; display: flex; justify-content: center; font-family: 'Montserrat', sans-serif">
+        <h2>Update Post</h2>
+    </div>
 
 
+        <form th:action="@{'/posts/' + ${post.id} + '/edit'}" th:method="POST">
+            <label for="title"
+                   style="font-size: 25px; margin-left: 5px; font-weight: bold; color: white; font-family: 'Montserrat', sans-serif">Title:</label>
+            <br>
+            <input style="width: 47vw; font-size: 25px; margin: 5px; padding-left: 20px; font-family: 'Montserrat', sans-serif"
+                   id="title" type="text" name="title" th:value="${post.title}" placeholder="Enter title here">
+            <br>
+            <label style="font-size: 25px; font-weight: bold; margin-left: 5px; color: white; font-family: 'Montserrat', sans-serif"
+                   for="body">Body:</label>
+            <br>
+            <textarea
+                    style="width: 48vw; font-size: 25px; margin: 5px; height: 50vh; padding-left: 20px; font-family: 'Montserrat', sans-serif"
+                    id="body" name="body" th:text="${post.body}" placeholder="Enter body here"></textarea>
+            <div style="display: flex; justify-content: flex-end; margin-top: 50px">
+                <button class="btn btn3">Update Post</button>
+            </div>
+        </form>
+        <form style="display: flex; margin-top: -70px; width: 200px!important;"
+              th:action="@{|/posts/${post.id}/delete|}" th:method="POST">
+            <button class="btn btn5" style="background-color: red!important;">Delete Post</button>
+        </form>
 
-    <button>Update Post</button>
-</form>
-<form th:action="@{|/posts/${post.id}/delete|}" th:method="POST">
-    <button>Delete Post</button>
-</form>
+</div>
 </body>
 </html>
