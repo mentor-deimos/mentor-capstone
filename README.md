@@ -17,7 +17,7 @@ IntelliJ should automatically pickup that this is a Spring Boot application and 
 
 <img width="871" src="https://cdn.discordapp.com/attachments/599456130917203978/681539640439734283/Screen_Shot_2020-02-24_at_10.25.45_AM.png">
 
-##TODO's
+## TODO's
 
 1. Splash page 
     - SIGN UP || SIGN IN
