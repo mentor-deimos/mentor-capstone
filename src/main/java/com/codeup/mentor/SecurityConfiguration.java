@@ -40,7 +40,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
                         .permitAll() //
                     .and()
                         .logout()
-                        .logoutSuccessUrl("/login?logout")
+                        .logoutUrl("/logout")
+                        .logoutSuccessUrl("/")
                     .and()
                         .authorizeRequests()
                         .antMatchers("/", "/signup")
