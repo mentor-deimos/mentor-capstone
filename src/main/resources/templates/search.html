@@ -46,16 +46,16 @@
 
         function ratingStars(rating) {
 
-            if (rating <= 1.5) {
+            if (rating < 1.5 && rating >= 1) {
                 newRate = "⭐"
             }
-            if (rating > 1.5 && rating < 2.5) {
+            if (rating >= 1.5 && rating < 2.5) {
                 newRate = "⭐️⭐️"
             }
-            if (rating > 2.5 && rating < 3.5) {
+            if (rating >= 2.5 && rating < 3.5) {
                 newRate = "⭐️⭐️⭐️"
             }
-            if (rating > 3.5 && rating < 4.5) {
+            if (rating >= 3.5 && rating < 4.5) {
                 newRate = "⭐️⭐️⭐️⭐️"
             }
             if (rating >= 4.5) {

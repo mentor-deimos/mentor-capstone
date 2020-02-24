@@ -78,11 +78,11 @@
 
                 <div id="profileRightSide" style="width: 50%; margin-top: -15px">
                     <h3 style="font-weight: bold; color: #1777F2; font-family: 'Montserrat', sans-serif; font-size: 45px">Interests:</h3>
-                    <div style="height: 100%; width: 100%; display: flex; flex-wrap: wrap; justify-content: center">
-                        <div id="interests" th:each="i : ${interestList}">
+                    <div style="height: 100%; width: 100%; display: flex; flex-wrap: wrap; justify-content: flex-start ">
+                        <div id="interests" style=" height: 100px" th:each="i : ${interestList}">
                             <div style="display: flex; border-radius: 10px; border: 2px solid #1777F2; justify-content: center; width: 300px; font-size: 30px; margin: 10px; color: black">
                                 <span th:text="${i.getName()}"></span>
-                                <img style="height: 55px" th:src="${i.getPicture_path()}" alt="">
+                                <img style="height: 55px; margin-left: 20px" th:src="${i.getPicture_path()}" alt="">
                             </div>
                         </div>
                     </div>
@@ -91,9 +91,6 @@
 
                 <div th:style="${messagingDisplay == true ? 'display:block' : 'display:none'}">
 
-                <h3>Send <span th:text="${user.first_name} +  ' ' +  ${user.last_name}"!/> a message!</h3>
-                <form th:action="@{/messages/send}" th:method="POST" th:object="${message}">
-                    <input id="sendmessagetoID" name="sendmessagetoID" th:value="${profileID}" type="hidden">
 
                   <h3 style="font-weight: bold; color: #1777F2; font-family: 'Montserrat', sans-serif; font-size: 45px">Send <span th:text="${user.first_name} +  ' ' +  ${user.last_name}" !/> a message!</h3>
                     <form th:action="@{/messages/send}" th:method="POST" th:object="${message}">
@@ -102,7 +99,7 @@
                     </textarea>
                         <button style="margin-bottom: 20px" type="submit" class="btn btn3">Send message!</button>
                 </form>
-
+                </form>
                 </div>
 
                 </div>
