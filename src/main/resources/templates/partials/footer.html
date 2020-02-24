@@ -8,9 +8,11 @@
 <footer th:fragment="footer">
     <div id="footer" style="display: flex; justify-content: space-around; align-items: center;  width: 100vw">
 
-        <a th:href="@{/about}"><h1 id="aboutLink">About</h1></a>
+        <a th:href="@{/about}"><h1 class="footerLink">About</h1></a>
 
         <div id="footerQuotes" style="color: white; font-size: 25px; display: flex; justify-content: center; width: 50vw;"></div>
+
+        <form th:method="post" th:action="@{/logout}"><button type="submit" class="footerLink">Log Out</button></a></form>
     </div>
     <script th:src="@{/webjars/jquery/3.4.1/jquery.min.js/}"></script>
     <script>

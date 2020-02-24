@@ -318,10 +318,12 @@ a{
 
 }
 /*---------footer---------------------*/
-#aboutLink{
-    font-size: 30px; text-decoration: none; color: #FEDD00; font-family: 'Montserrat', sans-serif;
+.footerLink{
+    font-size: 30px; text-decoration: none; color: #FEDD00; font-family: 'Montserrat', sans-serif;   background:none;
+    border:none;
 }
-#aboutLink:hover{
+
+.footerLink:hover{
     color: white;
 }
 #footer{
