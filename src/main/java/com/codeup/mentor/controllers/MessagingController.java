@@ -51,7 +51,7 @@ public class MessagingController {
         addedContact.setAdded_user_id(addthisUserID);
         contactDao.save(addedContact);
 
-        return "redirect:/profile";
+        return "redirect:/messages";
 
 
 
@@ -67,7 +67,7 @@ public class MessagingController {
         message.setReceiver_info(senttoU);
         message.setSender_info(sentfromU);
         messageDao.save(message);
-        return "redirect:/home";
+        return "redirect:/messages";
     }
 
     @GetMapping("/messages")
