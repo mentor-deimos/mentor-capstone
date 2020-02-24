@@ -10,4 +10,8 @@ public interface MessageRepository extends JpaRepository <Message, Long> {
     @Query(value = "SELECT * FROM  mentor_db.messages WHERE receiver_id = ?1",  nativeQuery = true)
     List<Message> findAllByReceiver_info(long id);
 
+
+    @Query(value = "SELECT * FROM  mentor_db.messages WHERE sender_id = ?1",  nativeQuery = true)
+    List<Message> findAllBySender_info(long id);
+
 }
