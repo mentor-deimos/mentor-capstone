@@ -34,25 +34,50 @@
         <!--FOREACH message OF list of messages :: PRINT; if NO MESSAGES, display == none! -->
             <div th:style="${messagingDisplay == true ? 'display:block' : 'display:none'}">
                 <h1>Mailbox</h1>
-                <div th:each="message : ${messagelist}" style="width: 80%; border: 8px lightgrey solid; border-radius: 8px">
+                <h3>Inbox</h3>
 
-                    <div style="width: 80%; display: inline;">
-                        <h2 style=" background-color: dodgerblue; color: white; width: 50%; border: lightgrey 2px solid; margin: 20px; border-radius: 8px"><p th:text="${message.body}"></p></h2>
-                        Sent by <span th:text="${message.getSender_info().getFirst_name() + ' ' + message.getSender_info().getLast_name() + ' on ' + message.getDatetime()}"/>
+                <div th:style="${inboxDisplay == true ? 'display:block' : 'display:none'}">
+                    <div th:each="message : ${receivedMessages}" style="width: 80%; border: 8px lightgrey solid; border-radius: 8px">
 
+                        <div style="width: 80%; display: inline;">
+                            <h2 style=" background-color: dodgerblue; color: white; width: 50%; border: lightgrey 2px solid; margin: 20px; border-radius: 8px"><p th:text="${message.body}"></p></h2>
+                            Sent by <span th:text="${message.getSender_info().getFirst_name() + ' ' + message.getSender_info().getLast_name() + ' on ' + message.getDatetime()}"/>
+
+                        </div>
                     </div>
                 </div>
-            </div>
+                <div th:style="${inboxDisplay == false ? 'display:block' : 'display:none'}">
+                    <h5>Inbox empty!</h5>
+                </div>
+
+
+                <h3>Outbox</h3>
+
+                <div th:style="${outboxDisplay == true ? 'display:block' : 'display:none'}">
+
+                    <div th:each="message : ${sentMessages}" style="width: 80%; border: 8px lightgrey solid; border-radius: 8px">
+                        <div style="width: 80%; display: inline;">
+                            <h2 style=" background-color: dodgerblue; color: white; width: 50%; border: lightgrey 2px solid; margin: 20px; border-radius: 8px"><p th:text="${message.body}"></p></h2>
+                            Sent by <span th:text="${message.getSender_info().getFirst_name() + ' ' + message.getSender_info().getLast_name() + ' on ' + message.getDatetime()}"/>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div th:style="${outboxDisplay == false ? 'display:block' : 'display:none'}">
+                    <h5>Outbox empty!</h5>
+                </div>
 
 <!--            conversely if NO MESSAGES, display some kind of pithy remark for now :: refactor into real display -->
 
             <div th:style="${messagingDisplay == false ? 'display:block' : 'display:none'}">
-                <h5>Inbox empty</h5>
+                <h5>Mailbox empty</h5>
             </div>
 
 
 
         </div>
+    </div>
     </main>
     <div th:include="partials/footer :: footer">
     </div>

@@ -73,14 +73,11 @@ public class MessagingController {
     @GetMapping("/messages")
     public String showMessages(Model model){
         User u = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        List<Message> messages = messageDao.findAllByReceiver_info(u.getId());
+        List<Message> receivedMessages = messageDao.findAllByReceiver_info(u.getId());
+        List<Message> sentMessages = messageDao.findAllBySender_info(u.getId());
 
             List<Contact> contactList = contactDao.findContactsByOwner_userIs(u.getId());
 
-
-            for (Message message : messages){
-                System.out.println("message.getBody() = " + message.getBody());
-            }
 
 
         if (contactList.size() == 0){
@@ -90,17 +87,31 @@ public class MessagingController {
 
         }
 
-        if (messages.size() == 0){
+        if (receivedMessages.size() == 0 && sentMessages.size() == 0){
             model.addAttribute("messagingDisplay", false);
         } else {
             model.addAttribute("messagingDisplay", true);
 
         }
 
+        if (receivedMessages.size() == 0){
+            model.addAttribute("inboxDisplay", false);
+        } else {
+            model.addAttribute("inboxDisplay", true);
+        }
+
+
+        if (sentMessages.size() == 0){
+            model.addAttribute("outboxDisplay", false);
+        } else {
+            model.addAttribute("outboxDisplay", true);
+        }
+
 
 
         model.addAttribute("user", u);
-       model.addAttribute("messagelist", messages);
+        model.addAttribute("sentMessages", sentMessages);
+       model.addAttribute("receivedMessages", receivedMessages);
        model.addAttribute("contactList", contactList);
 
         return "messages";
