@@ -56,7 +56,7 @@
         $(location).attr('href', 'splash');
     });
 
-    $("[value = 1]").click(function () {
+    $(".interest1").click(function () {
 
             var radioCheck = $('.radioCheck').is(':checked');
 
@@ -70,6 +70,272 @@
         }
 
     });
+$(".interest2").click(function () {
+
+    var radioCheck = $('.radioCheck').is(':checked');
+
+    if (radioCheck === true) {
+        $(this).css("background-color", "blue");
+        $(this).css("color", "white");
+    }
+    else{
+        $(this).css("background-color", "white");
+        $(this).css("color", "black");
+    }
+
+});
+$(".interest3").click(function () {
+
+    var radioCheck = $('.radioCheck').is(':checked');
+
+    if (radioCheck === true) {
+        $(this).css("background-color", "blue");
+        $(this).css("color", "white");
+    }
+    else{
+        $(this).css("background-color", "white");
+        $(this).css("color", "black");
+    }
+
+});
+$(".interest4").click(function () {
+
+    var radioCheck = $('.radioCheck').is(':checked');
+
+    if (radioCheck === true) {
+        $(this).css("background-color", "blue");
+        $(this).css("color", "white");
+    }
+    else{
+        $(this).css("background-color", "white");
+        $(this).css("color", "black");
+    }
+
+});
+$(".interest5").click(function () {
+
+    var radioCheck = $('.radioCheck').is(':checked');
+
+    if (radioCheck === true) {
+        $(this).css("background-color", "blue");
+        $(this).css("color", "white");
+    }
+    else{
+        $(this).css("background-color", "white");
+        $(this).css("color", "black");
+    }
+
+});
+$(".interest6").click(function () {
+
+    var radioCheck = $('.radioCheck').is(':checked');
+
+    if (radioCheck === true) {
+        $(this).css("background-color", "blue");
+        $(this).css("color", "white");
+    }
+    else{
+        $(this).css("background-color", "white");
+        $(this).css("color", "black");
+    }
+
+});
+$(".interest7").click(function () {
+
+    var radioCheck = $('.radioCheck').is(':checked');
+
+    if (radioCheck === true) {
+        $(this).css("background-color", "blue");
+        $(this).css("color", "white");
+    }
+    else{
+        $(this).css("background-color", "white");
+        $(this).css("color", "black");
+    }
+
+});
+$(".interest8").click(function () {
+
+    var radioCheck = $('.radioCheck').is(':checked');
+
+    if (radioCheck === true) {
+        $(this).css("background-color", "blue");
+        $(this).css("color", "white");
+    }
+    else{
+        $(this).css("background-color", "white");
+        $(this).css("color", "black");
+    }
+
+});
+$(".interest9").click(function () {
+
+    var radioCheck = $('.radioCheck').is(':checked');
+
+    if (radioCheck === true) {
+        $(this).css("background-color", "blue");
+        $(this).css("color", "white");
+    }
+    else{
+        $(this).css("background-color", "white");
+        $(this).css("color", "black");
+    }
+
+});
+$(".interest10").click(function () {
+
+    var radioCheck = $('.radioCheck').is(':checked');
+
+    if (radioCheck === true) {
+        $(this).css("background-color", "blue");
+        $(this).css("color", "white");
+    }
+    else{
+        $(this).css("background-color", "white");
+        $(this).css("color", "black");
+    }
+
+});
+$(".interest11").click(function () {
+
+    var radioCheck = $('.radioCheck').is(':checked');
+
+    if (radioCheck === true) {
+        $(this).css("background-color", "blue");
+        $(this).css("color", "white");
+    }
+    else{
+        $(this).css("background-color", "white");
+        $(this).css("color", "black");
+    }
+
+});
+$(".interest12").click(function () {
+
+    var radioCheck = $('.radioCheck').is(':checked');
+
+    if (radioCheck === true) {
+        $(this).css("background-color", "blue");
+        $(this).css("color", "white");
+    }
+    else{
+        $(this).css("background-color", "white");
+        $(this).css("color", "black");
+    }
+
+});
+$(".interest13").click(function () {
+
+    var radioCheck = $('.radioCheck').is(':checked');
+
+    if (radioCheck === true) {
+        $(this).css("background-color", "blue");
+        $(this).css("color", "white");
+    }
+    else{
+        $(this).css("background-color", "white");
+        $(this).css("color", "black");
+    }
+
+});
+$(".interest14").click(function () {
+
+    var radioCheck = $('.radioCheck').is(':checked');
+
+    if (radioCheck === true) {
+        $(this).css("background-color", "blue");
+        $(this).css("color", "white");
+    }
+    else{
+        $(this).css("background-color", "white");
+        $(this).css("color", "black");
+    }
+
+});
+$(".interest15").click(function () {
+
+    var radioCheck = $('.radioCheck').is(':checked');
+
+    if (radioCheck === true) {
+        $(this).css("background-color", "blue");
+        $(this).css("color", "white");
+    }
+    else{
+        $(this).css("background-color", "white");
+        $(this).css("color", "black");
+    }
+
+});
+$(".interest16").click(function () {
+
+    var radioCheck = $('.radioCheck').is(':checked');
+
+    if (radioCheck === true) {
+        $(this).css("background-color", "blue");
+        $(this).css("color", "white");
+    }
+    else{
+        $(this).css("background-color", "white");
+        $(this).css("color", "black");
+    }
+
+});
+$(".interest17").click(function () {
+
+    var radioCheck = $('.radioCheck').is(':checked');
+
+    if (radioCheck === true) {
+        $(this).css("background-color", "blue");
+        $(this).css("color", "white");
+    }
+    else{
+        $(this).css("background-color", "white");
+        $(this).css("color", "black");
+    }
+
+});
+$(".interest18").click(function () {
+
+    var radioCheck = $('.radioCheck').is(':checked');
+
+    if (radioCheck === true) {
+        $(this).css("background-color", "blue");
+        $(this).css("color", "white");
+    }
+    else{
+        $(this).css("background-color", "white");
+        $(this).css("color", "black");
+    }
+
+});
+$(".interest19").click(function () {
+
+    var radioCheck = $('.radioCheck').is(':checked');
+
+    if (radioCheck === true) {
+        $(this).css("background-color", "blue");
+        $(this).css("color", "white");
+    }
+    else{
+        $(this).css("background-color", "white");
+        $(this).css("color", "black");
+    }
+
+});
+$(".interest20").click(function () {
+
+    var radioCheck = $('.radioCheck').is(':checked');
+
+    if (radioCheck === true) {
+        $(this).css("background-color", "blue");
+        $(this).css("color", "white");
+    }
+    else{
+        $(this).css("background-color", "white");
+        $(this).css("color", "black");
+    }
+
+});
 
     $("#menteeBtn, #mentorBtn").click(function () {
         $("#regForm").toggle();

@@ -73,8 +73,8 @@
                 <h1>Interests</h1>
                 <div style="height: 100%; width: 100%; display: flex; flex-wrap: wrap; justify-content: center;">
                     <div id="interests" th:each="i : ${interests}">
-                        <label class="radio" style="display: flex; border-radius: 10px; border: 2px solid #1777F2; justify-content: center; align-items: center; width: 320px; height: 100px; font-size: 30px; margin: 10px; color: black">
-                            <input class="radioCheck"  name="interests" type="checkbox" th:value="${i.getId()}" th:text="${i.getName()}"/>
+                        <label class="radio" style="display: flex; border-radius: 10px; border: 2px solid #1777F2; justify-content: center; align-items: center; width: 320px; height: 100px; font-size: 30px; margin: 10px; color: black" th:class="${'interest' + i.getId()}">
+                            <input style="opacity: 0;" class="radioCheck"  name="interests" type="checkbox" th:value="${i.getId()}" th:text="${i.getName()}"/>
                             <img class="radioImg" style="height: 55px; margin-left: 20px" th:src="${i.getPicture_path()}" alt="">
                         </label>
                         </input>
