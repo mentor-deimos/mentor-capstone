@@ -15,13 +15,13 @@
         <div th:style="${hasContacts == true ? 'display:block' : 'display:none'}">
             <div style="width: 20vw; height: 100vh; margin-right: 5px; overflow: scroll; border: 8px lightgrey solid; border-radius: 8px">
                 <h4 style="color: #1777F2; font-size: 60px; padding-left: 7px">Contacts:</h4>
-                <div th:each="contact : ${contactList}">
+                <div style="display: flex; flex-direction: column; align-items: center" th:each="contact : ${contactList}">
                      <!--style="margin: 100px"-->
 
                    <a th:href="@{/profile/{id}(id=${contact.getAdded_user_id().getId()})}">
                     <img th:src="@{'http://cdn.filestackcontent.com/' + ${contact.getAdded_user_id().getFilestack_picture_url()}}" alt="" id="profilePicture"
                          style="border: 6px solid #1777F2; border-radius: 50%; height: 150px; width: 150px;"></a>
-                    <span th:text="${contact.getAdded_user_id().getFirst_name() + ' ' + contact.getAdded_user_id().getLast_name()}"></span>
+                    <span style="font-size: 25px" th:text="${contact.getAdded_user_id().getFirst_name() + ' ' + contact.getAdded_user_id().getLast_name()}"></span>
                 </div>
             </div>
         </div>
@@ -37,8 +37,11 @@
 
         <!--FOREACH message OF list of messages :: PRINT; if NO MESSAGES, display == none! -->
             <div style="overflow: scroll; width: 77vw; height: 100vh" th:style="${messagingDisplay == true ? 'display:block' : 'display:none'}">
-                <h1 style="margin-top: 0">Mailbox</h1>
-                <h3 style="margin-bottom: 0">Inbox</h3>
+                <div style="width: 80vw; display: flex; justify-content: center">
+                <h1 style="margin-top: 15px; font-size: 65px; color: #1777F2; margin-right: 5px">Mailbox</h1>
+                    <img th:src="@{/img/svg/mail.svg}" style="height: 100px; width: 100px; margin-top: 5px" alt="" class="left_img">
+                </div>
+                <h3 style="margin-bottom: 0; font-size: 45px">Inbox</h3>
 
                 <div th:style="${inboxDisplay == true ? 'display:block' : 'display:none'}">
                     <div th:each="message : ${receivedMessages}" style="width: 77vw; border: 8px lightgrey solid; border-radius: 8px">
@@ -51,11 +54,11 @@
                     </div>
                 </div>
                 <div th:style="${inboxDisplay == false ? 'display:block' : 'display:none'}">
-                    <h5>Inbox empty!</h5>
+                    <h5 style="font-size: 25px">Inbox empty!</h5>
                 </div>
 
 
-                <h3 style="margin-bottom: 0">Outbox</h3>
+                <h3 style="margin-bottom: 0; font-size: 45px">Outbox</h3>
 
                 <div th:style="${outboxDisplay == true ? 'display:block' : 'display:none'}">
 
@@ -89,24 +92,83 @@
 
 
 <div class="mobile">
-    <div>
-        <div style=" margin-left: 1px; width: 95vw; height: 100%; border: 8px lightgrey solid; border-radius: 8px">
-            <div th:each="contact : ${contactList}" style="margin: 100px">
-                <img th:src="@{img/ken.jpeg}" alt=""
-                     style="border: 6px solid #1777F2; border-radius: 50%; height: 50px; width: 50px;">
-                <h2 th:text="${contact.getAdded_user_id().getFirst_name() + contact.getAdded_user_id().getLast_name()}"></h2>
+    <div style="display: flex; justify-content: center; background-color: white; position: fixed; top: 0; width: 100vw; border-bottom-right-radius:20px; border-bottom-left-radius: 20px">
+        <a href="/splash"><img th:src="@{/img/mentorIcon.svg}" alt="" style="height: 50px"></a></div>
+    <div style="overflow: scroll; margin-top: 50px; margin-bottom: 100px">
+        <div style="display: flex; justify-content: center; background-color: white; position: fixed; top: 0; width: 100vw; border-bottom-right-radius:20px; border-bottom-left-radius: 20px">
+            <a href="/splash"><img th:src="@{/img/mentorIcon.svg}" alt="" style="height: 50px"></a></div>
+            <!--FOREACH message OF list of messages :: PRINT; if NO MESSAGES, display == none! -->
+            <div th:style="${messagingDisplay == true ? 'display:block' : 'display:none'}">
+                <div style="display: flex; justify-content: center; margin-top: 30px">
+                    <h1 style="margin-top: 15px; font-size: 25px; color: #1777F2; margin-right: 5px">Mailbox</h1>
+                    <img th:src="@{/img/svg/mail.svg}" style="height: 50px; width: 50px; margin-top: 5px" alt="" class="left_img">
+                </div>
+                <h3 style="margin-bottom: 0; font-size: 25px">Inbox</h3>
+
+                <div th:style="${inboxDisplay == true ? 'display:block' : 'display:none'}">
+                    <div th:each="message : ${receivedMessages}" >
+
+                        <div style="width: 80%; display: inline;">
+                            <h2 style=" background-color: white; color: black; width: 50%; border: lightgrey 2px solid; margin: 20px; border-radius: 8px"><p style="color: black; font-size: 15px" th:text="${message.body}"></p></h2>
+                            Sent by <span th:text="${message.getSender_info().getFirst_name() + ' ' + message.getSender_info().getLast_name() + ' on ' + message.getDatetime()}"/>
+
+                        </div>
+                    </div>
+                </div>
+                <div th:style="${inboxDisplay == false ? 'display:block' : 'display:none'}">
+                    <h5 style="font-size: 25px">Inbox empty!</h5>
+                </div>
+
+
+                <h3 style="margin-bottom: 0; font-size: 25px">Outbox</h3>
+
+                <div th:style="${outboxDisplay == true ? 'display:block' : 'display:none'}">
+
+                    <div th:each="message : ${sentMessages}" >
+                        <div style="width: 80%; display: inline;">
+                            <h2 style="color: black; border: lightgrey 2px solid; margin: 20px; border-radius: 8px"><p th:text="${message.body}"></p></h2>
+                            Sent by <span th:text="${message.getSender_info().getFirst_name() + ' ' + message.getSender_info().getLast_name() + ' on ' + message.getDatetime()}"/>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div th:style="${outboxDisplay == false ? 'display:block' : 'display:none'}">
+                    <h5>Outbox empty!</h5>
+                </div>
+
+                <!--            conversely if NO MESSAGES, display some kind of pithy remark for now :: refactor into real display -->
+
+                <div th:style="${messagingDisplay == false ? 'display:block' : 'display:none'}">
+                    <h5>Mailbox empty</h5>
+                </div>
+
+            </div>
+        <hr>
+        <div style="display: flex">
+
+            <div th:style="${hasContacts == true ? 'display:block' : 'display:none'}">
+                <h4 style="color: white; font-size: 25px; padding-left: 7px">Contacts:</h4>
+                <div style="display: flex; flex-direction: column; align-items: center" th:each="contact : ${contactList}">
+                    <!--style="margin: 100px"-->
+
+                    <a th:href="@{/profile/{id}(id=${contact.getAdded_user_id().getId()})}">
+                        <img th:src="@{'http://cdn.filestackcontent.com/' + ${contact.getAdded_user_id().getFilestack_picture_url()}}" alt="" id="profilePicture"
+                             style="border: 6px solid #1777F2; border-radius: 50%; height: 50px; width: 50px;"></a>
+                    <span style="font-size: 15px" th:text="${contact.getAdded_user_id().getFirst_name() + ' ' + contact.getAdded_user_id().getLast_name()}"></span>
+                </div>
             </div>
         </div>
 
-        <!--div holding structure for eventual FOR EACH LOOP pulling LIST OF MESSAGES w/ METHODS BRINGING SENDER/RECEIVER NAMES-->
-        <div style="width: 95vw; border: 8px lightgrey solid; border-radius: 8px">
+        <div th:style="${hasContacts == false ? 'display:block' : 'display:none'}">
+            <div style="width: 20%; border: 8px lightgrey solid; border-radius: 8px">
 
-<!--            <div style="width: 70%; height: 100%; display: inline;">-->
-<!--                <h2 style=" background-color: dodgerblue; color: white; width: 50%; border: lightgrey 2px solid; margin: 20px; border-radius: 8px"><p th:text="${message.body}"></p></h2>-->
-<!--                Sent by <span th:text="${sentUser.getFirst_name() + sentUser.getLast_name()}"/>-->
-<!--                Received by <span th:text="${receivedUser.getFirst_name() + receivedUser.getLast_name()}"/>-->
-<!--            </div>-->
+                <span>Currently, you've got no contacts.</span>
+
+            </div>
         </div>
+
+
     </div>
     <div th:include="partials/navbar :: mobile-nav">
     </div>

@@ -122,10 +122,10 @@
 
     </div>
 
+    <div th:include="partials/footer :: footer">
+    </div>
+</div>
 
-</div>
-<div th:include="partials/footer :: footer">
-</div>
 
 
 <div class="mobile">
@@ -174,6 +174,13 @@
             <button type="submit" class="btn btn3">Submit Rating!</button>
         </form>
     </div>
+    <form th:method="post" th:action="@{/messages/addcontact}">
+        <input id="contactHidden" name="contactHidden" th:value=${profileID}
+               type="hidden">
+        <button style="margin-top: 48px; margin-right: 5px" type="submit"
+                class="btn btn3"><span th:text="'Add to contacts!'"></span></button>
+
+    </form>
 
     <h1 style="font-weight: bold; color: #1777F2">BIO:</h1>
     <div th:if="${user != null}"><h3 th:text="${user.biography}"></h3></div>
@@ -186,6 +193,23 @@
                 <img style="height: 55px" th:src="${i.getPicture_path()}" alt="">
             </div>
         </div>
+    </div>
+    <div th:style="${messagingDisplay == true ? 'display:block' : 'display:none'}">
+
+
+        <h3 style="font-weight: bold; color: #1777F2; font-family: 'Montserrat', sans-serif; font-size: 45px">
+            Send <span th:text="${user.first_name} +  ' ' +  ${user.last_name}" !/> a message!</h3>
+        <form th:action="@{/messages/send}" th:method="POST" th:object="${message}">
+
+            <input id="sendmessagetoID" name="sendmessagetoID" th:value="${profileID}" type="hidden">
+            <label for="body"
+                   style="font-weight: bold; color: #1777F2; font-family: 'Montserrat', sans-serif; font-size: 45px">Body:</label>
+            <textarea style="width: 100%; padding-left: 8px" id="body" th:field="*{body}"
+                      placeholder="Enter body here">
+                    </textarea>
+            <button style="margin-bottom: 20px" type="submit" class="btn btn3">Send message!</button>
+        </form>
+
     </div>
 
     <div style="margin-bottom: 200px"></div>
