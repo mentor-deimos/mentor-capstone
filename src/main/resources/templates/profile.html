@@ -103,6 +103,7 @@
                     <h3 style="font-weight: bold; color: #1777F2; font-family: 'Montserrat', sans-serif; font-size: 45px">
                         Send <span th:text="${user.first_name} +  ' ' +  ${user.last_name}" !/> a message!</h3>
                     <form th:action="@{/messages/send}" th:method="POST" th:object="${message}">
+
                         <input id="sendmessagetoID" name="sendmessagetoID" th:value="${profileID}" type="hidden">
                         <label for="body"
                                style="font-weight: bold; color: #1777F2; font-family: 'Montserrat', sans-serif; font-size: 45px">Body:</label>
@@ -113,6 +114,7 @@
                     </form>
 
                 </div>
+
             </main>
         </div>
 
