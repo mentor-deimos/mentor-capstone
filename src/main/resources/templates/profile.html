@@ -3,7 +3,7 @@
 <head th:include="partials/header :: header">
 </head>
 <body style=" background-color: #FCFCFC">
-<div id="profile" style="height: 275vh">
+<div id="profile">
     <div class="site-container" style="margin-bottom: 150px">
         <div th:include="partials/navbar :: navbar">
         </div>
@@ -13,7 +13,7 @@
                     <div id="profileLeftSide" style="width: 90%;">
                         <div th:if="${user != null}" id="profileFirstBlock" style="display: flex">
                             <img th:src="@{'http://cdn.filestackcontent.com/' + ${user.filestack_picture_url}}" alt=""
-                                 id="profilePicture">
+                                 id="profilePicture" style="border-radius: 50%">
 
                             <div id="profileFirstInnerBlock">
                                 <h1 th:text="${user.first_name} +  ' ' +  ${user.last_name}"
