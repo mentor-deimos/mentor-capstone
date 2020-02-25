@@ -14,16 +14,49 @@
                     <a th:href="@{/profile/{id}(id=${user.id})}" style="display: flex; flex-direction: column; align-items: center; margin: 20px; margin-left: 100px;">
                         <img class="searchImg" style="height: 200px" src="" th:attr="src=@{'http://cdn.filestackcontent.com/' + ${user.filestack_picture_url}}">
                         <p th:text="${user.first_name} + ' ' + ${user.last_name}" style="font-size: 20px; font-family: 'Open Sans', sans-serif"></p>
-                        <div class="rating"  style="font-size: 30px"><span th:text="${user.rating}"></span></div>
+
+                    <div th:with="rating=${user.getRating()}">
+                            <div th:if="${rating} != 0">
+
+                               <span style="color: #FEDD00; font-size: 45px"
+                                     th:if="${rating} >=1"
+                                     class="fa fa-star"></span>
+
+                                <span style="color: #FEDD00; font-size: 45px"
+                                      th:if="${rating} >=2"
+                                      class="fa fa-star"></span>
+                                <span style="color: grey; font-size: 45px" th:if="${rating} <2"
+                                      class="fa fa-star"></span>
+
+                                <span style="color: #FEDD00; font-size: 45px"
+                                      th:if="${rating} >=3"
+                                      class="fa fa-star"></span>
+                                <span style="color: grey; font-size: 45px" th:if="${rating} <3"
+                                      class="fa fa-star"></span>
+
+                                <span style="color: #FEDD00; font-size: 45px"
+                                      th:if="${rating} >=4"
+                                      class="fa fa-star"></span>
+                                <span style="color: grey; font-size: 45px" th:if="${rating} <4"
+                                      class="fa fa-star"></span>
+
+                                <span style="color: #FEDD00; font-size: 45px"
+                                      th:if="${rating} >=5"
+                                      class="fa fa-star"></span>
+                                <span style="color: grey; font-size: 45px"
+                                      th:if="${rating}<5"
+                                      class="fa fa-star"></span>
+                            </div>
+                        </div>
                     </a>
                 </div>
             </div>
-<!--            th:class="${'rating' + user.id}"-->
             <div th:include="partials/footer :: footer">
             </div>
         </div>
 
     </main>
+
     <div class="mobile">
 
         <h1>Search results for: <span th:text="${myInput}"></span></h1>
@@ -31,64 +64,47 @@
             <a th:href="@{/profile/{id}(id=${user.id})}">
                 <p th:text="${user.first_name} + ' ' + ${user.last_name}" ></p>
                 <img src="" th:attr="src=@{'http://cdn.filestackcontent.com/' + ${user.filestack_picture_url}}">
-                <div class="ratingMobile"><span th:text="${user.rating}"></span></div>
+                <div th:with="rating=${user.getRating()}">
+                    <div th:if="${rating} != 0">
+                       <span style="color: #FEDD00; font-size: 45px" th:if="${rating} >=1"
+                             class="fa fa-star"></span>
+
+                        <span style="color: #FEDD00; font-size: 45px"
+                              th:if="${rating} >=2"
+                              class="fa fa-star"></span>
+
+                        <span style="color: grey; font-size: 45px" th:if="${rating} <2"
+                              class="fa fa-star"></span>
+
+                        <span style="color: #FEDD00; font-size: 45px"
+                              th:if="${rating} >=3"
+                              class="fa fa-star"></span>
+
+                        <span style="color: grey; font-size: 45px" th:if="${rating} <3"
+                              class="fa fa-star"></span>
+
+                        <span style="color: #FEDD00; font-size: 45px"
+                              th:if="${rating} >=4"
+                              class="fa fa-star"></span>
+
+                        <span style="color: grey; font-size: 45px" th:if="${rating} <4"
+                              class="fa fa-star"></span>
+
+                        <span style="color: #FEDD00; font-size: 45px"
+                              th:if="${rating} >=5"
+                              class="fa fa-star"></span>
+
+                        <span style="color: grey; font-size: 45px" th:if="${rating}<5"
+                              class="fa fa-star"></span>
+                    </div>
+                </div>
             </a>
         </div>
-
     </div>
 
     </div>
 
-    <script th:inline="javascript">
-        /*<![CDATA[*/
-        let newRate = "";
-
-
-
-
-        function ratingStars(rating) {
-
-            if (rating < 1.5 && rating >= 1) {
-                newRate = "⭐"
-            }
-            if (rating >= 1.5 && rating < 2.5) {
-                newRate = "⭐️⭐️"
-            }
-            if (rating >= 2.5 && rating < 3.5) {
-                newRate = "⭐️⭐️⭐️"
-            }
-            if (rating >= 3.5 && rating < 4.5) {
-                newRate = "⭐️⭐️⭐️⭐️"
-            }
-            if (rating >= 4.5) {
-                newRate = "⭐️⭐️⭐️⭐️⭐️"
-            }
-
-        }
-
-        $(document).ready(function () {
-            $('.rating').each(function () {
-                let rating = $(".rating span").text();
-
-                ratingStars(rating);
-                $(this).html(
-                    "" + newRate + ""
-                )
-            });
-            $('.ratingMobile').each(function () {
-                let rating = $(".ratingMobile span").text();
-
-                ratingStars(rating);
-                $(this).html(
-                    "" + newRate + ""
-                )
-            });
-
-        })
-
-
-        /*]]>*/
-    </script>
+</div>
 
 <script
         src="https://code.jquery.com/jquery-3.1.1.min.js"

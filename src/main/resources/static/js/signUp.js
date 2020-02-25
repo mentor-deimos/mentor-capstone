@@ -383,11 +383,11 @@ $(".interest20").click(function () {
         }
 
         // if (currentTab === 3){
-        //     if ($("input:radio[name='html_radio']").is(":checked") == false){
-        //         alert("You must check at least one interest to proceed.")
-        //         return;
-        //     }
-        // }
+        //         //     if ($("input:radio[name='html_radio']").is(":checked") == false){
+        //         //         alert("You must check at least one interest to proceed.")
+        //         //         return;
+        //         //     }
+        //         // }
 
 
         var x = $(".tab");
