@@ -11,7 +11,7 @@
         <h1 style="font-family: 'Open Sans', sans-serif; font-size: 35px">Search results for: <span th:text="${myInput}" style="color: #1777F2"></span></h1>
             <div style="display: flex">
                 <div th:each="user : ${users}" style="border-radius: 8px; border: 8px dodgerblue solid; width: 25vw; display: flex; flex-wrap: wrap; margin: 20px">
-                    <a th:href="@{/profile/{id}(id=${user.id})}" style="display: flex; flex-direction: column; align-items: center; margin: 20px; margin-left: 100px;">
+                    <a th:href="@{/profile/{id}(id=${user.id})}" style="display: flex; flex-direction: column; align-items: center; margin: 20px; margin-left: 80px;">
                         <img class="searchImg" style="height: 200px; border-radius: 50%" src="" th:attr="src=@{'http://cdn.filestackcontent.com/' + ${user.filestack_picture_url}}">
                         <p th:text="${user.first_name} + ' ' + ${user.last_name}" style="font-size: 20px; font-family: 'Open Sans', sans-serif"></p>
                         <div class="rating"  style="font-size: 30px"><span th:text="${user.rating}"></span></div>
