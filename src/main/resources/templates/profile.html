@@ -2,15 +2,15 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:http="http://www.w3.org/1999/xhtml">
 <head th:include="partials/header :: header">
 </head>
-<body>
-<div id="profile">
-    <div class="site-container">
+<body style=" background-color: #FCFCFC">
+<div id="profile" style="height: 275vh">
+    <div class="site-container" style="margin-bottom: 150px">
         <div th:include="partials/navbar :: navbar">
         </div>
         <div class="centered">
             <main class="site-content">
                 <div style="display: flex">
-                    <div id="profileLeftSide" style="width: 50%">
+                    <div id="profileLeftSide" style="width: 90%;">
                         <div th:if="${user != null}" id="profileFirstBlock" style="display: flex">
                             <img th:src="@{'http://cdn.filestackcontent.com/' + ${user.filestack_picture_url}}" alt=""
                                  id="profilePicture">
@@ -80,40 +80,40 @@
                         <div th:if="${user != null}"><h3
                                 style="font-weight: bold; color: black; font-family: 'Open Sans', sans-serif; font-size: 25px"
                                 th:text="${user.biography}"></h3></div>
+                        <div th:style="${messagingDisplay == true ? 'display:block' : 'display:none'}">
+
+
+                            <h3 style="font-weight: bold; color: #1777F2; font-family: 'Montserrat', sans-serif; font-size: 45px">
+                                Send <span th:text="${user.first_name} +  ' ' +  ${user.last_name}" !/> a message!</h3>
+                            <form th:action="@{/messages/send}" th:method="POST" th:object="${message}">
+
+                                <input id="sendmessagetoID" name="sendmessagetoID" th:value="${profileID}" type="hidden">
+                                <textarea style="width: 600px; height: 300px; padding-left: 8px" id="body" th:field="*{body}"
+                                          placeholder="Enter message here">
+                    </textarea>
+                                <button style="position:absolute; margin-top: 310px; margin-left: -120px" type="submit" class="btn btn3">SEND</button>
+                            </form>
+
+                        </div>
                     </div>
 
 
-                    <div id="profileRightSide" style="width: 50%; margin-top: -15px">
-                        <h3 style="font-weight: bold; color: #1777F2; font-family: 'Montserrat', sans-serif; font-size: 45px">
+
+                    <div id="profileRightSide">
+                        <h3 class="interestsHeading">
                             Interests:</h3>
-                        <div style="height: 100%; width: 100%; display: flex; flex-wrap: wrap; justify-content: flex-start ">
+                        <div class="interestsContainer">
                             <div id="interests" style=" height: 100px" th:each="i : ${interestList}">
-                                <div style="display: flex; border-radius: 10px; border: 2px solid #1777F2; justify-content: center; width: 300px; font-size: 30px; margin: 10px; color: black">
+                                <div class="interest" style="align-items: center">
                                     <span th:text="${i.getName()}"></span>
-                                    <img style="height: 55px; margin-left: 20px" th:src="${i.getPicture_path()}" alt="">
+                                    <img class="interestPicture" th:src="${i.getPicture_path()}" alt="">
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div th:style="${messagingDisplay == true ? 'display:block' : 'display:none'}">
 
-
-                    <h3 style="font-weight: bold; color: #1777F2; font-family: 'Montserrat', sans-serif; font-size: 45px">
-                        Send <span th:text="${user.first_name} +  ' ' +  ${user.last_name}" !/> a message!</h3>
-                    <form th:action="@{/messages/send}" th:method="POST" th:object="${message}">
-
-                        <input id="sendmessagetoID" name="sendmessagetoID" th:value="${profileID}" type="hidden">
-                        <label for="body"
-                               style="font-weight: bold; color: #1777F2; font-family: 'Montserrat', sans-serif; font-size: 45px">Body:</label>
-                        <textarea style="width: 100%; padding-left: 8px" id="body" th:field="*{body}"
-                                  placeholder="Enter body here">
-                    </textarea>
-                        <button style="margin-bottom: 20px" type="submit" class="btn btn3">Send message!</button>
-                    </form>
-
-                </div>
 
             </main>
         </div>

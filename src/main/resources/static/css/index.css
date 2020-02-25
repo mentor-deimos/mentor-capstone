@@ -531,6 +531,46 @@ a{
 }
 
 
+
+#profileRightSide{
+    width: 50%; margin-top: -15px
+}
+.interestsHeading{
+    font-weight: bold; color: #1777F2; font-family: 'Montserrat', sans-serif; font-size: 45px
+}
+.interestsContainer{
+    height: 100%; width: 100%;
+    /*display: flex;*/
+    /*flex-wrap: wrap;*/
+}
+
+.interest{
+    display: flex;
+    border-radius: 10px;
+    border: 2px solid #1777F2;
+    justify-content: center;
+    width: 300px;
+    font-size: 30px;
+    margin: 10px;
+    color: black
+}
+.interestPicture{
+    height: 55px; margin-left: 20px
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*---------sign-up----------------*/
 #signUp{
     display: flex;

@@ -13,7 +13,7 @@
         <div style="display: flex">
 
         <div th:style="${hasContacts == true ? 'display:block' : 'display:none'}">
-            <div style="width: 20vw; height: 100vh; margin-right: 5px; overflow: scroll; border: 8px lightgrey solid; border-radius: 8px">
+            <div style="width: 20vw; height: 100vh; margin-right: 5px; overflow: scroll; border: 8px lightgrey solid; border-top: none; border-bottom: none">
                 <h4 style="color: #1777F2; font-size: 60px; padding-left: 7px">Contacts:</h4>
                 <div style="display: flex; flex-direction: column; align-items: center" th:each="contact : ${contactList}">
                      <!--style="margin: 100px"-->
@@ -44,11 +44,12 @@
                 <h3 style="margin-bottom: 0; font-size: 45px">Inbox</h3>
 
                 <div th:style="${inboxDisplay == true ? 'display:block' : 'display:none'}">
-                    <div th:each="message : ${receivedMessages}" style="width: 77vw; border: 8px lightgrey solid; border-radius: 8px">
+                    <div th:each="message : ${receivedMessages}" style="width: 77vw">
 
                         <div style="width: 80%; display: inline;">
-                            <h2 style=" background-color: dodgerblue; color: white; width: 50%; border: lightgrey 2px solid; margin: 20px; border-radius: 8px"><p th:text="${message.body}"></p></h2>
+                            <h2 style=" background-color: dodgerblue; color: white; width: 50%; border: lightgrey 2px solid; margin: 20px; border-radius: 8px; padding-left: 20px"><p th:text="${message.body}"></p></h2>
                             Sent by <span th:text="${message.getSender_info().getFirst_name() + ' ' + message.getSender_info().getLast_name() + ' on ' + message.getDatetime()}"/>
+                            <hr>
 
                         </div>
                     </div>
@@ -62,10 +63,11 @@
 
                 <div th:style="${outboxDisplay == true ? 'display:block' : 'display:none'}">
 
-                    <div th:each="message : ${sentMessages}" style="width: 77vw; border: 8px lightgrey solid; border-radius: 8px">
+                    <div th:each="message : ${sentMessages}" style="width: 77vw">
                         <div style="width: 80%; display: inline;">
-                            <h2 style=" background-color: dodgerblue; color: white; width: 50%; border: lightgrey 2px solid; margin: 20px; border-radius: 8px"><p th:text="${message.body}"></p></h2>
+                            <h2 style=" background-color: dodgerblue; color: white; width: 50%; border: lightgrey 2px solid; margin: 20px; border-radius: 8px;  padding-left: 20px"><p th:text="${message.body}"></p></h2>
                             Sent by <span th:text="${message.getSender_info().getFirst_name() + ' ' + message.getSender_info().getLast_name() + ' on ' + message.getDatetime()}"/>
+                            <hr>
 
                         </div>
                     </div>
