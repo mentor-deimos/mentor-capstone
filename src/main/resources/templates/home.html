@@ -83,7 +83,7 @@
         <p style="margin: 10px" th:text="${post.body}"></p>
         <form th:if="${post.user.username == principal.username}" th:action="@{|/posts/${post.id}/edit|}" th:method="GET"
               style="display: flex; justify-content: flex-end; margin: 10px">
-            <button class="btn btn3" style="margin-right: 20px!important;">Edit Post</button>
+            <button class="btn btn3" style="margin-right: 20px!important;">EDIT</button>
         </form>
     </div>
     <div style="margin-bottom: 200px"></div>
