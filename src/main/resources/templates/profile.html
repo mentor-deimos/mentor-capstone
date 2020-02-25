@@ -2,15 +2,15 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:http="http://www.w3.org/1999/xhtml">
 <head th:include="partials/header :: header">
 </head>
-<body style=" background-color: #FCFCFC; background-size: 100% 100%; size: 100%">
-<div id="profile" style="height: 170vh;">
-    <div class="site-container" style="margin-bottom: 250px">
+<body style=" background-color: #FCFCFC">
+<div id="profile" style="height: 275vh">
+    <div class="site-container" style="margin-bottom: 150px">
         <div th:include="partials/navbar :: navbar">
         </div>
         <div class="centered">
             <main class="site-content">
                 <div style="display: flex">
-                    <div id="profileLeftSide" style="width: 50%; margin-right: 500px">
+                    <div id="profileLeftSide" style="width: 90%;">
                         <div th:if="${user != null}" id="profileFirstBlock" style="display: flex">
                             <img th:src="@{'http://cdn.filestackcontent.com/' + ${user.filestack_picture_url}}" alt=""
                                  id="profilePicture">
