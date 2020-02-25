@@ -5,10 +5,10 @@
 </head>
 <body>
 <div id="signUp">
-    <div id="left">
+    <div id="left" style="height: 200vh">
         <img th:src="@{/img/mentee_mentor.svg}" alt="" class="left_img">
     </div>
-    <div id="right"  style="overflow: scroll!important; font-family: 'Open Sans', sans-serif">
+    <div id="right"  style="font-family: 'Open Sans', sans-serif">
         <div class="rightContent">
             <div id="bigCircle1" style="background-color: grey" class="bigCircle"><p style="margin-top: 2px">1</p></div>
             <div id="lineone" style="background-color: grey" class="line"></div>
@@ -76,8 +76,9 @@
                         <label class="radio" style="display: flex; border-radius: 10px; border: 2px solid #1777F2; justify-content: center; align-items: center; width: 320px; height: 100px; font-size: 30px; margin: 10px; color: black" th:class="${'interest' + i.getId()}">
                             <input style="opacity: 0;" class="radioCheck"  name="interests" type="checkbox" th:value="${i.getId()}" th:text="${i.getName()}"/>
                             <img class="radioImg" style="height: 55px; margin-left: 20px" th:src="${i.getPicture_path()}" alt="">
+
                         </label>
-                        </input>
+
                     </div>
                 </div>
 
