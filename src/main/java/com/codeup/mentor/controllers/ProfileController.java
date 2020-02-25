@@ -87,6 +87,8 @@ public class ProfileController {
     @GetMapping("/profile/{id}")
     public String goToSearchedProfile(@PathVariable long id, Model model){
         User user = userDao.getOne(id);
+        User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
 
         String mentorMessage;
         if (user.isIs_mentor()){
@@ -111,6 +113,11 @@ public class ProfileController {
 
         }
 
+        boolean ratedBefore = !ratingDao.findByGiver_infoExists(id, currentUser.getId()).isEmpty();
+        System.out.println("ratingDao.findByGiver_infoExists(id, user.getId()) = " + ratingDao.findByGiver_infoExists(id, user.getId()));
+        System.out.println("ratedBefore = " + ratedBefore);
+
+        model.addAttribute("ratedBefore", ratedBefore);
         model.addAttribute("message", new Message());
         model.addAttribute("profileID", id);
         model.addAttribute("ratingDisplay", true);
