@@ -16,13 +16,13 @@
             <div style="width: 20vw; height: 100vh; margin-right: 5px; overflow: scroll; border: 8px lightgrey solid; border-radius: 8px">
                 <h4 style="color: #1777F2; font-size: 60px; padding-left: 7px; margin-bottom: 0; margin-top: 15px;">Contacts:</h4>
 
-                <div style="display: flex; flex-direction: column; align-items: center" th:each="contact : ${contactList}">
+                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center" th:each="contact : ${contactList}">
                      <!--style="margin: 100px"-->
 
                    <a th:href="@{/profile/{id}(id=${contact.getAdded_user_id().getId()})}">
                     <img th:src="@{'http://cdn.filestackcontent.com/' + ${contact.getAdded_user_id().getFilestack_picture_url()}}" alt="" id="profilePicture"
                          style="border: 6px solid #1777F2; border-radius: 50%; height: 150px; width: 150px;"></a>
-                    <span style="font-size: 25px" th:text="${contact.getAdded_user_id().getFirst_name() + ' ' + contact.getAdded_user_id().getLast_name()}"></span>
+                    <span style="font-size: 25px; margin-left: -40px" th:text="${contact.getAdded_user_id().getFirst_name() + ' ' + contact.getAdded_user_id().getLast_name()}"></span>
                 </div>
             </div>
         </div>
