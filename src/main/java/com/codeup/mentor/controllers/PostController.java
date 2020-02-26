@@ -3,6 +3,7 @@ package com.codeup.mentor.controllers;
 import com.codeup.mentor.model.Post;
 import com.codeup.mentor.model.User;
 import com.codeup.mentor.repositories.PostRepository;
+import org.springframework.data.domain.Sort;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,7 +25,7 @@ public class PostController {
         User principal = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("principal", principal);
         model.addAttribute("post", new Post());
-        model.addAttribute("posts", postDao.findAll());
+        model.addAttribute("posts", postDao.findAll(Sort.by(Sort.Direction.DESC, "id")));
         return "home";
     }
 
