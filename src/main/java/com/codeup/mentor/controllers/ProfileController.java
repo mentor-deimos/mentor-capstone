@@ -114,9 +114,9 @@ public class ProfileController {
         }
 
         boolean ratedBefore = !ratingDao.findByGiver_infoExists(id, currentUser.getId()).isEmpty();
-        System.out.println("ratingDao.findByGiver_infoExists(id, user.getId()) = " + ratingDao.findByGiver_infoExists(id, user.getId()));
-        System.out.println("ratedBefore = " + ratedBefore);
+        boolean contactAlready = !contactDao.findByOwner_userAndAdded_user_idExists(id, currentUser.getId()).isEmpty();
 
+        model.addAttribute("contactAlready", contactAlready);
         model.addAttribute("ratedBefore", ratedBefore);
         model.addAttribute("message", new Message());
         model.addAttribute("profileID", id);
