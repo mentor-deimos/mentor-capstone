@@ -42,7 +42,7 @@
                 <h1 style="font-family: 'Montserrat', sans-serif;font-size: 35px!important; margin: 10px; color: #1777F2" th:text="${post.title}"></h1>
                 <h4 style="font-family: 'Montserrat', sans-serif; padding-left: 10px;" th:text="${'Written by ' + post.getUser().getUsername()}"></h4>
                 <hr>
-                <p style="font-family: 'Montserrat', sans-serif ;margin: 10px" th:text="${post.body}"></p>
+                <p style="font-family: 'Montserrat', sans-serif ;margin: 10px; font-size: 22px!important;" th:text="${post.body}"></p>
 
                 <form style="font-family: 'Montserrat', sans-serif" th:if="${post.user.username == principal.username}" th:action="@{|/posts/${post.id}/edit|}" th:method="GET">
                     <div  style="display: flex; justify-content: flex-end; margin: 10px">
